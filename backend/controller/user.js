@@ -35,7 +35,7 @@ router.post("/create-user", async (req, res, next) => {
 
     const activationToken = createActivationToken(user);
 
-    const activationUrl = `https://valid.co.ke/activation/${activationToken}`;
+    const activationUrl = `https://opasso-frontend.vercel.app/activation/${activationToken}`;
 
     try {
       await sendMail({
