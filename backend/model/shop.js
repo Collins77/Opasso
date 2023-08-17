@@ -17,8 +17,8 @@ const shopSchema = new mongoose.Schema({
     minLength: [6, "Password should be greater than 6 characters"],
     select: false,
   },
-  description: {
-    type: String,
+  exchangeRate: {
+    type: Number,
   },
   address: {
     type: String,
