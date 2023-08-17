@@ -75,8 +75,8 @@ const ShopInfo = ({ isOwner }) => {
         <h4 className="text-[#000000a6]">{products && products.length}</h4>
       </div>
       <div className="p-3">
-        <h5 className="font-[600]">Shop Ratings</h5>
-        <h4 className="text-[#000000b0]">{averageRating}/5</h4>
+        <h5 className="font-[600]">Exchange Rate</h5>
+        <h4 className="text-[#000000b0]">{exchangeRate}/5</h4>
       </div>
       <div className="p-3">
         <h5 className="font-[600]">Joined On</h5>
