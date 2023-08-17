@@ -285,6 +285,23 @@ router.get(
   })
 );
 
+// get all sellers for user
+router.get(
+  "/get-all-sellers",
+  catchAsyncErrors(async (req, res, next) => {
+    try {
+      const sellers = await Shop.find().sort({ createdAt: -1 });
+
+      res.status(201).json({
+        success: true,
+        sellers,
+      });
+    } catch (error) {
+      return next(new ErrorHandler(error, 400));
+    }
+  })
+);
+
 // delete seller ---admin
 router.delete(
   "/delete-seller/:id",

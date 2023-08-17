@@ -7,24 +7,25 @@ import Loader from "../components/Layout/Loader";
 import ProductCard from "../components/Route/ProductCard/ProductCard";
 import styles from "../styles/styles";
 import SupplierCard from "../components/Route/SupplierCard/SupplierCard";
+import AllSellers from "../components/Admin/AllSellers";
 
 const SuppliersPage = () => {
   const [searchParams] = useSearchParams();
   const categoryData = searchParams.get("category");
-  const {allProducts,isLoading} = useSelector((state) => state.products);
+  const {allSellers,isLoading} = useSelector((state) => state.shops);
   const [data, setData] = useState([]);
 
   useEffect(() => {
     if (categoryData === null) {
-      const d = allProducts;
+      const d = allSellers;
       setData(d);
     } else {
       const d =
-      allProducts && allProducts.filter((i) => i.category === categoryData);
+      allSellers && allSellers.filter((i) => i.category === categoryData);
       setData(d);
     }
     //    window.scrollTo(0,0);
-  }, [allProducts]);
+  }, [allSellers]);
 
   return (
   <>
@@ -33,7 +34,7 @@ const SuppliersPage = () => {
       <Loader />
     ) : (
       <div>
-      <Header activeHeading={3} />
+      <Header activeHeading={2} />
       <br />
       <br />
       <div className={`${styles.section}`}>
