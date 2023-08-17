@@ -119,7 +119,7 @@ const ShopSettings = () => {
               <label className="block pb-2">Dollar Exchange Rate</label>
             </div>
             <input
-              type="name"
+              type="number"
               placeholder={`${
                 seller?.exchangeRate
                   ? seller.exchangeRate
