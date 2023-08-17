@@ -6,7 +6,7 @@ export const navItems = [
     },
     {
       title: "Suppliers",
-      url: "/",
+      url: "/suppliers",
     },
     {
       title: "Products",
