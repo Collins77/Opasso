@@ -125,7 +125,7 @@ const ShopSettings = () => {
                   ? seller.exchangeRate
                   : "Enter your dollar exchange rate"
               }`}
-              value={description}
+              value={exchangeRate}
               onChange={(e) => setExchangeRate(e.target.value)}
               className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
             />
