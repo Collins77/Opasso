@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useSearchParams } from "react-router-dom";
 import Footer from "../components/Layout/Footer";
 import Header from "../components/Layout/Header";
 import Loader from "../components/Layout/Loader";
@@ -9,6 +10,7 @@ import { getAllSellers } from "../redux/actions/sellers";
 
 const SuppliersPage = () => {
   const dispatch = useDispatch();
+  const [searchParams] = useSearchParams();
   const categoryData = searchParams.get("category");
   // const { sellers, isLoading } = useSelector((state) => state.seller);
   const {allSellers,isLoading} = useSelector((state) => state.shops);
