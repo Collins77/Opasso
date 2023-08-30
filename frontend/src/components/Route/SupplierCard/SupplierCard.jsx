@@ -17,24 +17,24 @@ const SupplierCard = ({ data,isEvent }) => {
             <Link to={`/shop/preview/${data?._id}`}>
                 <h5 className="pb-3 font-[500]">{data.name.length > 40 ? data.name.slice(0, 40) + "..." : data.name}</h5>
                 <div className="flex">
-          <Ratings rating={data?.ratings} />
+          {/* <Ratings rating={data?.ratings} /> */}
           </div>
 
           <div className="py-2 flex items-center justify-between">
             <div className="flex">
-              <h5 className={`${styles.productDiscountPrice}`}>
+              {/* <h5 className={`${styles.productDiscountPrice}`}>
                 {data.originalPrice === 0
                   ? data.originalPrice
                   : data.discountPrice}
                 $
-              </h5>
+              </h5> */}
               {/* <h4 className={`${styles.price}`}>
                 {data.originalPrice ? data.originalPrice + " $" : null}
               </h4> */}
             </div>
-            <span className="font-[400] text-[17px] text-[#68d284]">
+            {/* <span className="font-[400] text-[17px] text-[#68d284]">
               {data?.sold_out} stock
-            </span>
+            </span> */}
           </div>
             </Link>
 
