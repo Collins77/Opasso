@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useSearchParams } from "react-router-dom";
 import Footer from "../components/Layout/Footer";
 import Header from "../components/Layout/Header";
 import Loader from "../components/Layout/Loader";
 import styles from "../styles/styles";
 import SupplierCard from "../components/Route/SupplierCard/SupplierCard";
-import { getAllSellers } from "../redux/actions/sellers";
+// import { getAllSellers } from "../redux/actions/sellers";
 
 const SuppliersPage = () => {
   const dispatch = useDispatch();
-  const categoryData = searchParams.get("category");
   const [searchParams] = useSearchParams();
+  const categoryData = searchParams.get("category");
   const { sellers, isLoading } = useSelector((state) => state.sellers);
   const [data, setData] = useState([]);
 
-  useEffect(() => {
-    dispatch(getAllSellers());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getAllSellers());
+  // }, [dispatch]);
 
   useEffect(() => {
     if (categoryData === null) {
