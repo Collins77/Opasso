@@ -12,7 +12,7 @@ const SuppliersPage = () => {
   const dispatch = useDispatch();
   const [searchParams] = useSearchParams();
   const categoryData = searchParams.get("category");
-  const { sellers, isLoading } = useSelector((state) => state.sellers);
+  const { sellers, isLoading } = useSelector((state) => state.shops);
   const [data, setData] = useState([]);
 
   // useEffect(() => {
