@@ -9,7 +9,7 @@ const SupplierCard = ({ data,isEvent }) => {
         <div className="w-full h-[200px] bg-white rounded-lg shadow-sm p-3 relative cursor-pointer">
         <Link to={`/shop/preview/${data?._id}`}>
           <img
-            src={`${data.avatar && data.avatar[0]?.url}`}
+            src={`${data.avatar?.url}`}
             alt=""
             className="w-full h-[50%] object-contain"
           />
