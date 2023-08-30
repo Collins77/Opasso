@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useSearchParams } from "react-router-dom";
 import Footer from "../components/Layout/Footer";
 import Header from "../components/Layout/Header";
 import Loader from "../components/Layout/Loader";
@@ -11,13 +10,11 @@ import { getAllSellers } from "../redux/actions/sellers";
 const SuppliersPage = () => {
   const dispatch = useDispatch();
   const { sellers, isLoading } = useSelector((state) => state.seller);
-  // const [open, setOpen] = useState(false);
-  const [userId, setUserId] = useState("");
   const [data, setData] = useState([]);
 
   useEffect(() => {
     dispatch(getAllSellers());
-  }, [dispatch]);
+  }, [sellers]);
 
 
   return (
