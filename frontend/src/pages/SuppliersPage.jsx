@@ -6,10 +6,7 @@ import Header from "../components/Layout/Header";
 import Loader from "../components/Layout/Loader";
 import styles from "../styles/styles";
 import SupplierCard from "../components/Route/SupplierCard/SupplierCard";
-import axios from "axios";
-import { server } from "../../server";
 import { getAllSellers } from "../../redux/actions/sellers";
-import { Link } from "react-router-dom";
 
 const SuppliersPage = () => {
   const dispatch = useDispatch();
