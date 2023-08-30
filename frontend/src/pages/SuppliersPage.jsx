@@ -4,15 +4,10 @@ import { useSearchParams } from "react-router-dom";
 import Footer from "../components/Layout/Footer";
 import Header from "../components/Layout/Header";
 import Loader from "../components/Layout/Loader";
-import ProductCard from "../components/Route/ProductCard/ProductCard";
 import styles from "../styles/styles";
 import SupplierCard from "../components/Route/SupplierCard/SupplierCard";
-import AllSellers from "../components/Admin/AllSellers";
-import styles from "../../styles/styles";
-import { RxCross1 } from "react-icons/rx";
 import axios from "axios";
 import { server } from "../../server";
-import { toast } from "react-toastify";
 import { getAllSellers } from "../../redux/actions/sellers";
 import { Link } from "react-router-dom";
 
