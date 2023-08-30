@@ -9,13 +9,26 @@ import { getAllSellers } from "../redux/actions/sellers";
 
 const SuppliersPage = () => {
   const dispatch = useDispatch();
-  const { sellers, isLoading } = useSelector((state) => state.seller);
+  const categoryData = searchParams.get("category");
+  const [searchParams] = useSearchParams();
+  const { sellers, isLoading } = useSelector((state) => state.sellers);
   const [data, setData] = useState([]);
 
   useEffect(() => {
     dispatch(getAllSellers());
   }, [dispatch]);
 
+  useEffect(() => {
+    if (categoryData === null) {
+      const d = sellers;
+      setData(d);
+    } else {
+      const d =
+      sellers && sellers.filter((i) => i.category === categoryData);
+      setData(d);
+    }
+    //    window.scrollTo(0,0);
+  }, [sellers]);
 
   return (
   <>
