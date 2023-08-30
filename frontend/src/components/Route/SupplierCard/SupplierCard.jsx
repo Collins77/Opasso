@@ -8,7 +8,7 @@ const SupplierCard = ({ data,isEvent }) => {
     <>
         <div className="w-full h-[200px] bg-white rounded-lg shadow-sm p-3 relative cursor-pointer">
             <Link to={`/shop/preview/${data?._id}`}>
-                <h5 className={`${styles.shop_name}`}>{data.name}</h5>
+                <h5 className="pb-3 font-[500]">{data.name.length > 40 ? data.name.slice(0, 40) + "..." : data.name}</h5>
             </Link>
         </div>
     </>
