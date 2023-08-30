@@ -10,9 +10,11 @@ import { getAllSellers } from "../redux/actions/sellers";
 
 const SuppliersPage = () => {
   const dispatch = useDispatch();
-  const { sellers } = useSelector((state) => state.seller);
-  const [open, setOpen] = useState(false);
+  const { sellers, isLoading } = useSelector((state) => state.seller);
+  // const [open, setOpen] = useState(false);
   const [userId, setUserId] = useState("");
+  const [data, setData] = useState([]);
+
   useEffect(() => {
     dispatch(getAllSellers());
   }, [dispatch]);
@@ -30,9 +32,9 @@ const SuppliersPage = () => {
       <br />
       <div className={`${styles.section}`}>
         <div className="grid grid-cols-2 gap-[10px] md:grid-cols-2 md:gap-[25px] lg:grid-cols-4 lg:gap-[25px] xl:grid-cols-5 xl:gap-[30px] mb-12">
-          {data && data.map((i, index) => <SupplierCard data={i} key={index} />)}
+          {sellers && sellers.map((i, index) => <SupplierCard data={i} key={index} />)}
         </div>
-        {data && data.length === 0 ? (
+        {sellers && sellers.length === 0 ? (
           <h1 className="text-center w-full pb-[100px] text-[20px]">
             No Suppliers Found!
           </h1>
