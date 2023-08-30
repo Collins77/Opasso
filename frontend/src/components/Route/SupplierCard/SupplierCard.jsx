@@ -11,7 +11,7 @@ const SupplierCard = ({ data,isEvent }) => {
           <img
             src={`${data.avatar?.url}`}
             alt=""
-            className="w-full h-[50%] object-contain"
+            className="w-full h-[50%] object-cover"
           />
         </Link>
             <Link to={`/shop/preview/${data?._id}`}>
