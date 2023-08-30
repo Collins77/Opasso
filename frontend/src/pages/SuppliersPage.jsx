@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import Footer from "../components/Layout/Footer";
 import Header from "../components/Layout/Header";
@@ -8,24 +8,23 @@ import ProductCard from "../components/Route/ProductCard/ProductCard";
 import styles from "../styles/styles";
 import SupplierCard from "../components/Route/SupplierCard/SupplierCard";
 import AllSellers from "../components/Admin/AllSellers";
+import styles from "../../styles/styles";
+import { RxCross1 } from "react-icons/rx";
+import axios from "axios";
+import { server } from "../../server";
+import { toast } from "react-toastify";
+import { getAllSellers } from "../../redux/actions/sellers";
+import { Link } from "react-router-dom";
 
 const SuppliersPage = () => {
-  const [searchParams] = useSearchParams();
-  const categoryData = searchParams.get("category");
-  const {allSellers,isLoading} = useSelector((state) => state.shops);
-  const [data, setData] = useState([]);
-
+  const dispatch = useDispatch();
+  const { sellers } = useSelector((state) => state.seller);
+  const [open, setOpen] = useState(false);
+  const [userId, setUserId] = useState("");
   useEffect(() => {
-    if (categoryData === null) {
-      const d = allSellers;
-      setData(d);
-    } else {
-      const d =
-      allSellers && allSellers.filter((i) => i.category === categoryData);
-      setData(d);
-    }
-    //    window.scrollTo(0,0);
-  }, [allSellers]);
+    dispatch(getAllSellers());
+  }, [dispatch]);
+
 
   return (
   <>
