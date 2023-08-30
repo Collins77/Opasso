@@ -14,7 +14,7 @@ const SuppliersPage = () => {
 
   useEffect(() => {
     dispatch(getAllSellers());
-  }, [sellers]);
+  }, [dispatch]);
 
 
   return (
