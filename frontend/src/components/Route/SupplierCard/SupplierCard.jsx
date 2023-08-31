@@ -12,7 +12,7 @@ const SupplierCard = ({ data,isEvent }) => {
           <div class="w-full p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
               <img className="w-8 h-8 mb-3 rounded-full" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" src={`${data.avatar?.url}`}/>
               <a href="#">
-                  <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">{data.name.length > 40 ? data.name.slice(0, 40) + "..." : data.name}</h5>
+                  <h5 className="mb-2 text-xl font-semibold tracking-tight text-blue-600 dark:text-white">{data.name.length > 40 ? data.name.slice(0, 40) + "..." : data.name}</h5>
               </a>
               <div className="mb-3 flex mt-4 space-x-3 md:mt-6">
                 <p>Dollar Exchange Rate: <span>{data.exchangeRate}</span></p>
