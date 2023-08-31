@@ -14,7 +14,7 @@ const SupplierCard = ({ data,isEvent }) => {
               </a>
               <div className="mb-2 flex justify-between">
                 <p className="text-green-600">Dollar Exchange Rate: <br /><span>KES. {data.exchangeRate}</span></p>
-                <p>Address: <span>{data.address}</span></p>
+                <p>Address: <br /><span>{data.address}</span></p>
               </div>
               <a href="#" className="inline-flex items-center text-blue-600 hover:underline">
                 <Link to={`/shop/preview/${data?._id}`} className="inline-flex items-center text-blue-600 hover:underline">
