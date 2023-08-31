@@ -9,9 +9,9 @@ const SupplierCard = ({ data,isEvent }) => {
         <Link to={`/shop/preview/${data?._id}`}>
           <div class="w-full p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-3">
               <img className="w-8 h-8 mb-1 rounded-full" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" src={`${data.avatar?.url}`}/>
-              <a href="#">
+              <Link to={`/shop/preview/${data?._id}`}>
                   <h5 className="mb-1 text-xl font-semibold tracking-tight text-blue-600 dark:text-white">{data.name.length > 40 ? data.name.slice(0, 40) + "..." : data.name}</h5>
-              </a>
+              </Link>
               <div className="mb-2 flex justify-between">
                 <p className="text-green-600">Dollar Exchange Rate: <br /><span>KES. {data.exchangeRate}</span></p>
                 <p>Address: <br /><span>{data.address}</span></p>
