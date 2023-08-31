@@ -15,7 +15,7 @@ const SupplierCard = ({ data,isEvent }) => {
                   <h5 className="mb-2 text-xl font-semibold tracking-tight text-blue-600 dark:text-white">{data.name.length > 40 ? data.name.slice(0, 40) + "..." : data.name}</h5>
               </a>
               <div className="mb-3 flex mt-4 space-x-3 md:mt-6">
-                <p>Dollar Exchange Rate: <span>{data.exchangeRate}</span></p>
+                <p className="text-green-600">Dollar Exchange Rate: <span >KES. {data.exchangeRate}</span></p>
                 <p>Location: <span>{data.address}</span></p>
               </div>
               <a href="#" className="inline-flex items-center text-blue-600 hover:underline">
