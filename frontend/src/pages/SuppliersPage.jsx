@@ -28,7 +28,7 @@ const SuppliersPage = () => {
       <br />
       <br />
       <div className={`${styles.section}`}>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-3 gap-4">
           {sellers && sellers.map((i, index) => <SupplierCard data={i} key={index} />)}
         </div>
         {sellers && sellers.length === 0 ? (
