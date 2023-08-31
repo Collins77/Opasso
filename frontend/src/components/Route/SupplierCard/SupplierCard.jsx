@@ -12,7 +12,7 @@ const SupplierCard = ({ data,isEvent }) => {
               <a href="#">
                   <h5 className="mb-1 text-xl font-semibold tracking-tight text-blue-600 dark:text-white">{data.name.length > 40 ? data.name.slice(0, 40) + "..." : data.name}</h5>
               </a>
-              <div className="mb-2 flex">
+              <div className="mb-2 flex justify-around">
                 <p className="text-green-600">Dollar Exchange Rate: <br /><span>KES. {data.exchangeRate}</span></p>
                 <p>Address: <span>{data.address}</span></p>
               </div>
