@@ -3,7 +3,7 @@ import { AiOutlinePlusCircle } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { createProduct } from "../../redux/actions/product";
-import { BrandData, brandingData, categoriesData } from "../../static/data";
+import { BrandData, categoriesData } from "../../static/data";
 import { toast } from "react-toastify";
 
 const CreateProduct = () => {
@@ -15,6 +15,7 @@ const CreateProduct = () => {
   const [images, setImages] = useState([]);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
+  const [partNumber, setPartNumber] = useState("");
   const [category, setCategory] = useState("");
   const [brand, setBrand] = useState("");
   const [tags, setTags] = useState("");
@@ -60,6 +61,7 @@ const CreateProduct = () => {
     });
     newForm.append("name", name);
     newForm.append("description", description);
+    newForm.append("partNumber", partNumber);
     newForm.append("category", category);
     newForm.append("brand", brand);
     newForm.append("tags", tags);
@@ -71,6 +73,7 @@ const CreateProduct = () => {
       createProduct({
         name,
         description,
+        partNumber,
         category,
         brand,
         tags,
@@ -121,6 +124,18 @@ const CreateProduct = () => {
         </div>
         <br />
         <div>
+          <label className="pb-2">Part Number</label>
+          <input
+            type="number"
+            name="partNumber"
+            value={partNumber}
+            className="mt-2 appearance-none block w-full px-3 h-[35px] border border-gray-300 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+            onChange={(e) => setPartNumber(e.target.value)}
+            placeholder="Enter your product part number..."
+          />
+        </div>
+        <br />
+        <div>
           <label className="pb-2">
             Category <span className="text-red-500">*</span>
           </label>
@@ -158,17 +173,7 @@ const CreateProduct = () => {
           </select>
         </div>
         <br />
-        <div>
-          <label className="pb-2">Original Price</label>
-          <input
-            type="number"
-            name="price"
-            value={originalPrice}
-            className="mt-2 appearance-none block w-full px-3 h-[35px] border border-gray-300 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-            onChange={(e) => setOriginalPrice(e.target.value)}
-            placeholder="Enter your product price..."
-          />
-        </div>
+        
         <br />
         <div>
           <label className="pb-2">

@@ -25,6 +25,7 @@ export const createProduct =
         `${server}/product/create-product`,
         name,
         description,
+        partNumber,
         category,
         brand,
         tags,
