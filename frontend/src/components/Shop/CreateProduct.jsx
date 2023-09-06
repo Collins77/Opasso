@@ -3,7 +3,7 @@ import { AiOutlinePlusCircle } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { createProduct } from "../../redux/actions/product";
-import { categoriesData } from "../../static/data";
+import { BrandData, brandingData, categoriesData } from "../../static/data";
 import { toast } from "react-toastify";
 
 const CreateProduct = () => {
@@ -16,6 +16,7 @@ const CreateProduct = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
+  const [brand, setBrand] = useState("");
   const [tags, setTags] = useState("");
   const [originalPrice, setOriginalPrice] = useState();
   const [discountPrice, setDiscountPrice] = useState();
@@ -60,6 +61,7 @@ const CreateProduct = () => {
     newForm.append("name", name);
     newForm.append("description", description);
     newForm.append("category", category);
+    newForm.append("brand", brand);
     newForm.append("tags", tags);
     newForm.append("originalPrice", originalPrice);
     newForm.append("discountPrice", discountPrice);
@@ -70,6 +72,7 @@ const CreateProduct = () => {
         name,
         description,
         category,
+        brand,
         tags,
         originalPrice,
         discountPrice,
@@ -137,15 +140,22 @@ const CreateProduct = () => {
         </div>
         <br />
         <div>
-          <label className="pb-2">Tags</label>
-          <input
-            type="text"
-            name="tags"
-            value={tags}
-            className="mt-2 appearance-none block w-full px-3 h-[35px] border border-gray-300 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-            onChange={(e) => setTags(e.target.value)}
-            placeholder="Enter your product tags..."
-          />
+        <label className="pb-2">
+            Brand <span className="text-red-500">*</span>
+          </label>
+          <select
+            className="w-full mt-2 border h-[35px] rounded-[5px]"
+            value={brand}
+            onChange={(e) => setBrand(e.target.value)}
+          >
+            <option value="Choose a brand">Choose a brand</option>
+            {BrandData &&
+              BrandData.map((i) => (
+                <option value={i.title} key={i.title}>
+                  {i.title}
+                </option>
+              ))}
+          </select>
         </div>
         <br />
         <div>

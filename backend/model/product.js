@@ -13,6 +13,10 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please enter your product category!"],
   },
+  brand: {
+    type: String,
+    required: [true, "Please enter your product brand!"]
+  },
   tags: {
     type: String,
   },
