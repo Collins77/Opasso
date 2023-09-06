@@ -6,6 +6,7 @@ export const createProduct =
   (
     name,
     description,
+    partNumber,
     category,
     brand,
     tags,

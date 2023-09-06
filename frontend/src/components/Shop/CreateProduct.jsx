@@ -177,7 +177,7 @@ const CreateProduct = () => {
         <br />
         <div>
           <label className="pb-2">
-            Price (With Discount) <span className="text-red-500">*</span>
+            Price <span className="text-red-500">*</span>
           </label>
           <input
             type="number"
