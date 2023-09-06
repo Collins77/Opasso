@@ -175,7 +175,6 @@ const CreateProduct = () => {
         </div>
         <br />
         
-        <br />
         <div>
           <label className="pb-2">
             Price <span className="text-red-500">*</span>
