@@ -17,7 +17,7 @@ const BestDeals = () => {
   //   const firstFive = sortedData && sortedData.slice(0, 5);
   //   setData(firstFive);
   // }, [allProducts]);
-  const {allSellers} = useSelector((state) => state.seller);
+  const {sellers} = useSelector((state) => state.seller);
 
   useEffect(() => {
     dispatch(getAllSuppliers());
@@ -32,9 +32,9 @@ const BestDeals = () => {
         </div>
         <div className="grid grid-cols-3 gap-4">
         {
-            allSellers && allSellers.length !== 0 &&(
+            sellers && sellers.length !== 0 &&(
               <>
-               {allSellers && allSellers.map((i, index) => <SupplierCard data={i} key={index} />)}
+               {sellers && sellers.map((i, index) => <SupplierCard data={i} key={index} />)}
               </>
             )
            }
