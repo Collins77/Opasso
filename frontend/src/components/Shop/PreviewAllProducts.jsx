@@ -26,6 +26,7 @@ const PreviewAllProducts = ({data}) => {
   };
 
   const columns = [
+    { field: "id", headerName: "Product ID", minWidth: 150, flex: 0.7 },
     { field: "SKU", headerName: "Part Number", minWidth: 150, flex: 0.7 },
     {
       field: "name",
@@ -61,7 +62,7 @@ const PreviewAllProducts = ({data}) => {
       headerName: "",
       type: "number",
       sortable: false,
-      renderCell: ({data}) => {
+      renderCell: (data) => {
         return (
           <>
             {/* <Link to={`/product/${params.id}`}> */}
@@ -86,6 +87,7 @@ const PreviewAllProducts = ({data}) => {
   products &&
     products.forEach((item) => {
       row.push({
+        id: item._id,
         SKU: item.partNumber,
         name: item.name,
         price: "US$ " + item.discountPrice,
