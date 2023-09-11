@@ -4,6 +4,21 @@ import styles from "../../../styles/styles";
 import { AiOutlineSearch } from "react-icons/ai";
 
 const Hero = () => {
+  const { sellers } = useSelector((state) => state.seller);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchData, setSearchData] = useState(null);
+
+  const handleSearchChange = (e) => {
+    const term = e.target.value;
+    setSearchTerm(term);
+
+    const filteredSuppliers =
+      sellers &&
+      sellers.filter((seller) =>
+        seller.name.toLowerCase().includes(term.toLowerCase())
+      );
+    setSearchData(filteredSuppliers);
+  };
   return (
     <div
       className={`relative min-h-[70vh] 800px:min-h-[80vh] w-full bg-no-repeat ${styles.noramlFlex}`}
@@ -33,14 +48,33 @@ const Hero = () => {
             <input
               type="text"
               placeholder="Search Supplier..."
-              // value={searchTerm}
-              // onChange={handleSearchChange}
+              value={searchTerm}
+              onChange={handleSearchChange}
               className="h-[40px] w-full px-2 border-[#f67009] border-[2px] rounded-md"
             />
             <AiOutlineSearch
               size={30}
               className="absolute right-2 top-1.5 cursor-pointer"
             />
+            {searchData && searchData.length !== 0 ? (
+              <div className="absolute min-h-[30vh] bg-slate-50 shadow-sm-2 z-[9] p-4">
+                {searchData &&
+                  searchData.map((i, index) => {
+                    return (
+                      <Link to={`/product/${i._id}`}>
+                        <div className="w-full flex items-start-py-3">
+                          <img
+                            src={`${i.images[0]?.url}`}
+                            alt=""
+                            className="w-[40px] h-[40px] mr-[10px]"
+                          />
+                          <h1>{i.name}</h1>
+                        </div>
+                      </Link>
+                    );
+                  })}
+              </div>
+            ) : null}
           </div>
       </div>
     </div>
