@@ -37,8 +37,7 @@ const BestDeals = () => {
                {sellers && sellers.map((i, index) => <SupplierCard data={i} key={index} />)}
               </>
             )
-           }
-        </div>
+           }        </div>
       </div>
     </div>
   );
