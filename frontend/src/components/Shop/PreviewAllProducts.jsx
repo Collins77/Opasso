@@ -61,7 +61,7 @@ const PreviewAllProducts = ({data}) => {
       headerName: "",
       type: "number",
       sortable: false,
-      renderCell: (params) => {
+      renderCell: ({data}) => {
         return (
           <>
             {/* <Link to={`/product/${params.id}`}> */}
