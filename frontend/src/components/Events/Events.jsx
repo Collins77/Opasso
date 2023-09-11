@@ -4,7 +4,7 @@ import styles from '../../styles/styles'
 import EventCard from "./EventCard";
 
 const Events = () => {
-  const {allSuppliers,isLoading} = useSelector((state) => state.seller);  
+  const {allEvents,isLoading} = useSelector((state) => state.seller);  
    
   return (
     <div>
