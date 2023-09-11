@@ -33,7 +33,7 @@ const productSchema = new mongoose.Schema({
   },
   isAvailable: {
     type: Boolean,
-    required: [true, "Please enter your product availability"]
+    required: [false, "Please enter your product availability"]
   },
   stock: {
     type: Number,
