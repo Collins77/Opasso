@@ -9,7 +9,7 @@ import { deleteProduct } from "../../redux/actions/product";
 import Loader from "../Layout/Loader";
 import ProductDetailsCard from "../Route/ProductDetailsCard/ProductDetailsCard";
 
-const PreviewAllProducts = () => {
+const PreviewAllProducts = ({data}) => {
   const { products, isLoading } = useSelector((state) => state.products);
   const { seller } = useSelector((state) => state.seller);
   const [open, setOpen] = useState(false);
