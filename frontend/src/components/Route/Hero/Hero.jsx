@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../../../styles/styles";
 import { AiOutlineSearch } from "react-icons/ai";
+import { useSelector } from "react-redux";
 
 const Hero = () => {
   const { sellers } = useSelector((state) => state.seller);
