@@ -7,6 +7,7 @@ import ProductCard from "../Route/ProductCard/ProductCard";
 import Ratings from "../Products/Ratings";
 import { getAllEventsShop } from "../../redux/actions/event";
 import AllProducts from "./AllProducts";
+import PreviewAllProducts from "./PreviewAllProducts";
 
 const ShopProfileData = ({ isOwner }) => {
   const { products } = useSelector((state) => state.products);
@@ -80,7 +81,7 @@ const ShopProfileData = ({ isOwner }) => {
         //     <AllProducts/>
         // </div>
         <div className="w-full justify-center flex">
-          <AllProducts />
+          <PreviewAllProducts />
         </div>
       )}
 
