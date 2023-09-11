@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "../../../styles/styles";
 import SupplierCard from "../SupplierCard/SupplierCard";
-import { getAllSellers } from "../../../redux/actions/sellers";
+import { getAllSuppliers } from "../../../redux/actions/sellers";
 
 
 
@@ -20,7 +20,7 @@ const BestDeals = () => {
   const {allSellers} = useSelector((state) => state.seller);
 
   useEffect(() => {
-    dispatch(getAllSellers());
+    dispatch(getAllSuppliers());
   }, [dispatch]);
   
 
