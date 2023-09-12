@@ -9,7 +9,7 @@ import { getAllEventsShop } from "../../redux/actions/event";
 import AllProducts from "./AllProducts";
 import PreviewAllProducts from "./PreviewAllProducts";
 
-const ShopProfileData = ({ isOwner, seller }) => {
+const ShopProfileData = ({ isOwner }) => {
   const { products } = useSelector((state) => state.products);
   const { events } = useSelector((state) => state.events);
   const { id } = useParams();
@@ -20,15 +20,6 @@ const ShopProfileData = ({ isOwner, seller }) => {
     dispatch(getAllEventsShop(id));
   }, [dispatch]);
 
-  useEffect(() => {
-    if (seller) {
-      dispatch(getAllProductsShop(seller._id));
-    }
-  }, [dispatch, seller]);
-
-  if (!seller) {
-    return <div>No seller selected.</div>;
-  }
   const [active, setActive] = useState(1);
 
   const allReviews =
@@ -82,13 +73,12 @@ const ShopProfileData = ({ isOwner, seller }) => {
 
       <br />
       {active === 1 && (
-        <div className="w-full justify-center flex">
-          {/* {products &&
+        <div className="grid grid-cols-1 gap-[20px] md:grid-cols-2 md:gap-[25px] lg:grid-cols-3 lg:gap-[25px] xl:grid-cols-4 xl:gap-[20px] mb-12 border-0">
+          {products &&
             products.map((i, index) => (
-              <PreviewAllProducts id={i} key={index} isShop={true} />
+              <ProductCard id={i} key={index} isShop={true} />
             ))}
-            <PreviewAllProducts /> */}
-            <PreviewAllProducts products={products} />
+            {/* <PreviewAllProducts /> */}
         </div>
         // <div className="w-full justify-center flex">
         //   <AllProducts />
