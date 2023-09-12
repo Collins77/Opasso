@@ -81,7 +81,7 @@ const ShopProfileData = ({ isOwner }) => {
         //     <AllProducts/>
         // </div>
         <div className="w-full justify-center flex">
-          <PreviewAllProducts />
+          <AllProducts />
         </div>
       )}
 
