@@ -9,7 +9,7 @@ import { getAllEventsShop } from "../../redux/actions/event";
 import AllProducts from "./AllProducts";
 import PreviewAllProducts from "./PreviewAllProducts";
 
-const ShopProfileData = ({ isOwner }) => {
+const ShopProfileData = ({ isOwner, seller }) => {
   const { products } = useSelector((state) => state.products);
   const { events } = useSelector((state) => state.events);
   const { id } = useParams();
@@ -19,6 +19,10 @@ const ShopProfileData = ({ isOwner }) => {
     dispatch(getAllProductsShop(id));
     dispatch(getAllEventsShop(id));
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getAllProductsShop(seller._id));
+  }, [dispatch, seller._id]);
 
   const [active, setActive] = useState(1);
 
@@ -79,7 +83,7 @@ const ShopProfileData = ({ isOwner }) => {
               <PreviewAllProducts id={i} key={index} isShop={true} />
             ))}
             <PreviewAllProducts /> */}
-            <AllProducts />
+            <PreviewAllProducts products={products} />
         </div>
         // <div className="w-full justify-center flex">
         //   <AllProducts />
