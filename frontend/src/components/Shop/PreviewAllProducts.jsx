@@ -5,15 +5,18 @@ const PreviewAllProducts = () => {
     const columns = [
         {
             name: 'Title',
-            selector: row => row.name
+            selector: row => row.name,
+            sortable: true,
         },
         {
             name: 'Email',
-            selector: row => row.email
+            selector: row => row.email,
+            sortable: true,
         },
         {
             name:'Age',
-            selector: row => row.age
+            selector: row => row.age,
+            sortable: true,
         }
     ];
     const data = [
@@ -53,6 +56,9 @@ const PreviewAllProducts = () => {
         <DataTable
         columns={columns}
         data={data}
+        selectableRows
+        fixedHeader
+        pagination
         >
 
         </DataTable>
