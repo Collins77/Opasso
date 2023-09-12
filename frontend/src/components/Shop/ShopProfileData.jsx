@@ -78,11 +78,7 @@ const ShopProfileData = ({ isOwner }) => {
             products.map((i, index) => (
               <ProductCard data={i} key={index} isShop={true} />
             ))}
-            {/* <PreviewAllProducts /> */}
         </div>
-        // <div className="w-full justify-center flex">
-        //   <AllProducts />
-        // </div>
       )}
 
       {active === 2 && (
