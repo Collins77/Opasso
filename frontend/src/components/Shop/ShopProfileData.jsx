@@ -21,9 +21,14 @@ const ShopProfileData = ({ isOwner, seller }) => {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(getAllProductsShop(seller._id));
-  }, [dispatch, seller._id]);
+    if (seller) {
+      dispatch(getAllProductsShop(seller._id));
+    }
+  }, [dispatch, seller]);
 
+  if (!seller) {
+    return <div>No seller selected.</div>;
+  }
   const [active, setActive] = useState(1);
 
   const allReviews =
