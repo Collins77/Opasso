@@ -3,6 +3,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useTable } from 'react-table';
 import { server } from '../../server';
+import { Link } from 'react-router-dom';
+import { Button } from '@material-ui/core';
+import { AiOutlineEye } from 'react-icons/ai';
 
 function PreviewAllProducts({ id }) {
   const [products, setProducts] = useState([]);
