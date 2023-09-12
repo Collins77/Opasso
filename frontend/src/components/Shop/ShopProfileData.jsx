@@ -6,8 +6,8 @@ import styles from "../../styles/styles";
 import ProductCard from "../Route/ProductCard/ProductCard";
 import Ratings from "../Products/Ratings";
 import { getAllEventsShop } from "../../redux/actions/event";
-// import AllProducts from "./AllProducts";
-// import PreviewAllProducts from "./PreviewAllProducts";
+import AllProducts from "./AllProducts";
+import PreviewAllProducts from "./PreviewAllProducts";
 
 const ShopProfileData = ({ isOwner }) => {
   const { products } = useSelector((state) => state.products);
@@ -76,9 +76,13 @@ const ShopProfileData = ({ isOwner }) => {
         <div className="grid grid-cols-1 gap-[20px] md:grid-cols-2 md:gap-[25px] lg:grid-cols-3 lg:gap-[25px] xl:grid-cols-4 xl:gap-[20px] mb-12 border-0">
           {products &&
             products.map((i, index) => (
-              <ProductCard id={i} key={index} isShop={true} />
+              <ProductCard data={i} key={index} isShop={true} />
             ))}
+            {/* <PreviewAllProducts /> */}
         </div>
+        // <div className="w-full justify-center flex">
+        //   <AllProducts />
+        // </div>
       )}
 
       {active === 2 && (
