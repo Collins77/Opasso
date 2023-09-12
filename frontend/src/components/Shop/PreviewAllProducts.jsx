@@ -50,6 +50,36 @@ const PreviewAllProducts = () => {
             email: 'yousaf@gmail.com',
             age: '23'
         },
+        {
+            id: 1,
+            name: 'yousaf',
+            email: 'yousaf@gmail.com',
+            age: '23'
+        },
+        {
+            id: 2,
+            name: 'collins',
+            email: 'yousaf@gmail.com',
+            age: '23'
+        },
+        {
+            id: 3,
+            name: 'jimmy',
+            email: 'yousaf@gmail.com',
+            age: '23'
+        },
+        {
+            id: 4,
+            name: 'kamau',
+            email: 'yousaf@gmail.com',
+            age: '23'
+        },
+        {
+            id: 5,
+            name: 'omwami',
+            email: 'yousaf@gmail.com',
+            age: '23'
+        },
     ]
     const [records, setRecords] = useState(data);
 
@@ -65,7 +95,6 @@ const PreviewAllProducts = () => {
         <DataTable
         columns={columns}
         data={records}
-        selectableRows
         fixedHeader
         pagination
         >
