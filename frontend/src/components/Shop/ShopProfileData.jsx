@@ -74,11 +74,12 @@ const ShopProfileData = ({ isOwner }) => {
       <br />
       {active === 1 && (
         <div className="w-full justify-center flex">
-          {products &&
+          {/* {products &&
             products.map((i, index) => (
               <PreviewAllProducts id={i} key={index} isShop={true} />
             ))}
-            {/* <PreviewAllProducts /> */}
+            <PreviewAllProducts /> */}
+            <AllProducts />
         </div>
         // <div className="w-full justify-center flex">
         //   <AllProducts />
