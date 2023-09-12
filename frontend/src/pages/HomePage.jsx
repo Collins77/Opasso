@@ -18,7 +18,7 @@ const HomePage = () => {
         <BestDeals />
         {/* <Events /> */}
         <FeaturedProduct />
-        <PreviewAllProducts/>
+        {/* <PreviewAllProducts/> */}
         <Sponsored />
         <Footer />
     </div>
