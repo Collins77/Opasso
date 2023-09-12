@@ -1,7 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component'
 import { useDispatch, useSelector } from 'react-redux';
 import Loader from '../Layout/Loader';
+import { getAllProductsShop } from '../../redux/actions/product';
+import { Link } from 'react-router-dom';
+import { Button } from '@material-ui/core';
+import { AiOutlineEye } from 'react-icons/ai';
 
 const PreviewAllProducts = () => {
     const { products, isLoading } = useSelector((state) => state.products);
