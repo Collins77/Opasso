@@ -28,25 +28,25 @@ const PreviewAllProducts = () => {
         },
         {
             id: 2,
-            name: 'yousaf',
+            name: 'collins',
             email: 'yousaf@gmail.com',
             age: '23'
         },
         {
             id: 3,
-            name: 'yousaf',
+            name: 'jimmy',
             email: 'yousaf@gmail.com',
             age: '23'
         },
         {
             id: 4,
-            name: 'yousaf',
+            name: 'kamau',
             email: 'yousaf@gmail.com',
             age: '23'
         },
         {
             id: 5,
-            name: 'yousaf',
+            name: 'omwami',
             email: 'yousaf@gmail.com',
             age: '23'
         },
