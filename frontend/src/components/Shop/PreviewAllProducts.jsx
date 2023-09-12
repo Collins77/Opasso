@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import DataTable from 'react-data-table-component'
 
 const PreviewAllProducts = () => {
@@ -51,8 +51,17 @@ const PreviewAllProducts = () => {
             age: '23'
         },
     ]
+    const [records, setRecords] = useState(data);
+
+    function handleFilter(event) {
+        const newData = data.filter(row=> {
+            return row.name.toLowerCase().includes(event.target.value.toLowerCase())
+        })
+        setRecords(newData)
+    }
   return (
     <>
+    <div className="text-end"><input type="text" onChange={handleFilter} /></div>
         <DataTable
         columns={columns}
         data={data}
