@@ -76,7 +76,7 @@ const ShopProfileData = ({ isOwner }) => {
         <div className="w-full justify-center flex">
           {products &&
             products.map((i, index) => (
-              <ProductCard data={i} key={index} isShop={true} />
+              <PreviewAllProducts data={i} key={index} isShop={true} />
             ))}
             {/* <PreviewAllProducts /> */}
         </div>
