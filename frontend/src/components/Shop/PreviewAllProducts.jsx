@@ -8,15 +8,7 @@ import { Button } from '@material-ui/core';
 import { AiOutlineEye } from 'react-icons/ai';
 
 const PreviewAllProducts = ({data}) => {
-    const { products, isLoading } = useSelector((state) => state.products);
-    const { seller } = useSelector((state) => state.seller);
-
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(getAllProductsShop(seller._id));
-    }, [dispatch]);
-
+    
     const columns = [
         // { field: "id", headerName: "Product Id", minWidth: 150, flex: 0.7 },
         {
@@ -79,79 +71,79 @@ const PreviewAllProducts = ({data}) => {
           },
     ];
     const row = [];
-    const data = [
-        {
-            id: 1,
-            name: 'yousaf',
-            email: 'yousaf@gmail.com',
-            age: '23'
-        },
-        {
-            id: 2,
-            name: 'collins',
-            email: 'yousaf@gmail.com',
-            age: '23'
-        },
-        {
-            id: 3,
-            name: 'jimmy',
-            email: 'yousaf@gmail.com',
-            age: '23'
-        },
-        {
-            id: 4,
-            name: 'kamau',
-            email: 'yousaf@gmail.com',
-            age: '23'
-        },
-        {
-            id: 5,
-            name: 'omwami',
-            email: 'yousaf@gmail.com',
-            age: '23'
-        },
-        {
-            id: 1,
-            name: 'yousaf',
-            email: 'yousaf@gmail.com',
-            age: '23'
-        },
-        {
-            id: 2,
-            name: 'collins',
-            email: 'yousaf@gmail.com',
-            age: '23'
-        },
-        {
-            id: 3,
-            name: 'jimmy',
-            email: 'yousaf@gmail.com',
-            age: '23'
-        },
-        {
-            id: 4,
-            name: 'kamau',
-            email: 'yousaf@gmail.com',
-            age: '23'
-        },
-        {
-            id: 5,
-            name: 'omwami',
-            email: 'yousaf@gmail.com',
-            age: '23'
-        },
-    ]
-    products &&
-    products.forEach((item) => {
-      row.push({
-        // id: item._id,
-        partNumber: item.partNumber,
-        name: item.name,
-        price: "US$ " + item.discountPrice,
-        Stock: item.stock,
-        sold: item?.sold_out,
-      });
-    });
+    // const data = [
+    //     {
+    //         id: 1,
+    //         name: 'yousaf',
+    //         email: 'yousaf@gmail.com',
+    //         age: '23'
+    //     },
+    //     {
+    //         id: 2,
+    //         name: 'collins',
+    //         email: 'yousaf@gmail.com',
+    //         age: '23'
+    //     },
+    //     {
+    //         id: 3,
+    //         name: 'jimmy',
+    //         email: 'yousaf@gmail.com',
+    //         age: '23'
+    //     },
+    //     {
+    //         id: 4,
+    //         name: 'kamau',
+    //         email: 'yousaf@gmail.com',
+    //         age: '23'
+    //     },
+    //     {
+    //         id: 5,
+    //         name: 'omwami',
+    //         email: 'yousaf@gmail.com',
+    //         age: '23'
+    //     },
+    //     {
+    //         id: 1,
+    //         name: 'yousaf',
+    //         email: 'yousaf@gmail.com',
+    //         age: '23'
+    //     },
+    //     {
+    //         id: 2,
+    //         name: 'collins',
+    //         email: 'yousaf@gmail.com',
+    //         age: '23'
+    //     },
+    //     {
+    //         id: 3,
+    //         name: 'jimmy',
+    //         email: 'yousaf@gmail.com',
+    //         age: '23'
+    //     },
+    //     {
+    //         id: 4,
+    //         name: 'kamau',
+    //         email: 'yousaf@gmail.com',
+    //         age: '23'
+    //     },
+    //     {
+    //         id: 5,
+    //         name: 'omwami',
+    //         email: 'yousaf@gmail.com',
+    //         age: '23'
+    //     },
+    // ]
+    // products &&
+    // products.forEach((item) => {
+    //   row.push({
+    //     // id: item._id,
+    //     partNumber: item.partNumber,
+    //     name: item.name,
+    //     price: "US$ " + item.discountPrice,
+    //     Stock: item.stock,
+    //     sold: item?.sold_out,
+    //   });
+    // });
     const [records, setRecords] = useState(data);
 
     function handleFilter(event) {
@@ -166,11 +158,14 @@ const PreviewAllProducts = ({data}) => {
         <Loader />
       ) : (
         <div className="w-full mx-8 pt-1 mt-10 bg-white">
-            <div className="text-end"><input type="text" onChange={handleFilter} /></div>
+            <div className="text-end"><input 
+            type="text" 
+            onChange={handleFilter} 
+            /></div>
             <DataTable
             row={row}
             columns={columns}
-            // data={records}
+            data={records}
             fixedHeader
             pagination
             >
