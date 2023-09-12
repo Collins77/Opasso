@@ -54,7 +54,7 @@ const PreviewAllProducts = () => {
     const [records, setRecords] = useState(data);
 
     function handleFilter(event) {
-        const newData = data.filter(row=> {
+        const newData = data.filter(row => {
             return row.name.toLowerCase().includes(event.target.value.toLowerCase())
         })
         setRecords(newData)
@@ -64,7 +64,7 @@ const PreviewAllProducts = () => {
     <div className="text-end"><input type="text" onChange={handleFilter} /></div>
         <DataTable
         columns={columns}
-        data={data}
+        data={records}
         selectableRows
         fixedHeader
         pagination
