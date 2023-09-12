@@ -154,9 +154,7 @@ const PreviewAllProducts = ({data}) => {
     }
   return (
     <>
-    {isLoading ? (
-        <Loader />
-      ) : (
+   
         <div className="w-full mx-8 pt-1 mt-10 bg-white">
             <div className="text-end"><input 
             type="text" 
@@ -172,8 +170,6 @@ const PreviewAllProducts = ({data}) => {
 
             </DataTable>
         </div>
-        )
-      }
     </>
   )
 }
