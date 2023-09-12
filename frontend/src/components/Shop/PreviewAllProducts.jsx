@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@material-ui/core';
 import { AiOutlineEye } from 'react-icons/ai';
 
-const PreviewAllProducts = () => {
+const PreviewAllProducts = ({data}) => {
     const { products, isLoading } = useSelector((state) => state.products);
     const { seller } = useSelector((state) => state.seller);
 
