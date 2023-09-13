@@ -3,8 +3,10 @@ import { useTable } from 'react-table';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { getAllProductsShop } from '../../redux/actions/product';
+import { server } from '../../server';
 
-const PreviewAllProducts = () => {
+const PreviewAllProducts = ({id}) => {
     const [data,setData] = useState({});
     const {products} = useSelector((state) => state.products);
     const [isLoading,setIsLoading] = useState(false);
@@ -21,7 +23,7 @@ const PreviewAllProducts = () => {
       console.log(error);
       setIsLoading(false);
     })
-  }, [])
+  }, [id])
 
   const columns = React.useMemo(
     () => [
