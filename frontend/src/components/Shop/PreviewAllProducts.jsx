@@ -1,125 +1,125 @@
-import React, { useEffect, useState } from 'react'
-import { useTable } from 'react-table';
-import axios from 'axios';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { getAllProductsShop } from '../../redux/actions/product';
-import { server } from '../../server';
+import { Button } from "@material-ui/core";
+import { DataGrid } from "@material-ui/data-grid";
+import React, { useEffect } from "react";
+import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { getAllProductsShop } from "../../redux/actions/product";
+import { deleteProduct } from "../../redux/actions/product";
+import Loader from "../Layout/Loader";
 
 const PreviewAllProducts = () => {
-    const [data,setData] = useState({});
-    const {products} = useSelector((state) => state.products);
-    const [isLoading,setIsLoading] = useState(false);
-    const {id} = useParams();
-    const dispatch = useDispatch();
+  const { products, isLoading } = useSelector((state) => state.products);
+//   const { seller } = useSelector((state) => state.seller);
+  const {id} = useParams();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAllProductsShop(id));
-    setIsLoading(true);
-    axios.get(`${server}/shop/preview/${id}`).then((res) => {
-     setData(res.data.shop);
-     setIsLoading(false);
-    }).catch((error) => {
-      console.log(error);
-      setIsLoading(false);
-    })
-  }, [id])
+  }, [dispatch]);
 
-  const columns = React.useMemo(
-    () => [
-        {
-            Header: 'Product Id',
-            accessor: 'id', // Replace with your data property name
-          },
-          {
-            Header: 'Name',
-            accessor: 'name', // Replace with your data property name
-          },
-        {
-            Header: 'Stock',
-            accessor: 'Stock', // Replace with your data property name
-          },
-          {
-            Header: 'Sold',
-            accessor: 'Sold Out', // Replace with your data property name
-          },
-        // { field: "id", headerName: "Product Id", minWidth: 150, flex: 0.7 },
-        // {
-        //   field: "name",
-        //   headerName: "Name",
-        //   minWidth: 180,
-        //   flex: 1.4,
-        // },
-        // {
-        //   field: "price",
-        //   headerName: "Price",
-        //   minWidth: 100,
-        //   flex: 0.6,
-        // },
-        // {
-        //   field: "Stock",
-        //   headerName: "Stock",
-        //   type: "number",
-        //   minWidth: 80,
-        //   flex: 0.5,
-        // },
-    
-        // {
-        //   field: "sold",
-        //   headerName: "Sold out",
-        //   type: "number",
-        //   minWidth: 130,
-        //   flex: 0.6,
-        // },
-      // Add more columns as needed
-    ],
-    []
-  );
+  const handleDelete = (id) => {
+    dispatch(deleteProduct(id));
+    window.location.reload();
+  };
 
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    rows,
-    prepareRow,
-  } = useTable({
-    columns,
-    data,
-  });
-//   if (loading) {
-//     return <div>Loading...</div>;
-//   }
+  const columns = [
+    { field: "id", headerName: "Product Id", minWidth: 150, flex: 0.7 },
+    {
+      field: "name",
+      headerName: "Name",
+      minWidth: 180,
+      flex: 1.4,
+    },
+    {
+      field: "price",
+      headerName: "Price",
+      minWidth: 100,
+      flex: 0.6,
+    },
+    {
+      field: "Stock",
+      headerName: "Stock",
+      type: "number",
+      minWidth: 80,
+      flex: 0.5,
+    },
+
+    {
+      field: "sold",
+      headerName: "Sold out",
+      type: "number",
+      minWidth: 130,
+      flex: 0.6,
+    },
+    {
+      field: "Preview",
+      flex: 0.8,
+      minWidth: 100,
+      headerName: "",
+      type: "number",
+      sortable: false,
+      renderCell: (params) => {
+        return (
+          <>
+            <Link to={`/product/${params.id}`}>
+              <Button>
+                <AiOutlineEye size={20} />
+              </Button>
+            </Link>
+          </>
+        );
+      },
+    },
+    {
+      field: "Delete",
+      flex: 0.8,
+      minWidth: 120,
+      headerName: "",
+      type: "number",
+      sortable: false,
+      renderCell: (params) => {
+        return (
+          <>
+            <Button onClick={() => handleDelete(params.id)}>
+              <AiOutlineDelete size={20} />
+            </Button>
+          </>
+        );
+      },
+    },
+  ];
+
+  const row = [];
+
+  products &&
+    products.forEach((item) => {
+      row.push({
+        id: item._id,
+        name: item.name,
+        price: "US$ " + item.discountPrice,
+        Stock: item.stock,
+        sold: item?.sold_out,
+      });
+    });
 
   return (
-    <div>
-      <h2>Shop Data Table</h2>
-      <table {...getTableProps()} className="table">
-        <thead>
-          {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps()}>{column.render('Header')}</th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody {...getTableBodyProps()}>
-          {rows.map((row) => {
-            prepareRow(row);
-            return (
-              <tr {...row.getRowProps()}>
-                {row.cells.map((cell) => {
-                  return (
-                    <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-                  );
-                })}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </div>
+    <>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div className="w-full mx-8 pt-1 mt-10 bg-white">
+          <DataGrid
+            rows={row}
+            columns={columns}
+            pageSize={10}
+            disableSelectionOnClick
+            autoHeight
+          />
+        </div>
+      )}
+    </>
   );
-}
+};
 
-export default PreviewAllProducts
+export default PreviewAllProducts;
