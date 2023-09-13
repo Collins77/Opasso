@@ -27,34 +27,50 @@ const PreviewAllProducts = () => {
 
   const columns = React.useMemo(
     () => [
-        { field: "id", headerName: "Product Id", minWidth: 150, flex: 0.7 },
         {
-          field: "name",
-          headerName: "Name",
-          minWidth: 180,
-          flex: 1.4,
-        },
+            Header: 'Product Id',
+            accessor: 'id', // Replace with your data property name
+          },
+          {
+            Header: 'Name',
+            accessor: 'name', // Replace with your data property name
+          },
         {
-          field: "price",
-          headerName: "Price",
-          minWidth: 100,
-          flex: 0.6,
-        },
-        {
-          field: "Stock",
-          headerName: "Stock",
-          type: "number",
-          minWidth: 80,
-          flex: 0.5,
-        },
+            Header: 'Stock',
+            accessor: 'Stock', // Replace with your data property name
+          },
+          {
+            Header: 'Sold',
+            accessor: 'Sold Out', // Replace with your data property name
+          },
+        // { field: "id", headerName: "Product Id", minWidth: 150, flex: 0.7 },
+        // {
+        //   field: "name",
+        //   headerName: "Name",
+        //   minWidth: 180,
+        //   flex: 1.4,
+        // },
+        // {
+        //   field: "price",
+        //   headerName: "Price",
+        //   minWidth: 100,
+        //   flex: 0.6,
+        // },
+        // {
+        //   field: "Stock",
+        //   headerName: "Stock",
+        //   type: "number",
+        //   minWidth: 80,
+        //   flex: 0.5,
+        // },
     
-        {
-          field: "sold",
-          headerName: "Sold out",
-          type: "number",
-          minWidth: 130,
-          flex: 0.6,
-        },
+        // {
+        //   field: "sold",
+        //   headerName: "Sold out",
+        //   type: "number",
+        //   minWidth: 130,
+        //   flex: 0.6,
+        // },
       // Add more columns as needed
     ],
     []
