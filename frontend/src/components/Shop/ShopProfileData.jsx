@@ -73,12 +73,15 @@ const ShopProfileData = ({ isOwner }) => {
 
       <br />
       {active === 1 && (
-        <div className="grid grid-cols-1 gap-[20px] md:grid-cols-2 md:gap-[25px] lg:grid-cols-3 lg:gap-[25px] xl:grid-cols-4 xl:gap-[20px] mb-12 border-0">
-          {products &&
-            products.map((i, index) => (
-              <ProductCard data={i} key={index} isShop={true} />
-            ))}
+        // <div className="grid grid-cols-1 gap-[20px] md:grid-cols-2 md:gap-[25px] lg:grid-cols-3 lg:gap-[25px] xl:grid-cols-4 xl:gap-[20px] mb-12 border-0">
+        //   {products &&
+        //     products.map((i, index) => (
+        //       <ProductCard data={i} key={index} isShop={true} />
+        //     ))}
 
+        // </div>
+        <div className="w-full">
+          <PreviewAllProducts />
         </div>
         
       )}

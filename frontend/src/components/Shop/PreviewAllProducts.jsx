@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import { getAllProductsShop } from '../../redux/actions/product';
 import { server } from '../../server';
 
-const PreviewAllProducts = ({id}) => {
+const PreviewAllProducts = () => {
     const [data,setData] = useState({});
     const {products} = useSelector((state) => state.products);
     const [isLoading,setIsLoading] = useState(false);

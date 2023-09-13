@@ -18,7 +18,7 @@ const HomePage = () => {
         <BestDeals />
         {/* <Events /> */}
         <FeaturedProduct />
-        <PreviewAllProducts id={'64da79b4cad5b45ae8579322'}/>
+        {/* <PreviewAllProducts id={'64da79b4cad5b45ae8579322'}/> */}
         <Sponsored />
         <Footer />
     </div>
