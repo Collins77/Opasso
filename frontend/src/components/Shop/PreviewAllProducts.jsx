@@ -4,9 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getAllProductsShop } from "../../redux/actions/product";
 import Loader from "../Layout/Loader";
-import { Button } from "@material-ui/core";
+import { Button, IconButton, InputAdornment, TextField } from "@material-ui/core";
 import { AiOutlineEye } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { BiSearch } from "react-icons/bi";
 
 const PreviewAllProducts = () => {
   const { products, isLoading } = useSelector((state) => state.products);
@@ -72,29 +73,53 @@ const PreviewAllProducts = () => {
     },
   ];
 
-  // const rows = products?.map((item) => ({
-  //   id: item._id,
-  //   name: item.name,
-  //   price: `US$ ${item.discountPrice}`,
-  //   Stock: item.stock,
-  //   category: item.category,
-  // }));
-
-  const [filteredProducts, setFilteredProducts] = useState(products);
+  // const rows = []
 
 
-  const handleFilterChange = (filterModel) => {
-    const filteredData = products.filter((item) => {
-      if (filterModel.items.length === 0) {
-        return true; // No filter selected, include all products.
-      }
+  const rows = products?.map((item) => ({
+    id: item._id,
+    name: item.name,
+    price: `US$ ${item.discountPrice}`,
+    Stock: item.stock,
+    category: item.category,
+  }));
 
-      const selectedCategory = filterModel.items[0].value;
-      return item.category === selectedCategory;
-    });
+  const CustomFilterComponent = ({onFilterChange}) => {
+    const [filterValue, setFilterValue] = useState('');
 
-    setFilteredProducts(filteredData);
+    const handleFilterChange = (event) => {
+      const value = event.target.value;
+      setFilterValue(value);
+      onFilterChange(value);
+    };
+
+    return (
+      <TextField
+        variant="outlined"
+        size="small"
+        placeholder="Filter by Category"
+        value={filterValue}
+        onChange={handleFilterChange}
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <IconButton size="small">
+                <BiSearch />
+              </IconButton>
+            </InputAdornment>
+          ),
+        }}
+      />
+    );
   };
+
+  const [filterValue, setFilterValue] = useState('');
+  const handleFilterChange = (value) => {
+    setFilterValue(value);
+  };
+
+  const filteredRows = rows.filter((row) => row.category.toLowerCase().includes(filterValue.toLowerCase()))
+
   return (
     <>
       {isLoading ? (
@@ -102,15 +127,20 @@ const PreviewAllProducts = () => {
       ) : (
         <div className="w-full mx-8 pt-1 mt-10 bg-white">
           <DataGrid
-            rows={filteredProducts}
+            rows={filteredRows}
             columns={columns}
             pageSize={10}
             disableSelectionOnClick
             autoHeight
             components={{
-              Toolbar: GridToolbar,
+              Toolbar: () => (
+                <div>
+                  <GridToolbar />
+                  <CustomFilterComponent onFilterChange={handleFilterChange} />
+                </div>
+              ),
             }}
-            onFilterModelChange={(model) => handleFilterChange(model)}
+            
           />
         </div>
       )}
