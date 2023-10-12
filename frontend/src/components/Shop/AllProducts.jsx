@@ -1,6 +1,6 @@
-import { Button } from "@material-ui/core";
+import { Button, FormControl, InputLabel, MenuItem, Select } from "@material-ui/core";
 import { DataGrid } from "@material-ui/data-grid";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -14,9 +14,11 @@ const AllProducts = () => {
 
   const dispatch = useDispatch();
 
+  const [selectedCategory, setSelectedCategory] = useState("");
+
   useEffect(() => {
-    dispatch(getAllProductsShop(seller._id));
-  }, [dispatch]);
+    dispatch(getAllProductsShop(seller._id, selectedCategory));
+  }, [dispatch, seller._id, selectedCategory]);
 
   const handleDelete = (id) => {
     dispatch(deleteProduct(id));
@@ -105,6 +107,20 @@ const AllProducts = () => {
 
   return (
     <>
+       <div className="category-filter">
+        <FormControl>
+          <InputLabel>Filter by Category</InputLabel>
+          <Select
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+          >
+            <MenuItem value="">All</MenuItem>
+            <MenuItem value="Category1">Category 1</MenuItem>
+            <MenuItem value="Category2">Category 2</MenuItem>
+            {/* Add more categories as needed */}
+          </Select>
+        </FormControl>
+      </div>
       {isLoading ? (
         <Loader />
       ) : (
