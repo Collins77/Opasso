@@ -17,7 +17,6 @@ const PreviewAllProducts = () => {
     dispatch(getAllProductsShop(id));
   }, [dispatch, id]);
 
-  const [filteredProducts, setFilteredProducts] = useState(products);
 
   const columns = [
     { field: "id", headerName: "Product Id", minWidth: 150, flex: 0.7 },
@@ -45,9 +44,9 @@ const PreviewAllProducts = () => {
       headerName: "Category",
       minWidth: 130,
       flex: 0.6,
-      filterOperators: ["equals"],
-      filterOperator: "equals",
-      valueGetter: (params) => params.row.category,
+      filterOperators: ["equals", "customCategoryFilter"],
+      filterOperator: "customCategoryFilter",
+      // valueGetter: (params) => params.row.category,
       renderCell: (params) => {
         return <span>{params.value}</span>;
       },
@@ -81,16 +80,21 @@ const PreviewAllProducts = () => {
   //   category: item.category,
   // }));
 
-  const handleFilterChange = (filterModel) => {
-    if (filterModel.items.length === 0) {
-      setFilteredProducts(products);
-    } else {
-      const selectedCategory = filterModel.items[0].value;
-      const filtered = products.filter((item) => item.category === selectedCategory);
-      setFilteredProducts(filtered);
-    }
-  };
+  const [filteredProducts, setFilteredProducts] = useState(products);
 
+
+  const handleFilterChange = (filterModel) => {
+    const filteredData = products.filter((item) => {
+      if (filterModel.items.length === 0) {
+        return true; // No filter selected, include all products.
+      }
+
+      const selectedCategory = filterModel.items[0].value;
+      return item.category === selectedCategory;
+    });
+
+    setFilteredProducts(filteredData);
+  };
   return (
     <>
       {isLoading ? (
