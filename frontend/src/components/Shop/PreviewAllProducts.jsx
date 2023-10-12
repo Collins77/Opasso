@@ -73,13 +73,13 @@ const PreviewAllProducts = () => {
     },
   ];
 
-  const rows = products?.map((item) => ({
-    id: item._id,
-    name: item.name,
-    price: `US$ ${item.discountPrice}`,
-    Stock: item.stock,
-    category: item.category,
-  }));
+  // const rows = products?.map((item) => ({
+  //   id: item._id,
+  //   name: item.name,
+  //   price: `US$ ${item.discountPrice}`,
+  //   Stock: item.stock,
+  //   category: item.category,
+  // }));
 
   const handleFilterChange = (filterModel) => {
     if (filterModel.items.length === 0) {
@@ -98,7 +98,7 @@ const PreviewAllProducts = () => {
       ) : (
         <div className="w-full mx-8 pt-1 mt-10 bg-white">
           <DataGrid
-            rows={rows}
+            rows={filteredProducts}
             columns={columns}
             pageSize={10}
             disableSelectionOnClick
