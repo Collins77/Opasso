@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid } from "@material-ui/data-grid";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getAllProductsShop } from "../../redux/actions/product";
 import Loader from "../Layout/Loader";
-import { Button, Link } from "@mui/material";
+import { Button } from "@material-ui/core";
 import { AiOutlineEye } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const PreviewAllProducts = () => {
   const { products, isLoading } = useSelector((state) => state.products);
