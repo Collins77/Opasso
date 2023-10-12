@@ -106,37 +106,23 @@ const PreviewAllProducts = () => {
 
   return (
     <>
-        {/* <div className="w-full mx-8 pt-1 mt-10 bg-white">
-              <div className="category-filter bg-black w-[400px]">
+        <div className="category-filter w-[400px]">
             <FormControl>
               <InputLabel>Filter by Category</InputLabel>
-              <Select
-                value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value)}
-              >
-                <MenuItem value="">All</MenuItem>
-                <MenuItem value="Category1">Category 1</MenuItem>
-                <MenuItem value="Category2">Category 2</MenuItem>
-              </Select>
+                <Select
+                  value={selectedCategory}
+                  onChange={(e) => setSelectedCategory(e.target.value)}
+                >
+                  <MenuItem value="">All</MenuItem>
+                  <MenuItem value="Category1">Category 1</MenuItem>
+                  <MenuItem value="Category2">Category 2</MenuItem>
+                </Select>
             </FormControl>
-          </div> */}
+          </div>
       {isLoading ? (
         <Loader />
       ) : (
         <div className="w-full mx-8 pt-1 mt-10 bg-white">
-              <div className="category-filter bg-black w-[400px]">
-                <FormControl>
-                  <InputLabel>Filter by Category</InputLabel>
-                  <Select
-                    value={selectedCategory}
-                    onChange={(e) => setSelectedCategory(e.target.value)}
-                  >
-                    <MenuItem value="">All</MenuItem>
-                    <MenuItem value="Category1">Category 1</MenuItem>
-                    <MenuItem value="Category2">Category 2</MenuItem>
-                  </Select>
-                </FormControl>
-              </div>
           <DataGrid
             rows={row}
             columns={columns}
