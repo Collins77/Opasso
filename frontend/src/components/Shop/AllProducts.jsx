@@ -107,7 +107,7 @@ const AllProducts = () => {
 
   return (
     <>
-       <div className="category-filter">
+       <div className="category-filter bg-black w-[400px]">
         <FormControl>
           <InputLabel>Filter by Category</InputLabel>
           <Select
