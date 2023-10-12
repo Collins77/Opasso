@@ -73,23 +73,23 @@ const AllProducts = () => {
         );
       },
     },
-    {
-      field: "Delete",
-      flex: 0.8,
-      minWidth: 120,
-      headerName: "",
-      type: "number",
-      sortable: false,
-      renderCell: (params) => {
-        return (
-          <>
-            <Button onClick={() => handleDelete(params.id)}>
-              <AiOutlineDelete size={20} />
-            </Button>
-          </>
-        );
-      },
-    },
+    // {
+    //   field: "Delete",
+    //   flex: 0.8,
+    //   minWidth: 120,
+    //   headerName: "",
+    //   type: "number",
+    //   sortable: false,
+    //   renderCell: (params) => {
+    //     return (
+    //       <>
+    //         <Button onClick={() => handleDelete(params.id)}>
+    //           <AiOutlineDelete size={20} />
+    //         </Button>
+    //       </>
+    //     );
+    //   },
+    // },
   ];
 
   const row = [];
@@ -107,7 +107,12 @@ const AllProducts = () => {
 
   return (
     <>
-       <div className="category-filter bg-black w-[400px]">
+      
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div className="w-full mx-8 pt-1 mt-10 bg-white">
+          <div className="category-filter bg-black w-[400px]">
         <FormControl>
           <InputLabel>Filter by Category</InputLabel>
           <Select
@@ -121,10 +126,6 @@ const AllProducts = () => {
           </Select>
         </FormControl>
       </div>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <div className="w-full mx-8 pt-1 mt-10 bg-white">
           <DataGrid
             rows={row}
             columns={columns}
