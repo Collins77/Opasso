@@ -19,10 +19,10 @@ const PreviewAllProducts = () => {
     dispatch(getAllProductsShop(id, selectedCategory));
   }, [dispatch, id, selectedCategory]);
 
-  const handleDelete = (id) => {
-    dispatch(deleteProduct(id));
-    window.location.reload();
-  };
+  // const handleDelete = (id) => {
+  //   dispatch(deleteProduct(id));
+  //   window.location.reload();
+  // };
 
   const columns = [
     { field: "id", headerName: "Product Id", minWidth: 150, flex: 0.7 },
@@ -108,7 +108,7 @@ const PreviewAllProducts = () => {
     <>
         <div className="category-filter w-full mx-8">
             <FormControl
-            className="w-[400px] border"
+            className="w-[350px] border"
             >
               <InputLabel>Filter by Category</InputLabel>
                 <Select
