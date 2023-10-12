@@ -15,25 +15,6 @@ const PreviewAllProducts = () => {
   const {id} = useParams();
   const dispatch = useDispatch();
   const [selectedCategory, setSelectedCategory] = useState("");
-  const [categoriesData, setCategoriesData] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);  
-  
-  useEffect(() => {
-    fetch("../../static/categories.js")
-    .then((response) => response.json())
-    .then((data) => {
-      setCategoriesData(data.categories);
-      
-    })
-  }).catch((error) => {
-    console.error("Error fetching categories", error);
-  }, []);
-
-  const handleCategoryChange = (e) => {
-    setSelectedCategory(e.target.value);
-    const filtered = products.filter(product => product.category === e.target.value);
-    setFilteredProducts(filtered);
-  }
   
   useEffect(() => {
     dispatch(getAllProductsShop(id, selectedCategory));
@@ -133,7 +114,7 @@ const PreviewAllProducts = () => {
               <InputLabel>Filter by Category</InputLabel>
                 <Select
                   value={selectedCategory}
-                  onChange={handleCategoryChange}
+                  onChange={(e) => setSelectedCategory(e.target.value)}
                 >
                   <MenuItem value="">All</MenuItem>
                   {categoriesData && 
@@ -152,7 +133,7 @@ const PreviewAllProducts = () => {
       ) : (
         <div className="w-full mx-8 pt-1 mt-10 bg-white">
           <DataGrid
-            rows={selectedCategory ? filteredProducts : products}
+            rows={row}
             columns={columns}
             pageSize={10}
             disableSelectionOnClick
