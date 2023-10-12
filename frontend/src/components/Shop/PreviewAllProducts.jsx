@@ -1,41 +1,20 @@
-import { Button, FormControl, InputLabel, MenuItem, Select } from "@material-ui/core";
-import { DataGrid } from "@material-ui/data-grid";
-import { GridToolbar } from "@mui/x-data-grid";
 import React, { useEffect, useState } from "react";
-import { AiOutlineEye } from "react-icons/ai";
+import { DataGrid } from "@mui/x-data-grid";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getAllProductsShop } from "../../redux/actions/product";
 import Loader from "../Layout/Loader";
-import { categoriesData } from "../../static/data";
+import { Button, Link } from "@mui/material";
+import { AiOutlineEye } from "react-icons/ai";
 
 const PreviewAllProducts = () => {
   const { products, isLoading } = useSelector((state) => state.products);
-//   const { seller } = useSelector((state) => state.seller);
-  const {id} = useParams();
+  const { id } = useParams();
   const dispatch = useDispatch();
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  
+
   useEffect(() => {
-    dispatch(getAllProductsShop(id, selectedCategory));
-  }, [dispatch, id, selectedCategory]);
-
-  const handleCategoryChange = (e) => {
-    setSelectedCategory(e.target.value);
-
-    // Filter products based on the selected category
-    const filtered = products.filter((product) => product.category === e.target.value);
-    setFilteredProducts(filtered);
-  };
-
-  function customCategoryFilterOperator(params, value, filterModel) {
-    const cellValue = params.value.toLowerCase();
-    const filterValue = value.toLowerCase();
-  
-    return cellValue.includes(filterValue);
-  }
-
+    dispatch(getAllProductsShop(id));
+  }, [dispatch, id]);
 
   const columns = [
     { field: "id", headerName: "Product Id", minWidth: 150, flex: 0.7 },
@@ -58,13 +37,13 @@ const PreviewAllProducts = () => {
       minWidth: 80,
       flex: 0.5,
     },
-
     {
-      field: "sold",
-      headerName: "Sold out",
-      type: "number",
+      field: "category",
+      headerName: "Category",
       minWidth: 130,
       flex: 0.6,
+      filterOperators: ["equals"],
+      filterOperator: "equals",
     },
     {
       field: "Preview",
@@ -87,65 +66,26 @@ const PreviewAllProducts = () => {
     },
   ];
 
-  const row = []
-
-  products &&
-    products.forEach((item) => {
-      row.push({
-        id: item._id,
-        name: item.name,
-        price: "US$ " + item.discountPrice,
-        Stock: item.stock,
-        sold: item?.sold_out,
-      });
-    });
+  const rows = products?.map((item) => ({
+    id: item._id,
+    name: item.name,
+    price: `US$ ${item.discountPrice}`,
+    Stock: item.stock,
+    category: item.category,
+  }));
 
   return (
     <>
-        <div className="category-filter w-full mx-8">
-            <FormControl
-            className="w-[350px] border"
-            >
-              <InputLabel>Filter by Category</InputLabel>
-                <Select
-                  value={selectedCategory}
-                  onChange={handleCategoryChange}
-                >
-                  <MenuItem value="">All</MenuItem>
-                  {categoriesData && 
-                    categoriesData.map((i) => (
-                      <MenuItem key={i} value={i}>
-                        {i.title}
-                      </MenuItem>
-                    ))
-                  }
-                  
-                </Select>
-            </FormControl>
-          </div>
       {isLoading ? (
         <Loader />
       ) : (
         <div className="w-full mx-8 pt-1 mt-10 bg-white">
           <DataGrid
-            rows={row}
+            rows={rows}
             columns={columns}
             pageSize={10}
             disableSelectionOnClick
             autoHeight
-            filterModel={{
-              items: [
-                {
-                  columnField: "category", // Replace with the actual field name for category
-                  operatorValue: "contains", // Use your custom operator value
-                  value: selectedCategory.toLowerCase(), // The selected category
-                },
-              ],
-              linkOperator: "and",
-            }}
-            components={{
-              Toolbar: GridToolbar,
-            }}
           />
         </div>
       )}
