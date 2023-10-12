@@ -143,7 +143,7 @@ const PreviewAllProducts = () => {
       ) : (
         <div className="w-full mx-8 pt-1 mt-10 bg-white">
           <DataGrid
-            rows={selectedCategory ? row : products}
+            rows={row}
             columns={columns}
             pageSize={10}
             disableSelectionOnClick
