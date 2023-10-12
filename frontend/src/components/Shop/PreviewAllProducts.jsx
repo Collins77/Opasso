@@ -21,7 +21,19 @@ const PreviewAllProducts = () => {
 
   const [selectedCategory, setSelectedCategory] = useState("");
   useEffect(() => {
-    dispatch(getAllProductsShop(id, selectedCategory));
+    dispatch(getAllProductsShop(id)).then((action) => {
+      const allProducts = action.payload;
+
+      if(selectedCategory) {
+        const filteredProducts = allProducts.filter((product) => {
+          return product.category === selectedCategory;
+        });
+
+        setSelectedCategory(filteredProducts);
+      } else {
+        setSelectedCategory(allProducts);
+      }
+    });
   }, [dispatch, id, selectedCategory]);
 
   // const handleDelete = (id) => {
