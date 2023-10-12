@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { DataGrid } from "@material-ui/data-grid";
+import { DataGrid, GridToolbar } from "@material-ui/data-grid";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getAllProductsShop } from "../../redux/actions/product";
@@ -16,6 +16,8 @@ const PreviewAllProducts = () => {
   useEffect(() => {
     dispatch(getAllProductsShop(id));
   }, [dispatch, id]);
+
+  const [filteredProducts, setFilteredProducts] = useState(products);
 
   const columns = [
     { field: "id", headerName: "Product Id", minWidth: 150, flex: 0.7 },
@@ -45,6 +47,10 @@ const PreviewAllProducts = () => {
       flex: 0.6,
       filterOperators: ["equals"],
       filterOperator: "equals",
+      valueGetter: (params) => params.row.category,
+      renderCell: (params) => {
+        return <span>{params.value}</span>;
+      },
     },
     {
       field: "Preview",
@@ -75,6 +81,16 @@ const PreviewAllProducts = () => {
     category: item.category,
   }));
 
+  const handleFilterChange = (filterModel) => {
+    if (filterModel.items.length === 0) {
+      setFilteredProducts(products);
+    } else {
+      const selectedCategory = filterModel.items[0].value;
+      const filtered = products.filter((product) => product.category === selectedCategory);
+      setFilteredProducts(filtered);
+    }
+  };
+
   return (
     <>
       {isLoading ? (
@@ -87,6 +103,10 @@ const PreviewAllProducts = () => {
             pageSize={10}
             disableSelectionOnClick
             autoHeight
+            components={{
+              Toolbar: GridToolbar,
+            }}
+            onFilterModelChange={(model) => handleFilterChange(model)}
           />
         </div>
       )}
