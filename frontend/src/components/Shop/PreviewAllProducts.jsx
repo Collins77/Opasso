@@ -106,7 +106,7 @@ const PreviewAllProducts = () => {
 
   return (
     <>
-        <div className="category-filter w-[600px]">
+        <div className="category-filter w-full">
             <FormControl>
               <InputLabel>Filter by Category</InputLabel>
                 <Select
