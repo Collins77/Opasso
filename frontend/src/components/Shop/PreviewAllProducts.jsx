@@ -7,12 +7,17 @@ import { Link, useParams } from "react-router-dom";
 import { getAllProductsShop } from "../../redux/actions/product";
 import { deleteProduct } from "../../redux/actions/product";
 import Loader from "../Layout/Loader";
+import { categoriesData } from "../../static/data";
 
 const PreviewAllProducts = () => {
   const { products, isLoading } = useSelector((state) => state.products);
 //   const { seller } = useSelector((state) => state.seller);
   const {id} = useParams();
   const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   fetch("../../static/data.js")
+  // })
 
   const [selectedCategory, setSelectedCategory] = useState("");
   useEffect(() => {
@@ -116,8 +121,14 @@ const PreviewAllProducts = () => {
                   onChange={(e) => setSelectedCategory(e.target.value)}
                 >
                   <MenuItem value="">All</MenuItem>
-                  <MenuItem value="Category1">Category 1</MenuItem>
-                  <MenuItem value="Category2">Category 2</MenuItem>
+                  {categoriesData && 
+                    categoriesData.map((i) => (
+                      <MenuItem key={i} value={i}>
+                        {i.title}
+                      </MenuItem>
+                    ))
+                  }
+                  
                 </Select>
             </FormControl>
           </div>
