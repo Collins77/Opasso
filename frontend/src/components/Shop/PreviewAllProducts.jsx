@@ -14,26 +14,29 @@ const PreviewAllProducts = () => {
 //   const { seller } = useSelector((state) => state.seller);
   const {id} = useParams();
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   fetch("../../static/data.js")
-  // })
-
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [categoriesData, setCategoriesData] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);  
+  
   useEffect(() => {
-    dispatch(getAllProductsShop(id)).then((action) => {
-      const allProducts = action.payload;
+    fetch("../../static/categories.js")
+    .then((response) => response.json())
+    .then((data) => {
+      setCategoriesData(data.categories);
+      
+    })
+  }).catch((error) => {
+    console.error("Error fetching categories", error);
+  }, []);
 
-      if(selectedCategory) {
-        const filteredProducts = allProducts.filter((product) => {
-          return product.category === selectedCategory;
-        });
-
-        setSelectedCategory(filteredProducts);
-      } else {
-        setSelectedCategory(allProducts);
-      }
-    });
+  const handleCategoryChange = (e) => {
+    setSelectedCategory(e.target.value);
+    const filtered = products.filter(product => product.category === e.target.value);
+    setFilteredProducts(filtered);
+  }
+  
+  useEffect(() => {
+    dispatch(getAllProductsShop(id, selectedCategory));
   }, [dispatch, id, selectedCategory]);
 
   // const handleDelete = (id) => {
@@ -130,7 +133,7 @@ const PreviewAllProducts = () => {
               <InputLabel>Filter by Category</InputLabel>
                 <Select
                   value={selectedCategory}
-                  onChange={(e) => setSelectedCategory(e.target.value)}
+                  onChange={handleCategoryChange}
                 >
                   <MenuItem value="">All</MenuItem>
                   {categoriesData && 
@@ -149,7 +152,7 @@ const PreviewAllProducts = () => {
       ) : (
         <div className="w-full mx-8 pt-1 mt-10 bg-white">
           <DataGrid
-            rows={row}
+            rows={selectedCategory ? filteredProducts : products}
             columns={columns}
             pageSize={10}
             disableSelectionOnClick
