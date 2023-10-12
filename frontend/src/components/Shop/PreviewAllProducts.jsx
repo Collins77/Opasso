@@ -96,8 +96,9 @@ const PreviewAllProducts = () => {
     // },
   ];
 
-  const row = [selectedCategory ? filteredProducts :  
-    products &&
+  const row = [];
+
+  products &&
     products.forEach((item) => {
       row.push({
         id: item._id,
@@ -106,18 +107,7 @@ const PreviewAllProducts = () => {
         Stock: item.stock,
         sold: item?.sold_out,
       });
-    })];
-
-  // products &&
-  //   products.forEach((item) => {
-  //     row.push({
-  //       id: item._id,
-  //       name: item.name,
-  //       price: "US$ " + item.discountPrice,
-  //       Stock: item.stock,
-  //       sold: item?.sold_out,
-  //     });
-  //   });
+    });
 
   return (
     <>
