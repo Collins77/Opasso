@@ -1,5 +1,6 @@
 import { Button, FormControl, InputLabel, MenuItem, Select } from "@material-ui/core";
 import { DataGrid } from "@material-ui/data-grid";
+import { GridToolbar } from "@mui/x-data-grid";
 import React, { useEffect, useState } from "react";
 import { AiOutlineEye } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
@@ -27,6 +28,13 @@ const PreviewAllProducts = () => {
     const filtered = products.filter((product) => product.category === e.target.value);
     setFilteredProducts(filtered);
   };
+
+  function customCategoryFilterOperator(params, value, filterModel) {
+    const cellValue = params.value.toLowerCase();
+    const filterValue = value.toLowerCase();
+  
+    return cellValue.includes(filterValue);
+  }
 
 
   const columns = [
@@ -77,43 +85,20 @@ const PreviewAllProducts = () => {
         );
       },
     },
-    // {
-    //   field: "Delete",
-    //   flex: 0.8,
-    //   minWidth: 120,
-    //   headerName: "",
-    //   type: "number",
-    //   sortable: false,
-    //   renderCell: (params) => {
-    //     return (
-    //       <>
-    //         <Button onClick={() => handleDelete(params.id)}>
-    //           <AiOutlineDelete size={20} />
-    //         </Button>
-    //       </>
-    //     );
-    //   },
-    // },
   ];
 
-  const row = filteredProducts.map((item) => ({
+  const row = []
+
+  products &&
+    products.forEach((item) => {
+      row.push({
         id: item._id,
         name: item.name,
         price: "US$ " + item.discountPrice,
         Stock: item.stock,
         sold: item?.sold_out,
-  }));
-
-  // products &&
-  //   products.forEach((item) => {
-  //     row.push({
-  //       id: item._id,
-  //       name: item.name,
-  //       price: "US$ " + item.discountPrice,
-  //       Stock: item.stock,
-  //       sold: item?.sold_out,
-  //     });
-  //   });
+      });
+    });
 
   return (
     <>
@@ -143,22 +128,24 @@ const PreviewAllProducts = () => {
       ) : (
         <div className="w-full mx-8 pt-1 mt-10 bg-white">
           <DataGrid
-            rows={selectedCategory ? row :
-              products &&
-                products.forEach((item) => {
-                  row.push({
-                    id: item._id,
-                    name: item.name,
-                    price: "US$ " + item.discountPrice,
-                    Stock: item.stock,
-                    sold: item?.sold_out,
-                  })
-                })
-            }
+            rows={row}
             columns={columns}
             pageSize={10}
             disableSelectionOnClick
             autoHeight
+            filterModel={{
+              items: [
+                {
+                  columnField: "category", // Replace with the actual field name for category
+                  operatorValue: "contains", // Use your custom operator value
+                  value: selectedCategory.toLowerCase(), // The selected category
+                },
+              ],
+              linkOperator: "and",
+            }}
+            components={{
+              Toolbar: GridToolbar,
+            }}
           />
         </div>
       )}
