@@ -112,20 +112,20 @@ const AllProducts = () => {
         <Loader />
       ) : (
         <div className="w-full mx-8 pt-1 mt-10 bg-white">
-          <div className="category-filter bg-black w-[400px]">
-        <FormControl>
-          <InputLabel>Filter by Category</InputLabel>
-          <Select
-            value={selectedCategory}
-            onChange={(e) => setSelectedCategory(e.target.value)}
-          >
-            <MenuItem value="">All</MenuItem>
-            <MenuItem value="Category1">Category 1</MenuItem>
-            <MenuItem value="Category2">Category 2</MenuItem>
-            {/* Add more categories as needed */}
-          </Select>
-        </FormControl>
-      </div>
+              <div className="category-filter bg-black w-[400px]">
+            <FormControl>
+              <InputLabel>Filter by Category</InputLabel>
+              <Select
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
+              >
+                <MenuItem value="">All</MenuItem>
+                <MenuItem value="Category1">Category 1</MenuItem>
+                <MenuItem value="Category2">Category 2</MenuItem>
+                {/* Add more categories as needed */}
+              </Select>
+            </FormControl>
+          </div>
           <DataGrid
             rows={row}
             columns={columns}
