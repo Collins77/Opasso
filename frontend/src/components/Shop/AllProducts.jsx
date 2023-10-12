@@ -1,6 +1,6 @@
-import { Button, FormControl, InputLabel, MenuItem, Select } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import { DataGrid } from "@material-ui/data-grid";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -14,11 +14,9 @@ const AllProducts = () => {
 
   const dispatch = useDispatch();
 
-  const [selectedCategory, setSelectedCategory] = useState("");
-
   useEffect(() => {
-    dispatch(getAllProductsShop(seller._id, selectedCategory));
-  }, [dispatch, seller._id, selectedCategory]);
+    dispatch(getAllProductsShop(seller._id));
+  }, [dispatch, seller._id]);
 
   const handleDelete = (id) => {
     dispatch(deleteProduct(id));
@@ -73,23 +71,23 @@ const AllProducts = () => {
         );
       },
     },
-    // {
-    //   field: "Delete",
-    //   flex: 0.8,
-    //   minWidth: 120,
-    //   headerName: "",
-    //   type: "number",
-    //   sortable: false,
-    //   renderCell: (params) => {
-    //     return (
-    //       <>
-    //         <Button onClick={() => handleDelete(params.id)}>
-    //           <AiOutlineDelete size={20} />
-    //         </Button>
-    //       </>
-    //     );
-    //   },
-    // },
+    {
+      field: "Delete",
+      flex: 0.8,
+      minWidth: 120,
+      headerName: "",
+      type: "number",
+      sortable: false,
+      renderCell: (params) => {
+        return (
+          <>
+            <Button onClick={() => handleDelete(params.id)}>
+              <AiOutlineDelete size={20} />
+            </Button>
+          </>
+        );
+      },
+    },
   ];
 
   const row = [];
@@ -111,21 +109,6 @@ const AllProducts = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="w-full mx-8 pt-1 mt-10 bg-white">
-              <div className="category-filter bg-black w-[400px]">
-            <FormControl>
-              <InputLabel>Filter by Category</InputLabel>
-              <Select
-                value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value)}
-              >
-                <MenuItem value="">All</MenuItem>
-                <MenuItem value="Category1">Category 1</MenuItem>
-                <MenuItem value="Category2">Category 2</MenuItem>
-                {/* Add more categories as needed */}
-              </Select>
-            </FormControl>
-          </div>
           <DataGrid
             rows={row}
             columns={columns}
@@ -133,7 +116,6 @@ const AllProducts = () => {
             disableSelectionOnClick
             autoHeight
           />
-        </div>
       )}
     </>
   );

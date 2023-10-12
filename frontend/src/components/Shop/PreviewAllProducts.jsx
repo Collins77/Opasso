@@ -1,11 +1,10 @@
 import { Button, FormControl, InputLabel, MenuItem, Select } from "@material-ui/core";
 import { DataGrid } from "@material-ui/data-grid";
 import React, { useEffect, useState } from "react";
-import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
+import { AiOutlineEye } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { getAllProductsShop } from "../../redux/actions/product";
-import { deleteProduct } from "../../redux/actions/product";
 import Loader from "../Layout/Loader";
 import { categoriesData } from "../../static/data";
 
@@ -15,15 +14,20 @@ const PreviewAllProducts = () => {
   const {id} = useParams();
   const dispatch = useDispatch();
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [filteredProducts, setFilteredProducts] = useState([]);
   
   useEffect(() => {
     dispatch(getAllProductsShop(id, selectedCategory));
   }, [dispatch, id, selectedCategory]);
 
-  // const handleDelete = (id) => {
-  //   dispatch(deleteProduct(id));
-  //   window.location.reload();
-  // };
+  const handleCategoryChange = (e) => {
+    setSelectedCategory(e.target.value);
+
+    // Filter products based on the selected category
+    const filtered = products.filter((product) => product.category === e.target.value);
+    setFilteredProducts(filtered);
+  };
+
 
   const columns = [
     { field: "id", headerName: "Product Id", minWidth: 150, flex: 0.7 },
@@ -114,7 +118,7 @@ const PreviewAllProducts = () => {
               <InputLabel>Filter by Category</InputLabel>
                 <Select
                   value={selectedCategory}
-                  onChange={(e) => setSelectedCategory(e.target.value)}
+                  onChange={handleCategoryChange}
                 >
                   <MenuItem value="">All</MenuItem>
                   {categoriesData && 
@@ -133,7 +137,7 @@ const PreviewAllProducts = () => {
       ) : (
         <div className="w-full mx-8 pt-1 mt-10 bg-white">
           <DataGrid
-            rows={row}
+            rows={selectedCategory ? filteredProducts :  products}
             columns={columns}
             pageSize={10}
             disableSelectionOnClick
