@@ -86,7 +86,7 @@ const PreviewAllProducts = () => {
       setFilteredProducts(products);
     } else {
       const selectedCategory = filterModel.items[0].value;
-      const filtered = products.filter((product) => product.category === selectedCategory);
+      const filtered = products.filter((item) => item.category === selectedCategory);
       setFilteredProducts(filtered);
     }
   };
