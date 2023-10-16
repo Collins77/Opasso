@@ -1,5 +1,6 @@
 import { Button, FormControlLabel, Switch } from "@material-ui/core";
-import { DataGrid, GridFilterModel, GridColumnVisibilityModel } from "@material-ui/data-grid";
+import { DataGrid, GridColumnVisibilityModel } from "@material-ui/data-grid";
+import {GridFilterModel} from '@mui/x-data-grid'
 import React, { useEffect } from "react";
 import { AiOutlineEye } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
