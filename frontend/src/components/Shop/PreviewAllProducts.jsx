@@ -120,7 +120,6 @@ const PreviewAllProducts = () => {
             disableSelectionOnClick
             autoHeight
             initialState={{
-              ...row.initialState,
               filter: {
                 filterModel: {
                   items: [],
