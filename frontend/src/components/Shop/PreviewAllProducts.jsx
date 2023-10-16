@@ -74,6 +74,7 @@ const PreviewAllProducts = () => {
         id: item._id,
         name: item.name,
         price: "US$ " + item.discountPrice,
+        Category: item.category,
         Stock: item.stock,
         sold: item?.sold_out,
       });
