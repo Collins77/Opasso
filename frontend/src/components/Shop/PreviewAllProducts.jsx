@@ -118,7 +118,7 @@ const PreviewAllProducts = () => {
               {categoriesData &&
                   categoriesData.map((i) => {
                     return (
-                      <MenuItem value={"category"}>{i.title}</MenuItem>
+                      <MenuItem value={category}>{i.title}</MenuItem>
                     )
                   })
                 } 
