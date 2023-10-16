@@ -27,7 +27,7 @@ const PreviewAllProducts = () => {
 
 
   const columns = [
-    { field: "id", headerName: "Product Id", minWidth: 150, flex: 0.7 },
+    { field: "id", headerName: "Product Id", hide: true, minWidth: 150, flex: 0.7 },
     { field: "partNumber", headerName: "Part Number", minWidth: 150, flex: 0.7 },
     {
       field: "name",
