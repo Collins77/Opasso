@@ -35,7 +35,7 @@ const PreviewAllProducts = () => {
     {
       field: "category",
       headerName: "Category",
-      minWidth: 100,
+      minWidth: 200,
       flex: 0.6,
     },
     {
@@ -74,7 +74,7 @@ const PreviewAllProducts = () => {
         id: item._id,
         name: item.name,
         price: "US$ " + item.discountPrice,
-        Category: item.category,
+        category: item.category,
         Stock: item.stock,
         sold: item?.sold_out,
       });
