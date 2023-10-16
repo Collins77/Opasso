@@ -17,7 +17,7 @@ const PreviewAllProducts = () => {
     quickFilterValues: ['1'],
   });
 
-  const [columnVisibilityModel, setColumnVisibilityModel] = React.useState({});
+  // const [columnVisibilityModel, setColumnVisibilityModel] = React.useState({});
 
   const dispatch = useDispatch();
 
@@ -98,7 +98,7 @@ const PreviewAllProducts = () => {
       ) : (
 
           <div>
-            <FormControlLabel
+            {/* <FormControlLabel
               checked={columnVisibilityModel.id !== false}
               onChange={(event) =>
                 setColumnVisibilityModel(() => ({ id: event.target.checked }))
@@ -116,7 +116,7 @@ const PreviewAllProducts = () => {
               }
               control={<Switch color="primary" size="small" />}
               label="Exclude hidden columns"
-            />
+            /> */}
             <DataGrid
             rows={row}
             columns={columns}
