@@ -33,6 +33,12 @@ const PreviewAllProducts = () => {
       flex: 0.6,
     },
     {
+      field: "category",
+      headerName: "Category",
+      minWidth: 100,
+      flex: 0.6,
+    },
+    {
       field: "Stock",
       headerName: "Stock",
       type: "number",
