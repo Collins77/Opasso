@@ -1,6 +1,6 @@
 import { Button, FormControlLabel, Switch } from "@material-ui/core";
-import { DataGrid, GridColumnVisibilityModel } from "@material-ui/data-grid";
-import {GridFilterModel} from '@mui/x-data-grid'
+import { DataGrid, GridToolbar } from "@material-ui/data-grid";
+// import {GridFilterModel} from '@mui/x-data-grid'
 import React, { useEffect } from "react";
 import { AiOutlineEye } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,14 +11,13 @@ import Loader from "../Layout/Loader";
 const PreviewAllProducts = () => {
   const { products, isLoading } = useSelector((state) => state.products);
   const { id } = useParams();
-  const [filterModel, setFilterModel] = React.useState<GridFilterModel>({
+  const [filterModel, setFilterModel] = React.useState({
     items: [],
     quickFilterExcludeHiddenColumns: true,
     quickFilterValues: ['1'],
   });
 
-  const [columnVisibilityModel, setColumnVisibilityModel] =
-    React.useState<GridColumnVisibilityModel>({});
+  const [columnVisibilityModel, setColumnVisibilityModel] = React.useState({});
 
   const dispatch = useDispatch();
 
@@ -100,7 +99,7 @@ const PreviewAllProducts = () => {
             <FormControlLabel
               checked={columnVisibilityModel.id !== false}
               onChange={(event) =>
-                setColumnVisibilityModel(() => ({ id: (event.target).checked }))
+                setColumnVisibilityModel(() => ({ id: event.target.checked }))
               }
               control={<Switch color="primary" size="small" />}
               label="Show ID column"
@@ -110,7 +109,7 @@ const PreviewAllProducts = () => {
               onChange={(event) =>
                 setFilterModel((model) => ({
                   ...model,
-                  quickFilterExcludeHiddenColumns: (event.target).checked,
+                  quickFilterExcludeHiddenColumns: event.target.checked,
                 }))
               }
               control={<Switch color="primary" size="small" />}
@@ -122,6 +121,16 @@ const PreviewAllProducts = () => {
             pageSize={10}
             disableSelectionOnClick
             autoHeight
+            disableColumnFilter
+            disableDensitySelector
+            slots={{ toolbar: GridToolbar }}
+            filterModel={filterModel}
+            onFilterModelChange={(newModel) => setFilterModel(newModel)}
+            slotProps={{ toolbar: { showQuickFilter: true } }}
+            columnVisibilityModel={columnVisibilityModel}
+            onColumnVisibilityModelChange={(newModel) =>
+              setColumnVisibilityModel(newModel)
+            }
           />
           </div>
           
