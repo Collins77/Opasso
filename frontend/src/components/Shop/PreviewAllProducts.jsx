@@ -1,27 +1,16 @@
-import React, { useEffect, useState } from "react";
+import { Button } from "@material-ui/core";
+import { DataGrid } from "@material-ui/data-grid";
+import React, { useEffect } from "react";
+import { AiOutlineEye } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getAllProductsShop } from "../../redux/actions/product";
 import Loader from "../Layout/Loader";
-import { Button, MenuItem, Select } from "@material-ui/core";
-import { AiOutlineEye } from "react-icons/ai";
-import { Link } from "react-router-dom";
-// import MaterialTable from 'material-table';
-// import { categoriesData } from "../../static/data";
-import MUIDataTable from "mui-datatables";
-import InputLabel from "@material-ui/core/InputLabel";
-import FormHelperText from "@material-ui/core/FormHelperText";
-import FormControl from "@material-ui/core/FormControl";
-
-
-
 
 const PreviewAllProducts = () => {
   const { products, isLoading } = useSelector((state) => state.products);
   const { id } = useParams();
-  const [responsive, setResponsive] = useState("vertical");
-  const [tableBodyHeight, setTableBodyHeight] = useState("400px");
-  const [tableBodyMaxHeight, setTableBodyMaxHeight] = useState("");
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -50,14 +39,6 @@ const PreviewAllProducts = () => {
       minWidth: 80,
       flex: 0.5,
     },
-
-    {
-      field: "category",
-      headerName: "Category",
-      type: "number",
-      minWidth: 130,
-      flex: 0.6,
-    },
     {
       field: "Preview",
       flex: 0.8,
@@ -78,76 +59,36 @@ const PreviewAllProducts = () => {
       },
     },
   ];
-  const options = {
-    filter: true,
-    filterType: "dropdown",
-    responsive,
-    tableBodyHeight,
-    tableBodyMaxHeight
-  };
 
-  // const handleChange = () => {
-  //   setFilter(!filter)
-  // // }
+  const row = [];
 
-  // useEffect(() => {
-  //   setFilteredData(category === 'all' ? products : products.filter(item=>item.category===category))
-  // },[category, products])
- 
- 
+  products &&
+    products.forEach((item) => {
+      row.push({
+        id: item._id,
+        name: item.name,
+        price: "US$ " + item.discountPrice,
+        Stock: item.stock,
+        sold: item?.sold_out,
+      });
+    });
+
   return (
-   <>
-    {isLoading ? (
-      <Loader />
-    ) : (
-      <div className="w-full mx-8 pt-1 mt-10 bg-white">
-        
-        <FormControl>
-        <InputLabel id="demo-simple-select-label">Responsive Option</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={responsive}
-          style={{ width: "200px", marginBottom: "10px", marginRight: 10 }}
-          onChange={(e) => setResponsive(e.target.value)}
-        >
-          <MenuItem value={"vertical"}>vertical</MenuItem>
-          <MenuItem value={"standard"}>standard</MenuItem>
-          <MenuItem value={"simple"}>simple</MenuItem>
-
-          <MenuItem value={"scroll"}>scroll (deprecated)</MenuItem>
-          <MenuItem value={"scrollMaxHeight"}>
-            scrollMaxHeight (deprecated)
-          </MenuItem>
-          <MenuItem value={"stacked"}>stacked (deprecated)</MenuItem>
-        </Select>
-      </FormControl>
-      <FormControl>
-        <InputLabel id="demo-simple-select-label">Table Body Height</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={tableBodyHeight}
-          style={{ width: "200px", marginBottom: "10px", marginRight: 10 }}
-          onChange={(e) => setTableBodyHeight(e.target.value)}
-        >
-          <MenuItem value={""}>[blank]</MenuItem>
-          <MenuItem value={"400px"}>400px</MenuItem>
-          <MenuItem value={"800px"}>800px</MenuItem>
-          <MenuItem value={"100%"}>100%</MenuItem>
-        </Select>
-      </FormControl>
-      <MUIDataTable
-        title={"ACME Employee list"}
-        data={products}
-        columns={columns}
-        options={options}
-      />
-      </div>
-    )}
-   </> 
-  )
-
+    <>
+      
+      {isLoading ? (
+        <Loader />
+      ) : (
+          <DataGrid
+            rows={row}
+            columns={columns}
+            pageSize={10}
+            disableSelectionOnClick
+            autoHeight
+          />
+      )}
+    </>
+  );
 };
 
 export default PreviewAllProducts;
