@@ -1,5 +1,5 @@
 import { Button } from "@material-ui/core";
-import { DataGrid, GridToolbar } from "@material-ui/x-data-grid";
+import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 // import {GridFilterModel} from '@mui/x-data-grid'
 import React, { useEffect } from "react";
 import { AiOutlineEye } from "react-icons/ai";
