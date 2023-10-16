@@ -125,19 +125,14 @@ const PreviewAllProducts = () => {
             autoHeight
             disableColumnFilter
             disableDensitySelector
-            slots={{ toolbar: GridToolbar }}
+            // slots={{ toolbar: GridToolbar }}
             filterModel={filterModel}
             onFilterModelChange={(newModel) => setFilterModel(newModel)}
-            slotProps={{ toolbar: { showQuickFilter: true } }}
-            columnVisibilityModel={columnVisibilityModel}
-            onColumnVisibilityModelChange={(newModel) =>
-              setColumnVisibilityModel(newModel)
-            }
-            componentsProps={{
+            slots={{ toolbar: GridToolbar }}
+            slotProps={{
               toolbar: {
-                  showQuickFilter: true,
-                     quickFilterProps: { debounceMs: 500 },
-               },
+                showQuickFilter: true,
+              },
             }}
           />
           </div>
