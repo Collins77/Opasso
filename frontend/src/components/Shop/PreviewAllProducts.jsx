@@ -28,6 +28,7 @@ const PreviewAllProducts = () => {
 
   const columns = [
     { field: "id", headerName: "Product Id", minWidth: 150, flex: 0.7 },
+    { field: "partNumber", headerName: "Part Number", minWidth: 150, flex: 0.7 },
     {
       field: "name",
       headerName: "Name",
@@ -80,6 +81,7 @@ const PreviewAllProducts = () => {
     products.forEach((item) => {
       row.push({
         id: item._id,
+        partNumber: item.partNumber,
         name: item.name,
         price: "US$ " + item.discountPrice,
         category: item.category,
