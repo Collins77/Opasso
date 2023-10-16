@@ -1,6 +1,5 @@
 import { Button } from "@material-ui/core";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
-// import {GridFilterModel} from '@mui/x-data-grid'
 import React, { useEffect } from "react";
 import { AiOutlineEye } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
@@ -94,25 +93,6 @@ const PreviewAllProducts = () => {
       ) : (
 
           <div>
-            {/* <FormControlLabel
-              checked={columnVisibilityModel.id !== false}
-              onChange={(event) =>
-                setColumnVisibilityModel(() => ({ id: event.target.checked }))
-              }
-              control={<Switch color="primary" size="small" />}
-              label="Show ID column"
-            />
-            <FormControlLabel
-              checked={filterModel.quickFilterExcludeHiddenColumns}
-              onChange={(event) =>
-                setFilterModel((model) => ({
-                  ...model,
-                  quickFilterExcludeHiddenColumns: event.target.checked,
-                }))
-              }
-              control={<Switch color="primary" size="small" />}
-              label="Exclude hidden columns"
-            /> */}
             <DataGrid
             rows={row}
             columns={columns}
@@ -123,7 +103,7 @@ const PreviewAllProducts = () => {
               filter: {
                 filterModel: {
                   items: [],
-                  quickFilterValues: ['ab'],
+                  quickFilterValues: [''],
                 },
               },
             }}
