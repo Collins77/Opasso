@@ -11,11 +11,7 @@ import Loader from "../Layout/Loader";
 const PreviewAllProducts = () => {
   const { products, isLoading } = useSelector((state) => state.products);
   const { id } = useParams();
-  const [filterModel, setFilterModel] = React.useState({
-    items: [],
-    quickFilterExcludeHiddenColumns: true,
-    quickFilterValues: ['1'],
-  });
+  
 
   // const [columnVisibilityModel, setColumnVisibilityModel] = React.useState({});
 
@@ -123,11 +119,18 @@ const PreviewAllProducts = () => {
             pageSize={10}
             disableSelectionOnClick
             autoHeight
+            initialState={{
+              ...row.initialState,
+              filter: {
+                filterModel: {
+                  items: [],
+                  quickFilterValues: ['ab'],
+                },
+              },
+            }}
             disableColumnFilter
             disableDensitySelector
             // slots={{ toolbar: GridToolbar }}
-            filterModel={filterModel}
-            onFilterModelChange={(newModel) => setFilterModel(newModel)}
             slots={{ toolbar: GridToolbar }}
             slotProps={{
               toolbar: {
