@@ -133,6 +133,12 @@ const PreviewAllProducts = () => {
             onColumnVisibilityModelChange={(newModel) =>
               setColumnVisibilityModel(newModel)
             }
+            componentsProps={{
+              toolbar: {
+                  showQuickFilter: true,
+                     quickFilterProps: { debounceMs: 500 },
+               },
+            }}
           />
           </div>
           
