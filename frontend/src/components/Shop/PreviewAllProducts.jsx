@@ -1,5 +1,5 @@
-import { Button } from "@material-ui/core";
-import { DataGrid } from "@material-ui/data-grid";
+import { Button, FormControlLabel, Switch } from "@material-ui/core";
+import { DataGrid, GridFilterModel, GridColumnVisibilityModel } from "@material-ui/data-grid";
 import React, { useEffect } from "react";
 import { AiOutlineEye } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,6 +10,14 @@ import Loader from "../Layout/Loader";
 const PreviewAllProducts = () => {
   const { products, isLoading } = useSelector((state) => state.products);
   const { id } = useParams();
+  const [filterModel, setFilterModel] = React.useState<GridFilterModel>({
+    items: [],
+    quickFilterExcludeHiddenColumns: true,
+    quickFilterValues: ['1'],
+  });
+
+  const [columnVisibilityModel, setColumnVisibilityModel] =
+    React.useState<GridColumnVisibilityModel>({});
 
   const dispatch = useDispatch();
 
@@ -86,13 +94,36 @@ const PreviewAllProducts = () => {
       {isLoading ? (
         <Loader />
       ) : (
-          <DataGrid
+
+          <div>
+            <FormControlLabel
+              checked={columnVisibilityModel.id !== false}
+              onChange={(event) =>
+                setColumnVisibilityModel(() => ({ id: (event.target).checked }))
+              }
+              control={<Switch color="primary" size="small" />}
+              label="Show ID column"
+            />
+            <FormControlLabel
+              checked={filterModel.quickFilterExcludeHiddenColumns}
+              onChange={(event) =>
+                setFilterModel((model) => ({
+                  ...model,
+                  quickFilterExcludeHiddenColumns: (event.target).checked,
+                }))
+              }
+              control={<Switch color="primary" size="small" />}
+              label="Exclude hidden columns"
+            />
+            <DataGrid
             rows={row}
             columns={columns}
             pageSize={10}
             disableSelectionOnClick
             autoHeight
           />
+          </div>
+          
       )}
     </>
   );
