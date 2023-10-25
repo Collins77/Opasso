@@ -70,6 +70,7 @@ const PreviewAllProducts = () => {
       headerName: "Availability",
       minWidth: 200,
       flex: 0.6,
+      renderCell: (params) => <GridCheckboxRenderer value={params.value} readOnly />,
     },
     {
       field: "exchangeRate",
