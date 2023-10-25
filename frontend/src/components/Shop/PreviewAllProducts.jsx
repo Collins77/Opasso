@@ -102,8 +102,6 @@ const PreviewAllProducts = () => {
         id: item._id,
         partNumber: item.partNumber,
         name: item.name,
-        // price: "KES " + item.discountPrice,
-        // price: calculatePrice(item),
         category: item.category,
         brand: item.brand,
         exchangeRate: item.shop.exchangeRate,
@@ -120,11 +118,13 @@ const PreviewAllProducts = () => {
       ) : (
 
           <div>
-            
+            <label className="mb-2">
+              Currency
+            </label>
             <Select
                 value={selectedCurrency}
                 onChange={(e) => setSelectedCurrency(e.target.value)}
-                className="w-[200] border mb-4"
+                className="w-[300] border mb-4"
                 >
                 <MenuItem value="KES">KES</MenuItem>
                 <MenuItem value="USD">USD</MenuItem>
