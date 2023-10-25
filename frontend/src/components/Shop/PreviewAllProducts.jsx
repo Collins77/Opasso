@@ -124,6 +124,9 @@ const PreviewAllProducts = () => {
                 },
               },
             }}
+            columnVisibilityModel={{
+              id: false,
+            }}
             disableColumnFilter
             disableDensitySelector
             slots={{ toolbar: GridToolbar }}
