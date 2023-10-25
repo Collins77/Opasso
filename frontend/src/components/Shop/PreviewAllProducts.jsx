@@ -70,7 +70,7 @@ const PreviewAllProducts = () => {
       field: "Preview",
       flex: 0.8,
       minWidth: 100,
-      headerName: "",
+      headerName: "Preview",
       type: "number",
       sortable: false,
       renderCell: (params) => {
