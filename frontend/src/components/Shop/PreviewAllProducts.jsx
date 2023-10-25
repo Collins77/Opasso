@@ -35,6 +35,23 @@ const PreviewAllProducts = () => {
       headerName: "Price",
       minWidth: 100,
       flex: 0.6,
+      renderCell: (params) => {
+        const currency1 = 'USD'; // First currency
+        const currency2 = 'KES'; // Second currency
+        const selectedCurrency = params.row.currency; // Assuming you have a currency field in your data
+  
+        // Adjust the currency display based on the selectedCurrency
+        const priceInSelectedCurrency =
+          selectedCurrency === currency1
+            ? params.row.price // Display the price as-is for currency1
+            : params.row.priceInCurrency2; // Display priceInCurrency2 for currency2
+  
+        return (
+          <span>
+            {priceInSelectedCurrency} {selectedCurrency}
+          </span>
+        );
+      },
     },
     {
       field: "category",
@@ -43,8 +60,8 @@ const PreviewAllProducts = () => {
       flex: 0.6,
     },
     {
-      field: "Stock",
-      headerName: "Stock",
+      field: "exchangeRate",
+      headerName: "Exchange Rate",
       type: "number",
       minWidth: 80,
       flex: 0.5,
@@ -80,7 +97,7 @@ const PreviewAllProducts = () => {
         name: item.name,
         price: "US$ " + item.discountPrice,
         category: item.category,
-        Stock: item.stock,
+        exchangeRate: item.shop.exchangeRate,
         sold: item?.sold_out,
       });
     });
@@ -109,7 +126,6 @@ const PreviewAllProducts = () => {
             }}
             disableColumnFilter
             disableDensitySelector
-            // slots={{ toolbar: GridToolbar }}
             slots={{ toolbar: GridToolbar }}
             slotProps={{
               toolbar: {
