@@ -1,5 +1,5 @@
 import { Button } from "@material-ui/core";
-import { DataGrid, GridToolbar } from "@mui/x-data-grid";
+import { DataGrid, GridToolbar, GridCheckboxRenderer } from "@mui/x-data-grid";
 import React, { useEffect } from "react";
 import { AiOutlineEye } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
@@ -60,6 +60,12 @@ const PreviewAllProducts = () => {
       flex: 0.6,
     },
     {
+      field: "brand",
+      headerName: "Brand",
+      minWidth: 200,
+      flex: 0.6,
+    },
+    {
       field: "isAvailable",
       headerName: "Availability",
       minWidth: 200,
@@ -103,6 +109,7 @@ const PreviewAllProducts = () => {
         name: item.name,
         price: "KES " + item.discountPrice,
         category: item.category,
+        brand: item.brand,
         exchangeRate: item.shop.exchangeRate,
         isAvailable: item.isAvailable,
         sold: item?.sold_out,
