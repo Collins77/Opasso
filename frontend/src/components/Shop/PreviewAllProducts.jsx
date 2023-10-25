@@ -95,7 +95,7 @@ const PreviewAllProducts = () => {
         id: item._id,
         partNumber: item.partNumber,
         name: item.name,
-        price: "US$ " + item.discountPrice,
+        price: "KES " + item.discountPrice,
         category: item.category,
         exchangeRate: item.shop.exchangeRate,
         sold: item?.sold_out,
