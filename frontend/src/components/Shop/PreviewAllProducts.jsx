@@ -13,7 +13,7 @@ const PreviewAllProducts = () => {
   
 
   // const [columnVisibilityModel, setColumnVisibilityModel] = React.useState({});
-  const [selectedCurrency, setSelectedCurrency] = useState("local"); 
+  const [selectedCurrency, setSelectedCurrency] = useState("KES"); 
 
   const dispatch = useDispatch();
 
@@ -25,7 +25,7 @@ const PreviewAllProducts = () => {
     if (selectedCurrency === "USD") {
       return `$${(product.discountPrice / product.shop.exchangeRate).toFixed(2)}`;
     } else {
-      return `Local ${product.discountPrice}`;
+      return `KES ${product.discountPrice}`;
     }
   };
 
@@ -44,7 +44,17 @@ const PreviewAllProducts = () => {
       headerName: "Price",
       minWidth: 100,
       flex: 0.6,
-      valueGetter: (params) => calculatePrice(params.row),
+      renderCell: (params) => {
+        const item = products.find((product) => product._id === params.row.id);
+
+        const priceInUSD = item.discountPrice / item.shop.exchangeRate;
+        const priceInLocal = item.discountPrice;
+
+        const formattedPrice =
+          selectedCurrency === "USD" ? `$${priceInUSD.toFixed(2)}` : `KES ${priceInLocal}`;
+
+        return <span>{formattedPrice}</span>;
+      },
       // renderCell: (params) => {
       //   const currency1 = 'USD'; // First currency
       //   const currency2 = 'KES'; // Second currency
@@ -119,7 +129,7 @@ const PreviewAllProducts = () => {
         partNumber: item.partNumber,
         name: item.name,
         // price: "KES " + item.discountPrice,
-        price: calculatePrice(item),
+        // price: calculatePrice(item),
         category: item.category,
         brand: item.brand,
         exchangeRate: item.shop.exchangeRate,
@@ -140,7 +150,7 @@ const PreviewAllProducts = () => {
                 value={selectedCurrency}
                 onChange={(e) => setSelectedCurrency(e.target.value)}
                 >
-                <MenuItem value="local">Local</MenuItem>
+                <MenuItem value="KES">Local</MenuItem>
                 <MenuItem value="USD">USD</MenuItem>
             </Select>
             <DataGrid
