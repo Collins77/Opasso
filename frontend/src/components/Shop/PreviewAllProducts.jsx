@@ -1,6 +1,6 @@
-import { Button } from "@material-ui/core";
+import { Button, MenuItem, Select } from "@material-ui/core";
 import { DataGrid, GridToolbar, GridCheckboxRenderer } from "@mui/x-data-grid";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineEye } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
@@ -13,12 +13,21 @@ const PreviewAllProducts = () => {
   
 
   // const [columnVisibilityModel, setColumnVisibilityModel] = React.useState({});
+  const [selectedCurrency, setSelectedCurrency] = useState("local"); 
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAllProductsShop(id));
   }, [dispatch, id]);
+
+  const calculatePrice = (product) => {
+    if (selectedCurrency === "USD") {
+      return `$${(product.discountPrice / product.shop.exchangeRate).toFixed(2)}`;
+    } else {
+      return `Local ${product.discountPrice}`;
+    }
+  };
 
 
   const columns = [
@@ -35,6 +44,7 @@ const PreviewAllProducts = () => {
       headerName: "Price",
       minWidth: 100,
       flex: 0.6,
+      valueGetter: (params) => calculatePrice(params.row),
       // renderCell: (params) => {
       //   const currency1 = 'USD'; // First currency
       //   const currency2 = 'KES'; // Second currency
@@ -108,7 +118,8 @@ const PreviewAllProducts = () => {
         id: item._id,
         partNumber: item.partNumber,
         name: item.name,
-        price: "KES " + item.discountPrice,
+        // price: "KES " + item.discountPrice,
+        price: calculatePrice(item),
         category: item.category,
         brand: item.brand,
         exchangeRate: item.shop.exchangeRate,
@@ -125,6 +136,13 @@ const PreviewAllProducts = () => {
       ) : (
 
           <div>
+            <Select
+                value={selectedCurrency}
+                onChange={(e) => setSelectedCurrency(e.target.value)}
+                >
+                <MenuItem value="local">Local</MenuItem>
+                <MenuItem value="USD">USD</MenuItem>
+            </Select>
             <DataGrid
             rows={row}
             columns={columns}
