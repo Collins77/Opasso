@@ -60,6 +60,12 @@ const PreviewAllProducts = () => {
       flex: 0.6,
     },
     {
+      field: "",
+      headerName: "Availability",
+      minWidth: 200,
+      flex: 0.6,
+    },
+    {
       field: "exchangeRate",
       headerName: "Exchange Rate",
       type: "number",
