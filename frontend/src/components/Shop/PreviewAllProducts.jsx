@@ -133,14 +133,14 @@ const PreviewAllProducts = () => {
             columnVisibilityModel={{
               id: false,
             }}
-            disableColumnFilter
+            // disableColumnFilter
             disableDensitySelector
             slots={{ toolbar: GridToolbar }}
-            // slotProps={{
-            //   toolbar: {
-            //     showQuickFilter: true,
-            //   },
-            // }}
+            slotProps={{
+              toolbar: {
+                showQuickFilter: true,
+              },
+            }}
           />
           </div>
           
