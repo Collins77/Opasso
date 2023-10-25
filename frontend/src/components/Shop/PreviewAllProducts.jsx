@@ -63,7 +63,7 @@ const PreviewAllProducts = () => {
       field: "brand",
       headerName: "Brand",
       minWidth: 200,
-      flex: 0.6,
+      flex: 0.4,
     },
     {
       field: "isAvailable",
