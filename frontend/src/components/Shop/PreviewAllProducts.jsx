@@ -1,5 +1,5 @@
 import { Button, MenuItem, Select } from "@material-ui/core";
-import { DataGrid, GridToolbar, GridCheckboxRenderer } from "@mui/x-data-grid";
+import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import React, { useEffect, useState } from "react";
 import { AiOutlineEye } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
@@ -20,15 +20,6 @@ const PreviewAllProducts = () => {
   useEffect(() => {
     dispatch(getAllProductsShop(id));
   }, [dispatch, id]);
-
-  const calculatePrice = (product) => {
-    if (selectedCurrency === "USD") {
-      return `$${(product.discountPrice / product.shop.exchangeRate).toFixed(2)}`;
-    } else {
-      return `KES ${product.discountPrice}`;
-    }
-  };
-
 
   const columns = [
     { field: "id", headerName: "Product Id", hide: true, minWidth: 150, flex: 0.7 },
@@ -55,23 +46,6 @@ const PreviewAllProducts = () => {
 
         return <span>{formattedPrice}</span>;
       },
-      // renderCell: (params) => {
-      //   const currency1 = 'USD'; // First currency
-      //   const currency2 = 'KES'; // Second currency
-      //   const selectedCurrency = params.row.currency; // Assuming you have a currency field in your data
-  
-      //   // Adjust the currency display based on the selectedCurrency
-      //   const priceInSelectedCurrency =
-      //     selectedCurrency === currency1
-      //       ? params.row.price // Display the price as-is for currency1
-      //       : params.row.priceInCurrency2; // Display priceInCurrency2 for currency2
-  
-      //   return (
-      //     <span>
-      //       {priceInSelectedCurrency} {selectedCurrency}
-      //     </span>
-      //   );
-      // },
     },
     {
       field: "category",
