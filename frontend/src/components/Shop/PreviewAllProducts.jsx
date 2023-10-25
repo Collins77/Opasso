@@ -35,23 +35,23 @@ const PreviewAllProducts = () => {
       headerName: "Price",
       minWidth: 100,
       flex: 0.6,
-      renderCell: (params) => {
-        const currency1 = 'USD'; // First currency
-        const currency2 = 'KES'; // Second currency
-        const selectedCurrency = params.row.currency; // Assuming you have a currency field in your data
+      // renderCell: (params) => {
+      //   const currency1 = 'USD'; // First currency
+      //   const currency2 = 'KES'; // Second currency
+      //   const selectedCurrency = params.row.currency; // Assuming you have a currency field in your data
   
-        // Adjust the currency display based on the selectedCurrency
-        const priceInSelectedCurrency =
-          selectedCurrency === currency1
-            ? params.row.price // Display the price as-is for currency1
-            : params.row.priceInCurrency2; // Display priceInCurrency2 for currency2
+      //   // Adjust the currency display based on the selectedCurrency
+      //   const priceInSelectedCurrency =
+      //     selectedCurrency === currency1
+      //       ? params.row.price // Display the price as-is for currency1
+      //       : params.row.priceInCurrency2; // Display priceInCurrency2 for currency2
   
-        return (
-          <span>
-            {priceInSelectedCurrency} {selectedCurrency}
-          </span>
-        );
-      },
+      //   return (
+      //     <span>
+      //       {priceInSelectedCurrency} {selectedCurrency}
+      //     </span>
+      //   );
+      // },
     },
     {
       field: "category",

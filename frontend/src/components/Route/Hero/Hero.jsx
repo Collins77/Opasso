@@ -25,8 +25,8 @@ const Hero = () => {
       className={`relative min-h-[70vh] 800px:min-h-[80vh] w-full bg-no-repeat ${styles.noramlFlex}`}
       style={{
         backgroundImage:
-          "url(https://themes.rslahmed.dev/rafcart/assets/images/banner-2.jpg)",
-          // "url(https://img.freepik.com/free-photo/group-trained-workers-using-depot-equipment-working-packaging-department-with-packages-people-using-merchandise-boxes-pack-ship-products-industrial-stock-distribution_482257-59957.jpg?w=1800&t=st=1692078683~exp=1692079283~hmac=72090d43c2e93d347a7436eadbff3e26e402496d03da853e8eabd27f97d7ec52)",
+          // "url(https://themes.rslahmed.dev/rafcart/assets/images/banner-2.jpg)",
+          "url(https://img.freepik.com/free-photo/group-trained-workers-using-depot-equipment-working-packaging-department-with-packages-people-using-merchandise-boxes-pack-ship-products-industrial-stock-distribution_482257-59957.jpg?w=1800&t=st=1692078683~exp=1692079283~hmac=72090d43c2e93d347a7436eadbff3e26e402496d03da853e8eabd27f97d7ec52)",
       }}
     >
       <div className={`${styles.section} w-[90%] 800px:w-[60%]`}>
