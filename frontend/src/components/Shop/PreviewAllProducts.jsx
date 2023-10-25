@@ -118,8 +118,8 @@ const PreviewAllProducts = () => {
       ) : (
 
           <div>
-            <label className="mb-2">
-              Currency
+            <label className="mb-2 ml-2">
+              Currency :
             </label>
             <Select
                 value={selectedCurrency}
