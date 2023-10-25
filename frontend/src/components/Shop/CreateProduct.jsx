@@ -21,6 +21,7 @@ const CreateProduct = () => {
   const [tags, setTags] = useState("");
   const [originalPrice, setOriginalPrice] = useState();
   const [discountPrice, setDiscountPrice] = useState();
+  const [isAvailable, setIsAvailable] = useState();
   const [stock, setStock] = useState();
 
   useEffect(() => {
@@ -32,7 +33,7 @@ const CreateProduct = () => {
       navigate("/dashboard");
       window.location.reload();
     }
-  }, [dispatch, error, success]);
+  }, [dispatch, error, success, navigate]);
 
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
@@ -67,6 +68,7 @@ const CreateProduct = () => {
     newForm.append("tags", tags);
     newForm.append("originalPrice", originalPrice);
     newForm.append("discountPrice", discountPrice);
+    newForm.append("isAvailable", isAvailable);
     newForm.append("stock", stock);
     newForm.append("shopId", seller._id);
     dispatch(
@@ -79,6 +81,7 @@ const CreateProduct = () => {
         tags,
         originalPrice,
         discountPrice,
+        isAvailable,
         stock,
         shopId: seller._id,
         images,
@@ -186,6 +189,20 @@ const CreateProduct = () => {
             className="mt-2 appearance-none block w-full px-3 h-[35px] border border-gray-300 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             onChange={(e) => setDiscountPrice(e.target.value)}
             placeholder="Enter your product price with discount..."
+          />
+        </div>
+        <br />
+        <div>
+          <label className="pb-2">
+            is Available <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="checkbox"
+            name="isAvailable"
+            // value={isAvailable}
+            checked={isAvailable}
+            // className="mt-2 appearance-none block w-full px-3 h-[35px] border border-gray-300 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+            onChange={(e) => setIsAvailable(e.target.value)}
           />
         </div>
         <br />
