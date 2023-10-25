@@ -60,7 +60,7 @@ const PreviewAllProducts = () => {
       flex: 0.6,
     },
     {
-      field: "",
+      field: "isAvailable",
       headerName: "Availability",
       minWidth: 200,
       flex: 0.6,
@@ -104,6 +104,7 @@ const PreviewAllProducts = () => {
         price: "KES " + item.discountPrice,
         category: item.category,
         exchangeRate: item.shop.exchangeRate,
+        isAvailable: item.isAvailable,
         sold: item?.sold_out,
       });
     });
