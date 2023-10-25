@@ -202,7 +202,7 @@ const CreateProduct = () => {
             // value={isAvailable}
             checked={isAvailable}
             className="ml-2"
-            onChange={(e) => setIsAvailable(e.target.value)}
+            onChange={(e) => setIsAvailable(e.target.checked)}
           />
         </div>
         <br />
