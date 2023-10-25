@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import styles from "../../../styles/styles";
 import ProductCard from "../ProductCard/ProductCard";
@@ -23,7 +22,7 @@ const FeaturedProduct = () => {
             )
            } */}
           {
-             featuredProducts.map((i, index) => (
+             featuredProducts && featuredProducts.map((i, index) => (
               <ProductCard data={i} key={index} />
             )
           )
