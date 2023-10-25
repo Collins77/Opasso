@@ -120,12 +120,13 @@ const PreviewAllProducts = () => {
       ) : (
 
           <div>
+            
             <Select
                 value={selectedCurrency}
                 onChange={(e) => setSelectedCurrency(e.target.value)}
                 className="w-[200] border mb-4"
                 >
-                <MenuItem value="KES">Local</MenuItem>
+                <MenuItem value="KES">KES</MenuItem>
                 <MenuItem value="USD">USD</MenuItem>
             </Select>
             <DataGrid
