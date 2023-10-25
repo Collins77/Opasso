@@ -6,7 +6,7 @@ import ProductCard from "../ProductCard/ProductCard";
 const FeaturedProduct = () => {
   const {allProducts} = useSelector((state) => state.products);
 
-  const featuredProducts = allProducts.slice(0,6);
+  const featuredProducts = allProducts.slice(0,9);
    
   return (
     <div>
