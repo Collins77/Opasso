@@ -57,7 +57,18 @@ const ProductsPage = () => {
     },
     {
       field: "price",
-      headerName: headerText,
+      headerName: (
+        <div>
+          <Select
+            value={selectedCurrency}
+            onChange={(e) => setSelectedCurrency(e.target.value)}
+            style={{ marginRight: "8px" }}
+          >
+            <MenuItem value="KES">KES</MenuItem>
+            <MenuItem value="USD">USD</MenuItem>
+          </Select>
+        </div>
+      ),
       headerClassName:
         selectedCurrency === "USD"
           ? classes.usdHeader
@@ -70,13 +81,13 @@ const ProductsPage = () => {
         const priceInUSD = item.discountPrice / item.shop.exchangeRate;
         const priceInLocal = item.discountPrice;
 
-        const priceClass =
-        selectedCurrency === "USD" ? classes.usdPrice : classes.localPrice;
-
-        const formattedPrice =
-          selectedCurrency === "USD" ? `$${priceInUSD.toFixed(2)}` : `KES ${priceInLocal}`;
-
-        return <span className={priceClass}>{formattedPrice}</span>;
+        return (
+          <span>
+            {selectedCurrency === "USD"
+              ? `$${priceInUSD.toFixed(2)}`
+              : `KES ${priceInLocal}`}
+          </span>
+        );
       },
     },
     {
