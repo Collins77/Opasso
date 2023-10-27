@@ -62,7 +62,7 @@ const Hero = () => {
                 {searchData &&
                   searchData.map((i, index) => {
                     return (
-                      <Link to={`/suppliers/${i._id}`}>
+                      <Link to={`/shop/preview/${i._id}`}>
                         <div className="w-full flex items-start-py-3 mb-2">
                           <img
                             src={`${i.avatar?.url}`}
