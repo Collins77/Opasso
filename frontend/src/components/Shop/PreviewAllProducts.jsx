@@ -67,9 +67,71 @@ const PreviewAllProducts = () => {
     //     return <span className={priceClass}>{formattedPrice}</span>;
     //   },
     // },
+    // {
+    //   field: "price",
+    //   headerName: (
+    //     <div>
+    //       <Select
+    //         value={selectedCurrency}
+    //         onChange={(e) => setSelectedCurrency(e.target.value)}
+    //         style={{ marginRight: "8px" }}
+    //       >
+    //         <MenuItem value="KES">KES</MenuItem>
+    //         <MenuItem value="USD">USD</MenuItem>
+    //       </Select>
+    //       {headerText}
+    //     </div>
+    //   ), // Dynamically update the header based on selected currency
+    //   headerClassName:
+    //     selectedCurrency === "USD"
+    //       ? classes.usdHeader
+    //       : classes.localHeader,
+    //   minWidth: 100,
+    //   flex: 0.6,
+    //   renderCell: (params) => {
+    //     const item = products.find((product) => product._id === params.row.id);
+
+    //     const priceInUSD = item.discountPrice / item.shop.exchangeRate;
+    //     const priceInLocal = item.discountPrice;
+
+    //     const handleChangeCurrency = (event) => {
+    //       setSelectedCurrency(event.target.value);
+    //     };
+
+    //     return (
+    //       <div style={{ display: "flex" }}>
+    //         <Select
+    //           value={selectedCurrency}
+    //           onChange={handleChangeCurrency}
+    //           style={{ marginRight: "8px" }}
+    //         >
+    //           <MenuItem value="KES">KES</MenuItem>
+    //           <MenuItem value="USD">USD</MenuItem>
+    //         </Select>
+    //         <span>
+    //           {selectedCurrency === "USD"
+    //             ? `$${priceInUSD.toFixed(2)}`
+    //             : `KES ${priceInLocal}`}
+    //         </span>
+    //       </div>
+    //     );
+    //   },
+    // },
     {
       field: "price",
-      headerName: headerText, // Dynamically update the header based on selected currency
+      headerName: (
+        <div>
+          <Select
+            value={selectedCurrency}
+            onChange={(e) => setSelectedCurrency(e.target.value)}
+            style={{ marginRight: "8px" }}
+          >
+            <MenuItem value="KES">KES</MenuItem>
+            <MenuItem value="USD">USD</MenuItem>
+          </Select>
+          {headerText}
+        </div>
+      ),
       headerClassName:
         selectedCurrency === "USD"
           ? classes.usdHeader
@@ -82,26 +144,12 @@ const PreviewAllProducts = () => {
         const priceInUSD = item.discountPrice / item.shop.exchangeRate;
         const priceInLocal = item.discountPrice;
 
-        const handleChangeCurrency = (event) => {
-          setSelectedCurrency(event.target.value);
-        };
-
         return (
-          <div style={{ display: "flex" }}>
-            <Select
-              value={selectedCurrency}
-              onChange={handleChangeCurrency}
-              style={{ marginRight: "8px" }}
-            >
-              <MenuItem value="KES">KES</MenuItem>
-              <MenuItem value="USD">USD</MenuItem>
-            </Select>
-            <span>
-              {selectedCurrency === "USD"
-                ? `$${priceInUSD.toFixed(2)}`
-                : `KES ${priceInLocal}`}
-            </span>
-          </div>
+          <span>
+            {selectedCurrency === "USD"
+              ? `$${priceInUSD.toFixed(2)}`
+              : `KES ${priceInLocal}`}
+          </span>
         );
       },
     },
