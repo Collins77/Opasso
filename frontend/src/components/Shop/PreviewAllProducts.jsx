@@ -132,10 +132,10 @@ const PreviewAllProducts = () => {
           {headerText}
         </div>
       ),
-      headerClassName:
-        selectedCurrency === "USD"
-          ? classes.usdHeader
-          : classes.localHeader,
+      // headerClassName:
+      //   selectedCurrency === "USD"
+      //     ? classes.usdHeader
+      //     : classes.localHeader,
       minWidth: 100,
       flex: 0.6,
       renderCell: (params) => {
