@@ -36,11 +36,6 @@ const Footer = () => {
       </div>
       <div className="grid grid-cols-1 sm:gird-cols-3 lg:grid-cols-4 gap-6 sm:px-8 px-5 py-16 sm:text-center">
         <ul className="px-5 text-center sm:text-start flex sm:block flex-col items-center">
-          {/* <img
-            src="https://shopo.quomodothemes.website/assets/images/logo.svg"
-            alt=""
-            style={{ filter: "brightness(0) invert(1)" }}
-          /> */}
           <h1 className="text-4xl font-bold text-[#f67009]">Opasso</h1>
           <br />
           <p>A catalogue of wholesalers and suppliers across the globe.</p>
@@ -90,14 +85,10 @@ const Footer = () => {
           ))}
         </ul>
         <ul className="px-5 text-center sm:text-start flex sm:block flex-col items-center">
-          {/* <img
-            src="https://shopo.quomodothemes.website/assets/images/logo.svg"
-            alt=""
-            style={{ filter: "brightness(0) invert(1)" }}
-          /> */}
-          <h1 className="mb-2 font-semibold text-[#f67009]">Contact Us</h1>
+          <h1 className="font-semibold">Contact Us</h1>
           <br />
-          <p>You can reach via email at info@opasso@gmail.com</p>
+          <p>You can reach us via email at info@opasso@gmail.com or 
+            via phone at +2547*********</p>
         </ul>
       </div>
 
