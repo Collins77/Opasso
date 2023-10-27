@@ -16,7 +16,7 @@ const HomePage = () => {
         <Hero />
         <Categories />
         <BestDeals />
-        {/* <Events /> */}
+        <Events />
         {/* <FeaturedProduct /> */}
         {/* <PreviewAllProducts id={'64da79b4cad5b45ae8579322'}/> */}
         <Sponsored />

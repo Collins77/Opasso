@@ -4,7 +4,7 @@ import styles from '../../styles/styles'
 import EventCard from "./EventCard";
 
 const Events = () => {
-  const {allEvents,isLoading} = useSelector((state) => state.seller);  
+  const {allEvents,isLoading} = useSelector((state) => state.events);  
    
   return (
     <div>
@@ -12,7 +12,7 @@ const Events = () => {
       !isLoading && (
         <div className={`${styles.section}`}>
       <div className={`${styles.heading}`}>
-        <h1>Popular Suppliers</h1>
+        <h1>Popular Events</h1>
       </div>
 
       <div className="w-full grid">
@@ -23,7 +23,7 @@ const Events = () => {
          }
          <h4>{
            allEvents?.length === 0 && (
-            'Supplier Info not available!'
+            'Event Info not available!'
            )
           }
 
