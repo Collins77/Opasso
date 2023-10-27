@@ -718,7 +718,7 @@ export const navItems = [
     },
     {
       name: "Careers",
-      link: "/carrers"
+      link: "/careers"
     },
     {
       name: "Store Locations",
@@ -753,17 +753,17 @@ export const navItems = [
     {
       name: "FAQ",
     },
-    {
-      name: "Reviews",
-    },
-    {
-      name: "Contact Us",
-    },
-    {
-      name: "Shipping",
-    },
-    {
-      name: "Live chat",
-    },
+    // {
+    //   name: "Reviews",
+    // },
+    // {
+    //   name: "Contact Us",
+    // },
+    // {
+    //   name: "Shipping",
+    // },
+    // {
+    //   name: "Live chat",
+    // },
   ];
   

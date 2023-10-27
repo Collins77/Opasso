@@ -61,7 +61,7 @@ const Footer = () => {
           </div>
         </ul>
 
-        <ul className="text-center sm:text-start">
+        {/* <ul className="text-center sm:text-start">
           <h1 className="mb-1 font-semibold">Company</h1>
           {footerProductLinks.map((link,index) => (
             <li key={index}>
@@ -74,7 +74,7 @@ const Footer = () => {
               </Link>
             </li>
           ))}
-        </ul>
+        </ul> */}
 
         <ul className="text-center sm:text-start">
           <h1 className="mb-1 font-semibold">Shop</h1>
