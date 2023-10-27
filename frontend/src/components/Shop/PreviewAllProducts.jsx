@@ -10,6 +10,8 @@ import Loader from "../Layout/Loader";
 const PreviewAllProducts = () => {
   const { products, isLoading } = useSelector((state) => state.products);
   const { id } = useParams();
+  const [selectedCurrency, setSelectedCurrency] = useState("KES"); 
+
 
   const useStyles = makeStyles((theme) => ({
     // Add a class for USD currency
@@ -26,8 +28,6 @@ const PreviewAllProducts = () => {
   const headerText =
     selectedCurrency === "USD" ? "USD" : "KES";
   
-  const [selectedCurrency, setSelectedCurrency] = useState("KES"); 
-
   const dispatch = useDispatch();
 
   useEffect(() => {
