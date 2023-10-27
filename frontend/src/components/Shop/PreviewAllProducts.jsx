@@ -1,4 +1,4 @@
-import { Button, MenuItem, Select } from "@material-ui/core";
+import { Button, MenuItem, Select, makeStyles } from "@material-ui/core";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import React, { useEffect, useState } from "react";
 import { AiOutlineEye } from "react-icons/ai";
@@ -10,6 +10,19 @@ import Loader from "../Layout/Loader";
 const PreviewAllProducts = () => {
   const { products, isLoading } = useSelector((state) => state.products);
   const { id } = useParams();
+
+  const useStyles = makeStyles((theme) => ({
+    // Add a class for USD currency
+    usdPrice: {
+      color: "green", // Change this color to the desired color for USD
+    },
+    // Add a class for Local currency
+    localPrice: {
+      color: "red", // Change this color to the desired color for Local currency
+    },
+  }));
+  
+  const classes = useStyles(); 
   
 
   // const [columnVisibilityModel, setColumnVisibilityModel] = React.useState({});
@@ -41,10 +54,13 @@ const PreviewAllProducts = () => {
         const priceInUSD = item.discountPrice / item.shop.exchangeRate;
         const priceInLocal = item.discountPrice;
 
+        const priceClass =
+        selectedCurrency === "USD" ? classes.usdPrice : classes.localPrice;
+
         const formattedPrice =
           selectedCurrency === "USD" ? `$${priceInUSD.toFixed(2)}` : `KES ${priceInLocal}`;
 
-        return <span>{formattedPrice}</span>;
+        return <span className={priceClass}>{formattedPrice}</span>;
       },
     },
     {
