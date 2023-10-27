@@ -60,22 +60,6 @@ const Footer = () => {
             />
           </div>
         </ul>
-
-        {/* <ul className="text-center sm:text-start">
-          <h1 className="mb-1 font-semibold">Company</h1>
-          {footerProductLinks.map((link,index) => (
-            <li key={index}>
-              <Link
-                className="text-gray-400 hover:text-teal-400 duration-300
-                   text-sm cursor-pointer leading-6"
-                to={link.link}
-              >
-                {link.name}
-              </Link>
-            </li>
-          ))}
-        </ul> */}
-
         <ul className="text-center sm:text-start">
           <h1 className="mb-1 font-semibold">Shop</h1>
           {footercompanyLinks.map((link,index) => (
@@ -104,6 +88,16 @@ const Footer = () => {
               </Link>
             </li>
           ))}
+        </ul>
+        <ul className="px-5 text-center sm:text-start flex sm:block flex-col items-center">
+          {/* <img
+            src="https://shopo.quomodothemes.website/assets/images/logo.svg"
+            alt=""
+            style={{ filter: "brightness(0) invert(1)" }}
+          /> */}
+          <h1 className="mb-2 font-semibold text-[#f67009]">Contact Us</h1>
+          <br />
+          <p>You can reach via email at info@opasso@gmail.com</p>
         </ul>
       </div>
 
