@@ -137,7 +137,7 @@ const ProductsPage = () => {
       <Header activeHeading={3} />
       <br />
       <br />
-      <div className="m-10">
+      <div className="m-10 mt-5">
             <label className="mb-2 mr-2">
               Currency :
             </label>
