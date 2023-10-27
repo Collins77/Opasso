@@ -98,19 +98,6 @@ const ProductsPage = () => {
       valueGetter: (params) => (params.row.isAvailable ? "Available" : "Out of Stock")
     },
     {
-      field: "category",
-      headerName: "Category",
-      minWidth: 200,
-      flex: 0.6,
-    },
-    {
-      field: "brand",
-      headerName: "Brand",
-      minWidth: 200,
-      flex: 0.4,
-    },
-    
-    {
       field: "warranty",
       headerName: "Warranty in mon",
       type: "number",
@@ -122,6 +109,18 @@ const ProductsPage = () => {
       headerName: "Supplier",
       minWidth: 80,
       flex: 0.5,
+    },
+    {
+      field: "category",
+      headerName: "Category",
+      minWidth: 200,
+      flex: 0.6,
+    },
+    {
+      field: "brand",
+      headerName: "Brand",
+      minWidth: 200,
+      flex: 0.4,
     },
     {
       field: "Preview",

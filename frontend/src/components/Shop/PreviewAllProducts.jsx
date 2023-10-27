@@ -106,6 +106,18 @@ const PreviewAllProducts = () => {
       flex: 0.5,
     },
     {
+      field: "category",
+      headerName: "Category",
+      minWidth: 200,
+      flex: 0.6,
+    },
+    {
+      field: "brand",
+      headerName: "Brand",
+      minWidth: 200,
+      flex: 0.4,
+    },
+    {
       field: "Preview",
       flex: 0.8,
       minWidth: 100,
