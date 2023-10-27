@@ -19,6 +19,7 @@ const CreateProduct = () => {
   const [category, setCategory] = useState("");
   const [brand, setBrand] = useState("");
   const [tags, setTags] = useState("");
+  const [warranty, setWarranty] = useState("");
   const [originalPrice, setOriginalPrice] = useState();
   const [discountPrice, setDiscountPrice] = useState();
   const [isAvailable, setIsAvailable] = useState();
@@ -66,6 +67,7 @@ const CreateProduct = () => {
     newForm.append("category", category);
     newForm.append("brand", brand);
     newForm.append("tags", tags);
+    newForm.append("warranty", warranty);
     newForm.append("originalPrice", originalPrice);
     newForm.append("discountPrice", discountPrice);
     newForm.append("isAvailable", isAvailable);
@@ -79,6 +81,7 @@ const CreateProduct = () => {
         category,
         brand,
         tags,
+        warranty,
         originalPrice,
         discountPrice,
         isAvailable,
@@ -217,6 +220,19 @@ const CreateProduct = () => {
             className="mt-2 appearance-none block w-full px-3 h-[35px] border border-gray-300 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             onChange={(e) => setStock(e.target.value)}
             placeholder="Enter your product stock..."
+          />
+        </div>
+        <div>
+          <label className="pb-2">
+            Warranty in months <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="number"
+            name="warranty"
+            value={warranty}
+            className="mt-2 appearance-none block w-full px-3 h-[35px] border border-gray-300 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+            onChange={(e) => setWarranty(e.target.value)}
+            placeholder="Enter your product warranty period in months..."
           />
         </div>
         <br />

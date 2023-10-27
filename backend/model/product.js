@@ -24,6 +24,10 @@ const productSchema = new mongoose.Schema({
   tags: {
     type: String,
   },
+  warranty: {
+    type: Number,
+    required: [true, "Please enter product warranty period"]
+  },
   originalPrice: {
     type: Number,
   },
@@ -43,11 +47,11 @@ const productSchema = new mongoose.Schema({
     {
       public_id: {
         type: String,
-        required: true,
+        
       },
       url: {
         type: String,
-        required: true,
+        
       },
     },
   ],

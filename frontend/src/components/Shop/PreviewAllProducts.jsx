@@ -26,7 +26,7 @@ const PreviewAllProducts = () => {
     { field: "partNumber", headerName: "Part Number", minWidth: 150, flex: 0.7 },
     {
       field: "name",
-      headerName: "Name",
+      headerName: "Description",
       minWidth: 180,
       flex: 1.4,
     },
@@ -48,6 +48,13 @@ const PreviewAllProducts = () => {
       },
     },
     {
+      field: "isAvailable",
+      headerName: "Availability",
+      minWidth: 200,
+      flex: 0.4,
+      valueGetter: (params) => (params.row.isAvailable ? "Available" : "Out of Stock")
+    },
+    {
       field: "category",
       headerName: "Category",
       minWidth: 200,
@@ -59,16 +66,10 @@ const PreviewAllProducts = () => {
       minWidth: 200,
       flex: 0.4,
     },
+    
     {
-      field: "isAvailable",
-      headerName: "Availability",
-      minWidth: 200,
-      flex: 0.4,
-      valueGetter: (params) => (params.row.isAvailable ? "Yes" : "No")
-    },
-    {
-      field: "exchangeRate",
-      headerName: "Exchange Rate",
+      field: "warranty",
+      headerName: "Warranty in mon",
       type: "number",
       minWidth: 80,
       flex: 0.5,
@@ -104,7 +105,7 @@ const PreviewAllProducts = () => {
         name: item.name,
         category: item.category,
         brand: item.brand,
-        exchangeRate: item.shop.exchangeRate,
+        warranty: item.warranty,
         isAvailable: item.isAvailable,
         sold: item?.sold_out,
       });
@@ -145,6 +146,8 @@ const PreviewAllProducts = () => {
             }}
             columnVisibilityModel={{
               id: false,
+              category: false,
+              brand: false,
             }}
             // disableColumnFilter
             disableDensitySelector
