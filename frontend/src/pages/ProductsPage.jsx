@@ -84,6 +84,12 @@ const ProductsPage = () => {
       flex: 0.5,
     },
     {
+      field: "shop",
+      headerName: "Supplier",
+      minWidth: 80,
+      flex: 0.5,
+    },
+    {
       field: "Preview",
       flex: 0.8,
       minWidth: 100,
@@ -115,6 +121,7 @@ const ProductsPage = () => {
         category: item.category,
         brand: item.brand,
         warranty: item.warranty,
+        shop: item.shop.name,
         isAvailable: item.isAvailable,
         sold: item?.sold_out,
       });
@@ -130,7 +137,7 @@ const ProductsPage = () => {
       <Header activeHeading={3} />
       <br />
       <br />
-      <div>
+      <div className="m-10">
             <label className="mb-2 mr-2">
               Currency :
             </label>
