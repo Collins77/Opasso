@@ -23,9 +23,9 @@ const PreviewAllProducts = () => {
   }));
   
   const classes = useStyles(); 
+  const headerText =
+    selectedCurrency === "USD" ? "USD" : "KES";
   
-
-  // const [columnVisibilityModel, setColumnVisibilityModel] = React.useState({});
   const [selectedCurrency, setSelectedCurrency] = useState("KES"); 
 
   const dispatch = useDispatch();
@@ -45,7 +45,11 @@ const PreviewAllProducts = () => {
     },
     {
       field: "price",
-      headerName: "Price",
+      headerName: headerText,
+      headerClassName:
+        selectedCurrency === "USD"
+          ? classes.usdHeader
+          : classes.localHeader,
       minWidth: 100,
       flex: 0.6,
       renderCell: (params) => {
