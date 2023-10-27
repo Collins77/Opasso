@@ -199,8 +199,8 @@ const ProductsPage = () => {
             }}
             columnVisibilityModel={{
               id: false,
-              category: false,
-              brand: false,
+              // category: false,
+              // brand: false,
             }}
             // disableColumnFilter
             disableDensitySelector
