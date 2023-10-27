@@ -6,7 +6,7 @@ import Header from "../components/Layout/Header";
 import Loader from "../components/Layout/Loader";
 // import ProductCard from "../components/Route/ProductCard/ProductCard";
 // import styles from "../styles/styles";
-import { Button, MenuItem, Select } from "@material-ui/core";
+import { Button, MenuItem, Select, makeStyles } from "@material-ui/core";
 import { AiOutlineEye } from "react-icons/ai";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 
@@ -17,6 +17,22 @@ const ProductsPage = () => {
   const {allProducts,isLoading} = useSelector((state) => state.products);
   const [data, setData] = useState([]);
   const [selectedCurrency, setSelectedCurrency] = useState("KES"); 
+
+
+  const useStyles = makeStyles((theme) => ({
+    // Add a class for USD currency
+    usdPrice: {
+      color: "green", // Change this color to the desired color for USD
+    },
+    // Add a class for Local currency
+    localPrice: {
+      color: "red", // Change this color to the desired color for Local currency
+    },
+  }));
+  
+  const classes = useStyles(); 
+  const headerText =
+    selectedCurrency === "USD" ? "USD" : "KES";
 
   useEffect(() => {
     if (categoryData === null) {
@@ -41,7 +57,11 @@ const ProductsPage = () => {
     },
     {
       field: "price",
-      headerName: "Price",
+      headerName: headerText,
+      headerClassName:
+        selectedCurrency === "USD"
+          ? classes.usdHeader
+          : classes.localHeader,
       minWidth: 100,
       flex: 0.6,
       renderCell: (params) => {
@@ -50,10 +70,13 @@ const ProductsPage = () => {
         const priceInUSD = item.discountPrice / item.shop.exchangeRate;
         const priceInLocal = item.discountPrice;
 
+        const priceClass =
+        selectedCurrency === "USD" ? classes.usdPrice : classes.localPrice;
+
         const formattedPrice =
           selectedCurrency === "USD" ? `$${priceInUSD.toFixed(2)}` : `KES ${priceInLocal}`;
 
-        return <span>{formattedPrice}</span>;
+        return <span className={priceClass}>{formattedPrice}</span>;
       },
     },
     {
