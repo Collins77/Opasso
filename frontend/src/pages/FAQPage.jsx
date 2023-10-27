@@ -36,7 +36,7 @@ const Faq = () => {
             onClick={() => toggleTab(2)}
           >
             <span className="text-lg font-medium text-gray-900">
-              What is your return policy?
+              How can I become a supplier?
             </span>
             {activeTab === 2 ? (
               <svg
@@ -71,10 +71,8 @@ const Faq = () => {
           {activeTab === 2 && (
             <div className="mt-4">
               <p className="text-base text-gray-500">
-                If you're not satisfied with your purchase, we accept returns
-                within 30 days of delivery. To initiate a return, please email
-                us at support@myecommercestore.com with your order number and a
-                brief explanation of why you're returning the item.
+                If you would like to become a supplier then you can register an account with us 
+                as a supplier. However, your account will be subject to verification checks.
               </p>
             </div>
           )}
@@ -86,7 +84,7 @@ const Faq = () => {
             onClick={() => toggleTab(3)}
           >
             <span className="text-lg font-medium text-gray-900">
-              How do I track my order?
+              Are the suppliers genuine?
             </span>
             {activeTab === 3 ? (
               <svg
@@ -121,9 +119,8 @@ const Faq = () => {
           {activeTab === 3 && (
             <div className="mt-4">
               <p className="text-base text-gray-500">
-                You can track your order by clicking the tracking link in your
-                shipping confirmation email, or by logging into your account on
-                our website and viewing the order details.
+                Every supplier that is on this website has been verified by our team using company guidelines that
+                ensure that both the supplier and reseller are safe. 
               </p>
             </div>
           )}
@@ -172,7 +169,7 @@ const Faq = () => {
               <p className="text-base text-gray-500">
                 You can contact our customer support team by emailing us at
                 support@myecommercestore.com, or by calling us at (555) 123-4567
-                between the hours of 9am and 5pm EST, Monday through Friday.
+                between the hours of 9am and 5pm, Monday through Friday.
               </p>
             </div>
           )}
@@ -184,7 +181,7 @@ const Faq = () => {
             onClick={() => toggleTab(5)}
           >
             <span className="text-lg font-medium text-gray-900">
-              Can I change or cancel my order?
+              How can I place my orders?
             </span>
             {activeTab === 5 ? (
               <svg
@@ -219,10 +216,10 @@ const Faq = () => {
           {activeTab === 5 && (
             <div className="mt-4">
               <p className="text-base text-gray-500">
-                Unfortunately, once an order has been placed, we are not able to
-                make changes or cancellations. If you no longer want the items
-                you've ordered, you can return them for a refund within 30 days
-                of delivery.
+                There are two ways you can place your orders. 
+                First, each product has a live chat option you can use to 
+                contact the supplier on the application.  
+                The second way is through the contacts provided on each supplier's page.
               </p>
             </div>
           )}
@@ -234,7 +231,7 @@ const Faq = () => {
             onClick={() => toggleTab(6)}
           >
             <span className="text-lg font-medium text-gray-900">
-              Do you offer international shipping?
+              Do you offer international supplies?
             </span>
             {activeTab === 6 ? (
               <svg
@@ -269,55 +266,7 @@ const Faq = () => {
           {activeTab === 6 && (
             <div className="mt-4">
               <p className="text-base text-gray-500">
-                Currently, we only offer shipping within the United States.
-              </p>
-            </div>
-          )}
-        </div>
-
-        <div className="border-b border-gray-200 pb-4">
-          <button
-            className="flex items-center justify-between w-full"
-            onClick={() => toggleTab(7)}
-          >
-            <span className="text-lg font-medium text-gray-900">
-              What payment methods do you accept?
-            </span>
-            {activeTab === 7 ? (
-              <svg
-                className="h-6 w-6 text-gray-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            ) : (
-              <svg
-                className="h-6 w-6 text-gray-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            )}
-          </button>
-          {activeTab === 7 && (
-            <div className="mt-4">
-              <p className="text-base text-gray-500">
-                We accept visa,mastercard,paypal payment method also we have
-                cash on delivery system.
+                Currently, we are only offering a catalogue of suppliers within Kenya. However, we are working really hard to introduce suppliers from all over the world.
               </p>
             </div>
           )}
