@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { getAllProductsShop } from "../../redux/actions/product";
 import Loader from "../Layout/Loader";
+import { Stack, Typography } from "@mui/material";
 
 const PreviewAllProducts = () => {
   const { products, isLoading } = useSelector((state) => state.products);
@@ -225,7 +226,7 @@ const PreviewAllProducts = () => {
                 <MenuItem value="KES">KES</MenuItem>
                 <MenuItem value="USD">USD</MenuItem>
             </Select> */}
-            <FormControlLabel
+            {/* <FormControlLabel
             control={
               <Switch
                 checked={selectedCurrency === "USD"}
@@ -235,7 +236,17 @@ const PreviewAllProducts = () => {
               />
             }
             label={selectedCurrency === "USD" ? "USD" : "KES"}
-          />
+          /> */}
+          <Stack direction="row" spacing={1} alignItems="center">
+            <Typography>KES</Typography>
+            <AntSwitch 
+            checked={selectedCurrency === "USD"}
+            onChange={handleCurrencyChange}
+            name="currencySwitch"
+            inputProps={{ "aria-label": "Currency Switch" }}
+            />
+            <Typography>USD</Typography>
+          </Stack>
             <DataGrid
             rows={row}
             columns={columns}
