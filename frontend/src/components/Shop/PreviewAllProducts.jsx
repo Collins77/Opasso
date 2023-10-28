@@ -93,20 +93,16 @@ const PreviewAllProducts = () => {
       field: "price",
       headerName: (
         <div>
-          {/* <Switch
-             checked={selectedCurrency === "USD"}
-             onChange={handleCurrencyChange}
-             name="currencySwitch"
-             inputProps={{"aria-label": "Currency Switch"}}
-             />
-             {selectedCurrency === "USD" ? "USD" : "KES"} */}
-            <AntSwitch
-            checked={selectedCurrency === "USD"}
-            onChange={handleCurrencyChange}
-            name="currencySwitch"
-            inputProps={{ "aria-label": "Currency Switch" }}
-            />
-            {selectedCurrency === "USD" ? "USD" : "KES"}
+            <Stack direction="row" spacing={1} alignItems="center">
+              <Typography>KES</Typography>
+              <AntSwitch 
+              checked={selectedCurrency === "USD"}
+              onChange={handleCurrencyChange}
+              name="currencySwitch"
+              inputProps={{ "aria-label": "Currency Switch" }}
+              />
+              <Typography>USD</Typography>
+          </Stack>
         </div>
       ),
       headerClassName:
@@ -218,25 +214,6 @@ const PreviewAllProducts = () => {
             <label className="mb-2 mr-2">
               Currency :
             </label>
-            {/* <Select
-                value={selectedCurrency}
-                onChange={(e) => setSelectedCurrency(e.target.value)}
-                className="w-[300] border mb-4"
-                >
-                <MenuItem value="KES">KES</MenuItem>
-                <MenuItem value="USD">USD</MenuItem>
-            </Select> */}
-            {/* <FormControlLabel
-            control={
-              <Switch
-                checked={selectedCurrency === "USD"}
-                onChange={handleCurrencyChange}
-                name="currencySwitch"
-                inputProps={{ "aria-label": "Currency Switch" }}
-              />
-            }
-            label={selectedCurrency === "USD" ? "USD" : "KES"}
-          /> */}
           <Stack direction="row" spacing={1} alignItems="center">
             <Typography>KES</Typography>
             <AntSwitch 
