@@ -130,7 +130,7 @@ const PreviewAllProducts = () => {
     {
       field: "isAvailable",
       headerName: "Availability",
-      minWidth: 200,
+      minWidth: 120,
       flex: 0.4,
       valueGetter: (params) => (params.row.isAvailable ? "Available" : "Out of Stock")
     },
