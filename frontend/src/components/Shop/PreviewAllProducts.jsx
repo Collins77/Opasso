@@ -1,4 +1,4 @@
-import { Button, MenuItem, Select, makeStyles } from "@material-ui/core";
+import { Button, MenuItem, Select, Switch, makeStyles } from "@material-ui/core";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import React, { useEffect, useState } from "react";
 import { AiOutlineEye } from "react-icons/ai";
@@ -28,6 +28,9 @@ const PreviewAllProducts = () => {
   const headerText =
     selectedCurrency === "USD" ? "USD" : "KES";
   
+  const handleCurrencyChange = () => {
+    setSelectedCurrency((prevCurrency) => prevCurrency === "KES" ? "USD" : "local")
+  }
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -68,6 +71,7 @@ const PreviewAllProducts = () => {
 
         const priceInUSD = item.discountPrice / item.shop.exchangeRate;
         const priceInLocal = item.discountPrice;
+        
 
         return (
           <span>
@@ -165,14 +169,21 @@ const PreviewAllProducts = () => {
             <label className="mb-2 mr-2">
               Currency :
             </label>
-            <Select
+            {/* <Select
                 value={selectedCurrency}
                 onChange={(e) => setSelectedCurrency(e.target.value)}
                 className="w-[300] border mb-4"
                 >
                 <MenuItem value="KES">KES</MenuItem>
                 <MenuItem value="USD">USD</MenuItem>
-            </Select>
+            </Select> */}
+            <Switch
+             checked={selectedCurrency === "USD"}
+             onChange={handleCurrencyChange}
+             name="currencySwitch"
+             inputProps={{"aria-label": "Currency Switch"}}
+             />
+             {selectedCurrency === "USD" ? "USD" : "KES"}
             <DataGrid
             rows={row}
             columns={columns}
