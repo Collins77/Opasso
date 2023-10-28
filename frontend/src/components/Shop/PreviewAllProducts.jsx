@@ -50,14 +50,13 @@ const PreviewAllProducts = () => {
       field: "price",
       headerName: (
         <div>
-          <Select
-            value={selectedCurrency}
-            onChange={(e) => setSelectedCurrency(e.target.value)}
-            style={{ marginRight: "8px" }}
-          >
-            <MenuItem value="KES">KES</MenuItem>
-            <MenuItem value="USD">USD</MenuItem>
-          </Select>
+          <Switch
+             checked={selectedCurrency === "USD"}
+             onChange={handleCurrencyChange}
+             name="currencySwitch"
+             inputProps={{"aria-label": "Currency Switch"}}
+             />
+             {selectedCurrency === "USD" ? "USD" : "KES"}
         </div>
       ),
       headerClassName:
