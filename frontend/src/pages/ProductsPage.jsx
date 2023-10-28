@@ -165,7 +165,7 @@ const ProductsPage = () => {
     {
       field: "brand",
       headerName: "Brand",
-      minWidth: 200,
+      minWidth: 120,
       flex: 0.4,
     },
     {
