@@ -35,12 +35,16 @@ const Header = ({ activeHeading }) => {
     const term = e.target.value;
     setSearchTerm(term);
 
-    const filteredProducts =
+    if (term === '') {
+      setSearchData(null); // Reset search data when search term is empty
+    } else {
+      const filteredProducts =
       allProducts &&
       allProducts.filter((product) =>
         product.name.toLowerCase().includes(term.toLowerCase())
       );
     setSearchData(filteredProducts);
+    }
   };
 
   window.addEventListener("scroll", () => {
