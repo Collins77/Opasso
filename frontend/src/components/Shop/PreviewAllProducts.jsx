@@ -1,4 +1,4 @@
-import { Button, MenuItem, Select, Switch, makeStyles } from "@material-ui/core";
+import { Button, FormControlLabel, MenuItem, Select, Switch, makeStyles } from "@material-ui/core";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import React, { useEffect, useState } from "react";
 import { AiOutlineEye } from "react-icons/ai";
@@ -176,13 +176,17 @@ const PreviewAllProducts = () => {
                 <MenuItem value="KES">KES</MenuItem>
                 <MenuItem value="USD">USD</MenuItem>
             </Select> */}
-            <Switch
-             checked={selectedCurrency === "USD"}
-             onChange={handleCurrencyChange}
-             name="currencySwitch"
-             inputProps={{"aria-label": "Currency Switch"}}
-             />
-             {selectedCurrency === "USD" ? "USD" : "KES"}
+            <FormControlLabel
+            control={
+              <Switch
+                checked={selectedCurrency === "USD"}
+                onChange={handleCurrencyChange}
+                name="currencySwitch"
+                inputProps={{ "aria-label": "Currency Switch" }}
+              />
+            }
+            label={selectedCurrency === "USD" ? "USD" : "KES"}
+          />
             <DataGrid
             rows={row}
             columns={columns}
