@@ -4,11 +4,10 @@ import { Link, useSearchParams } from "react-router-dom";
 import Footer from "../components/Layout/Footer";
 import Header from "../components/Layout/Header";
 import Loader from "../components/Layout/Loader";
-// import ProductCard from "../components/Route/ProductCard/ProductCard";
-// import styles from "../styles/styles";
-import { Button, MenuItem, Select, makeStyles } from "@material-ui/core";
+import { Button, MenuItem, Select, Switch, makeStyles, styled } from "@material-ui/core";
 import { AiOutlineEye } from "react-icons/ai";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
+import { Stack, Typography } from "@mui/material";
 
 const ProductsPage = () => {
   // const { products, isLoading } = useSelector((state) => state.products);
@@ -18,6 +17,51 @@ const ProductsPage = () => {
   const [data, setData] = useState([]);
   const [selectedCurrency, setSelectedCurrency] = useState("KES"); 
 
+  const AntSwitch = styled(Switch)(({ theme }) => ({
+    width: 28,
+    height: 16,
+    padding: 0,
+    display: 'flex',
+    '&:active': {
+      '& .MuiSwitch-thumb': {
+        width: 15,
+      },
+      '& .MuiSwitch-switchBase.Mui-checked': {
+        transform: 'translateX(9px)',
+      },
+    },
+    '& .MuiSwitch-switchBase': {
+      padding: 2,
+      '&.Mui-checked': {
+        transform: 'translateX(12px)',
+        color: '#fff',
+        '& + .MuiSwitch-track': {
+          opacity: 1,
+          backgroundColor: theme.palette.mode === 'dark' ? '#177ddc' : '#1890ff',
+        },
+      },
+    },
+    '& .MuiSwitch-thumb': {
+      boxShadow: '0 2px 4px 0 rgb(0 35 11 / 20%)',
+      width: 12,
+      height: 12,
+      borderRadius: 6,
+      transition: theme.transitions.create(['width'], {
+        duration: 200,
+      }),
+    },
+    '& .MuiSwitch-track': {
+      borderRadius: 16 / 2,
+      opacity: 1,
+      backgroundColor:
+        theme.palette.mode === 'dark' ? 'rgba(255,255,255,.35)' : 'rgba(0,0,0,.25)',
+      boxSizing: 'border-box',
+    },
+  }));
+
+  const handleCurrencyChange = () => {
+    setSelectedCurrency((prevCurrency) => prevCurrency === "KES" ? "USD" : "KES")
+  }
 
   const useStyles = makeStyles((theme) => ({
     // Add a class for USD currency
@@ -59,14 +103,16 @@ const ProductsPage = () => {
       field: "price",
       headerName: (
         <div>
-          <Select
-            value={selectedCurrency}
-            onChange={(e) => setSelectedCurrency(e.target.value)}
-            style={{ marginRight: "8px" }}
-          >
-            <MenuItem value="KES">KES</MenuItem>
-            <MenuItem value="USD">USD</MenuItem>
-          </Select>
+          <Stack direction="row" spacing={1} alignItems="center">
+              <Typography>KES</Typography>
+              <AntSwitch 
+              checked={selectedCurrency === "USD"}
+              onChange={handleCurrencyChange}
+              name="currencySwitch"
+              inputProps={{ "aria-label": "Currency Switch" }}
+              />
+              <Typography>USD</Typography>
+          </Stack>
         </div>
       ),
       headerClassName:
@@ -174,14 +220,16 @@ const ProductsPage = () => {
             <label className="mb-2 mr-2">
               Currency :
             </label>
-            <Select
-                value={selectedCurrency}
-                onChange={(e) => setSelectedCurrency(e.target.value)}
-                className="w-[300] border mb-4"
-                >
-                <MenuItem value="KES">KES</MenuItem>
-                <MenuItem value="USD">USD</MenuItem>
-            </Select>
+            <Stack direction="row" spacing={1} alignItems="center">
+              <Typography>KES</Typography>
+              <AntSwitch 
+              checked={selectedCurrency === "USD"}
+              onChange={handleCurrencyChange}
+              name="currencySwitch"
+              inputProps={{ "aria-label": "Currency Switch" }}
+              />
+              <Typography>USD</Typography>
+            </Stack>
             <DataGrid
             rows={row}
             columns={columns}
