@@ -119,7 +119,7 @@ const ProductsPage = () => {
         selectedCurrency === "USD"
           ? classes.usdHeader
           : classes.localHeader,
-      minWidth: 100,
+      minWidth: 200,
       flex: 0.6,
       renderCell: (params) => {
         const item = allProducts.find((product) => product._id === params.row.id);
@@ -139,7 +139,7 @@ const ProductsPage = () => {
     {
       field: "isAvailable",
       headerName: "Availability",
-      minWidth: 200,
+      minWidth: 120,
       flex: 0.4,
       valueGetter: (params) => (params.row.isAvailable ? "Available" : "Out of Stock")
     },
