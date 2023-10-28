@@ -26,10 +26,10 @@ const PreviewAllProducts = () => {
   
   const classes = useStyles(); 
   const headerText =
-    selectedCurrency === "USD" ? "USD" : "KES";
+    selectedCurrency === "KES" ? "USD" : "KES";
   
   const handleCurrencyChange = () => {
-    setSelectedCurrency((prevCurrency) => prevCurrency === "KES" ? "USD" : "local")
+    setSelectedCurrency((prevCurrency) => prevCurrency === "KES" ? "USD" : "KES")
   }
   const dispatch = useDispatch();
 
