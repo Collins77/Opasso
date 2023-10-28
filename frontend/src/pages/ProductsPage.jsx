@@ -153,7 +153,7 @@ const ProductsPage = () => {
     {
       field: "shop",
       headerName: "Supplier",
-      minWidth: 80,
+      minWidth: 120,
       flex: 0.5,
     },
     {
