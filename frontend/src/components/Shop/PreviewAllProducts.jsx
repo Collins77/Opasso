@@ -143,15 +143,15 @@ const PreviewAllProducts = () => {
     {
       field: "brand",
       headerName: "Brand",
-      minWidth: 200,
+      minWidth: 120,
       flex: 0.4,
     },
     
     {
       field: "warranty",
-      headerName: "Warranty in mon",
+      headerName: "Warranty in mons",
       type: "number",
-      minWidth: 80,
+      minWidth: 100,
       flex: 0.5,
     },
     {

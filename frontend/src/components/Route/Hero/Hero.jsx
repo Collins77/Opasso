@@ -13,19 +13,22 @@ const Hero = () => {
     const term = e.target.value;
     setSearchTerm(term);
 
-    const filteredSuppliers =
-      sellers &&
-      sellers.filter((seller) =>
-        seller.name.toLowerCase().includes(term.toLowerCase())
-      );
-    setSearchData(filteredSuppliers);
+    if (term === '') {
+      setSearchData(null); // Reset search data when search term is empty
+    } else {
+      const filteredSuppliers =
+        sellers &&
+        sellers.filter((seller) =>
+          seller.name.toLowerCase().includes(term.toLowerCase())
+        );
+      setSearchData(filteredSuppliers);
+    }
   };
   return (
     <div
       className={`relative min-h-[70vh] 800px:min-h-[80vh] w-full bg-no-repeat ${styles.noramlFlex}`}
       style={{
         backgroundImage:
-          // "url(https://themes.rslahmed.dev/rafcart/assets/images/banner-2.jpg)",
           "url(https://img.freepik.com/free-photo/group-trained-workers-using-depot-equipment-working-packaging-department-with-packages-people-using-merchandise-boxes-pack-ship-products-industrial-stock-distribution_482257-59957.jpg?w=1800&t=st=1692078683~exp=1692079283~hmac=72090d43c2e93d347a7436eadbff3e26e402496d03da853e8eabd27f97d7ec52)",
       }}
     >
@@ -38,13 +41,6 @@ const Hero = () => {
         <p className="pt-5 text-[16px] font-[Poppins] font-[400] text-[#aeaeae] flex text-center">
           Search for and find a supplier for your preferred products and even services from across the world
         </p>
-        {/* <Link to="/products" className="inline-block">
-            <div className={`${styles.button} mt-5`}>
-                 <span className="text-[#fff] font-[Poppins] text-[18px]">
-                    Shop Now
-                 </span>
-            </div>
-        </Link> */}
         <div className="w-[100%] relative mt-3 justify-items-center">
             <input
               type="text"

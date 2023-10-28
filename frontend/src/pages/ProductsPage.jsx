@@ -4,7 +4,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import Footer from "../components/Layout/Footer";
 import Header from "../components/Layout/Header";
 import Loader from "../components/Layout/Loader";
-import { Button, MenuItem, Select, Switch, makeStyles, styled } from "@material-ui/core";
+import { Button, Switch, makeStyles, styled } from "@material-ui/core";
 import { AiOutlineEye } from "react-icons/ai";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { Stack, Typography } from "@mui/material";
