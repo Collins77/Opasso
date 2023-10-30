@@ -61,16 +61,12 @@ const EventCard = ({ active, data }) => {
     // </div>
     <div
   class="flex flex-row w-full p-10 rounded-lg bg-gradient-to-br from-red-900 to-yellow-300 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] h-[300px] mb-5">
-  {/* <img
-    class="h-50 w-full rounded-t-lg object-cover md:h-auto md:!rounded-none md:!rounded-l-lg"
-    src="https://tecdn.b-cdn.net/wp-content/uploads/2020/06/vertical.jpg"
-    alt="" /> */}
     <img
-      className="h-full w-40 object-contain"
+      className="h-full w-45% object-contain"
       src={`${data.images[0]?.url}`} 
       alt="" 
      />
-  <div class="h-full w-60 flex flex-col justify-start">
+  <div class="h-full w-55% flex flex-col justify-start">
     <h6
       class="mb-2 text-sm font-semibold text-[#c23b01]">
       {data.title}
