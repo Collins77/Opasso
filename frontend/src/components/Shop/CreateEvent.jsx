@@ -15,7 +15,7 @@ const CreateEvent = () => {
   const [images, setImages] = useState([]);
   const [name, setName] = useState("");
   const [title, setTitle] = useState("");
-  const [eventDescription, setEventDescription] = useState("");
+  const [event_description, setEventDescription] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [tags, setTags] = useState("");
@@ -86,7 +86,7 @@ const CreateEvent = () => {
     });
     const data = {
       title,
-      eventDescription,
+      event_description,
       name,
       description,
       category,
@@ -136,7 +136,7 @@ const CreateEvent = () => {
             rows="8"
             type="text"
             name="eventDescription"
-            value={eventDescription}
+            value={event_description}
             className="mt-2 appearance-none block w-full pt-2 px-3 border border-gray-300 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             onChange={(e) => setEventDescription(e.target.value)}
             placeholder="eg. upto 30% off, 20% off..."
