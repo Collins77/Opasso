@@ -15,6 +15,7 @@ const CreateEvent = () => {
   const [images, setImages] = useState([]);
   const [name, setName] = useState("");
   const [title, setTitle] = useState("");
+  const [eventDescription, setEventDescription] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [tags, setTags] = useState("");
@@ -85,6 +86,7 @@ const CreateEvent = () => {
     });
     const data = {
       title,
+      eventDescription,
       name,
       description,
       category,
@@ -123,6 +125,24 @@ const CreateEvent = () => {
               ))}
           </select>
         </div>
+        <br />
+        <div>
+          <label className="pb-2">
+            Event Description <span className="text-red-500">*</span>
+          </label>
+          <textarea
+            cols="30"
+            required
+            rows="8"
+            type="text"
+            name="description"
+            value={eventDescription}
+            className="mt-2 appearance-none block w-full pt-2 px-3 border border-gray-300 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+            onChange={(e) => setDescription(e.target.value)}
+            placeholder="eg. upto 30% off, 20% off..."
+          ></textarea>
+        </div>
+        <br />
         <div>
           <label className="pb-2">
             Product Name <span className="text-red-500">*</span>
