@@ -25,40 +25,60 @@ const EventCard = ({ active, data }) => {
   //   }
   // }
   return (
+    // <div
+    //   className={`w-full block bg-white rounded-lg ${
+    //     active ? "unset" : "mb-12"
+    //   } lg:flex p-2`}
+    // >
+    //   <div className="w-full lg:-w[50%] m-auto">
+    //     <img src={`${data.images[0]?.url}`} alt="" />
+    //   </div>
+    //   <div className="w-full lg:[w-50%] flex flex-col justify-center">
+    //     <h2 className={`${styles.productTitle}`}>{data.name}</h2>
+    //     <p>{data.description}</p>
+    //     <div className="flex py-2 justify-between">
+    //       <div className="flex">
+    //         <h5 className="font-[500] text-[18px] text-[#d55b45] pr-3 line-through">
+    //           KES {data.originalPrice}
+    //         </h5>
+    //         <h5 className="font-bold text-[20px] text-[#333] font-Roboto">
+    //           KES {data.discountPrice}
+    //         </h5>
+    //       </div>
+    //       <span className="pr-3 font-[400] text-[17px] text-[#44a55e]">
+    //         In Stock
+    //       </span>
+    //     </div>
+    //     <CountDown data={data} />
+    //     <br />
+    //     <div className="flex items-center">
+    //       <Link to={`/product/${data._id}?isEvent=true`}>
+    //         <div className={`${styles.button} text-[#fff]`}>See Details</div>
+    //       </Link>
+    //       {/* <div className={`${styles.button} text-[#fff] ml-5`} onClick={() => addToCartHandler(data)}>Add to cart</div> */}
+    //     </div>
+    //   </div>
+    // </div>
     <div
-      className={`w-full block bg-white rounded-lg ${
-        active ? "unset" : "mb-12"
-      } lg:flex p-2`}
-    >
-      <div className="w-full lg:-w[50%] m-auto">
-        <img src={`${data.images[0]?.url}`} alt="" />
-      </div>
-      <div className="w-full lg:[w-50%] flex flex-col justify-center">
-        <h2 className={`${styles.productTitle}`}>{data.name}</h2>
-        <p>{data.description}</p>
-        <div className="flex py-2 justify-between">
-          <div className="flex">
-            <h5 className="font-[500] text-[18px] text-[#d55b45] pr-3 line-through">
-              KES {data.originalPrice}
-            </h5>
-            <h5 className="font-bold text-[20px] text-[#333] font-Roboto">
-              KES {data.discountPrice}
-            </h5>
-          </div>
-          <span className="pr-3 font-[400] text-[17px] text-[#44a55e]">
-            In Stock
-          </span>
-        </div>
-        <CountDown data={data} />
-        <br />
-        <div className="flex items-center">
-          <Link to={`/product/${data._id}?isEvent=true`}>
-            <div className={`${styles.button} text-[#fff]`}>See Details</div>
-          </Link>
-          {/* <div className={`${styles.button} text-[#fff] ml-5`} onClick={() => addToCartHandler(data)}>Add to cart</div> */}
-        </div>
-      </div>
-    </div>
+  class="flex flex-col rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 md:max-w-xl md:flex-row">
+  <img
+    class="h-96 w-full rounded-t-lg object-cover md:h-auto md:!rounded-none md:!rounded-l-lg"
+    src="https://tecdn.b-cdn.net/wp-content/uploads/2020/06/vertical.jpg"
+    alt="" />
+  <div class="flex flex-col justify-start p-6">
+    <h5
+      class="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">
+      Card title
+    </h5>
+    <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
+      This is a wider card with supporting text below as a natural lead-in
+      to additional content. This content is a little bit longer.
+    </p>
+    <p class="text-xs text-neutral-500 dark:text-neutral-300">
+      Last updated 3 mins ago
+    </p>
+  </div>
+</div>
   );
 };
 
