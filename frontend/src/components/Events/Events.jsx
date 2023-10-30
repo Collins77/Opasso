@@ -18,7 +18,7 @@ const Events = () => {
   };
 
   return (
-    <div>
+    <div className='mb-5'>
       {!isLoading && (
         <div className={`${styles.section}`}>
           <div className={`${styles.heading}`}>

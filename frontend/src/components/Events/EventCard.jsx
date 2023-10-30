@@ -60,7 +60,7 @@ const EventCard = ({ active, data }) => {
     //   </div>
     // </div>
     <div
-  class="flex flex-row w-full rounded-lg bg-neutral-300 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] h-[300px] mb-5">
+  class="flex flex-row w-full p-10 rounded-lg bg-neutral-300 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] h-[300px] mb-5">
   {/* <img
     class="h-50 w-full rounded-t-lg object-cover md:h-auto md:!rounded-none md:!rounded-l-lg"
     src="https://tecdn.b-cdn.net/wp-content/uploads/2020/06/vertical.jpg"
@@ -72,7 +72,7 @@ const EventCard = ({ active, data }) => {
      />
   <div class="h-full w-70% flex flex-col justify-start p-6">
     <h5
-      class="mb-2 text-xl font-medium text-neutral-80 ">
+      class="mb-2 text-sm font-semibold text-[#c23b01]">
       {data.title}
     </h5>
     <h5
