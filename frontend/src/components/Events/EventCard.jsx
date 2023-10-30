@@ -66,7 +66,7 @@ const EventCard = ({ active, data }) => {
     src="https://tecdn.b-cdn.net/wp-content/uploads/2020/06/vertical.jpg"
     alt="" /> */}
     <img
-      className="h-100% w-30% rounded-t-lg object-cover"
+      className="h-[300px] w-[100px] object-cover"
       src={`${data.images[0]?.url}`} 
       alt="" 
      />
