@@ -26,7 +26,7 @@ const CreateEvent = () => {
 
   const handleStartDateChange = (e) => {
     const startDate = new Date(e.target.value);
-    const minEndDate = new Date(startDate.getTime() + 1 * 24 * 60 * 60 * 1000);
+    const minEndDate = new Date(startDate.getTime() + 3 * 24 * 60 * 60 * 1000);
     setStartDate(startDate);
     setEndDate(null);
     document.getElementById("end-date").min = minEndDate.toISOString.slice(
