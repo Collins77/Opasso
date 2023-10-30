@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { categoriesData } from "../../static/data";
+import { categoriesData, eventTitles } from "../../static/data";
 import { toast } from "react-toastify";
 import { createevent } from "../../redux/actions/event";
 
@@ -14,6 +14,7 @@ const CreateEvent = () => {
 
   const [images, setImages] = useState([]);
   const [name, setName] = useState("");
+  const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [tags, setTags] = useState("");
@@ -56,7 +57,7 @@ const CreateEvent = () => {
       navigate("/dashboard-events");
       window.location.reload();
     }
-  }, [dispatch, error, success]);
+  }, [dispatch, error, success, navigate]);
 
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
@@ -84,6 +85,7 @@ const CreateEvent = () => {
       newForm.append("images", image);
     });
     const data = {
+      title,
       name,
       description,
       category,
@@ -106,8 +108,26 @@ const CreateEvent = () => {
       <form onSubmit={handleSubmit}>
         <br />
         <div>
+        <label className="pb-2">
+            Title <span className="text-red-500">*</span>
+          </label>
+          <select
+            className="w-full mt-2 border h-[35px] rounded-[5px]"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          >
+            <option value="Choose a title">Choose a title</option>
+            {eventTitles &&
+              eventTitles.map((i) => (
+                <option value={i.title} key={i.title}>
+                  {i.title}
+                </option>
+              ))}
+          </select>
+        </div>
+        <div>
           <label className="pb-2">
-            Name <span className="text-red-500">*</span>
+            Product Name <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
@@ -121,7 +141,7 @@ const CreateEvent = () => {
         <br />
         <div>
           <label className="pb-2">
-            Description <span className="text-red-500">*</span>
+            Event Description <span className="text-red-500">*</span>
           </label>
           <textarea
             cols="30"
@@ -132,7 +152,7 @@ const CreateEvent = () => {
             value={description}
             className="mt-2 appearance-none block w-full pt-2 px-3 border border-gray-300 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             onChange={(e) => setDescription(e.target.value)}
-            placeholder="Enter your event product description..."
+            placeholder="Enter your event description..."
           ></textarea>
         </div>
         <br />
@@ -155,7 +175,7 @@ const CreateEvent = () => {
           </select>
         </div>
         <br />
-        <div>
+        {/* <div>
           <label className="pb-2">Tags</label>
           <input
             type="text"
@@ -166,7 +186,7 @@ const CreateEvent = () => {
             placeholder="Enter your event product tags..."
           />
         </div>
-        <br />
+        <br /> */}
         <div>
           <label className="pb-2">Original Price</label>
           <input
@@ -192,7 +212,7 @@ const CreateEvent = () => {
             placeholder="Enter your event product price with discount..."
           />
         </div>
-        <br />
+        {/* <br />
         <div>
           <label className="pb-2">
             Product Stock <span className="text-red-500">*</span>
@@ -205,7 +225,7 @@ const CreateEvent = () => {
             onChange={(e) => setStock(e.target.value)}
             placeholder="Enter your event product stock..."
           />
-        </div>
+        </div> */}
         <br />
         <div>
           <label className="pb-2">
@@ -219,7 +239,7 @@ const CreateEvent = () => {
             className="mt-2 appearance-none block w-full px-3 h-[35px] border border-gray-300 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             onChange={handleStartDateChange}
             min={today}
-            placeholder="Enter your event product stock..."
+            placeholder="Enter your event start date..."
           />
         </div>
         <br />
@@ -235,7 +255,7 @@ const CreateEvent = () => {
             className="mt-2 appearance-none block w-full px-3 h-[35px] border border-gray-300 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             onChange={handleEndDateChange}
             min={minEndDate}
-            placeholder="Enter your event product stock..."
+            placeholder="Enter your event end date..."
           />
         </div>
         <br />

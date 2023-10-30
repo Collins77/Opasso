@@ -533,7 +533,6 @@ export const navItems = [
       rating: 5,
       total_sell: 49,
       stock: 10,
-      category:"Shoes"
     },
     {
       id: 1,
@@ -766,4 +765,19 @@ export const navItems = [
     //   name: "Live chat",
     // },
   ];
+
+  export const eventTitles = [
+    {
+      id: 1,
+      title: "Clearance Sale",
+    },
+    {
+      id: 2,
+      title: "Limited Offer",
+    },
+    {
+      id: 3,
+      title: "Anniversary Sale",
+    },
+  ]
   
