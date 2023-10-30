@@ -7,6 +7,11 @@ const eventSchema = new mongoose.Schema({
         required:[true,"Please enter your event title!"],
     },
 
+    event_description: {
+        type: String,
+        required: [true, "Please enter your event description"],
+    },
+
     name:{
         type: String,
         required:[true,"Please enter your event product name!"],
@@ -44,7 +49,7 @@ const eventSchema = new mongoose.Schema({
     },
     stock:{
         type: Number,
-        required: [true,"Please enter your event product stock!"],
+        // required: [true,"Please enter your event product stock!"],
     },
     images:[
         {
