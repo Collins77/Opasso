@@ -66,11 +66,11 @@ const EventCard = ({ active, data }) => {
     src="https://tecdn.b-cdn.net/wp-content/uploads/2020/06/vertical.jpg"
     alt="" /> */}
     <img
-      className="h-full w-30% object-contain"
+      className="h-full w-40% object-contain"
       src={`${data.images[0]?.url}`} 
       alt="" 
      />
-  <div class="h-full w-70% flex flex-col justify-start p-6">
+  <div class="h-full w-60% flex flex-col justify-start">
     <h6
       class="mb-2 text-sm font-semibold text-[#c23b01]">
       {data.title}
@@ -79,10 +79,10 @@ const EventCard = ({ active, data }) => {
       class="mb-2 text-sm font-semibold text-[#c23b01]">
       {data.event_description}
     </h4>
-    <h5
+    <h2
       class="mb-2 text-xl font-medium text-neutral-800">
       {data.name}
-    </h5>
+    </h2>
     <p class="mb-4 text-base text-neutral-60">
       {data.description}
     </p>

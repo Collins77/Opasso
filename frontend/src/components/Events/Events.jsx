@@ -33,7 +33,7 @@ const Events = () => {
               ))}
             </Slider>
           ) : (
-            <h4>'Event Info not available!'</h4>
+            <h4>'Events not available!'</h4>
           )}
         </div>
       )}
