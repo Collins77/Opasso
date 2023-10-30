@@ -60,7 +60,7 @@ const EventCard = ({ active, data }) => {
     //   </div>
     // </div>
     <div
-  class="flex flex-row w-full p-10 
+  class="flex flex-row w-[80%] p-10 
   rounded-lg 
   bg-neutral-50
   shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] h-[300px] mb-5">
