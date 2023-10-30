@@ -71,10 +71,14 @@ const EventCard = ({ active, data }) => {
       alt="" 
      />
   <div class="h-full w-70% flex flex-col justify-start p-6">
-    <h5
+    <h6
       class="mb-2 text-sm font-semibold text-[#c23b01]">
       {data.title}
-    </h5>
+    </h6>
+    <h4
+      class="mb-2 text-sm font-semibold text-[#c23b01]">
+      {data.event_description}
+    </h4>
     <h5
       class="mb-2 text-xl font-medium text-neutral-800">
       {data.name}
