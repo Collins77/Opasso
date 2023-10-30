@@ -60,10 +60,11 @@ const EventCard = ({ active, data }) => {
     //   </div>
     // </div>
     <div
-  class="flex flex-row w-[80%] p-10 
+  className={`flex flex-row w-[80%] p-10 
+  mx-auto mb-12 ${active ? 'w-4/5' : 'w-2/5'}
   rounded-lg 
   bg-neutral-50
-  shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] h-[300px] mb-5">
+  shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] h-[300px] mb-5`}>
     <img
       className="h-full w-[45%] object-contain"
       src={`${data.images[0]?.url}`} 
