@@ -72,17 +72,17 @@ const EventCard = ({ active, data }) => {
      />
   <div class="flex flex-col justify-start p-6">
     <h5
-      class="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">
+      class="mb-2 text-xl font-medium text-neutral-80">
       {data.title}
     </h5>
     <h5
-      class="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">
+      class="mb-2 text-xl font-medium text-neutral-800">
       {data.name}
     </h5>
-    <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
+    <p class="mb-4 text-base text-neutral-60">
       {data.description}
     </p>
-    <p class="text-xs text-neutral-500 dark:text-neutral-300">
+    <p class="text-xs text-neutral-500">
       <CountDown data={data} />
     </p>
   </div>
