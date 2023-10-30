@@ -779,5 +779,9 @@ export const navItems = [
       id: 3,
       title: "Anniversary Sale",
     },
+    {
+      id: 4,
+      title: "Limited Edition",
+    },
   ]
   
