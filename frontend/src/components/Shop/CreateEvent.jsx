@@ -20,13 +20,12 @@ const CreateEvent = () => {
   const [tags, setTags] = useState("");
   const [originalPrice, setOriginalPrice] = useState();
   const [discountPrice, setDiscountPrice] = useState();
-  const [stock, setStock] = useState();
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
   const handleStartDateChange = (e) => {
     const startDate = new Date(e.target.value);
-    const minEndDate = new Date(startDate.getTime() + 3 * 24 * 60 * 60 * 1000);
+    const minEndDate = new Date(startDate.getTime() + 1 * 24 * 60 * 60 * 1000);
     setStartDate(startDate);
     setEndDate(null);
     document.getElementById("end-date").min = minEndDate.toISOString.slice(
@@ -92,7 +91,6 @@ const CreateEvent = () => {
       tags,
       originalPrice,
       discountPrice,
-      stock,
       images,
       shopId: seller._id,
       start_Date: startDate?.toISOString(),
