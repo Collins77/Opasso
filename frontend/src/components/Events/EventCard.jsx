@@ -66,11 +66,11 @@ const EventCard = ({ active, data }) => {
     src="https://tecdn.b-cdn.net/wp-content/uploads/2020/06/vertical.jpg"
     alt="" /> */}
     <img
-      className="h-[300px] w-[100px] object-cover"
+      className="h-full w-50% object-cover"
       src={`${data.images[0]?.url}`} 
       alt="" 
      />
-  <div class="flex flex-col justify-start p-6">
+  {/* <div class="flex flex-col justify-start p-6">
     <h5
       class="mb-2 text-xl font-medium text-neutral-80">
       {data.title}
@@ -85,7 +85,7 @@ const EventCard = ({ active, data }) => {
     <p class="text-xs text-neutral-500">
       <CountDown data={data} />
     </p>
-  </div>
+  </div> */}
 </div>
   );
 };
