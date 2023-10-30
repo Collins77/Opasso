@@ -54,7 +54,7 @@ const CreateEvent = () => {
     }
     if (success) {
       toast.success("Event created successfully!");
-      navigate("/dashboard-events");
+      navigate("/dashboard");
       window.location.reload();
     }
   }, [dispatch, error, success, navigate]);
