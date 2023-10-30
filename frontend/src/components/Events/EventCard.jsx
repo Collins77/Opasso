@@ -62,11 +62,11 @@ const EventCard = ({ active, data }) => {
     <div
   class="flex flex-row w-full p-10 rounded-lg bg-gradient-to-br from-red-900 to-yellow-300 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] h-[300px] mb-5">
     <img
-      className="h-full w-45% object-contain"
+      className="h-full w-[45%] object-contain"
       src={`${data.images[0]?.url}`} 
       alt="" 
      />
-  <div class="h-full w-55% flex flex-col justify-start">
+  <div class="h-full w-[55%] flex flex-col justify-start">
     <h6
       class="mb-2 text-sm font-semibold text-[#c23b01]">
       {data.title}
