@@ -13,7 +13,7 @@ const Events = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 1, // Adjust the number of cards shown at once
+    slidesToShow: 1.2, // Adjust the number of cards shown at once
     slidesToScroll: 1,
   };
 
