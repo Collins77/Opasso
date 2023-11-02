@@ -22,7 +22,7 @@ const EventCard = ({ active, data }) => {
         backgroundPosition: 'center'
       }}
       className="text-white rounded shadow-xl py-5 px-5 w-full h-[200px] flex items-center justify-between">
-        <div className="flex flex-wrap -mx-3 items-center">
+        <div className="flex flex-wrap items-center">
           <div className="w-1/4 px-3 text-center hidden md:block">
           <svg height="150px" width="150px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xmlSpace="preserve">
             <circle style={{ fill: '#E4E7ED' }} cx="256" cy="256" r="256" />
