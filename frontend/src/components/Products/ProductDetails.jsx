@@ -3,7 +3,6 @@ import {
   AiFillHeart,
   AiOutlineHeart,
   AiOutlineMessage,
-  AiOutlineShoppingCart,
 } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -36,7 +35,7 @@ const ProductDetails = ({ data }) => {
     } else {
       setClick(false);
     }
-  }, [data, wishlist]);
+  }, [data, wishlist, dispatch]);
 
   const incrementCount = () => {
     setCount(count + 1);
@@ -159,7 +158,7 @@ const ProductDetails = ({ data }) => {
                   </h3> */}
                 </div>
 
-                <div className="flex items-center mt-12 justify-between pr-3">
+                {/* <div className="flex items-center mt-12 justify-between pr-3">
                   <div>
                     <button
                       className="bg-gradient-to-r from-teal-400 to-teal-500 text-white font-bold rounded-l px-4 py-2 shadow-lg hover:opacity-75 transition duration-300 ease-in-out"
@@ -204,7 +203,7 @@ const ProductDetails = ({ data }) => {
                   <span className="text-white flex items-center">
                     Add to Wishlist <AiOutlineHeart className="ml-1" />
                   </span>
-                </div>
+                </div> */}
                 <div className="flex items-center pt-8">
                   <Link to={`/shop/preview/${data?.shop._id}`}>
                     <img
@@ -219,9 +218,9 @@ const ProductDetails = ({ data }) => {
                         {data.shop.name}
                       </h3>
                     </Link>
-                    <h5 className="pb-3 text-[15px]">
+                    {/* <h5 className="pb-3 text-[15px]">
                       ({averageRating}/5) Ratings
-                    </h5>
+                    </h5> */}
                   </div>
                   <div
                     className={`${styles.button} bg-[#6443d1] mt-4 !rounded !h-11`}
@@ -273,7 +272,7 @@ const ProductDetailsInfo = ({
             <div className={`${styles.active_indicator}`} />
           ) : null}
         </div>
-        <div className="relative">
+        {/* <div className="relative">
           <h5
             className={
               "text-[#000] text-[18px] px-1 leading-5 font-[600] cursor-pointer 800px:text-[20px]"
@@ -285,7 +284,7 @@ const ProductDetailsInfo = ({
           {active === 2 ? (
             <div className={`${styles.active_indicator}`} />
           ) : null}
-        </div>
+        </div> */}
         <div className="relative">
           <h5
             className={
@@ -308,7 +307,7 @@ const ProductDetailsInfo = ({
         </>
       ) : null}
 
-      {active === 2 ? (
+      {/* {active === 2 ? (
         <div className="w-full min-h-[40vh] flex flex-col items-center py-3 overflow-y-scroll">
           {data &&
             data.reviews.map((item, index) => (
@@ -334,9 +333,9 @@ const ProductDetailsInfo = ({
             )}
           </div>
         </div>
-      ) : null}
+      ) : null} */}
 
-      {active === 3 && (
+      {active === 2 && (
         <div className="w-full block 800px:flex p-5">
           <div className="w-full 800px:w-[50%]">
             <Link to={`/shop/preview/${data.shop._id}`}>
