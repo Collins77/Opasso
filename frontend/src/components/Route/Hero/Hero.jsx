@@ -31,6 +31,8 @@ const Hero = () => {
         backgroundImage:
           "url(https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&q=80&w=2670&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
           // "url(https://plus.unsplash.com/premium_photo-1682129768936-c5b7c3033cdc?auto=format&fit=crop&q=80&w=2532&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
       }}
     >
       <div className={`${styles.section} w-[90%] 800px:w-[60%]`}>
