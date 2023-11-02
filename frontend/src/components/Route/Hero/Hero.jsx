@@ -30,7 +30,7 @@ const Hero = () => {
       style={{
         backgroundImage:
           // "url(https://img.freepik.com/free-photo/group-trained-workers-using-depot-equipment-working-packaging-department-with-packages-people-using-merchandise-boxes-pack-ship-products-industrial-stock-distribution_482257-59957.jpg?w=1800&t=st=1692078683~exp=1692079283~hmac=72090d43c2e93d347a7436eadbff3e26e402496d03da853e8eabd27f97d7ec52)",
-          "url(https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&q=60&w=800&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGRlbGl2ZXJ5fGVufDB8fDB8fHww)",
+          "url(https://plus.unsplash.com/premium_photo-1682129768936-c5b7c3033cdc?auto=format&fit=crop&q=80&w=2532&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
       }}
     >
       <div className={`${styles.section} w-[90%] 800px:w-[60%]`}>

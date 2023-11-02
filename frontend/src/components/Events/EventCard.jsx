@@ -116,6 +116,9 @@ const EventCard = ({ active, data }) => {
               <p className="text-sm text-indigo-200">
                 {data.description}
               </p>
+              <Link>
+              {data.shop.name}
+              </Link>
             </div>
           </div>
           <div className="w-full sm:w-1/2 md:w-1/4 px-3 text-center">
