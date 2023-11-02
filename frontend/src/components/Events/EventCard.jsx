@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 
 
 const EventCard = ({ active, data }) => {
-  const backgroundImage = "https://www.google.com/url?sa=i&url=https%3A%2F%2Flovepik.com%2Fimages%2Fpromotion-background.html&psig=AOvVaw39zn5-643BbanD9LCf4WwX&ust=1698994489136000&source=images&cd=vfe&ved=0CBIQjRxqFwoTCIDVsJDepIIDFQAAAAAdAAAAABAE"
+  const backgroundImage = "https://img.lovepik.com/background/20211021/large/lovepik-e-commerce-promotion-background-image_401327963.jpg"
   
   return (
     
