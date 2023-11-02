@@ -95,10 +95,10 @@ const EventCard = ({ active, data }) => {
 // </div>
 
 <div className="h-[400px] w-full bg-gray-900 flex items-center justify-center px-2 py-2">
-<div className="bg-indigo-600 text-white rounded shadow-xl py-5 px-5 w-full lg:w-10/12 xl:w-3/4">
+<div className="bg-indigo-600 text-white rounded shadow-xl py-5 px-5 w-full">
   <div className="flex flex-wrap -mx-3 items-center">
     <div className="w-1/4 px-3 text-center hidden md:block">
-    <svg height="80px" width="80px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xmlSpace="preserve">
+    <svg height="100px" width="100px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xmlSpace="preserve">
       <circle style={{ fill: '#E4E7ED' }} cx="256" cy="256" r="256" />
       <path style={{ fill: '#6B7F9E' }} d="M398.792,264.152L188.286,446.915c-13.411,11.702-33.923,10.256-45.494-3.156L51.936,339.098
       c-11.702-13.411-10.256-33.923,3.156-45.494l210.901-183.026c6.574-5.654,14.2-8.284,22.878-7.889l96.51,4.996
