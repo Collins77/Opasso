@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 const EventCard = ({ active, data }) => {
   const backgroundImage = "https://img.lovepik.com/background/20211021/large/lovepik-e-commerce-promotion-background-image_401327963.jpg"
   const cardStyle = {
-    width: active ? '90%' : '90%', // Update width based on the active state
+    width: active ? '95%' : '95%', // Update width based on the active state
     display: 'inline-block',
     marginRight: '10px', // Margin to show a portion of the next card
     transition: 'width 0.5s ease-in-out', // Smooth width transition
