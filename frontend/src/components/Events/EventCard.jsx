@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/styles";
+
 import CountDown from "./CountDown";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -111,7 +111,7 @@ const EventCard = ({ active, data }) => {
           <div className="w-full sm:w-1/2 md:w-2/4 px-3 text-left">
             <div className="p-5 xl:px-8 md:py-5">
               <h4 className="text-sm">{data.event_description}</h4>
-              <h3 className="text-3xl text-red ">{data.title}</h3>
+              <h3 className="text-3xl text-red-500 ">{data.title}</h3>
               <h5 className="text-xl mb-3">{data.name}</h5>
               <p className="text-sm text-indigo-200">
                 {data.description}
