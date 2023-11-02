@@ -110,8 +110,8 @@ const EventCard = ({ active, data }) => {
           </div>
           <div className="w-full sm:w-1/2 md:w-2/4 px-3 text-left">
             <div className="p-5 xl:px-8 md:py-5">
-              <h4 className="text-sm ">{data.event_description}</h4>
-              <h3 className="text-3xl text-white ">{data.title}</h3>
+              <h4 className="text-sm">{data.event_description}</h4>
+              <h3 className="text-3xl text-red ">{data.title}</h3>
               <h5 className="text-xl mb-3">{data.name}</h5>
               <p className="text-sm text-indigo-200">
                 {data.description}
@@ -121,7 +121,7 @@ const EventCard = ({ active, data }) => {
           <div className="w-full sm:w-1/2 md:w-1/4 px-3 text-center">
             <div className="p-5 xl:px-8 md:py-5">
               <a
-                href="https://codepen.io/ScottWindon"
+                href=""
                 className="block w-full py-2 px-4 rounded text-indigo-600 bg-gray-200 hover:bg-white hover:text-gray-900 focus:outline-none transition duration-150 ease-in-out mb-3"
               >
                 Find out more?
