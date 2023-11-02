@@ -15,6 +15,8 @@ const Events = () => {
     speed: 500,
     slidesToShow: 1.2, // Adjust the number of cards shown at once
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
   };
 
   return (
