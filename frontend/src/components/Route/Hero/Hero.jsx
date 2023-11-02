@@ -41,7 +41,7 @@ const Hero = () => {
         >
          Access manufacturers  <br/> and suppliers across the world
         </h1>
-        <p className="pt-5 text-[16px] font-[Poppins] font-[400] text-[#aeaeae] flex text-center">
+        <p className="pt-5 text-[16px] font-[Poppins] font-[400] text-[#f67009] flex text-center">
           Search for and find a supplier for your preferred products and even services from across the world
         </p>
         <div className="w-[100%] relative mt-3 justify-items-center">
