@@ -94,7 +94,7 @@ const EventCard = ({ active, data }) => {
 //   </div>
 // </div>
 
-<div className="min-w-screen min-h-screen bg-gray-900 flex items-center justify-center px-2 py-2">
+<div className="h-[400px] w-full bg-gray-900 flex items-center justify-center px-2 py-2">
 <div className="bg-indigo-600 text-white rounded shadow-xl py-5 px-5 w-full lg:w-10/12 xl:w-3/4">
   <div className="flex flex-wrap -mx-3 items-center">
     <div className="w-1/4 px-3 text-center hidden md:block">
