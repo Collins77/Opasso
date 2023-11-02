@@ -22,7 +22,7 @@ const Events = () => {
       {!isLoading && (
         <div className={`${styles.section}`}>
           <div className={`${styles.heading}`}>
-            <h1>Popular Events</h1>
+            <h1>ADS & Promotions</h1>
           </div>
           {allEvents.length > 0 ? (
             <Slider {...settings}>
