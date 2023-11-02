@@ -7,6 +7,7 @@ import BestDeals from "../components/Route/BestDeals/BestDeals";
 import Events from "../components/Events/Events";
 import Sponsored from "../components/Route/Sponsored";
 import Footer from "../components/Layout/Footer";
+import AppPromo from '../components/AppPromo/appPromo';
 // import PreviewAllProducts from '../components/Shop/PreviewAllProducts';
 
 const HomePage = () => {
@@ -17,6 +18,7 @@ const HomePage = () => {
         <Categories />
         <BestDeals />
         <Events />
+        <AppPromo />
         {/* <FeaturedProduct /> */}
         {/* <PreviewAllProducts id={'64da79b4cad5b45ae8579322'}/> */}
         <Sponsored />
