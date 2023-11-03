@@ -27,13 +27,17 @@ const Events = () => {
             <h1>ADS & Promotions</h1>
           </div>
           {allEvents.length > 0 ? (
-            <Slider {...settings}>
-              {allEvents.map((event, index) => (
-                <div key={index}>
-                  <EventCard data={event} active={true} />
-                </div>
-              ))}
-            </Slider>
+            allEvents.length === 1 ? (
+              <EventCard data={allEvents[0]} active={true} />
+            ) : (
+              <Slider {...settings}>
+                {allEvents.map((event, index) => (
+                  <div key={index}>
+                    <EventCard data={event} active={true} />
+                  </div>
+                ))}
+              </Slider>
+            )
           ) : (
             <h4>'Events not available!'</h4>
           )}
