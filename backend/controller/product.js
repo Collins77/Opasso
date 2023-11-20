@@ -106,7 +106,7 @@ router.delete(
 // get all products
 router.get(
   "/get-all-products",
-  isAuthenticated,
+  // isAuthenticated,
   catchAsyncErrors(async (req, res, next) => {
     try {
       const products = await Product.find().sort({ createdAt: -1 });
