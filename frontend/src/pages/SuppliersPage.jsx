@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 import Footer from "../components/Layout/Footer";
 import Header from "../components/Layout/Header";
 import Loader from "../components/Layout/Loader";
@@ -11,6 +12,8 @@ const SuppliersPage = () => {
   const dispatch = useDispatch();
   const { sellers, isLoading } = useSelector((state) => state.seller);
   const [data, setData] = useState([]);
+  const location = useLocation();
+  const pathnames = location.pathname.split('/').filter((x) => x);
 
   useEffect(() => {
     dispatch(getAllSellers());
@@ -26,8 +29,18 @@ const SuppliersPage = () => {
       <div>
       <Header activeHeading={2} />
       <br />
-      <br />
+      <br />          
       <div className={`${styles.section}`}>
+        {/* Breadcrumbs */}
+        <div>
+              <ul>
+                <li><a href="/">Home</a></li>
+                {pathnames.map((name, index) => (
+                  <li key={index}><a href={`/${name}`}>{name}</a></li>
+                ))}
+                {/* <li>Suppliers</li> */}
+              </ul>
+            </div>
         <div className="grid grid-cols-3 gap-4">
           {sellers && sellers.map((i, index) => <SupplierCard data={i} key={index} />)}
         </div>
