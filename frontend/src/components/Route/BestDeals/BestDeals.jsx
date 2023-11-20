@@ -30,22 +30,16 @@ const BestDeals = () => {
         <div className={`${styles.heading}`}>
           <h1>Featured Suppliers</h1>
         </div>
-        <div className="grid grid-cols-3 gap-4">
-        {/* {
-            sellers && sellers.length !== 0 &&(
-              <>
-               {sellers && sellers.map((i, index) => <SupplierCard data={i} key={index} />)}
-              </>
-            )
-          }         */}
+        
           <Slider {...sliderSettings}>
-          {sellers &&
-            sellers.length !== 0 &&
-            sellers.map((i, index) => (
-              <SupplierCard data={i} key={index} />
-            ))}
+            <div className="grid grid-cols-3 gap-4">
+              {sellers &&
+                sellers.length !== 0 &&
+                sellers.map((i, index) => (
+                  <SupplierCard data={i} key={index} />
+                ))}
+            </div>
         </Slider>
-        </div>
       </div>
     </div>
   );
