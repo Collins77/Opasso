@@ -33,14 +33,14 @@ const SuppliersPage = () => {
       <div className={`${styles.section}`}>
         {/* Breadcrumbs */}
         <div>
-              <ul>
-                <li><a href="/">Home</a></li>
+              <ul style={{ display: "flex", listStyle: "none", margin: 0, padding: 0 }}>
+                <li><a href="/">Home/</a></li>
                 {pathnames.map((name, index) => (
                   <li key={index}><a href={`/${name}`}>{name}</a></li>
                 ))}
                 {/* <li>Suppliers</li> */}
               </ul>
-            </div>
+        </div>
         <div className="grid grid-cols-3 gap-4">
           {sellers && sellers.map((i, index) => <SupplierCard data={i} key={index} />)}
         </div>
