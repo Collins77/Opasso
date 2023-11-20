@@ -18,8 +18,6 @@ const HomePage = () => {
         <Categories />
         <BestDeals />
         <Events />
-        {/* <FeaturedProduct /> */}
-        {/* <PreviewAllProducts id={'64da79b4cad5b45ae8579322'}/> */}
         <Sponsored />
         <AppPromo />
         <Footer />

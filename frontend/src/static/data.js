@@ -27,7 +27,7 @@ export const navItems = [
     {
       id: 1,
       title: "Biggest Supplier Catalogue",
-      Description: "From across the world",
+      Description: "In Kenya",
       icon: (
         <svg
           width="36"
@@ -76,7 +76,7 @@ export const navItems = [
     },
     {
       id: 2,
-      title: "Secure Communication",
+      title: "Private Messaging",
       Description: "Inbuilt messaging service",
       icon: (
         <svg
@@ -104,7 +104,7 @@ export const navItems = [
     },
     {
       id: 4,
-      title: "Affortable Prices",
+      title: "Best Prices",
       Description: "Get the Best prices for your products",
       icon: (
         <svg
