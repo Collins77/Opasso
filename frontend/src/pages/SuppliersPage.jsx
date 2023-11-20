@@ -31,6 +31,9 @@ const SuppliersPage = () => {
       <br />
       <br />          
       <div className={`${styles.section}`}>
+        <div className="w-full flex align-middle justify-center">
+          <h2 className="font-bold text-center">Suppliers</h2>
+        </div>
         {/* Breadcrumbs */}
         <div className="mb-4">
               <ul style={{ display: "flex", listStyle: "none", margin: 0, padding: 0, fontSize: "12px", color: "#000000ff" }}>
