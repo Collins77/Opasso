@@ -20,7 +20,7 @@ const BestDeals = () => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 2.5, // You can adjust the number of slides shown at once
+    slidesToShow: 3, // You can adjust the number of slides shown at once
     slidesToScroll: 1,
   };
 
@@ -35,7 +35,7 @@ const BestDeals = () => {
               {sellers &&
                 sellers.length !== 0 &&
                 sellers.map((i, index) => (
-                  <div className="grid grid-cols-3 gap-4">
+                  <div className="grid grid-cols-3 gap-4 mr-4">
                     <SupplierCard data={i} key={index} />
                   </div>
                 ))}
