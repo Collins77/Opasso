@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useLocation, useSearchParams } from "react-router-dom";
 import Footer from "../components/Layout/Footer";
 import Header from "../components/Layout/Header";
 import Loader from "../components/Layout/Loader";
@@ -16,6 +16,8 @@ const ProductsPage = () => {
   const {allProducts,isLoading} = useSelector((state) => state.products);
   const [data, setData] = useState([]);
   const [selectedCurrency, setSelectedCurrency] = useState("KES"); 
+  const location = useLocation();
+  const pathnames = location.pathname.split('/').filter((x) => x);
 
   const AntSwitch = styled(Switch)(({ theme }) => ({
     width: 28,
@@ -217,6 +219,19 @@ const ProductsPage = () => {
       <br />
       <br />
       <div className="m-10 mt-5">
+        <div className="w-full flex align-middle justify-center">
+            <h1 className="font-bold text-center text-4xl">Suppliers</h1>
+            <hr />
+          </div>
+          {/* Breadcrumbs */}
+          <div className="mb-4">
+                <ul style={{ display: "flex", listStyle: "none", margin: 0, padding: 0, fontSize: "12px", color: "#000000ff" }}>
+                  <li><a href="/">Home/</a></li>
+                  {pathnames.map((name, index) => (
+                    <li key={index}><a href={`/${name}`}>{name}</a></li>
+                  ))}
+                </ul>
+          </div>
             <label className="mb-2 mr-2">
               Currency :
             </label>
