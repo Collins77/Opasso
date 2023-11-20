@@ -220,7 +220,7 @@ const ProductsPage = () => {
       <br />
       <div className="m-10 mt-5">
         <div className="w-full flex align-middle justify-center">
-            <h1 className="font-bold text-center text-4xl">Suppliers</h1>
+            <h1 className="font-bold text-center text-4xl">Products</h1>
             <hr />
           </div>
           {/* Breadcrumbs */}
