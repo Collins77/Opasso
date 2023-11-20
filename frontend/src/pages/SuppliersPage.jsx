@@ -32,8 +32,8 @@ const SuppliersPage = () => {
       <br />          
       <div className={`${styles.section}`}>
         {/* Breadcrumbs */}
-        <div>
-              <ul style={{ display: "flex", listStyle: "none", margin: 0, padding: 0 }}>
+        <div className="mb-4">
+              <ul style={{ display: "flex", listStyle: "none", margin: 0, padding: 0, fontSize: "12px", color: "#000000ff" }}>
                 <li><a href="/">Home/</a></li>
                 {pathnames.map((name, index) => (
                   <li key={index}><a href={`/${name}`}>{name}</a></li>
