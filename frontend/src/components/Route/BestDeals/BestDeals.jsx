@@ -30,7 +30,7 @@ const BestDeals = () => {
         <div className={`${styles.heading}`}>
           <h1>Featured Suppliers</h1>
         </div>
-        <div className="flex justify-between">
+        {/* <div className="flex justify-between"> */}
           <Slider {...sliderSettings}>
               {sellers &&
                 sellers.length !== 0 &&
@@ -40,7 +40,7 @@ const BestDeals = () => {
                   </div>
                 ))}
           </Slider>
-          </div>
+          {/* </div> */}
       </div>
     </div>
   );
