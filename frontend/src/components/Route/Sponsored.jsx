@@ -1,7 +1,19 @@
 import React from "react";
 import styles from "../../styles/styles";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Sponsored = () => {
+
+  const sliderSettings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4, // Adjust the number of slides shown at once
+    slidesToScroll: 1,
+  };
+
   return (
     <div
       className={`${styles.section} hidden sm:block bg-white py-10 px-5 mb-12 cursor-pointer rounded-xl`}

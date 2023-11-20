@@ -10,7 +10,7 @@ const Events = () => {
   const { allEvents, isLoading } = useSelector((state) => state.events);
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 1.2, // Adjust the number of cards shown at once
