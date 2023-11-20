@@ -32,13 +32,15 @@ const BestDeals = () => {
         </div>
         
           <Slider {...sliderSettings}>
-            <div className="grid grid-cols-3 gap-4">
-              {sellers &&
-                sellers.length !== 0 &&
-                sellers.map((i, index) => (
-                  <SupplierCard data={i} key={index} />
-                ))}
+          {sellers &&
+          sellers.length !== 0 &&
+          sellers.map((seller, index) => (
+            <div key={index} className="grid grid-cols-3 gap-4">
+              {seller.map((individualSeller, cardIndex) => (
+                <SupplierCard data={individualSeller} key={cardIndex} />
+              ))}
             </div>
+          ))}
         </Slider>
       </div>
     </div>
