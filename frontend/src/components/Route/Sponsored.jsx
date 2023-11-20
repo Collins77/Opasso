@@ -10,7 +10,7 @@ const Sponsored = () => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 4, // Adjust the number of slides shown at once
+    slidesToShow: 5, // Adjust the number of slides shown at once
     slidesToScroll: 1,
   };
 
