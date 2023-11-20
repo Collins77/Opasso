@@ -32,7 +32,8 @@ const SuppliersPage = () => {
       <br />          
       <div className={`${styles.section}`}>
         <div className="w-full flex align-middle justify-center">
-          <h1 className="font-bold text-center text-2xl">Suppliers</h1>
+          <h1 className="font-bold text-center text-4xl">Suppliers</h1>
+          <hr />
         </div>
         {/* Breadcrumbs */}
         <div className="mb-4">
