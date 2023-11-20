@@ -35,7 +35,7 @@ const BestDeals = () => {
               {sellers &&
                 sellers.length !== 0 &&
                 sellers.map((i, index) => (
-                  <div className="grid grid-cols-3 gap-4 mr-4">
+                  <div className="flex justify-between">
                     <SupplierCard data={i} key={index} />
                   </div>
                 ))}
