@@ -39,15 +39,15 @@ const Hero = () => {
         <h1
           className={`text-[30px] leading-[1.2] 800px:text-[60px] text-[#fff] font-[600] capitalize flex text-center`}
         >
-         Access manufacturers  <br/> and suppliers across the world
+         Access Genuine Wholesale  <br/> Suppliers in Nairobi - Kenya & Beyond
         </h1>
         <p className="pt-5 text-[16px] font-[Poppins] font-[800] text-white flex text-center">
-          Search for and find a supplier for your preferred products and even services from across the world
+          Search and find your best supplier
         </p>
         <div className="w-[100%] relative mt-3 justify-items-center">
             <input
               type="text"
-              placeholder="Search Supplier..."
+              placeholder="Type and click the search icon"
               value={searchTerm}
               onChange={handleSearchChange}
               className="h-[40px] w-full px-2 border-[#f67009] border-[2px] rounded-md"
