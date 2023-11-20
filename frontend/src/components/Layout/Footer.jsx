@@ -8,7 +8,7 @@ import {
 import { Link } from "react-router-dom";
 import {
   footercompanyLinks,
-  footerProductLinks,
+  // footerProductLinks,
   footerSupportLinks,
 } from "../../static/data";
 

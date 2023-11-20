@@ -41,7 +41,7 @@ const Hero = () => {
         >
          Access Genuine Wholesale  <br/> Suppliers in Nairobi - Kenya & Beyond
         </h1>
-        <p className="pt-5 text-[16px] font-[Poppins] font-[800] text-white flex text-center">
+        <p className="pt-5 text-[16px] font-[Poppins] font-[800] text-white flex text-center justify-center">
           Search and find your best supplier
         </p>
         <div className="w-[100%] relative mt-3 justify-items-center">
