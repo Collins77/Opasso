@@ -6,7 +6,7 @@ import Header from "../components/Layout/Header";
 import Loader from "../components/Layout/Loader";
 import styles from "../styles/styles";
 import SupplierCard from "../components/Route/SupplierCard/SupplierCard";
-import { getAllSellers } from "../redux/actions/sellers";
+import { getAllSellers, getAllSuppliers } from "../redux/actions/sellers";
 
 const SuppliersPage = () => {
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ const SuppliersPage = () => {
   const pathnames = location.pathname.split('/').filter((x) => x);
 
   useEffect(() => {
-    dispatch(getAllSellers());
+    dispatch(getAllSuppliers());
   }, [dispatch]);
 
 
@@ -42,7 +42,6 @@ const SuppliersPage = () => {
                 {pathnames.map((name, index) => (
                   <li key={index}><a href={`/${name}`}>{name}</a></li>
                 ))}
-                {/* <li>Suppliers</li> */}
               </ul>
         </div>
         <div className="grid grid-cols-3 gap-4">

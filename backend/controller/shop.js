@@ -288,7 +288,7 @@ router.get(
 // get all sellers for user
 router.get(
   "/get-all-sellers",
-  // isAuthenticated,
+  isAuthenticated,
   catchAsyncErrors(async (req, res, next) => {
     try {
       const sellers = await Shop.find().sort({ createdAt: -1 });
