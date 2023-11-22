@@ -15,7 +15,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
-import RedirectModal from "./RedirectModal";
+import RedirectModal from "../components/RedirectModal/RedirectModal";
 // import Modal from "./Modal"; // Adjust the path based on your project structure
 
 const ProtectedRoute = ({ children }) => {
