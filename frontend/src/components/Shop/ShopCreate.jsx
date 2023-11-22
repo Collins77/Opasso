@@ -134,7 +134,7 @@ const ShopCreate = () => {
               </label>
               <div className="mt-1">
                 <input
-                  type="address"
+                  type="text"
                   name="address"
                   required
                   value={address}
