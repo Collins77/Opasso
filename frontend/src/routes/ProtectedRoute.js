@@ -16,6 +16,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import RedirectModal from "../components/RedirectModal/RedirectModal";
+// import {RedirectModal from "../components/RedirectModal/RedirectModal";
 // import Modal from "./Modal"; // Adjust the path based on your project structure
 
 const ProtectedRoute = ({ children }) => {
@@ -48,13 +49,7 @@ const ProtectedRoute = ({ children }) => {
     );
   }
 
-  // Render the protected route if authenticated
-  // return (
-  //   <>
-  //     <Modal setOpenModal={setShowRedirectModal} />
-  //     {children}
-  //   </>
-  // );
+  
 };
 
 export default ProtectedRoute;
