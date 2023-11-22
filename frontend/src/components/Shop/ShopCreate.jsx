@@ -12,8 +12,8 @@ const ShopCreate = () => {
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState();
   const [address, setAddress] = useState("");
-  const [zipCode, setZipCode] = useState();
-  const [avatar, setAvatar] = useState();
+  // const [zipCode, setZipCode] = useState();
+  // const [avatar, setAvatar] = useState();
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
 
@@ -25,8 +25,8 @@ const ShopCreate = () => {
         name,
         email,
         password,
-        avatar,
-        zipCode,
+        // avatar,
+        // zipCode,
         address,
         phoneNumber,
       })
@@ -35,8 +35,8 @@ const ShopCreate = () => {
         setName("");
         setEmail("");
         setPassword("");
-        setAvatar();
-        setZipCode();
+        // setAvatar();
+        // setZipCode();
         setAddress("");
         setPhoneNumber();
       })
@@ -45,17 +45,17 @@ const ShopCreate = () => {
       });
   };
 
-  const handleFileInputChange = (e) => {
-    const reader = new FileReader();
+  // const handleFileInputChange = (e) => {
+  //   const reader = new FileReader();
 
-    reader.onload = () => {
-      if (reader.readyState === 2) {
-        setAvatar(reader.result);
-      }
-    };
+  //   reader.onload = () => {
+  //     if (reader.readyState === 2) {
+  //       setAvatar(reader.result);
+  //     }
+  //   };
 
-    reader.readAsDataURL(e.target.files[0]);
-  };
+  //   reader.readAsDataURL(e.target.files[0]);
+  // };
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -144,7 +144,7 @@ const ShopCreate = () => {
               </div>
             </div>
 
-            <div>
+            {/* <div>
               <label
                 htmlFor="email"
                 className="block text-sm font-medium text-gray-700"
@@ -161,7 +161,7 @@ const ShopCreate = () => {
                   className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                 />
               </div>
-            </div>
+            </div> */}
 
             <div>
               <label
@@ -196,7 +196,7 @@ const ShopCreate = () => {
               </div>
             </div>
 
-            <div>
+            {/* <div>
               <label
                 htmlFor="avatar"
                 className="block text-sm font-medium text-gray-700"
@@ -227,7 +227,7 @@ const ShopCreate = () => {
                   />
                 </label>
               </div>
-            </div>
+            </div> */}
 
             <div>
               <button
