@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { server } from "../../server";
 import { toast } from "react-toastify";
-import { RxAvatar } from "react-icons/rx";
+// import { RxAvatar } from "react-icons/rx";
 
 const ShopCreate = () => {
   const [email, setEmail] = useState("");
