@@ -4,7 +4,7 @@ import DownloadAds from './DownloadAds';
 
 const AppPromo = () => {
   return (
-    <div className={`${styles.section} flex flex-col items-center justify-start px-8 bg-white h-[500px] pt-[18rem] mt-4 relative z-[0] rounded-b-[5rem]`}>
+    <div className={`${styles.section} flex flex-col items-center justify-start px-8 bg-white h-[500px] pt-4 mt-4 relative z-[0] rounded-b-[5rem]`}>
       {/* tild icon or path icon */}
       <img src={require("../img/Path 318.png")} alt="" className="w-[5rem]" />
       {/* heading */}
