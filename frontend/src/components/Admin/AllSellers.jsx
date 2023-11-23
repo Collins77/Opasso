@@ -173,17 +173,17 @@ const AllSellers = () => {
             </Button>
             {params.row.status !== "Approved" && (
               <Button onClick={() => handleApprove(params.id)}>
-                <TiTick size={15} style={{ color: "green", padding: '10px', margin: '5px'}} />
+                <TiTick size={15} color="green" />
               </Button>
             )}
             {params.row.status !== "Rejected" && (
               <Button onClick={() => handleReject(params.id)}>
-                <RxCross2 size={15} style={{ color: "red", padding: '10px', margin: '5px' }}/>
+                <RxCross2 size={15} color="red" />
               </Button>
             )}
             {params.row.status !== "On Hold" && (
             <Button onClick={() => handleOnHold(params.id)}>
-              <TbHandStop size={15} style={{color: "yellow", padding: '10px', margin: '5px'}} />
+              <TbHandStop size={15} color="yellow" />
             </Button>
             )}
           </>
