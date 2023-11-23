@@ -31,6 +31,19 @@ const AllSellers = () => {
   dispatch(getAllSellers());
   };
 
+  const handleApprove = async (id) => {
+    try {
+      await axios.put(`${server}/shop/approve-seller/${id}`, null, {
+        withCredentials: true,
+      });
+      toast.success("Seller approved successfully!");
+      dispatch(getAllSellers());
+    } catch (error) {
+      toast.error("Error approving seller");
+      console.error("Error approving seller:", error);
+    }
+  };
+
   const columns = [
     { field: "id", headerName: "Seller ID", minWidth: 150, flex: 0.7 },
 
@@ -81,23 +94,27 @@ const AllSellers = () => {
           );
         },
       },
-    {
-      field: " ",
-      flex: 1,
-      minWidth: 150,
-      headerName: "Delete Seller",
-      type: "number",
-      sortable: false,
-      renderCell: (params) => {
-        return (
+      {
+        field: "action",
+        headerName: "Action",
+        flex: 1,
+        minWidth: 150,
+        headerAlign: "center",
+        align: "center",
+        sortable: false,
+        renderCell: (params) => (
           <>
             <Button onClick={() => setUserId(params.id) || setOpen(true)}>
               <AiOutlineDelete size={20} />
             </Button>
+            {params.row.status !== "Approved" && (
+              <Button onClick={() => handleApprove(params.id)}>
+                Approve
+              </Button>
+            )}
           </>
-        );
+        ),
       },
-    },
   ];
 
   const row = [];
