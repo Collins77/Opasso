@@ -317,16 +317,16 @@ router.delete(
 );
 
 router.put(
-  "/approve-seller/:userId",
+  "/approve-seller/:id",
   isAuthenticated,
   isAdmin("Admin"),
   async (req, res) => {
-    const { userId } = req.params;
+    const { id } = req.params;
 
     try {
       // Find the user by ID and update the status
       const seller = await Shop.findByIdAndUpdate(
-        userId,
+        id,
         { status: "Approved" },
         { new: true }
       );
