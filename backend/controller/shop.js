@@ -331,7 +331,7 @@ router.put(
         { new: true }
       );
 
-      if (!user) {
+      if (!seller) {
         return res.status(404).json({ message: "User not found" });
       }
 
