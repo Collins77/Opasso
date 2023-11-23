@@ -109,7 +109,7 @@ const AllSellers = () => {
     {
         field: "  ",
         flex: 1,
-        minWidth: 150,
+        minWidth: 80,
         headerName: "Preview Shop",
         type: "number",
         sortable: false,
