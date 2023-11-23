@@ -128,7 +128,7 @@ const AllSellers = () => {
       {
         field: "status",
         headerName: "Status",
-        minWidth: 120,
+        minWidth: 200,
         flex: 0.7,
         renderCell: (params) => {
           const status = params.row.status;
