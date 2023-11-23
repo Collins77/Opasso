@@ -128,7 +128,7 @@ const AllSellers = () => {
       {
         field: "status",
         headerName: "Status",
-        minWidth: 200,
+        minWidth: 130,
         flex: 0.7,
         renderCell: (params) => {
           const status = params.row.status;
@@ -156,7 +156,7 @@ const AllSellers = () => {
         field: "action",
         headerName: "Action",
         flex: 1,
-        minWidth: 150,
+        minWidth: 250,
         headerAlign: "center",
         align: "center",
         sortable: false,
@@ -167,17 +167,17 @@ const AllSellers = () => {
             </Button>
             {params.row.status !== "Approved" && (
               <Button onClick={() => handleApprove(params.id)}>
-                <TiTick />
+                <TiTick size={20} />
               </Button>
             )}
             {params.row.status !== "Rejected" && (
               <Button onClick={() => handleReject(params.id)}>
-                <RxCross2 />
+                <RxCross2 size={20}/>
               </Button>
             )}
             {params.row.status !== "On Hold" && (
             <Button onClick={() => handleOnHold(params.id)}>
-              <TbHandStop />
+              <TbHandStop size={20} />
             </Button>
             )}
           </>
