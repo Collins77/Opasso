@@ -105,7 +105,7 @@ const AllSellers = () => {
           return (
             <div
               style={{
-                color: status === "Approved" ? "green" : status === "Waiting" ? "blue" : "red",
+                color: status === "Approved" ? "green" : status === "Not Approved" ? "blue" : "red",
                 fontWeight: "bold",
               }}
             >
