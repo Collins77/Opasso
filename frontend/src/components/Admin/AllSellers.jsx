@@ -4,12 +4,14 @@ import { DataGrid } from "@material-ui/data-grid";
 import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
 import { Button } from "@material-ui/core";
 import styles from "../../styles/styles";
-import { RxCross1 } from "react-icons/rx";
+import { RxCross1, RxCross2 } from "react-icons/rx";
+import {TiTick} from "react-icons/ti"
 import axios from "axios";
 import { server } from "../../server";
 import { toast } from "react-toastify";
 import { getAllSellers } from "../../redux/actions/sellers";
 import { Link } from "react-router-dom";
+import { TbHandStop } from "react-icons/tb";
 
 const AllSellers = () => {
   const dispatch = useDispatch();
@@ -158,17 +160,17 @@ const AllSellers = () => {
             </Button>
             {params.row.status !== "Approved" && (
               <Button onClick={() => handleApprove(params.id)}>
-                Approve
+                <TiTick />
               </Button>
             )}
             {params.row.status !== "Rejected" && (
               <Button onClick={() => handleReject(params.id)}>
-                Reject
+                <RxCross2 />
               </Button>
             )}
             {params.row.status !== "On Hold" && (
             <Button onClick={() => handleOnHold(params.id)}>
-              On Hold
+              <TbHandStop />
             </Button>
             )}
           </>
