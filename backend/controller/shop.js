@@ -316,6 +316,33 @@ router.delete(
   })
 );
 
+router.put(
+  "/approve-seller/:id",
+  isAuthenticated,
+  isAdmin("Admin"),
+  async (req, res) => {
+    const { userId } = req.params;
+
+    try {
+      // Find the user by ID and update the status
+      const seller = await Shop.findByIdAndUpdate(
+        userId,
+        { status: "Approved" },
+        { new: true }
+      );
+
+      if (!user) {
+        return res.status(404).json({ message: "User not found" });
+      }
+
+      res.status(200).json({ message: "User approved", user });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Internal Server Error" });
+    }
+  }
+);
+
 // update seller withdraw methods --- sellers
 router.put(
   "/update-payment-methods",
