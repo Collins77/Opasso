@@ -163,21 +163,21 @@ const AllSellers = () => {
         renderCell: (params) => (
           <>
             <Button onClick={() => setUserId(params.id) || setOpen(true)}>
-              <AiOutlineDelete size={20} />
+              <AiOutlineDelete size={10} />
             </Button>
             {params.row.status !== "Approved" && (
               <Button onClick={() => handleApprove(params.id)}>
-                <TiTick size={20} />
+                <TiTick size={10} />
               </Button>
             )}
             {params.row.status !== "Rejected" && (
               <Button onClick={() => handleReject(params.id)}>
-                <RxCross2 size={20}/>
+                <RxCross2 size={10}/>
               </Button>
             )}
             {params.row.status !== "On Hold" && (
             <Button onClick={() => handleOnHold(params.id)}>
-              <TbHandStop size={20} />
+              <TbHandStop size={10} />
             </Button>
             )}
           </>
