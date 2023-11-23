@@ -75,6 +75,12 @@ const AllSellers = () => {
     }
   };
 
+  const iconStyle = {
+    color: 'red',     // Change color to red
+    padding: '10px',  // Add padding of 10 pixels
+    margin: '5px',    // Add margin of 5 pixels
+  };
+
   const columns = [
     { field: "id", headerName: "Seller ID", minWidth: 150, flex: 0.7 },
 
@@ -167,17 +173,17 @@ const AllSellers = () => {
             </Button>
             {params.row.status !== "Approved" && (
               <Button onClick={() => handleApprove(params.id)}>
-                <TiTick size={10} />
+                <TiTick size={15} style={{ color: "green", padding: '10px', margin: '5px'}} />
               </Button>
             )}
             {params.row.status !== "Rejected" && (
               <Button onClick={() => handleReject(params.id)}>
-                <RxCross2 size={10}/>
+                <RxCross2 size={15} style={{ color: "red", padding: '10px', margin: '5px' }}/>
               </Button>
             )}
             {params.row.status !== "On Hold" && (
             <Button onClick={() => handleOnHold(params.id)}>
-              <TbHandStop size={10} />
+              <TbHandStop size={15} style={{color: "yellow", padding: '10px', margin: '5px'}} />
             </Button>
             )}
           </>
