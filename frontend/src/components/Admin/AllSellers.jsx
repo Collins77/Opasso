@@ -192,6 +192,7 @@ const AllSellers = () => {
         id: item._id,
         name: item?.name,
         email: item?.email,
+        status: item?.status,
         joinedAt: item.createdAt.slice(0, 10),
         address: item.address,
       });
