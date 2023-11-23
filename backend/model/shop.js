@@ -34,7 +34,7 @@ const shopSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ["Not approved", "Approved"],
+    enum: ["Not approved", "Approved","On Hold", "Rejected"],
     default: "Not approved",
   },
   createdAt: {

@@ -44,6 +44,35 @@ const AllSellers = () => {
     }
   };
 
+  const handleReject = async (id) => {
+    try {
+      await axios.put(
+        `${server}/shop/reject-seller/${id}`,
+        null,
+        { withCredentials: true }
+      );
+      toast.success("Seller rejected successfully!");
+      dispatch(getAllSellers());
+    } catch (error) {
+      toast.error("Error rejecting seller");
+      console.error("Error rejecting seller:", error);
+    }
+  };
+  const handleOnHold = async (id) => {
+    try {
+      await axios.put(
+        `${server}/shop/on-hold-seller/${id}`,
+        null,
+        { withCredentials: true }
+      );
+      toast.success("Seller put on hold");
+      dispatch(getAllSellers());
+    } catch (error) {
+      toast.error("Error putting seller on hold");
+      console.error("Error putting seller on hold:", error);
+    }
+  };
+
   const columns = [
     { field: "id", headerName: "Seller ID", minWidth: 150, flex: 0.7 },
 
@@ -131,6 +160,16 @@ const AllSellers = () => {
               <Button onClick={() => handleApprove(params.id)}>
                 Approve
               </Button>
+            )}
+            {params.row.status !== "Rejected" && (
+              <Button onClick={() => handleReject(params.id)}>
+                Reject
+              </Button>
+            )}
+            {params.row.status !== "On Hold" && (
+            <Button onClick={() => handleOnHold(params.id)}>
+              On Hold
+            </Button>
             )}
           </>
         ),

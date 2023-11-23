@@ -338,6 +338,46 @@ router.put(
   })
 );
 
+router.put("/reject-seller/:id", 
+isAuthenticated, 
+isAdmin("Admin"), 
+async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const seller = await Shop.findByIdAndUpdate(id, { status: "Rejected" }, { new: true });
+
+    if (!seller) {
+      return res.status(404).json({ message: "Seller not found" });
+    }
+
+    res.status(200).json({ message: "Seller rejected", seller });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
+router.put("/on-hold-seller/:id", 
+isAuthenticated, 
+isAdmin("Admin"), 
+async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const seller = await Shop.findByIdAndUpdate(id, { status: "On Hold" }, { new: true });
+
+    if (!seller) {
+      return res.status(404).json({ message: "Seller not found" });
+    }
+
+    res.status(200).json({ message: "Seller put on hold", seller });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
 // update seller withdraw methods --- sellers
 router.put(
   "/update-payment-methods",
