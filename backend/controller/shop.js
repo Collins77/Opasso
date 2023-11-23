@@ -317,7 +317,7 @@ router.delete(
 );
 
 router.put(
-  "/approve-seller/:id",
+  "/approve-seller/:userId",
   isAuthenticated,
   isAdmin("Admin"),
   async (req, res) => {
