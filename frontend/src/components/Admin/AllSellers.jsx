@@ -95,6 +95,26 @@ const AllSellers = () => {
         },
       },
       {
+        field: "status",
+        headerName: "Status",
+        minWidth: 120,
+        flex: 0.7,
+        renderCell: (params) => {
+          const status = params.row.status;
+  
+          return (
+            <div
+              style={{
+                color: status === "Approved" ? "green" : status === "Waiting" ? "blue" : "red",
+                fontWeight: "bold",
+              }}
+            >
+              {status}
+            </div>
+          );
+        },
+      },
+      {
         field: "action",
         headerName: "Action",
         flex: 1,
@@ -132,7 +152,7 @@ const AllSellers = () => {
   return (
     <div className="w-full flex justify-center pt-5">
       <div className="w-[97%]">
-        <h3 className="text-[22px] font-Poppins pb-2">All Users</h3>
+        <h3 className="text-[22px] font-Poppins pb-2">All Sellers</h3>
         <div className="w-full min-h-[45vh] bg-white rounded">
           <DataGrid
             rows={row}
@@ -149,7 +169,7 @@ const AllSellers = () => {
                 <RxCross1 size={25} onClick={() => setOpen(false)} />
               </div>
               <h3 className="text-[25px] text-center py-5 font-Poppins text-[#000000cb]">
-                Are you sure you wanna delete this user?
+                Are you sure you wanna delete this seller?
               </h3>
               <div className="w-full flex items-center justify-center">
                 <div
