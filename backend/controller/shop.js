@@ -41,52 +41,52 @@ router.post("/create-shop", catchAsyncErrors(async (req, res, next) => {
 }));
 
 // create activation token
-const createActivationToken = (seller) => {
-  return jwt.sign(seller, process.env.ACTIVATION_SECRET, {
-    expiresIn: "24h",
-  });
-};
+// const createActivationToken = (seller) => {
+//   return jwt.sign(seller, process.env.ACTIVATION_SECRET, {
+//     expiresIn: "24h",
+//   });
+// };
 
-// activate user
-router.post(
-  "/activation",
-  catchAsyncErrors(async (req, res, next) => {
-    try {
-      const { activation_token } = req.body;
+// // activate user
+// router.post(
+//   "/activation",
+//   catchAsyncErrors(async (req, res, next) => {
+//     try {
+//       const { activation_token } = req.body;
 
-      const newSeller = jwt.verify(
-        activation_token,
-        process.env.ACTIVATION_SECRET
-      );
+//       const newSeller = jwt.verify(
+//         activation_token,
+//         process.env.ACTIVATION_SECRET
+//       );
 
-      if (!newSeller) {
-        return next(new ErrorHandler("Invalid token", 400));
-      }
-      const { name, email, password, avatar, zipCode, address, phoneNumber } =
-        newSeller;
+//       if (!newSeller) {
+//         return next(new ErrorHandler("Invalid token", 400));
+//       }
+//       const { name, email, password, avatar, zipCode, address, phoneNumber } =
+//         newSeller;
 
-      let seller = await Shop.findOne({ email });
+//       let seller = await Shop.findOne({ email });
 
-      if (seller) {
-        return next(new ErrorHandler("User already exists", 400));
-      }
+//       if (seller) {
+//         return next(new ErrorHandler("User already exists", 400));
+//       }
 
-      seller = await Shop.create({
-        name,
-        email,
-        avatar,
-        password,
-        zipCode,
-        address,
-        phoneNumber,
-      });
+//       seller = await Shop.create({
+//         name,
+//         email,
+//         avatar,
+//         password,
+//         zipCode,
+//         address,
+//         phoneNumber,
+//       });
 
-      sendShopToken(seller, 201, res);
-    } catch (error) {
-      return next(new ErrorHandler(error.message, 500));
-    }
-  })
-);
+//       sendShopToken(seller, 201, res);
+//     } catch (error) {
+//       return next(new ErrorHandler(error.message, 500));
+//     }
+//   })
+// );
 
 // login shop
 router.post(
@@ -128,7 +128,7 @@ router.post(
 // load shop
 router.get(
   "/getSeller",
-  isSeller,
+  // isSeller,
   catchAsyncErrors(async (req, res, next) => {
     try {
       const seller = await Shop.findById(req.seller._id);
