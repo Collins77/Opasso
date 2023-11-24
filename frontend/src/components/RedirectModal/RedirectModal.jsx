@@ -1,7 +1,7 @@
 import React from 'react';
 import { RxCross1 } from 'react-icons/rx';
 import styles from '../../styles/styles';
-import { useHistory } from "react-router-dom";
+import { Navigate, useHistory } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 
 
@@ -14,7 +14,8 @@ const RedirectModal = ({ isOpen, onClose, message }) => {
     onClose();
 
     // Redirect to the login page
-    history.push("/login");
+    // history.push("/login");
+    <Navigate to="/login" replace />;
   };
 
   const handleClose = () => {

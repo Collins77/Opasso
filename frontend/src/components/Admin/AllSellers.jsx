@@ -75,12 +75,6 @@ const AllSellers = () => {
     }
   };
 
-  const iconStyle = {
-    color: 'red',     // Change color to red
-    padding: '10px',  // Add padding of 10 pixels
-    margin: '5px',    // Add margin of 5 pixels
-  };
-
   const columns = [
     { field: "id", headerName: "Seller ID", minWidth: 150, flex: 0.7 },
 
