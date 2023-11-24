@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 
 
 const RedirectModal = ({ isOpen, onClose, message }) => {
-  const history = useHistory();
+  // const history = useHistory();
   const dispatch = useDispatch();
 
   const handleConfirm = ({isOpen, onClose, message}) => {
