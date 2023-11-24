@@ -1,7 +1,7 @@
 import React from 'react';
 import { RxCross1 } from 'react-icons/rx';
 import styles from '../../styles/styles';
-import { Navigate, useHistory } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 
 
