@@ -30,7 +30,7 @@ router.post("/create-shop", catchAsyncErrors(async (req, res, next) => {
 
     const newSeller = await Shop.create(seller);
     const adminEmailOptions = {
-      email: process.env.ADMIN_EMAIL, // Replace with your admin's email address
+      email: "mutuamuema330@gmail.com", // Replace with your admin's email address
       subject: "New Seller Registration Notification",
       html: `<p>Hello Admin,</p>
              <p>A new seller has registered on your platform. Here are the details:</p>
