@@ -50,7 +50,7 @@ const RedirectModal = ({ isOpen, onClose, message }) => {
     //       </div>
 
       <div class="w-full fixed top-0 left-0 z-[1] flex items-center justify-center h-screen">
-          <div class="w-[95%] 800px:w-[40%] min-h-[20v rounded shadow p-5">
+          <div class="w-[95%] 800px:w-[40%] min-h-[20v] p-5">
               <div class="relative bg-white rounded-lg shadow">
                   <button type="button" class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center">
                       <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
