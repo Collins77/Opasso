@@ -29,6 +29,21 @@ router.post("/create-shop", catchAsyncErrors(async (req, res, next) => {
     };
 
     const newSeller = await Shop.create(seller);
+    const adminEmailOptions = {
+      email: process.env.ADMIN_EMAIL, // Replace with your admin's email address
+      subject: "New Seller Registration Notification",
+      html: `<p>Hello [Admin Name],</p>
+             <p>A new seller has registered on your platform. Here are the details:</p>
+             <ul>
+               <li>Seller Name: ${newSeller.name}</li>
+               <li>Email: ${newSeller.email}</li>
+               <!-- Add any other relevant details you want to include -->
+             </ul>
+             <p>Thank you.</p>
+             <p>Best regards,<br>[Your Company Name]</p>`
+    };
+
+    await sendMail(adminEmailOptions);
 
     res.status(201).json({
       success: true,
@@ -40,53 +55,6 @@ router.post("/create-shop", catchAsyncErrors(async (req, res, next) => {
   }
 }));
 
-// create activation token
-// const createActivationToken = (seller) => {
-//   return jwt.sign(seller, process.env.ACTIVATION_SECRET, {
-//     expiresIn: "24h",
-//   });
-// };
-
-// // activate user
-// router.post(
-//   "/activation",
-//   catchAsyncErrors(async (req, res, next) => {
-//     try {
-//       const { activation_token } = req.body;
-
-//       const newSeller = jwt.verify(
-//         activation_token,
-//         process.env.ACTIVATION_SECRET
-//       );
-
-//       if (!newSeller) {
-//         return next(new ErrorHandler("Invalid token", 400));
-//       }
-//       const { name, email, password, avatar, zipCode, address, phoneNumber } =
-//         newSeller;
-
-//       let seller = await Shop.findOne({ email });
-
-//       if (seller) {
-//         return next(new ErrorHandler("User already exists", 400));
-//       }
-
-//       seller = await Shop.create({
-//         name,
-//         email,
-//         avatar,
-//         password,
-//         zipCode,
-//         address,
-//         phoneNumber,
-//       });
-
-//       sendShopToken(seller, 201, res);
-//     } catch (error) {
-//       return next(new ErrorHandler(error.message, 500));
-//     }
-//   })
-// );
 
 // login shop
 router.post(
