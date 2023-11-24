@@ -14,7 +14,7 @@ const RedirectModal = ({ isOpen, onClose, message }) => {
     onClose();
 
     
-    <Navigate to="/login" replace />;
+    return <Navigate to="/login" replace />;
   };
 
   const handleClose = () => {
@@ -39,6 +39,7 @@ const RedirectModal = ({ isOpen, onClose, message }) => {
                   cancel
                 </div>
                 <Link
+                  to='/login'
                   className={`${styles.button} text-white text-[18px] !h-[42px] ml-4`}
                   onClick={handleConfirm}
                 >
