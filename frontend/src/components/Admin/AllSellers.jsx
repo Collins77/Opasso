@@ -173,7 +173,7 @@ const AllSellers = () => {
             </Button>
             {params.row.status !== "Approved" && (
               <Button onClick={() => handleApprove(params.id)}>
-                <TiTick size={15} color="green" />
+                <TiTick size={15} color="green" style={{borderRadius: '50%'}} />
               </Button>
             )}
             {params.row.status !== "Rejected" && (
@@ -183,7 +183,7 @@ const AllSellers = () => {
             )}
             {params.row.status !== "On Hold" && (
             <Button onClick={() => handleOnHold(params.id)}>
-              <TbHandStop size={15} color="yellow" />
+              <TbHandStop size={15} color="blue"  />
             </Button>
             )}
           </>
