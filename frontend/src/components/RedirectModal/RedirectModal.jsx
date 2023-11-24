@@ -1,13 +1,9 @@
 import React from 'react';
-import { RxCross1 } from 'react-icons/rx';
-import styles from '../../styles/styles';
 import { Link, Navigate } from "react-router-dom";
-import { useDispatch } from 'react-redux';
-
 
 const RedirectModal = ({ isOpen, onClose, message }) => {
   // const history = useHistory();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const handleConfirm = ({isOpen, onClose, message}) => {
     // Close the modal (implement this based on your requirements)
@@ -23,32 +19,6 @@ const RedirectModal = ({ isOpen, onClose, message }) => {
   };
 
   return (
-    // <div className="w-full fixed top-0 left-0 z-[999] bg-[#00000039] flex items-center justify-center h-screen">
-    //         <div className="w-[95%] 800px:w-[40%] min-h-[20vh] bg-white rounded shadow p-5">
-    //           <div className="w-full flex justify-end cursor-pointer">
-    //           <RxCross1 size={25} onClick={handleClose} />
-    //           </div>
-    //           <h3 className="text-[25px] text-center py-5 font-Poppins text-[#000000cb]">
-    //             {message}
-    //           </h3>
-    //           <div className="w-full flex items-center justify-center">
-    //             <div
-    //               className={`${styles.button} text-white text-[18px] !h-[42px] mr-4`}
-    //               onClick={handleClose}
-    //             >
-    //               cancel
-    //             </div>
-    //             <Link
-    //               to='/login'
-    //               className={`${styles.button} text-white text-[18px] !h-[42px] ml-4`}
-    //               onClick={handleConfirm}
-    //             >
-    //               confirm
-    //             </Link>
-    //           </div>
-    //         </div>
-    //       </div>
-
       <div class="w-full fixed top-0 left-0 z-[1] flex items-center justify-center h-screen">
           <div class="w-[95%] 800px:w-[40%] min-h-[20v] p-5">
               <div class="relative bg-white rounded-lg shadow">
@@ -62,14 +32,15 @@ const RedirectModal = ({ isOpen, onClose, message }) => {
                       <svg class="mx-auto mb-4 text-red-400 w-12 h-12" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
                       </svg>
+                      <span class="text-2xl font-medium">Payment Successful</span>
                       <h3 class="mb-5 text-lg font-normal text-gray-500">{message}</h3>
                       
                       <Link 
                         to='/login'
-                        className="text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center me-2 mx-4">
-                            Yes, I'm sure
+                        className="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center me-2 mx-4">
+                            Go to Login
                       </Link>
-                      <button data-modal-hide="popup-modal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">No, cancel</button>
+                      <button onClick={handleClose} type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">No, cancel</button>
                   </div>
               </div>
           </div>
