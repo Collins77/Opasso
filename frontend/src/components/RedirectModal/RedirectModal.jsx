@@ -1,7 +1,7 @@
 import React from 'react';
 import { RxCross1 } from 'react-icons/rx';
 import styles from '../../styles/styles';
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 
 
@@ -13,8 +13,7 @@ const RedirectModal = ({ isOpen, onClose, message }) => {
     // Close the modal (implement this based on your requirements)
     onClose();
 
-    // Redirect to the login page
-    // history.push("/login");
+    
     <Navigate to="/login" replace />;
   };
 
@@ -39,12 +38,12 @@ const RedirectModal = ({ isOpen, onClose, message }) => {
                 >
                   cancel
                 </div>
-                <div
+                <Link
                   className={`${styles.button} text-white text-[18px] !h-[42px] ml-4`}
                   onClick={handleConfirm}
                 >
                   confirm
-                </div>
+                </Link>
               </div>
             </div>
           </div>
