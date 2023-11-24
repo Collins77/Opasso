@@ -328,7 +328,18 @@ router.put(
         return res.status(404).json({ message: "Seller not found" });
       }
 
-      const approvedSeller = await Shop.findByIdAndUpdate(req.params.id, { status: "Approved" }, { new: true });
+      const approvedSeller = await Shop.findByIdAndUpdate(req.params.id, { status: "Approved" }, { new: true });;
+            // Send account approval email
+            const approvalEmailOptions = {
+                email: approvedSeller.email,
+                subject: "Account Approval Notification",
+                html: `<p>Dear ${approvedSeller.name},</p>
+                       <p>We are pleased to inform you that your seller account has been approved! You can now log in to your account and start using our platform.</p>
+                       <p>Thank you for joining us.</p>
+                       <p>Best regards,<br>Opasso Team</p>`
+            };
+
+            await sendMail(approvalEmailOptions);
 
       res.status(200).json({ message: "Seller approved", seller: approvedSeller });
     } catch (error) {
