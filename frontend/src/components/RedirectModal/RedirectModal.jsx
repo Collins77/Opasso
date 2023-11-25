@@ -62,7 +62,7 @@ const RedirectModal = ({ isOpen, onClose, message }) => {
 
             <button class="modal__btn">Login &rarr;</button>
 
-            <a href="#modal-closed" class="link-2"></a>
+            {/* <a href="#modal-closed" class="link-2"></a> */}
 
           </div>
         </div>
