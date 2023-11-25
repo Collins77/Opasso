@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  --light: hsl(0, 0%, 100%);
+  --light: #000;
   --background: #fff;
 
   display: flex;
