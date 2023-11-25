@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link, Navigate } from "react-router-dom";
-import './redirect.css'
+// import './redirect.css'
 
 const RedirectModal = ({ isOpen, onClose, message }) => {
   // const history = useHistory();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const handleConfirm = ({isOpen, onClose, message}) => {
     // Close the modal (implement this based on your requirements)
