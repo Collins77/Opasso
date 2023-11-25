@@ -47,9 +47,7 @@ const RedirectModal = ({ isOpen, onClose, message }) => {
       //     </div>
       // </div>
       <div>
-        <a href="#modal-opened" class="link-1" id="modal-closed">Open Modal</a>
-
-        <div class="modal-container" id="modal-opened">
+        <div class="modal-container">
           <div class="modal">
 
             <div class="modal__details">
