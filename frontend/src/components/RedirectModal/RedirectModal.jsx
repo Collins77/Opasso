@@ -55,8 +55,10 @@ const RedirectModal = ({ isOpen, onClose, message }) => {
               <p class="modal__description">You have to login to access this page.</p>
             </div>
 
-            <p class="modal__text">this is a members only website. 
-            In order to access this resource you have login or create an account with us.</p>
+            <p class="modal__text">This is a members only website. 
+              In order to access this resource you have login. If you do not have an account, 
+              you can register a new account which will be subject to approval by our team. 
+              Thank you for visiting our page.</p>
 
             <button class="modal__btn">Login &rarr;</button>
 
