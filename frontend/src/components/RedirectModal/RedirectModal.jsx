@@ -47,7 +47,7 @@ const RedirectModal = ({ isOpen, onClose, message }) => {
       //     </div>
       // </div>
       <div>
-        <div class="modal-container">
+        <div class="w-full fixed top-0 left-0 z-[1] flex items-center justify-center h-screen">
           <div class="modal">
 
             <div class="modal__details">

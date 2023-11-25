@@ -12,7 +12,7 @@ html {
 
 body {
   --light: hsl(0, 0%, 100%);
-  --background: linear-gradient(to right bottom, hsl(236, 50%, 50%), hsl(195, 50%, 50%));
+  --background: #fff;
 
   display: flex;
   flex-direction: column;
