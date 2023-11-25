@@ -62,6 +62,7 @@ import axios from "axios";
 import { server } from "./server";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import AdminCreateSeller from "./components/Admin/AdminCreateSeller.jsx";
 
 const App = () => {
   const [stripeApikey, setStripeApiKey] = useState("");
@@ -293,6 +294,14 @@ const App = () => {
           element={
             <ProtectedAdminRoute>
               <AdminDashboardSellers />
+            </ProtectedAdminRoute>
+          }
+        />
+        <Route
+          path="/admin-create-seller"
+          element={
+            <ProtectedAdminRoute>
+              <AdminCreateSeller />
             </ProtectedAdminRoute>
           }
         />

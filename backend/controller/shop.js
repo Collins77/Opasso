@@ -55,6 +55,53 @@ router.post("/create-shop", catchAsyncErrors(async (req, res, next) => {
   }
 }));
 
+// Create seller account by admin
+router.post(
+  "/admin-create-seller",
+  isAuthenticated,
+  isAdmin("Admin"),
+  catchAsyncErrors(async (req, res, next) => {
+    try {
+      const { email } = req.body;
+      const sellerEmail = await Shop.findOne({ email });
+
+      if (sellerEmail) {
+        return next(new ErrorHandler("User already exists", 400));
+      }
+
+      const seller = {
+        name: req.body.name,
+        email,
+        password: req.body.password,
+        address: req.body.address,
+        phoneNumber: req.body.phoneNumber,
+        status: "Approved", // Set the status to "Approved" by default when created by admin
+      };
+
+      const newSeller = await Shop.create(seller);
+
+      const approvalEmailOptions = {
+        email: newSeller.email,
+        subject: "Account Creation and Approval Notification",
+        html: `<p>Dear ${newSeller.name},</p>
+               <p>We are pleased to inform you that your seller account has been created! Contact the support team to receive your credentials.</p>
+               <p>Thank you for joining us.</p>
+               <p>Best regards,<br>Opasso Team</p>`
+      };
+
+      await sendMail(approvalEmailOptions);
+
+      res.status(201).json({
+        success: true,
+        message: "Seller account created by admin and approved.",
+        seller: newSeller,
+      });
+    } catch (error) {
+      return next(new ErrorHandler(error.message, 400));
+    }
+  })
+);
+
 
 // login shop
 router.post(
