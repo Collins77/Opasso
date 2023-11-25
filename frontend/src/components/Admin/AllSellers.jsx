@@ -202,8 +202,8 @@ const AllSellers = () => {
     <div className="w-full flex justify-center pt-5">
       <div className="w-[97%]">
         <h3 className="text-[22px] font-Poppins pb-2">All Sellers</h3>
-        <Link to="/admin-create-seller">
-          <Button variant="contained" color="primary">
+        <Link to="/admin-create-seller" className="flex w-full justify-end mb-3">
+          <Button variant="contained" color="primary" >
             Add New Seller
           </Button>
         </Link>
