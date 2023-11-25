@@ -78,6 +78,7 @@ a:link {
 
 .modal__title {
   font-size: 3.2rem;
+  color: red;
 }
 
 .modal__description {
@@ -116,7 +117,7 @@ a:link {
   border: 1px solid blue;
   border-radius: 100rem;
 
-  color: inherit;
+  color: white;
   background: rgb(0, 128, 255);
   font-size: 1.4rem;
   font-family: inherit;

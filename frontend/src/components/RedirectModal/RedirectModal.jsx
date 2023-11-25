@@ -51,13 +51,14 @@ const RedirectModal = ({ isOpen, onClose, message }) => {
           <div class="modal">
 
             <div class="modal__details">
-              <h1 class="modal__title">Modal Title</h1>
-              <p class="modal__description">Sentence that will tell user what this modal is for or something.</p>
+              <h1 class="modal__title">Restricted Access</h1>
+              <p class="modal__description">You have to login to access this page.</p>
             </div>
 
-            <p class="modal__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis ex dicta maiores libero minus obcaecati iste optio, eius labore repellendus.</p>
+            <p class="modal__text">this is a members only website. 
+            In order to access this resource you have login or create an account with us.</p>
 
-            <button class="modal__btn">Button &rarr;</button>
+            <button class="modal__btn">Login &rarr;</button>
 
             <a href="#modal-closed" class="link-2"></a>
 
