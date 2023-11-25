@@ -63,10 +63,6 @@ const RedirectModal = ({ isOpen, onClose, message }) => {
 
           </div>
         </div>
-
-        <a href="https://codepen.io/AbubakerSaeed/full/eYOvKpY" class="second-version-link" target="_blank">CSS Modals (Modal v2)</a>
-
-        <a href="https://abubakersaeed.netlify.app/designs/d7-modal" class="abs-site-link" rel="nofollow noreferrer" target="_blank">abs/designs/d7-modal</a>
       </div>
 
   );
