@@ -56,11 +56,11 @@ const RedirectModal = ({ isOpen, onClose, message }) => {
             </div>
 
             <p class="modal__text">This is a members only website. 
-              In order to access this resource you have login. If you do not have an account, 
+              In order to access this resource you have to login. If you do not have an account, 
               you can register a new account which will be subject to approval by our team. 
               Thank you for visiting our page.</p>
 
-            <button class="modal__btn">Login &rarr;</button>
+            <a  class="modal__btn" href='/login'>Login &rarr;</a>
 
             {/* <a href="#modal-closed" class="link-2"></a> */}
 
