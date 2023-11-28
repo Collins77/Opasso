@@ -123,6 +123,12 @@ router.post(
         );
       }
 
+      if (user.role === 'Admin') {
+        // Redirect to the admin dashboard
+        return res.status(200).json({ role: 'Admin', redirect: '/admin/dashboard' });
+      }
+
+
       sendToken(user, 201, res);
     } catch (error) {
       return next(new ErrorHandler(error.message, 500));
