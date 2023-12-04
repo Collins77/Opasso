@@ -12,31 +12,18 @@ const Singup = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
-  const [avatar, setAvatar] = useState(null);
-
-  const handleFileInputChange = (e) => {
-    const reader = new FileReader();
-
-    reader.onload = () => {
-      if (reader.readyState === 2) {
-        setAvatar(reader.result);
-      }
-    };
-
-    reader.readAsDataURL(e.target.files[0]);
-  };
+  // const [avatar, setAvatar] = useState('https://www.jbei.org/wp-content/uploads/2019/10/default_user_avatar.png');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     axios
-      .post(`${server}/user/create-user`, { name, email, password, avatar })
+      .post(`${server}/user/create-user`, { name, email, password })
       .then((res) => {
         toast.success(res.data.message);
         setName("");
         setEmail("");
         setPassword("");
-        setAvatar();
       })
       .catch((error) => {
         toast.error(error.response.data.message);
@@ -126,7 +113,7 @@ const Singup = () => {
               </div>
             </div>
 
-            <div>
+            {/* <div>
               <label
                 htmlFor="avatar"
                 className="block text-sm font-medium text-gray-700"
@@ -158,7 +145,7 @@ const Singup = () => {
                   />
                 </label>
               </div>
-            </div>
+            </div> */}
 
             <div>
               <button

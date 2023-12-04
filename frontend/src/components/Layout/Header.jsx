@@ -20,8 +20,6 @@ import { RxCross1 } from "react-icons/rx";
 const Header = ({ activeHeading }) => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
   const { isSeller } = useSelector((state) => state.seller);
-  const { wishlist } = useSelector((state) => state.wishlist);
-  const { cart } = useSelector((state) => state.cart);
   const { allProducts } = useSelector((state) => state.products);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchData, setSearchData] = useState(null);
@@ -30,6 +28,8 @@ const Header = ({ activeHeading }) => {
   const [openCart, setOpenCart] = useState(false);
   const [openWishlist, setOpenWishlist] = useState(false);
   const [open, setOpen] = useState(false);
+
+  const defaultAvatarUrl = 'https://www.jbei.org/wp-content/uploads/2019/10/default_user_avatar.png';
 
   const handleSearchChange = (e) => {
     const term = e.target.value;
@@ -180,7 +180,7 @@ const Header = ({ activeHeading }) => {
                 {isAuthenticated ? (
                   <Link to="/profile">
                     <img
-                      src={`${user?.avatar?.url}`}
+                      src={`${user?.avatar?.url}`|| defaultAvatarUrl}
                       className="w-[35px] h-[35px] rounded-full"
                       alt=""
                     />
