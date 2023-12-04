@@ -47,7 +47,7 @@ router.post("/create-shop", catchAsyncErrors(async (req, res, next) => {
 
     res.status(201).json({
       success: true,
-      message: "User created successfully. Wait for admin approval.",
+      message: "Registration successful, awaiting approval. Please expect a call/visit from us",
       user: newSeller,
     });
   } catch (error) {

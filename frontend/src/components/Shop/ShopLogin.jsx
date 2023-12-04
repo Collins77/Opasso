@@ -112,10 +112,10 @@ const ShopLogin = () => {
               </div>
               <div className="text-sm">
                 <a
-                  href=".forgot-password"
+                  href="/"
                   className="font-medium text-blue-600 hover:text-blue-500"
                 >
-                  Forgot your password?
+                  Go back to homepage
                 </a>
               </div>
             </div>
