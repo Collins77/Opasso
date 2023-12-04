@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styles from "../../styles/styles";
-import { AiOutlineMoneyCollect } from "react-icons/ai";
+// import { AiOutlineMoneyCollect } from "react-icons/ai";
 import { MdBorderClear } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { DataGrid } from "@material-ui/data-grid";
@@ -26,10 +26,10 @@ const AdminDashboardMain = () => {
     dispatch(getAllProducts());
   }, [dispatch]);
 
-   const adminEarning = adminOrders && adminOrders.reduce((acc,item) => acc + item.totalPrice * .10, 0);
+  //  const adminEarning = adminOrders && adminOrders.reduce((acc,item) => acc + item.totalPrice * .10, 0);
 
 
-   const adminBalance = adminEarning?.toFixed(2);
+  //  const adminBalance = adminEarning?.toFixed(2);
 
   const columns = [
     { field: "id", headerName: "Order ID", minWidth: 150, flex: 0.7 },
@@ -90,7 +90,7 @@ const AdminDashboardMain = () => {
         <div className="w-full p-4">
         <h3 className="text-[22px] font-Poppins pb-2">Overview</h3>
         <div className="w-full block 800px:flex items-center justify-between">
-          <div className="w-full mb-4 800px:w-[30%] min-h-[20vh] bg-white shadow rounded px-2 py-5">
+          {/* <div className="w-full mb-4 800px:w-[30%] min-h-[20vh] bg-white shadow rounded px-2 py-5">
             <div className="flex items-center">
               <AiOutlineMoneyCollect
                 size={30}
@@ -104,7 +104,7 @@ const AdminDashboardMain = () => {
               </h3>
             </div>
             <h5 className="pt-2 pl-[36px] text-[22px] font-[500]">$ {adminBalance}</h5>
-          </div>
+          </div> */}
   
           <div className="w-full mb-4 800px:w-[30%] min-h-[20vh] bg-white shadow rounded px-2 py-5">
             <div className="flex items-center">
