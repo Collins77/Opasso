@@ -29,7 +29,7 @@ const AdminSideBar = ({ active }) => {
         </Link>
       </div>
 
-      <div className="w-full flex items-center p-4">
+      {/* <div className="w-full flex items-center p-4">
         <Link to="/admin-orders" className="w-full flex items-center">
           <FiShoppingBag
             size={30}
@@ -43,7 +43,7 @@ const AdminSideBar = ({ active }) => {
             All Orders
           </h5>
         </Link>
-      </div>
+      </div> */}
 
       <div className="w-full flex items-center p-4">
         <Link to="/admin-sellers" className="w-full flex items-center">
@@ -104,14 +104,14 @@ const AdminSideBar = ({ active }) => {
               active === 6 ? "text-[crimson]" : "text-[#555]"
             }`}
           >
-            All Events
+            All Ads
           </h5>
         </Link>
       </div>
 
 
 
-      <div className="w-full flex items-center p-4">
+      {/* <div className="w-full flex items-center p-4">
         <Link
           to="/admin-withdraw-request"
           className="w-full flex items-center"
@@ -128,7 +128,7 @@ const AdminSideBar = ({ active }) => {
             Withdraw Request
           </h5>
         </Link>
-      </div>
+      </div> */}
 
       <div className="w-full flex items-center p-4">
         <Link
