@@ -16,7 +16,7 @@ const ProtectedRoute = ({ children }) => {
       return <RedirectModal
       isOpen={isModalOpen}
       onClose={handleModalClose}
-      message="You need to be logged in to access this page. Do you want to go to the login page?"
+      message="You need to be logged in to fully access information on this website."
     />
     }
     return children;
