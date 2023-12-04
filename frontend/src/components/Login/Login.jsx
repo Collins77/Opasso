@@ -47,6 +47,7 @@ const Login = () => {
       );
   
       const { role } = response.data;
+      console.log(response.data);
   
       if (role === 'Admin') {
         // Redirect to the admin dashboard
