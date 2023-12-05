@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import { Button, Menu, MenuItem, Modal } from "@material-ui/core";
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import SellerUpdateForm from "./SellerUpdateForm";
+import axios from "axios";
+import { server } from "../../server";
+import { toast } from "react-toastify";
 
-const ActionsCell = ({ row, handleDelete, handleApprove, handleUpdate, handleReject, handleOnHold }) => {
+const ActionsCell = ({ row, handleDelete, handleApprove, handleReject, handleOnHold }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [isUpdateModalOpen, setUpdateModalOpen] = useState(false);
 
@@ -14,6 +17,28 @@ const ActionsCell = ({ row, handleDelete, handleApprove, handleUpdate, handleRej
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleUpdate = async (sellerId, updatedData) => {
+    try {
+      // Make an HTTP request to update the seller data
+      const response = await axios.put(
+        `${server}/shop/admin-update-seller//${sellerId}`,
+        updatedData
+      );
+
+      // Check if the update was successful (you may need to adjust based on your API response)
+      if (response.data.success) {
+        toast.success("Seller updated successfully!", response.data.seller);
+        // console.log("Seller updated successfully:", response.data.seller);
+      } else {
+        toast.error("Error updating seller", response.data.message);
+        console.error("Failed to update seller:", response.data.message);
+      }
+    } catch (error) {
+      // Handle any errors that occur during the HTTP request
+      console.error("Error updating seller:", error.message);
+    }
   };
 
   const handleUpdateClick = () => {
