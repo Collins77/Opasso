@@ -21,7 +21,7 @@ const AdminCreateSeller = () => {
     e.preventDefault();
 
     axios
-      .post(`${server}/admin-create-seller`, {
+      .post(`${server}/shop/admin-create-seller`, {
         name,
         email,
         password,
@@ -45,7 +45,7 @@ const AdminCreateSeller = () => {
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-          Register as a seller
+          Register a wholesaler
         </h2>
       </div>
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-[35rem]">
@@ -169,12 +169,12 @@ const AdminCreateSeller = () => {
                 Submit
               </button>
             </div>
-            <div className={`${styles.noramlFlex} w-full`}>
+            {/* <div className={`${styles.noramlFlex} w-full`}>
               <h4>Already have an account?</h4>
               <Link to="/shop-login" className="text-blue-600 pl-2">
                 Sign in
               </Link>
-            </div>
+            </div> */}
           </form>
         </div>
       </div>
