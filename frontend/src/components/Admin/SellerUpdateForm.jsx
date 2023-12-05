@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { TextField, Button } from "@material-ui/core";
 
-const SellerUpdateForm = ({ seller, handleUpdate }) => {
+const SellerUpdateForm = ({ seller, handleUpdateSeller }) => {
   const [updatedData, setUpdatedData] = useState({
     name: seller.name,
     // Add other fields as needed
@@ -15,20 +15,14 @@ const SellerUpdateForm = ({ seller, handleUpdate }) => {
     }));
   };
 
-  const handleUpdate = (sellerId) => {
-    // Logic to handle the update operation for the seller with ID: sellerId
-    console.log(`Update account for seller with ID: ${sellerId}`);
-    // Add your modal display logic here
-  };
-
-  const handleSubmit = (e) => {
+  const handleUpdate = (e) => {
     e.preventDefault();
-    // Call the handleUpdate function with the updated data
-    handleUpdate(updatedData);
+    // Call the handleUpdateSeller function with the updated data
+    handleUpdateSeller(updatedData);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleUpdate}>
       <TextField
         label="Name"
         name="name"
