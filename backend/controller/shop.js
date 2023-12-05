@@ -58,7 +58,7 @@ router.post("/create-shop", catchAsyncErrors(async (req, res, next) => {
 // Create seller account by admin
 router.post(
   "/admin-create-seller",
-  isAuthenticated,
+  // isAuthenticated,
   isAdmin("Admin"),
   catchAsyncErrors(async (req, res, next) => {
     try {
