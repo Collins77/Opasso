@@ -2,8 +2,8 @@ import React from "react";
 import { Button, Menu, MenuItem } from "@material-ui/core";
 import {
   AiOutlineDelete,
-  AiOutlineDown,
 } from "react-icons/ai";
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { TiTick } from "react-icons/ti";
 import { RxCross2 } from "react-icons/rx";
 import { TbHandStop } from "react-icons/tb";
@@ -22,7 +22,7 @@ const ActionsCell = ({ row, handleDelete, handleApprove, handleReject, handleOnH
   return (
     <>
       <Button onClick={handleClick}>
-        Actions <AiOutlineDown />
+      <MoreVertIcon />
       </Button>
       <Menu
         anchorEl={anchorEl}
