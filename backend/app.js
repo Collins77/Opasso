@@ -27,7 +27,7 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
 
 // import routes
 const user = require("./controller/user");
-const admin = require("./controller/admin");
+// const admin = require("./controller/admin");
 const shop = require("./controller/shop");
 const product = require("./controller/product");
 const event = require("./controller/event");
@@ -39,7 +39,7 @@ const message = require("./controller/message");
 const withdraw = require("./controller/withdraw");
 
 app.use("/api/v2/user", user);
-app.use("/api/v2/admin", admin);
+// app.use("/api/v2/admin", admin);
 app.use("/api/v2/conversation", conversation);
 app.use("/api/v2/message", message);
 app.use("/api/v2/order", order);

@@ -15,7 +15,11 @@ router.post('/create-seller', isAdmin, async (req, res) => {
       return res.status(400).json({ message: 'User already exists' });
     }
 
-    const newSeller = await Shop.create(req.body);
+    const newSeller = await Shop.create({
+        ...req.body,
+        status: 'Approved', // Set the status to "Approved" by default
+        role: 'Seller', // Set the role to "Seller" by default
+      });
 
     
 
