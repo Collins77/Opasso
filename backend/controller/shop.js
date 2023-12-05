@@ -75,7 +75,8 @@ router.post(
         password: req.body.password,
         address: req.body.address,
         phoneNumber: req.body.phoneNumber,
-        status: "Approved", // Set the status to "Approved" by default when created by admin
+        status: "Approved",
+        role: "Seller",
       };
 
       const newSeller = await Shop.create(seller);
