@@ -98,10 +98,7 @@ const ActionsCell = ({ row, handleDelete, handleApprove, handleReject, handleOnH
           {/* Pass the seller data and an update function to the modal */}
           <SellerUpdateForm
             seller={row}
-            handleUpdate={(updatedData) => {
-              handleUpdate(row.id, updatedData);
-              handleUpdateClose(); // Close the modal after updating
-            }}
+            handleUpdate={handleUpdate}
           />
         </div>
       </Modal>
