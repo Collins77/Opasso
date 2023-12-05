@@ -19,7 +19,7 @@ const ActionsCell = ({ row, handleDelete, handleApprove, handleReject, handleOnH
     setAnchorEl(null);
   };
 
-  const handleUpdate = async (sellerId, updatedData) => {
+  const handleUpdateSeller = async (sellerId, updatedData) => {
     try {
       // Make an HTTP request to update the seller data
       const response = await axios.put(
@@ -98,7 +98,7 @@ const ActionsCell = ({ row, handleDelete, handleApprove, handleReject, handleOnH
           {/* Pass the seller data and an update function to the modal */}
           <SellerUpdateForm
             seller={row}
-            handleUpdate={handleUpdate}
+            handleUpdateSeller={handleUpdateSeller}
           />
         </div>
       </Modal>
