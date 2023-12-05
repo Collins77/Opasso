@@ -12,6 +12,7 @@ import { toast } from "react-toastify";
 import { getAllSellers } from "../../redux/actions/sellers";
 import { Link } from "react-router-dom";
 import { TbHandStop } from "react-icons/tb";
+import ActionsCell from "./ActionCell";
 
 const AllSellers = () => {
   const dispatch = useDispatch();
@@ -161,26 +162,33 @@ const AllSellers = () => {
         align: "center",
         sortable: false,
         renderCell: (params) => (
-          <>
-            <Button onClick={() => setUserId(params.id) || setOpen(true)}>
-              <AiOutlineDelete size={15} />
-            </Button>
-            {params.row.status !== "Approved" && (
-              <Button onClick={() => handleApprove(params.id)}>
-                <TiTick size={15} color="green" style={{borderRadius: '50%'}} />
-              </Button>
-            )}
-            {params.row.status !== "Rejected" && (
-              <Button onClick={() => handleReject(params.id)}>
-                <RxCross2 size={15} color="red" style={{borderRadius: '50%'}} />
-              </Button>
-            )}
-            {params.row.status !== "On Hold" && (
-            <Button onClick={() => handleOnHold(params.id)}>
-              <TbHandStop size={15} color="blue" style={{borderRadius: '50%'}}  />
-            </Button>
-            )}
-          </>
+          // <>
+          //   <Button onClick={() => setUserId(params.id) || setOpen(true)}>
+          //     <AiOutlineDelete size={15} />
+          //   </Button>
+          //   {params.row.status !== "Approved" && (
+          //     <Button onClick={() => handleApprove(params.id)}>
+          //       <TiTick size={15} color="green" style={{borderRadius: '50%'}} />
+          //     </Button>
+          //   )}
+          //   {params.row.status !== "Rejected" && (
+          //     <Button onClick={() => handleReject(params.id)}>
+          //       <RxCross2 size={15} color="red" style={{borderRadius: '50%'}} />
+          //     </Button>
+          //   )}
+          //   {params.row.status !== "On Hold" && (
+          //   <Button onClick={() => handleOnHold(params.id)}>
+          //     <TbHandStop size={15} color="blue" style={{borderRadius: '50%'}}  />
+          //   </Button>
+          //   )}
+          // </>
+          <ActionsCell
+          row={params.row}
+          handleDelete={handleDelete}
+          handleApprove={handleApprove}
+          handleReject={handleReject}
+          handleOnHold={handleOnHold}
+        />
         ),
       },
   ];
