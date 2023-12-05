@@ -11,11 +11,10 @@ const AppPromo = () => {
       <div className="headline mt-7 flex flex-col items-center text-[2rem]">
         <span>Work fast from anywhere</span>
         <span>
-          <b>App Now!</b>
+          <b>Mobile App Available</b>
         </span>
         <span className="text-[1rem] text-gray-400 px-[15rem] text-center mt-[1rem]">
-        Stay up to date and move work forward with Opasso on 
-        iOS & Android. Download the app today.
+        Latest prices and available stocks on your finger tips
         </span>
       </div>
       {/* dowload ads */}
