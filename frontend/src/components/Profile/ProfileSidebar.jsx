@@ -1,12 +1,10 @@
 import React from "react";
 import { AiOutlineLogin, AiOutlineMessage } from "react-icons/ai";
 import { RiLockPasswordLine } from "react-icons/ri";
-import { HiOutlineReceiptRefund, HiOutlineShoppingBag } from "react-icons/hi";
 import {
   MdOutlineAdminPanelSettings,
-  MdOutlineTrackChanges,
 } from "react-icons/md";
-import { TbAddressBook } from "react-icons/tb";
+
 import { RxPerson } from "react-icons/rx";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -44,7 +42,7 @@ const ProfileSidebar = ({ setActive, active }) => {
           Profile
         </span>
       </div>
-      <div
+      {/* <div
         className="flex items-center cursor-pointer w-full mb-8"
         onClick={() => setActive(2)}
       >
@@ -56,8 +54,8 @@ const ProfileSidebar = ({ setActive, active }) => {
         >
           Orders
         </span>
-      </div>
-      <div
+      </div> */}
+      {/* <div
         className="flex items-center cursor-pointer w-full mb-8"
         onClick={() => setActive(3)}
       >
@@ -69,7 +67,7 @@ const ProfileSidebar = ({ setActive, active }) => {
         >
           Refunds
         </span>
-      </div>
+      </div> */}
 
       <div
         className="flex items-center cursor-pointer w-full mb-8"
@@ -85,7 +83,7 @@ const ProfileSidebar = ({ setActive, active }) => {
         </span>
       </div>
 
-      <div
+      {/* <div
         className="flex items-center cursor-pointer w-full mb-8"
         onClick={() => setActive(5)}
       >
@@ -97,7 +95,7 @@ const ProfileSidebar = ({ setActive, active }) => {
         >
           Track Order
         </span>
-      </div>
+      </div> */}
 
       <div
         className="flex items-center cursor-pointer w-full mb-8"
@@ -113,7 +111,7 @@ const ProfileSidebar = ({ setActive, active }) => {
         </span>
       </div>
 
-      <div
+      {/* <div
         className="flex items-center cursor-pointer w-full mb-8"
         onClick={() => setActive(7)}
       >
@@ -125,7 +123,7 @@ const ProfileSidebar = ({ setActive, active }) => {
         >
           Address
         </span>
-      </div>
+      </div> */}
 
       {user && user?.role === "Admin" && (
         <Link to="/admin/dashboard">
