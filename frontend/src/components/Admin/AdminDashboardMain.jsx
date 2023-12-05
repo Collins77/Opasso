@@ -11,6 +11,7 @@ import Loader from "../Layout/Loader";
 import { getAllSellers } from "../../redux/actions/sellers";
 import { BsHandbag } from "react-icons/bs";
 import { getAllProducts } from "../../redux/actions/product";
+import AllProducts from "./AllProducts";
 
 const AdminDashboardMain = () => {
   const dispatch = useDispatch();
@@ -135,7 +136,7 @@ const AdminDashboardMain = () => {
                 All Products
               </h3>
             </div>
-            <h5 className="pt-2 pl-[36px] text-[22px] font-[500]">{products && products.length}</h5>
+            <h5 className="pt-2 pl-[36px] text-[22px] font-[500]">{products && products.length ? products.length : 0}</h5>
             <Link to="/admin-products">
               <h5 className="pt-4 pl-2 text-[#077f9c]">View Products</h5>
             </Link>
@@ -145,13 +146,14 @@ const AdminDashboardMain = () => {
         <br />
         <h3 className="text-[22px] font-Poppins pb-2">Latest Products</h3>
         <div className="w-full min-h-[45vh] bg-white rounded">
-          <DataGrid
+          {/* <DataGrid
             rows={row}
             columns={columns}
             pageSize={4}
             disableSelectionOnClick
             autoHeight
-          />
+          /> */}
+          <AllProducts/>
         </div>
       </div>
       )
