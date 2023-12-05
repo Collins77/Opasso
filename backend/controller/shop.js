@@ -1,11 +1,8 @@
 const express = require("express");
-const path = require("path");
 const router = express.Router();
-const jwt = require("jsonwebtoken");
 const sendMail = require("../utils/sendMail");
 const Shop = require("../model/shop");
 const { isAuthenticated, isSeller, isAdmin } = require("../middleware/auth");
-const cloudinary = require("cloudinary");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const ErrorHandler = require("../utils/ErrorHandler");
 const sendShopToken = require("../utils/shopToken");
@@ -242,7 +239,7 @@ router.put(
   isSeller,
   catchAsyncErrors(async (req, res, next) => {
     try {
-      const { name, exchangeRate, address, phoneNumber, zipCode } = req.body;
+      const { name, exchangeRate, address, phoneNumber } = req.body;
 
       const shop = await Shop.findOne(req.seller._id);
 
@@ -254,7 +251,6 @@ router.put(
       shop.exchangeRate = exchangeRate;
       shop.address = address;
       shop.phoneNumber = phoneNumber;
-      shop.zipCode = zipCode;
 
       await shop.save();
 
@@ -267,6 +263,41 @@ router.put(
     }
   })
 );
+
+// Update seller info by admin
+router.put(
+  "/admin-update-seller/:id",
+  isAuthenticated,
+  isAdmin("Admin"),
+  catchAsyncErrors(async (req, res, next) => {
+    try {
+      const { name, email, address, phoneNumber } = req.body;
+
+      const seller = await Shop.findByIdAndUpdate(
+        req.params.id,
+        {
+          name,
+          email,
+          address,
+          phoneNumber,
+        },
+        { new: true }
+      );
+
+      if (!seller) {
+        return next(new ErrorHandler("Seller not found with this id", 400));
+      }
+
+      res.status(201).json({
+        success: true,
+        seller,
+      });
+    } catch (error) {
+      return next(new ErrorHandler(error.message, 500));
+    }
+  })
+);
+
 
 // all sellers --- for admin
 router.get(

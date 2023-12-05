@@ -15,6 +15,12 @@ const SellerUpdateForm = ({ seller, handleUpdate }) => {
     }));
   };
 
+  const handleUpdate = (sellerId) => {
+    // Logic to handle the update operation for the seller with ID: sellerId
+    console.log(`Update account for seller with ID: ${sellerId}`);
+    // Add your modal display logic here
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // Call the handleUpdate function with the updated data
