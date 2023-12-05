@@ -3,8 +3,6 @@ import styles from "../../styles/styles";
 // import { AiOutlineMoneyCollect } from "react-icons/ai";
 import { MdBorderClear } from "react-icons/md";
 import { Link } from "react-router-dom";
-import { DataGrid } from "@material-ui/data-grid";
-
 import { useDispatch, useSelector } from "react-redux";
 import { getAllOrdersOfAdmin } from "../../redux/actions/order";
 import Loader from "../Layout/Loader";
@@ -16,7 +14,7 @@ import AllProducts from "./AllProducts";
 const AdminDashboardMain = () => {
   const dispatch = useDispatch();
 
-  const { adminOrders,adminOrderLoading } = useSelector((state) => state.order);
+  const { adminOrderLoading } = useSelector((state) => state.order);
   const { sellers } = useSelector((state) => state.seller);
   const { products } = useSelector((state) => state.products);
 
@@ -27,61 +25,7 @@ const AdminDashboardMain = () => {
     dispatch(getAllProducts());
   }, [dispatch]);
 
-  console.log(products)
-  //  const adminEarning = adminOrders && adminOrders.reduce((acc,item) => acc + item.totalPrice * .10, 0);
-
-
-  //  const adminBalance = adminEarning?.toFixed(2);
-
-  const columns = [
-    { field: "id", headerName: "Order ID", minWidth: 150, flex: 0.7 },
-
-    {
-      field: "status",
-      headerName: "Status",
-      minWidth: 130,
-      flex: 0.7,
-      cellClassName: (params) => {
-        return params.getValue(params.id, "status") === "Delivered"
-          ? "greenColor"
-          : "redColor";
-      },
-    },
-    {
-      field: "itemsQty",
-      headerName: "Items Qty",
-      type: "number",
-      minWidth: 130,
-      flex: 0.7,
-    },
-
-    {
-      field: "total",
-      headerName: "Total",
-      type: "number",
-      minWidth: 130,
-      flex: 0.8,
-    },
-    {
-      field: "createdAt",
-      headerName: "Order Date",
-      type: "number",
-      minWidth: 130,
-      flex: 0.8,
-    },
-  ];
-
-  const row = [];
-  adminOrders &&
-  adminOrders.forEach((item) => {
-      row.push({
-        id: item._id,
-        itemsQty: item?.cart?.reduce((acc, item) => acc + item.qty, 0),
-        total: item?.totalPrice + " $",
-        status: item?.status,
-        createdAt: item?.createdAt.slice(0,10),
-      });
-    });
+  
 
   return (
    <>
@@ -146,13 +90,6 @@ const AdminDashboardMain = () => {
         <br />
         <h3 className="text-[22px] font-Poppins pb-2">Latest Products</h3>
         <div className="w-full min-h-[45vh] bg-white rounded">
-          {/* <DataGrid
-            rows={row}
-            columns={columns}
-            pageSize={4}
-            disableSelectionOnClick
-            autoHeight
-          /> */}
           <AllProducts/>
         </div>
       </div>

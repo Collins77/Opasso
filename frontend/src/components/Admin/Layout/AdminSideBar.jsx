@@ -3,13 +3,29 @@ import { FiShoppingBag } from "react-icons/fi";
 import {GrWorkshop} from "react-icons/gr";
 import { RxDashboard } from "react-icons/rx";
 import { CiMoneyBill, CiSettings } from "react-icons/ci";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { HiOutlineUserGroup } from "react-icons/hi";
 import { BsHandbag } from "react-icons/bs";
 import { MdOutlineLocalOffer } from "react-icons/md";
 import { AiOutlineSetting } from "react-icons/ai";
+import axios from "axios";
+import { server } from "../../../server";
+import { toast } from "react-toastify";
 
 const AdminSideBar = ({ active }) => {
+  const navigate = useNavigate();
+  const logoutHandler = () => {
+    axios
+      .get(`${server}/user/logout`, { withCredentials: true })
+      .then((res) => {
+        toast.success(res.data.message);
+        window.location.reload(true);
+        navigate("/login");
+      })
+      .catch((error) => {
+        console.log(error.response.data.message);
+      });
+  };
   return (
     <div className="w-full h-[90vh] bg-white shadow-sm overflow-y-scroll sticky top-0 left-0 z-10">
       {/* single item */}
@@ -134,6 +150,24 @@ const AdminSideBar = ({ active }) => {
         <Link
           to="/profile"
           className="w-full flex items-center"
+        >
+          <AiOutlineSetting
+            size={30}
+            color={`${active === 8 ? "crimson" : "#555"}`}
+          />
+          <h5
+            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
+              active === 8 ? "text-[crimson]" : "text-[#555]"
+            }`}
+          >
+            Settings
+          </h5>
+        </Link>
+      </div>
+      <div className="w-full flex items-center p-4">
+        <Link
+          className="w-full flex items-center"
+          onClick={logoutHandler}
         >
           <AiOutlineSetting
             size={30}
