@@ -157,7 +157,7 @@ const Header = ({ activeHeading }) => {
       </div>
       {/* Dropdown for profile actions */}
       {open && (
-        <div className="absolute top-10 right-0 bg-white border border-gray-200">
+        <div className="absolute top-10 right-0 bg-white border border-gray-200 z-50">
           <Link to="/profile" className="block px-4 py-2 text-gray-800">
             Profile
           </Link>
