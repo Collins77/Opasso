@@ -1,10 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link, Navigate } from "react-router-dom";
-// import './redirect.css'
 
 const RedirectModal = ({ isOpen, onClose, message, delayRedirect }) => {
-  // const history = useHistory();
-  // const dispatch = useDispatch();
 
   useEffect(() => {
     // Use a timer to close the modal and redirect after a specified delay
@@ -16,18 +13,6 @@ const RedirectModal = ({ isOpen, onClose, message, delayRedirect }) => {
     // Clear the timer on component unmount or when the modal is closed manually
     return () => clearTimeout(timer);
   }, [onClose, delayRedirect]);
-  // const handleConfirm = ({isOpen, onClose, message}) => {
-  //   // Close the modal (implement this based on your requirements)
-  //   onClose();
-
-    
-  //   return <Navigate to="/login" replace />;
-  // };
-
-  const handleClose = () => {
-    // Close the modal (implement this based on your requirements)
-    onClose();
-  };
 
   return (
       <div class="w-full fixed top-0 left-0 z-[1] flex items-center justify-center h-screen">
@@ -61,28 +46,6 @@ const RedirectModal = ({ isOpen, onClose, message, delayRedirect }) => {
               </div>
           </div>
       </div>
-      // <div>
-      //   <div class="w-full fixed top-0 left-0 z-[1] flex items-center justify-center h-screen">
-      //     <div class="modal">
-
-      //       <div class="modal__details">
-      //         <h1 class="modal__title">Restricted Access</h1>
-      //         <p class="modal__description">You have to login to access this page.</p>
-      //       </div>
-
-      //       <p class="modal__text">This is a members only website. 
-      //         In order to access this resource you have to login. If you do not have an account, 
-      //         you can register a new account which will be subject to approval by our team. 
-      //         Thank you for visiting our page.</p>
-
-      //       <a  class="modal__btn" href='/login'>Login &rarr;</a>
-
-      //       {/* <a href="#modal-closed" class="link-2"></a> */}
-
-      //     </div>
-      //   </div>
-      // </div>
-
   );
 };
 

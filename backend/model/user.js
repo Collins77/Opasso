@@ -3,63 +3,95 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const userSchema = new mongoose.Schema({
-  name:{
-    type: String,
-    required: [true, "Please enter your name!"],
-  },
-  email:{
-    type: String,
-    required: [true, "Please enter your email!"],
-  },
-  password:{
-    type: String,
-    required: [true, "Please enter your password"],
-    minLength: [8, "Password should be greater than 8 characters"],
-    select: false,
-  },
-  phoneNumber:{
-    type: Number,
-  },
-  addresses:[
-    {
-      country: {
-        type: String,
-      },
-      city:{
-        type: String,
-      },
-      address1:{
-        type: String,
-      },
-      address2:{
-        type: String,
-      },
-      zipCode:{
-        type: Number,
-      },
-      addressType:{
-        type: String,
-      },
-    }
-  ],
-  role:{
-    type: String,
-    default: "user",
-  },
-//   avatar:{
-//     public_id: {
-//       type: String,
-//       required: false,
-//     },
-//     url: {
-//       type: String,
-//       required: false,
-//     },
+//   name:{
+//     type: String,
+//     required: [true, "Please enter your name!"],
+//   },
+
+//   email:{
+//     type: String,
+//     required: [true, "Please enter your email!"],
+//   },
+//   password:{
+//     type: String,
+//     required: [true, "Please enter your password"],
+//     minLength: [8, "Password should be greater than 8 characters"],
+//     select: false,
+//   },
+//   phoneNumber:{
+//     type: Number,
+//   },
+//   addresses:[
+//     {
+//       country: {
+//         type: String,
+//       },
+//       city:{
+//         type: String,
+//       },
+//       address1:{
+//         type: String,
+//       },
+//       address2:{
+//         type: String,
+//       },
+//       zipCode:{
+//         type: Number,
+//       },
+//       addressType:{
+//         type: String,
+//       },
+//     }
+//   ],
+//   role:{
+//     type: String,
+//     default: "user",
+//   },
+// //   avatar:{
+// //     public_id: {
+// //       type: String,
+// //       required: false,
+// //     },
+// //     url: {
+// //       type: String,
+// //       required: false,
+// //     },
+// //  },
+  
+//  createdAt:{
+//   type: Date,
+//   default: Date.now(),
 //  },
- createdAt:{
+name: {
+  type: String,
+  required: [true, "Please enter your shop name!"],
+},
+email: {
+  type: String,
+  required: [true, "Please enter your shop email address"],
+},
+password: {
+  type: String,
+  required: [true, "Please enter your password"],
+  minLength: [6, "Password should be greater than 6 characters"],
+  select: false,
+},
+address: {
+  type: String,
+  required: true,
+},
+phoneNumber: {
+  type: Number,
+  required: true,
+},
+role: {
+  type: String,
+  default: "user",
+},
+createdAt: {
   type: Date,
   default: Date.now(),
- },
+},
  resetPasswordToken: String,
  resetPasswordTime: Date,
 });

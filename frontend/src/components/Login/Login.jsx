@@ -33,42 +33,11 @@ const Login = () => {
         toast.error(err.response.data.message);
       });
   };
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  
-  //   try {
-  //     const response = await axios.post(
-  //       `${server}/user/login-user`,
-  //       {
-  //         email,
-  //         password,
-  //       },
-  //       { withCredentials: true }
-  //     );
-  
-  //     const { role } = response.data;
-  //     console.log(response.data);
-  
-  //     if (role === 'Admin') {
-  //       // Redirect to the admin dashboard
-  //       navigate("/admin/dashboard");
-  //     } else {
-  //       // Redirect to the default page (you can change this)
-  //       navigate("/");
-  //     }
-  
-  //     toast.success("Login Success!");
-  //     // Optionally, you may choose not to reload the page
-  //     // window.location.reload(true);
-  //   } catch (err) {
-  //     toast.error(err.response.data.message);
-  //   }
-  // };
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-          Login to your account
+          Resellers Login
         </h2>
       </div>
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
