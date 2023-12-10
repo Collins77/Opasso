@@ -156,45 +156,48 @@ const Header = ({ activeHeading }) => {
             <div className={`${styles.noramlFlex}`}>
               <div className="relative cursor-pointer mr-[15px]">
               {isAuthenticated ? (
-    <div className="relative group">
-      <div className="flex items-center">
-        <button
-          onClick={() => setOpen(!open)}
-          className="mr-2 bg-transparent border-none cursor-pointer flex items-center"
-        >
-          {/* Placeholder for user avatar if needed */}
-          <span className="text-white text-sm font-semibold group-hover:underline">
-            {user.name} {/* Change this to the user property containing the name */}
-          </span>
-          <IoIosArrowDown
-            size={20}
-            className="ml-1 text-white"
-          />
-        </button>
-      </div>
-      {/* Dropdown for profile actions */}
-      {open && (
-        <div className="absolute top-10 right-0 bg-white border border-gray-200 z-50">
-          <Link to="/profile" className="block px-4 py-2 text-gray-800">
-            Profile
-          </Link>
-          <button
-            onClick={logoutHandler}
-            className="block px-4 py-2 text-gray-800 cursor-pointer"
-          >
-            Logout
-          </button>
-          {/* Add more links as needed */}
-        </div>
-      )}
-    </div>
+                <div className="relative group">
+                  <div className="flex items-center">
+                    <button
+                      onClick={() => setOpen(!open)}
+                      className="mr-2 bg-transparent border-none cursor-pointer flex items-center"
+                    >
+                      {/* Placeholder for user avatar if needed */}
+                      <span className="text-white text-sm font-semibold group-hover:underline">
+                        {user.name}
+                      </span>
+                      <IoIosArrowDown
+                        size={20}
+                        className="ml-1 text-white"
+                      />
+                    </button>
+                  </div>
+                  {/* Dropdown for profile actions */}
+                  {open && (
+                    <div className="absolute top-10 right-0 bg-white border border-gray-200 z-50">
+                      <Link to="/profile" className="block px-4 py-2 text-gray-800">
+                        Profile
+                      </Link>
+                      <button
+                        onClick={logoutHandler}
+                        className="block px-4 py-2 text-gray-800 cursor-pointer"
+                      >
+                        Logout
+                      </button>
+                    </div>
+                  )}
+                </div>
             ) : (
               <>
                 <Link to="/login" className="text-white">
-                  <button className="bg-transparent border-none">Login</button>
+                  <button className="bg-black text-white px-3 py-1 rounded">
+                    Login
+                  </button>
                 </Link>
                 <Link to="/sign-up" className="text-white">
-                  <button className="bg-transparent border-none">Sign up</button>
+                  <button className="border border-white px-3 py-1 rounded ml-2">
+                    Sign up
+                  </button>
                 </Link>
               </>
             )}
