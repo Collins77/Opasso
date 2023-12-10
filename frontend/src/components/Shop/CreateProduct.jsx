@@ -12,7 +12,7 @@ const CreateProduct = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const [images, setImages] = useState([]);
+  // const [images, setImages] = useState([]);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [partNumber, setPartNumber] = useState("");
@@ -36,31 +36,31 @@ const CreateProduct = () => {
     }
   }, [dispatch, error, success, navigate]);
 
-  const handleImageChange = (e) => {
-    const files = Array.from(e.target.files);
+  // const handleImageChange = (e) => {
+  //   const files = Array.from(e.target.files);
 
-    setImages([]);
+  //   setImages([]);
 
-    files.forEach((file) => {
-      const reader = new FileReader();
+  //   files.forEach((file) => {
+  //     const reader = new FileReader();
 
-      reader.onload = () => {
-        if (reader.readyState === 2) {
-          setImages((old) => [...old, reader.result]);
-        }
-      };
-      reader.readAsDataURL(file);
-    });
-  };
+  //     reader.onload = () => {
+  //       if (reader.readyState === 2) {
+  //         setImages((old) => [...old, reader.result]);
+  //       }
+  //     };
+  //     reader.readAsDataURL(file);
+  //   });
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const newForm = new FormData();
 
-    images.forEach((image) => {
-      newForm.set("images", image);
-    });
+    // images.forEach((image) => {
+    //   newForm.set("images", image);
+    // });
     newForm.append("name", name);
     newForm.append("description", description);
     newForm.append("partNumber", partNumber);
@@ -87,7 +87,7 @@ const CreateProduct = () => {
         isAvailable,
         stock,
         shopId: seller._id,
-        images,
+        // images,
       })
     );
   };
@@ -237,7 +237,7 @@ const CreateProduct = () => {
         </div>
         <br />
         <div>
-          <label className="pb-2">
+          {/* <label className="pb-2">
             Upload Images <span className="text-red-500">*</span>
           </label>
           <input
@@ -247,8 +247,8 @@ const CreateProduct = () => {
             className="hidden"
             multiple
             onChange={handleImageChange}
-          />
-          <div className="w-full flex items-center flex-wrap">
+          /> */}
+          {/* <div className="w-full flex items-center flex-wrap">
             <label htmlFor="upload">
               <AiOutlinePlusCircle size={30} className="mt-3" color="#555" />
             </label>
@@ -261,7 +261,7 @@ const CreateProduct = () => {
                   className="h-[120px] w-[120px] object-cover m-2"
                 />
               ))}
-          </div>
+          </div> */}
           <br />
           <div>
             <input

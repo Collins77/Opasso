@@ -21,6 +21,7 @@ router.post("/create-shop", catchAsyncErrors(async (req, res, next) => {
       email,
       password: req.body.password,
       address: req.body.address,
+      category: req.body.category,
       phoneNumber: req.body.phoneNumber,
       status: "Not approved", // Set the status to "Not approved" by default
     };
@@ -71,6 +72,7 @@ router.post(
         email,
         password: req.body.password,
         address: req.body.address,
+        category: req.body.category,
         phoneNumber: req.body.phoneNumber,
         status: "Approved",
         role: "Seller",
@@ -271,7 +273,7 @@ router.put(
   isAdmin("Admin"),
   catchAsyncErrors(async (req, res, next) => {
     try {
-      const { name, email, address, phoneNumber } = req.body;
+      const { name, email, address, category, phoneNumber } = req.body;
 
       const seller = await Shop.findByIdAndUpdate(
         req.params.id,
@@ -279,6 +281,7 @@ router.put(
           name,
           email,
           address,
+          category,
           phoneNumber,
         },
         { new: true }

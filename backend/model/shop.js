@@ -24,6 +24,10 @@ const shopSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  category: {
+    type: String,
+    required: true,
+  },
   phoneNumber: {
     type: Number,
     required: true,
