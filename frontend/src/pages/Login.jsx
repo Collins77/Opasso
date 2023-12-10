@@ -5,18 +5,14 @@ import Login from "../components/Login/Login.jsx";
 
 const LoginPage = () => {
   const navigate = useNavigate();
-  const { isAuthenticated, user } = useSelector((state) => state.user);
+  const { isAuthenticated } = useSelector((state) => state.user);
   // const {user} = useSelector((state) => state.user);
 
   useEffect(() => {
     if (isAuthenticated) {
-      if (user.role === 'Admin') {
-        navigate('/admin/dashboard');
-      } else {
         navigate('/');
       }
-    }
-  }, [isAuthenticated, user.role, navigate]);
+    }, [isAuthenticated, navigate]);
   return (
     <div>
         <Login />
