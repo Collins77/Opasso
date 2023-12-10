@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import styles from "../../styles/styles";
 import { categoriesData } from "../../static/data";
 import {AiOutlineSearch} from "react-icons/ai";
@@ -9,6 +9,9 @@ import DropDown from "./DropDown";
 import Navbar from "./Navbar";
 import { useSelector } from "react-redux";
 import { RxCross1 } from "react-icons/rx";
+import axios from "axios";
+import { server } from "../../server";
+import { toast } from "react-toastify";
 
 const Header = ({ activeHeading }) => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -19,6 +22,20 @@ const Header = ({ activeHeading }) => {
   const [active, setActive] = useState(false);
   const [dropDown, setDropDown] = useState(false);
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const logoutHandler = () => {
+    axios
+      .get(`${server}/user/logout`, { withCredentials: true })
+      .then((res) => {
+        toast.success(res.data.message);
+        window.location.reload(true);
+        navigate("/login");
+      })
+      .catch((error) => {
+        console.log(error.response.data.message);
+      });
+  };
 
   const defaultAvatarUrl = 'https://www.jbei.org/wp-content/uploads/2019/10/default_user_avatar.png';
 
@@ -162,7 +179,7 @@ const Header = ({ activeHeading }) => {
             Profile
           </Link>
           <button
-            // onClick={/* Add your logout function here */}
+            onClick={logoutHandler}
             className="block px-4 py-2 text-gray-800 cursor-pointer"
           >
             Logout
