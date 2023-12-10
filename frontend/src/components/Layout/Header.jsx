@@ -2,19 +2,12 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../../styles/styles";
 import { categoriesData } from "../../static/data";
-import {
-  // AiOutlineHeart,
-  AiOutlineSearch,
-  // AiOutlineShoppingCart,
-} from "react-icons/ai";
+import {AiOutlineSearch} from "react-icons/ai";
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import { BiMenuAltLeft } from "react-icons/bi";
-// import { CgProfile } from "react-icons/cg";
 import DropDown from "./DropDown";
 import Navbar from "./Navbar";
 import { useSelector } from "react-redux";
-// import Cart from "../cart/Cart";
-// import Wishlist from "../Wishlist/Wishlist";
 import { RxCross1 } from "react-icons/rx";
 
 const Header = ({ activeHeading }) => {
@@ -25,8 +18,6 @@ const Header = ({ activeHeading }) => {
   const [searchData, setSearchData] = useState(null);
   const [active, setActive] = useState(false);
   const [dropDown, setDropDown] = useState(false);
-  // const [openCart, setOpenCart] = useState(false);
-  // const [openWishlist, setOpenWishlist] = useState(false);
   const [open, setOpen] = useState(false);
 
   const defaultAvatarUrl = 'https://www.jbei.org/wp-content/uploads/2019/10/default_user_avatar.png';
@@ -261,36 +252,48 @@ const Header = ({ activeHeading }) => {
                 <br />
                 <br />
                 <br />
-                <div className="flex w-full justify-center">
-                  {isAuthenticated ? (
-                    <div>
-                      <Link to="/profile">
-                        <img
-                          src={`${user.avatar?.url}`}
-                          alt=""
-                          className="w-[60px] h-[60px] rounded-full border-[3px] border-[#0eae88]"
-                        />
-                      </Link>
-                    </div>
-                  ) : (
-                    <>
-                      <Link
-                        to="/login"
-                        className="text-[18px] pr-[10px] text-[#000000b7]"
-                      >
-                        Login /
-                      </Link>
-                      <Link
-                        to="/sign-up"
-                        className="text-[18px] text-[#000000b7]"
-                      >
-                        Sign up
-                      </Link>
-                    </>
-                  )}
-                </div>
+                <div className="relative cursor-pointer mr-[15px]">
+          {isAuthenticated ? (
+            <div className="relative group">
+              <div className="flex items-center">
+                <button
+                  onClick={() => setOpen(!open)}
+                  className="mr-2 bg-transparent border-none cursor-pointer"
+                >
+                  {/* Placeholder for user avatar if needed */}
+                </button>
+                <span className="text-white text-sm font-semibold group-hover:underline">
+                  {user.name} {/* Change this to the user property containing the name */}
+                </span>
+              </div>
+              {/* Dropdown for profile actions */}
+              <div className="absolute top-10 right-0 bg-white border border-gray-200 hidden group-hover:block">
+                <Link to="/profile" className="block px-4 py-2 text-gray-800">
+                  Profile
+                </Link>
+                <button
+                  // onClick={/* handle logout action */}
+                  className="block px-4 py-2 text-gray-800 cursor-pointer"
+                >
+                  Logout
+                </button>
+                {/* Add more links as needed */}
               </div>
             </div>
+          ) : (
+            <>
+              <Link to="/login" className="text-white">
+                <button className="bg-transparent border-none">Login</button>
+              </Link>
+              <Link to="/sign-up" className="text-white">
+                <button className="bg-transparent border-none">Sign up</button>
+              </Link>
+            </>
+          )}
+        </div>
+      </div>
+    </div>
+            // </div>
           )}
         </div>
       </div>
