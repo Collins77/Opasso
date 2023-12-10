@@ -138,33 +138,34 @@ const Header = ({ activeHeading }) => {
             </div>
             <div className={`${styles.noramlFlex}`}>
             <div className="relative cursor-pointer mr-[15px]">
-          {isAuthenticated ? (
-            <div className="relative group">
-              <div className="flex items-center">
-                <button
-                  onClick={() => setOpen(!open)}
-                  className="mr-2 bg-transparent border-none cursor-pointer"
-                >
-                  {/* Placeholder for user avatar if needed */}
-                </button>
-                <span className="text-white text-sm font-semibold group-hover:underline">
-                  {user.name} {/* Change this to the user property containing the name */}
-                </span>
-              </div>
-              {/* Dropdown for profile actions */}
-              <div className="absolute top-10 right-0 bg-white border border-gray-200 hidden group-hover:block">
-                <Link to="/profile" className="block px-4 py-2 text-gray-800">
-                  Profile
-                </Link>
-                <button
-                  // onClick={/* handle logout action */}
-                  className="block px-4 py-2 text-gray-800 cursor-pointer"
-                >
-                  Logout
-                </button>
-                {/* Add more links as needed */}
-              </div>
-            </div>
+            {isAuthenticated ? (
+    <div className="relative group">
+      <div className="flex items-center">
+        <button
+          onClick={() => setOpen(!open)}
+          className="mr-2 bg-transparent border-none cursor-pointer"
+        >
+          {/* Placeholder for user avatar if needed */}
+        </button>
+        <span className="text-white text-sm font-semibold group-hover:underline">
+          {user.name} {/* Change this to the user property containing the name */}
+        </span>
+      </div>
+      {/* Dropdown for profile actions */}
+      <div className={`absolute top-10 right-0 bg-white border border-gray-200 ${open ? 'block' : 'hidden'}`}>
+        <Link to="/profile" className="block px-4 py-2 text-gray-800">
+          Profile
+        </Link>
+        <button
+          // Handle logout action
+          // onClick={/* Add your logout function here */}
+          className="block px-4 py-2 text-gray-800 cursor-pointer"
+        >
+          Logout
+        </button>
+        {/* Add more links as needed */}
+      </div>
+    </div>
           ) : (
             <>
               <Link to="/login" className="text-white">
