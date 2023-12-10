@@ -137,50 +137,50 @@ const Header = ({ activeHeading }) => {
               {/* Placeholder for other icons or buttons */}
             </div>
             <div className={`${styles.noramlFlex}`}>
-              {isAuthenticated ? (
-                <div className="relative group">
-                  <div className="flex items-center">
-                    <button
-                      onClick={() => setOpen(!open)}
-                      className="mr-2 bg-transparent border-none cursor-pointer"
-                    >
-                      <img
-                        src={user?.avatar?.url || defaultAvatarUrl}
-                        className="w-[35px] h-[35px] rounded-full"
-                        alt=""
-                      />
-                    </button>
-                    <span className="text-white text-sm font-semibold group-hover:underline">
-                      {user.email}
-                    </span>
-                  </div>
-                  <div className="absolute top-10 right-0 bg-white border border-gray-200 hidden group-hover:block">
-                    <Link to="/profile" className="block px-4 py-2 text-gray-800">
-                      Profile
-                    </Link>
-                    <button
-                      // onClick={/* handle logout action */}
-                      className="block px-4 py-2 text-gray-800 cursor-pointer"
-                    >
-                      Logout
-                    </button>
-                    {/* Add more links as needed */}
-                  </div>
-                </div>
-              ) : (
-                <>
-                  <Link to="/login" className="text-white">
-                    <button className="bg-transparent border-none">Login</button>
-                  </Link>
-                  <Link to="/sign-up" className="text-white">
-                    <button className="bg-transparent border-none">Sign up</button>
-                  </Link>
-                </>
-              )}
+            <div className="relative cursor-pointer mr-[15px]">
+          {isAuthenticated ? (
+            <div className="relative group">
+              <div className="flex items-center">
+                <button
+                  onClick={() => setOpen(!open)}
+                  className="mr-2 bg-transparent border-none cursor-pointer"
+                >
+                  {/* Placeholder for user avatar if needed */}
+                </button>
+                <span className="text-white text-sm font-semibold group-hover:underline">
+                  {user.name} {/* Change this to the user property containing the name */}
+                </span>
+              </div>
+              {/* Dropdown for profile actions */}
+              <div className="absolute top-10 right-0 bg-white border border-gray-200 hidden group-hover:block">
+                <Link to="/profile" className="block px-4 py-2 text-gray-800">
+                  Profile
+                </Link>
+                <button
+                  // onClick={/* handle logout action */}
+                  className="block px-4 py-2 text-gray-800 cursor-pointer"
+                >
+                  Logout
+                </button>
+                {/* Add more links as needed */}
+              </div>
+            </div>
+          ) : (
+            <>
+              <Link to="/login" className="text-white">
+                <button className="bg-transparent border-none">Login</button>
+              </Link>
+              <Link to="/sign-up" className="text-white">
+                <button className="bg-transparent border-none">Sign up</button>
+              </Link>
+            </>
+          )}
+        </div>
+      </div>
             </div>
           </div>
         </div>
-      </div>
+      {/* </div> */}
       <div
         className={`${
           active === true ? "shadow-sm fixed top-0 left-0 z-10" : null
@@ -252,48 +252,36 @@ const Header = ({ activeHeading }) => {
                 <br />
                 <br />
                 <br />
-                <div className="relative cursor-pointer mr-[15px]">
-          {isAuthenticated ? (
-            <div className="relative group">
-              <div className="flex items-center">
-                <button
-                  onClick={() => setOpen(!open)}
-                  className="mr-2 bg-transparent border-none cursor-pointer"
-                >
-                  {/* Placeholder for user avatar if needed */}
-                </button>
-                <span className="text-white text-sm font-semibold group-hover:underline">
-                  {user.name} {/* Change this to the user property containing the name */}
-                </span>
-              </div>
-              {/* Dropdown for profile actions */}
-              <div className="absolute top-10 right-0 bg-white border border-gray-200 hidden group-hover:block">
-                <Link to="/profile" className="block px-4 py-2 text-gray-800">
-                  Profile
-                </Link>
-                <button
-                  // onClick={/* handle logout action */}
-                  className="block px-4 py-2 text-gray-800 cursor-pointer"
-                >
-                  Logout
-                </button>
-                {/* Add more links as needed */}
+                <div className="flex w-full justify-center">
+                  {isAuthenticated ? (
+                    <div>
+                      <Link to="/profile">
+                        <img
+                          src={`${user.avatar?.url}`}
+                          alt=""
+                          className="w-[60px] h-[60px] rounded-full border-[3px] border-[#0eae88]"
+                        />
+                      </Link>
+                    </div>
+                  ) : (
+                    <>
+                      <Link
+                        to="/login"
+                        className="text-[18px] pr-[10px] text-[#000000b7]"
+                      >
+                        Login /
+                      </Link>
+                      <Link
+                        to="/sign-up"
+                        className="text-[18px] text-[#000000b7]"
+                      >
+                        Sign up
+                      </Link>
+                    </>
+                  )}
+                </div>
               </div>
             </div>
-          ) : (
-            <>
-              <Link to="/login" className="text-white">
-                <button className="bg-transparent border-none">Login</button>
-              </Link>
-              <Link to="/sign-up" className="text-white">
-                <button className="bg-transparent border-none">Sign up</button>
-              </Link>
-            </>
-          )}
-        </div>
-      </div>
-    </div>
-            // </div>
           )}
         </div>
       </div>
