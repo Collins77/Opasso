@@ -8,6 +8,7 @@ import Events from "../components/Events/Events";
 import Sponsored from "../components/Route/Sponsored";
 import Footer from "../components/Layout/Footer";
 import AppPromo from '../components/AppPromo/appPromo';
+import HowItWorks from '../components/Route/HowItWorks/HowItWorks';
 // import PreviewAllProducts from '../components/Shop/PreviewAllProducts';
 
 const HomePage = () => {
@@ -16,8 +17,10 @@ const HomePage = () => {
         <Header activeHeading={1} />
         <Hero />
         <Categories />
+        <HowItWorks />
         {/* <BestDeals /> */}
-        {/* <Events /> */}
+        <Events />
+
         {/* <Sponsored /> */}
         <AppPromo />
         <Footer />
