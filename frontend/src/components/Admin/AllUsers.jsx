@@ -23,7 +23,7 @@ const AllUsers = () => {
 
   const handleDelete = async (id) => {
     await axios
-    .delete(`${server}/shop/delete-seller/${id}`, { withCredentials: true })
+    .delete(`${server}/shop/delete-user/${id}`, { withCredentials: true })
     .then((res) => {
       toast.success(res.data.message);
     });
@@ -47,7 +47,7 @@ const AllUsers = () => {
   const handleReject = async (id) => {
     try {
       await axios.put(
-        `${server}/shop/reject-seller/${id}`,
+        `${server}/user/reject-seller/${id}`,
         null,
         { withCredentials: true }
       );
@@ -151,26 +151,6 @@ const AllUsers = () => {
       align: "center",
       sortable: false,
       renderCell: (params) => (
-        // <>
-        //   <Button onClick={() => setUserId(params.id) || setOpen(true)}>
-        //     <AiOutlineDelete size={15} />
-        //   </Button>
-        //   {params.row.status !== "Approved" && (
-        //     <Button onClick={() => handleApprove(params.id)}>
-        //       <TiTick size={15} color="green" style={{borderRadius: '50%'}} />
-        //     </Button>
-        //   )}
-        //   {params.row.status !== "Rejected" && (
-        //     <Button onClick={() => handleReject(params.id)}>
-        //       <RxCross2 size={15} color="red" style={{borderRadius: '50%'}} />
-        //     </Button>
-        //   )}
-        //   {params.row.status !== "On Hold" && (
-        //   <Button onClick={() => handleOnHold(params.id)}>
-        //     <TbHandStop size={15} color="blue" style={{borderRadius: '50%'}}  />
-        //   </Button>
-        //   )}
-        // </>
         <ActionsCell
         row={params.row}
         handleDelete={handleDelete}
@@ -179,24 +159,6 @@ const AllUsers = () => {
         handleOnHold={handleOnHold}
       />
       ),
-    },
-
-    {
-      field: " ",
-      flex: 1,
-      minWidth: 150,
-      headerName: "Delete User",
-      type: "number",
-      sortable: false,
-      renderCell: (params) => {
-        return (
-          <>
-            <Button onClick={() => setUserId(params.id) || setOpen(true)}>
-              <AiOutlineDelete size={20} />
-            </Button>
-          </>
-        );
-      },
     },
   ];
 
@@ -208,6 +170,7 @@ const AllUsers = () => {
         name: item.name,
         email: item.email,
         role: item.role,
+        status: item.status,
         joinedAt: item.createdAt.slice(0, 10),
       });
     });
