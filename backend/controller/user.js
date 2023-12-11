@@ -189,6 +189,10 @@ router.post(
         return next(new ErrorHandler("User doesn't exists!", 400));
       }
 
+      if (user.status !== "Approved") {
+        return next(new ErrorHandler("Your account is pending approval. You are not allowed to sign in.!", 401));
+      }
+
       const isPasswordValid = await user.comparePassword(password);
 
       if (!isPasswordValid) {
