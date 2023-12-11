@@ -12,7 +12,7 @@ const Singup = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [address, setAddress] = useState("");
-  const [phone, setPhone] = useState();
+  const [phoneNumber, setPhone] = useState();
   const [visible, setVisible] = useState(false);
   // const [avatar, setAvatar] = useState('https://www.jbei.org/wp-content/uploads/2019/10/default_user_avatar.png');
 
@@ -20,7 +20,7 @@ const Singup = () => {
     e.preventDefault();
 
     axios
-      .post(`${server}/user/create-user`, { name, email, password, address, phone })
+      .post(`${server}/user/create-user`, { name, email, password, address, phoneNumber })
       .then((res) => {
         toast.success(res.data.message);
         setName("");
@@ -75,7 +75,7 @@ const Singup = () => {
                   type="number"
                   name="phone-number"
                   required
-                  value={phone}
+                  value={phoneNumber}
                   onChange={(e) => setPhone(e.target.value)}
                   className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                 />

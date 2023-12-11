@@ -68,7 +68,7 @@ router.post("/create-user", async (req, res, next) => {
       address,
       phoneNumber,
       password,
-      status: "Not Approved",
+      status: "Not approved",
     });
 
     // Save the user to the database
