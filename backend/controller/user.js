@@ -52,6 +52,43 @@ router.post("/create-user", async (req, res, next) => {
   }
 });
 
+router.put(
+  "/approve-user/:id",
+  isAuthenticated,
+  isAdmin("Admin"),
+  catchAsyncErrors(async (req, res, next) => {
+    try {
+      const user = await User.findById(req.params.id);
+
+      if (!user) {
+        return next(new ErrorHandler("User not found", 404));
+      }
+
+      user.status = "Approved";
+      await user.save();
+      // Send account approval email
+      const approvalEmailOptions = {
+        email: user.email,
+        subject: "Account Approval Notification",
+        html: `<p>Dear ${user.name},</p>
+               <p>We are pleased to inform you that your account has been approved! You can now log in to your account and start using our platform.</p>
+               <p>Thank you for joining us.</p>
+               <p>Best regards,<br>Opasso Team</p>`
+    };
+
+    await sendMail(approvalEmailOptions);
+
+      res.status(200).json({
+        success: true,
+        message: "User approved successfully!",
+        user,
+      });
+    } catch (error) {
+      return next(new ErrorHandler(error.message, 500));
+    }
+  })
+);
+
 // create activation token
 // const createActivationToken = (user) => {
 //   return jwt.sign(user, process.env.ACTIVATION_SECRET, {
