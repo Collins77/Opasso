@@ -269,7 +269,7 @@ router.put(
 // Update seller info by admin
 router.put(
   "/admin-update-seller/:id",
-  isAuthenticated,
+  // isAuthenticated,
   isAdmin("Admin"),
   catchAsyncErrors(async (req, res, next) => {
     try {
