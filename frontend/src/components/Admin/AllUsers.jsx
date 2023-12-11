@@ -33,14 +33,14 @@ const AllUsers = () => {
 
   const handleApprove = async (id) => {
     try {
-      await axios.put(`${server}/shop/approve-seller/${id}`, null, {
+      await axios.put(`${server}/user/approve-user/${id}`, null, {
         withCredentials: true,
       });
-      toast.success("Seller approved successfully!");
+      toast.success("User approved successfully!");
       dispatch(getAllUsers());
     } catch (error) {
-      toast.error("Error approving seller");
-      console.error("Error approving seller:", error);
+      toast.error("Error approving user");
+      console.error("Error approving user:", error);
     }
   };
 

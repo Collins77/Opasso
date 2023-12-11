@@ -250,6 +250,126 @@ router.get(
   })
 );
 
+// Approve User
+router.put(
+  "/approve-user/:id",
+  isAuthenticated,
+  isAdmin("Admin"),
+  catchAsyncErrors(async (req, res, next) => {
+    try {
+      const user = await User.findById(req.params.id);
+
+      if (!user) {
+        return next(new ErrorHandler("User not found", 404));
+      }
+
+      user.status = "Approved";
+      await user.save();
+
+      // Send account approval email
+      const approvalEmailOptions = {
+        email: user.email,
+        subject: "Account Approval Notification",
+        html: `<p>Dear ${user.name},</p>
+               <p>We are pleased to inform you that your account has been approved! You can now log in to your account and start using our platform.</p>
+               <p>Thank you for joining us.</p>
+               <p>Best regards,<br>Your Platform Team</p>`,
+      };
+
+      await sendMail(approvalEmailOptions);
+
+      res.status(200).json({
+        success: true,
+        message: "User approved successfully!",
+        user,
+      });
+    } catch (error) {
+      return next(new ErrorHandler(error.message, 500));
+    }
+  })
+);
+
+// Reject User
+router.put(
+  "/reject-user/:id",
+  isAuthenticated,
+  isAdmin("Admin"),
+  catchAsyncErrors(async (req, res, next) => {
+    try {
+      const user = await User.findById(req.params.id);
+
+      if (!user) {
+        return next(new ErrorHandler("User not found", 404));
+      }
+
+      user.status = "Rejected";
+      await user.save();
+
+      // Send account rejection email
+      const rejectionEmailOptions = {
+        email: user.email,
+        subject: "Account Rejection Notification",
+        html: `<p>Dear ${user.name},</p>
+               <p>We regret to inform you that your account application has been rejected. If you have further questions, please contact our support team.</p>
+               <p>Thank you for your understanding.</p>
+               <p>Best regards,<br>Your Platform Team</p>`,
+      };
+
+      await sendMail(rejectionEmailOptions);
+
+      res.status(200).json({
+        success: true,
+        message: "User rejected successfully!",
+        user,
+      });
+    } catch (error) {
+      return next(new ErrorHandler(error.message, 500));
+    }
+  })
+);
+
+// Put User on Hold
+router.put(
+  "/put-user-on-hold/:id",
+  isAuthenticated,
+  isAdmin("Admin"),
+  catchAsyncErrors(async (req, res, next) => {
+    try {
+      const user = await User.findById(req.params.id);
+
+      if (!user) {
+        return next(new ErrorHandler("User not found", 404));
+      }
+
+      user.status = "On Hold";
+      await user.save();
+
+      // Send account on-hold email
+      const onHoldEmailOptions = {
+        email: user.email,
+        subject: "Account On Hold Notification",
+        html: `<p>Dear ${user.name},</p>
+               <p>Your account is currently on hold. If you have questions or concerns, please contact our support team for assistance.</p>
+               <p>Thank you for your cooperation.</p>
+               <p>Best regards,<br>Your Platform Team</p>`,
+      };
+
+      await sendMail(onHoldEmailOptions);
+
+      res.status(200).json({
+        success: true,
+        message: "User put on hold successfully!",
+        user,
+      });
+    } catch (error) {
+      return next(new ErrorHandler(error.message, 500));
+    }
+  })
+);
+
+module.exports = router;
+
+
 // update user info
 router.put(
   "/update-user-info",
