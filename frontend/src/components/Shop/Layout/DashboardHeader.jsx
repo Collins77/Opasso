@@ -40,9 +40,8 @@ const DashboardHeader = () => {
                   <div className="flex items-center">
                     <button
                       onClick={() => setOpen(!open)}
-                      className="mr-2 bg-transparent border-none cursor-pointer flex items-center"
+                      className="mr-2 bg-transparent text-[#f67009] border-none cursor-pointer flex items-center"
                     >
-                      {/* Placeholder for user avatar if needed */}
                       <span className="text-white text-sm font-semibold group-hover:underline">
                         {seller.name}
                       </span>
