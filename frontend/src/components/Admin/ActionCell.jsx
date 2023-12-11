@@ -26,7 +26,7 @@ const ActionsCell = ({ row, handleDelete, handleApprove, handleReject, handleOnH
     try {
       // Make an HTTP request to update the seller data
       const response = await axios.put(
-        `${server}/shop/admin-update-seller//${sellerId}`,
+        `${server}/shop/admin-update-seller/${sellerId}`,
         updatedData
       );
 
