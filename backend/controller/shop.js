@@ -273,7 +273,7 @@ router.put(
   isAdmin("Admin"),
   catchAsyncErrors(async (req, res, next) => {
     try {
-      const { name, email, address, category, phoneNumber } = req.body;
+      const { name, email, address, phoneNumber } = req.body;
 
       const seller = await Shop.findByIdAndUpdate(
         req.params.id,
@@ -281,7 +281,7 @@ router.put(
           name,
           email,
           address,
-          category,
+          // category,
           phoneNumber,
         },
         { new: true }

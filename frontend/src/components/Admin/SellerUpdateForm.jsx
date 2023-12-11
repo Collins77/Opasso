@@ -4,7 +4,11 @@ import { TextField, Button } from "@material-ui/core";
 const SellerUpdateForm = ({ seller, handleUpdateSeller }) => {
   const [updatedData, setUpdatedData] = useState({
     name: seller.name,
-    // Add other fields as needed
+    email: seller.email,
+    address: seller.address,
+    category: seller.category,
+    phoneNumber: seller.phoneNumber,
+
   });
 
   const handleChange = (e) => {
@@ -27,6 +31,24 @@ const SellerUpdateForm = ({ seller, handleUpdateSeller }) => {
         label="Name"
         name="name"
         value={updatedData.name}
+        onChange={handleChange}
+      />
+      <TextField
+        label=""
+        name="name"
+        value={updatedData.email}
+        onChange={handleChange}
+      />
+      <TextField
+        label="Name"
+        name="name"
+        value={updatedData.address}
+        onChange={handleChange}
+      />
+      <TextField
+        label="Name"
+        name="name"
+        value={updatedData.phoneNumber}
         onChange={handleChange}
       />
       {/* Add other form fields as needed */}
