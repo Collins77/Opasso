@@ -71,7 +71,7 @@ router.post(
       if (!newUser) {
         return next(new ErrorHandler("Invalid token", 400));
       }
-      const { name, email, password } = newUser;
+      const { name, email, address, phoneNumber, password } = newUser;
 
       let user = await User.findOne({ email });
 
@@ -81,6 +81,8 @@ router.post(
       user = await User.create({
         name,
         email,
+        address,
+        phoneNumber,
         password,
       });
 
@@ -171,7 +173,7 @@ router.put(
   isAuthenticated,
   catchAsyncErrors(async (req, res, next) => {
     try {
-      const { email, password, phoneNumber, name } = req.body;
+      const { email, password, phoneNumber, name, address } = req.body;
 
       const user = await User.findOne({ email }).select("+password");
 
@@ -190,6 +192,7 @@ router.put(
       user.name = name;
       user.email = email;
       user.phoneNumber = phoneNumber;
+      user.address = address;
 
       await user.save();
 
