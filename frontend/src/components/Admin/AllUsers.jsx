@@ -47,7 +47,7 @@ const AllUsers = () => {
   const handleReject = async (id) => {
     try {
       await axios.put(
-        `${server}/user/reject-seller/${id}`,
+        `${server}/user/reject-user/${id}`,
         null,
         { withCredentials: true }
       );
