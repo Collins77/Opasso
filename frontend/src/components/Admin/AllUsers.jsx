@@ -51,25 +51,25 @@ const AllUsers = () => {
         null,
         { withCredentials: true }
       );
-      toast.success("Seller rejected successfully!");
+      toast.success("User rejected successfully!");
       dispatch(getAllUsers());
     } catch (error) {
-      toast.error("Error rejecting seller");
-      console.error("Error rejecting seller:", error);
+      toast.error("Error rejecting user");
+      console.error("Error rejecting user:", error);
     }
   };
   const handleOnHold = async (id) => {
     try {
       await axios.put(
-        `${server}/shop/on-hold-seller/${id}`,
+        `${server}/user/on-hold-user/${id}`,
         null,
         { withCredentials: true }
       );
-      toast.success("Seller put on hold");
+      toast.success("User put on hold");
       dispatch(getAllUsers());
     } catch (error) {
-      toast.error("Error putting seller on hold");
-      console.error("Error putting seller on hold:", error);
+      toast.error("Error putting user on hold");
+      console.error("Error putting user on hold:", error);
     }
   };
 
@@ -146,7 +146,7 @@ const AllUsers = () => {
       field: "action",
       headerName: "Action",
       flex: 1,
-      minWidth: 250,
+      minWidth: 100,
       headerAlign: "center",
       align: "center",
       sortable: false,

@@ -5,6 +5,9 @@ import SellerUpdateForm from "./SellerUpdateForm";
 import axios from "axios";
 import { server } from "../../server";
 import { toast } from "react-toastify";
+import { RxCross2 } from "react-icons/rx";
+import { TiTick } from "react-icons/ti";
+import { TbHandStop } from "react-icons/tb";
 
 const ActionsCell = ({ row, handleDelete, handleApprove, handleReject, handleOnHold }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -64,20 +67,20 @@ const ActionsCell = ({ row, handleDelete, handleApprove, handleReject, handleOnH
         
         {row.status !== "Approved" && (
           <MenuItem onClick={() => handleApprove(row.id)}>
-            {/* <TiTick size={15} color="green" style={{ borderRadius: "50%" }} /> */}
-            Approve Account
+            <TiTick size={15} color="green" style={{ borderRadius: "50%" }} />
+            Approve 
           </MenuItem>
         )}
         {row.status !== "Rejected" && (
           <MenuItem onClick={() => handleReject(row.id)}>
-            {/* <RxCross2 size={15} color="red" style={{ borderRadius: "50%" }} /> */}
-            Reject Account
+            <RxCross2 size={15} color="red" style={{ borderRadius: "50%" }} />
+            Reject
           </MenuItem>
         )}
         {row.status !== "On Hold" && (
           <MenuItem onClick={() => handleOnHold(row.id)}>
-            {/* <TbHandStop size={15} color="blue" style={{ borderRadius: "50%" }} /> */}
-            Hold Account
+            <TbHandStop size={15} color="blue" style={{ borderRadius: "50%" }} />
+            Hold 
           </MenuItem>
         )}
         <MenuItem onClick={() => handleDelete(row.id)}>
