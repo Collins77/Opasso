@@ -10,47 +10,86 @@ const sendToken = require("../utils/jwtToken");
 const { isAuthenticated, isAdmin } = require("../middleware/auth");
 
 // create user
+// router.post("/create-user", async (req, res, next) => {
+//   try {
+//     const { name, email, address, phoneNumber, password } = req.body;
+//     const userEmail = await User.findOne({ email });
+
+//     if (userEmail) {
+//       return next(new ErrorHandler("User already exists", 400));
+//     }
+
+//     const user = {
+//       name: name,
+//       email: email,
+//       address: address, 
+//       phoneNumber: phoneNumber, 
+//       password: password,
+//       status: "Not Approved",
+//     };
+
+//     // const activationToken = createActivationToken(user);
+
+//     // const activationUrl = `https://opasso-frontend.vercel.app/activation/${activationToken}`;
+
+//     try {
+//       await sendMail({
+//         email: user.email,
+//         subject: "Account Approval",
+//         message: `Hi ${user.name}, we have received your application to become a member of our platform. Your account is pending approval from our team. 
+//         Kindly be patient as we process your application. 
+//         You will be notified upon approval.`,
+//         });
+//       res.status(201).json({
+//         success: true,
+//         message: `please check your email:- ${user.email} for further instructions`,
+//       });
+//     } catch (error) {
+//       return next(new ErrorHandler(error.message, 500));
+//     }
+//   } catch (error) {
+//     return next(new ErrorHandler(error.message, 400));
+//   }
+// });
 router.post("/create-user", async (req, res, next) => {
   try {
     const { name, email, address, phoneNumber, password } = req.body;
-    const userEmail = await User.findOne({ email });
 
+    // Check if the email already exists
+    const userEmail = await User.findOne({ email });
     if (userEmail) {
       return next(new ErrorHandler("User already exists", 400));
     }
 
-    const user = {
-      name: name,
-      email: email,
-      address: address, 
-      phoneNumber: phoneNumber, 
-      password: password,
+    // Create a new user with status 'Not Approved'
+    const newUser = new User({
+      name,
+      email,
+      address,
+      phoneNumber,
+      password,
       status: "Not Approved",
-    };
+    });
 
-    // const activationToken = createActivationToken(user);
+    // Save the user to the database
+    await newUser.save();
 
-    // const activationUrl = `https://opasso-frontend.vercel.app/activation/${activationToken}`;
+    // Send an email to the user
+    await sendMail({
+      email: newUser.email,
+      subject: "Account Approval",
+      message: `Hi ${newUser.name}, we have received your application to become a member of our platform. Your account is pending approval from our team. Kindly be patient as we process your application. You will be notified upon approval.`,
+    });
 
-    try {
-      await sendMail({
-        email: user.email,
-        subject: "Account Approval",
-        message: `Hi ${user.name}, we have received your application to become a member of our platform. Your account is pending approval from our team. 
-        Kindly be patient as we process your application. 
-        You will be notified upon approval.`,
-        });
-      res.status(201).json({
-        success: true,
-        message: `please check your email:- ${user.email} for further instructions`,
-      });
-    } catch (error) {
-      return next(new ErrorHandler(error.message, 500));
-    }
+    res.status(201).json({
+      success: true,
+      message: `Please check your email (${newUser.email}) for further instructions.`,
+    });
   } catch (error) {
-    return next(new ErrorHandler(error.message, 400));
+    return next(new ErrorHandler(error.message, 500));
   }
 });
+
 
 router.put(
   "/approve-user/:id",
