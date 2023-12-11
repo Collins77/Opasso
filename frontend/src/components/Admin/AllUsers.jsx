@@ -61,7 +61,7 @@ const AllUsers = () => {
   const handleOnHold = async (id) => {
     try {
       await axios.put(
-        `${server}/user/on-hold-user/${id}`,
+        `${server}/user/user-on-hold/${id}`,
         null,
         { withCredentials: true }
       );

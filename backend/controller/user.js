@@ -330,7 +330,7 @@ router.put(
 
 // Put User on Hold
 router.put(
-  "/put-user-on-hold/:id",
+  "/user-on-hold/:id",
   isAuthenticated,
   isAdmin("Admin"),
   catchAsyncErrors(async (req, res, next) => {
