@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "../../styles/styles";
 import { categoriesData } from "../../static/data";
 import {AiOutlineSearch} from "react-icons/ai";
@@ -37,7 +37,6 @@ const Header = ({ activeHeading }) => {
       });
   };
 
-  const defaultAvatarUrl = 'https://www.jbei.org/wp-content/uploads/2019/10/default_user_avatar.png';
 
   const handleSearchChange = (e) => {
     const term = e.target.value;

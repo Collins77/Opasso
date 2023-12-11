@@ -12,10 +12,6 @@ const DashboardHeader = () => {
     <div className="w-full h-[80px] bg-white shadow sticky top-0 left-0 z-30 flex items-center justify-between px-4">
       <div>
         <Link to="/dashboard">
-          {/* <img
-            src="https://shopo.quomodothemes.website/assets/images/logo.svg"
-            alt=""
-          /> */}
           <h1 className="text-4xl font-bold text-[#f67009]">Opasso</h1>
         </Link>
       </div>

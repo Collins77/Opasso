@@ -9,7 +9,7 @@ import Loader from "../Layout/Loader";
 import { getAllSellers } from "../../redux/actions/sellers";
 import { BsHandbag } from "react-icons/bs";
 import { getAllProducts } from "../../redux/actions/product";
-import AllProducts from "./AllProducts";
+import AllProductsDash from "./AllProductsDash";
 
 const AdminDashboardMain = () => {
   const dispatch = useDispatch();
@@ -90,7 +90,7 @@ const AdminDashboardMain = () => {
         <br />
         <h3 className="text-[22px] font-Poppins pb-2">Latest Products</h3>
         <div className="w-full min-h-[45vh] bg-white rounded">
-          <AllProducts/>
+          <AllProductsDash limit={5}/>
         </div>
       </div>
       )
