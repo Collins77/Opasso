@@ -84,10 +84,10 @@ const ActionsCell = ({ row, handleDelete, handleApprove, handleReject, handleOnH
           </MenuItem>
         )}
         <MenuItem onClick={() => handleDelete(row.id)}>
-          Delete Account
+          Delete 
         </MenuItem>
         <MenuItem onClick={handleUpdateClick}>
-          Update Account
+          Update 
         </MenuItem>
       </Menu>
       {/* Update Seller Modal */}
