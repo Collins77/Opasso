@@ -6,12 +6,12 @@ const HowItWorks = () => {
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="text-center">
                 <p class="text-sm font-bold uppercase tracking-widest text-gray-700">How It Works</p>
-                <h2 class="mt-6 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">Launch your blog
+                <h2 class="mt-6 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">Find your desired supplies
                     in
                     4 easy steps
                 </h2>
                 <p class="mx-auto mt-4 max-w-2xl text-lg font-normal text-gray-700 lg:text-xl lg:leading-8">
-                    Create your own blog with us and launch it with just 4 easy steps
+                    Access manufacturers' catalogues easily
                 </p>
             </div>
             <ul class="mx-auto mt-12 grid max-w-md grid-cols-1 gap-10 sm:mt-16 lg:mt-20 lg:max-w-5xl lg:grid-cols-4">
@@ -31,9 +31,9 @@ const HowItWorks = () => {
                     <div class="ml-6 lg:ml-0 lg:mt-10">
                         <h3
                             class="text-xl font-bold text-gray-900 before:mb-2 before:block before:font-mono before:text-sm before:text-gray-500">
-                            Add your databases
+                            Sign Up
                         </h3>
-                        <h4 class="mt-2 text-base text-gray-700">Use your own Notion databases or duplicate ours.</h4>
+                        <h4 class="mt-2 text-base text-gray-700">This is to allow you to view the catalogue.</h4>
                     </div>
                 </li>
                 <li class="flex-start group relative flex lg:flex-col">
@@ -52,9 +52,9 @@ const HowItWorks = () => {
                     <div class="ml-6 lg:ml-0 lg:mt-10">
                         <h3
                             class="text-xl font-bold text-gray-900 before:mb-2 before:block before:font-mono before:text-sm before:text-gray-500">
-                            Map your fields
+                            Search for your desired manufacturer
                         </h3>
-                        <h4 class="mt-2 text-base text-gray-700">Map your Notion fields with Feather fields.</h4>
+                        <h4 class="mt-2 text-base text-gray-700">You can search for either the product or the supplier.</h4>
                     </div>
                 </li>
                 <li class="flex-start group relative flex lg:flex-col">
@@ -73,9 +73,9 @@ const HowItWorks = () => {
                     <div class="ml-6 lg:ml-0 lg:mt-10">
                         <h3
                             class="text-xl font-bold text-gray-900 before:mb-2 before:block before:font-mono before:text-sm before:text-gray-500">
-                            Choose your domain
+                            Access their catalogue
                         </h3>
-                        <h4 class="mt-2 text-base text-gray-700">Choose a domain or a subdomain for your blog.</h4>
+                        <h4 class="mt-2 text-base text-gray-700">You will be redirected to their page.</h4>
                     </div>
                 </li>
                 <li class="flex-start group relative flex lg:flex-col">
@@ -91,9 +91,9 @@ const HowItWorks = () => {
                     <div class="ml-6 lg:ml-0 lg:mt-10">
                         <h3
                             class="text-xl font-bold text-gray-900 before:mb-2 before:block before:font-mono before:text-sm before:text-gray-500">
-                            Get your blog
+                                Get in touch with the supplier
                         </h3>
-                        <h4 class="mt-2 text-base text-gray-700">That's it. You will get back a professional blog.</h4>
+                        <h4 class="mt-2 text-base text-gray-700">Contact details are provided</h4>
                     </div>
                 </li>
             </ul>
