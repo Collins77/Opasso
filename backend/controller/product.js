@@ -121,62 +121,95 @@ router.get(
   })
 );
 
-// review for a product
 router.put(
-  "/create-new-review",
-  isAuthenticated,
+  '/update-product/:id',
+  isSeller,
   catchAsyncErrors(async (req, res, next) => {
-    try {
-      const { user, rating, comment, productId, orderId } = req.body;
+    const productId = req.params.id;
+    const { name, description, price, isAvailable } = req.body;
 
+    try {
       const product = await Product.findById(productId);
 
-      const review = {
-        user,
-        rating,
-        comment,
-        productId,
-      };
-
-      const isReviewed = product.reviews.find(
-        (rev) => rev.user._id === req.user._id
-      );
-
-      if (isReviewed) {
-        product.reviews.forEach((rev) => {
-          if (rev.user._id === req.user._id) {
-            (rev.rating = rating), (rev.comment = comment), (rev.user = user);
-          }
-        });
-      } else {
-        product.reviews.push(review);
+      if (!product) {
+        return next(new ErrorHandler('Product not found', 404));
       }
 
-      let avg = 0;
+      product.name = name || product.name;
+      product.description = description || product.description;
+      product.price = price || product.price;
+      product.isAvailable = isAvailable !== undefined ? isAvailable : product.isAvailable;
 
-      product.reviews.forEach((rev) => {
-        avg += rev.rating;
-      });
-
-      product.ratings = avg / product.reviews.length;
-
-      await product.save({ validateBeforeSave: false });
-
-      await Order.findByIdAndUpdate(
-        orderId,
-        { $set: { "cart.$[elem].isReviewed": true } },
-        { arrayFilters: [{ "elem._id": productId }], new: true }
-      );
+      await product.save();
 
       res.status(200).json({
         success: true,
-        message: "Reviewed succesfully!",
+        message: 'Product updated successfully!',
+        product,
       });
     } catch (error) {
-      return next(new ErrorHandler(error, 400));
+      return next(new ErrorHandler(error.message, 500));
     }
   })
 );
+
+
+// review for a product
+// router.put(
+//   "/create-new-review",
+//   isAuthenticated,
+//   catchAsyncErrors(async (req, res, next) => {
+//     try {
+//       const { user, rating, comment, productId, orderId } = req.body;
+
+//       const product = await Product.findById(productId);
+
+//       const review = {
+//         user,
+//         rating,
+//         comment,
+//         productId,
+//       };
+
+//       const isReviewed = product.reviews.find(
+//         (rev) => rev.user._id === req.user._id
+//       );
+
+//       if (isReviewed) {
+//         product.reviews.forEach((rev) => {
+//           if (rev.user._id === req.user._id) {
+//             (rev.rating = rating), (rev.comment = comment), (rev.user = user);
+//           }
+//         });
+//       } else {
+//         product.reviews.push(review);
+//       }
+
+//       let avg = 0;
+
+//       product.reviews.forEach((rev) => {
+//         avg += rev.rating;
+//       });
+
+//       product.ratings = avg / product.reviews.length;
+
+//       await product.save({ validateBeforeSave: false });
+
+//       await Order.findByIdAndUpdate(
+//         orderId,
+//         { $set: { "cart.$[elem].isReviewed": true } },
+//         { arrayFilters: [{ "elem._id": productId }], new: true }
+//       );
+
+//       res.status(200).json({
+//         success: true,
+//         message: "Reviewed succesfully!",
+//       });
+//     } catch (error) {
+//       return next(new ErrorHandler(error, 400));
+//     }
+//   })
+// );
 
 // all products --- for admin
 router.get(

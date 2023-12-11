@@ -36,8 +36,9 @@ const productSchema = new mongoose.Schema({
     required: [true, "Please enter your product price!"],
   },
   isAvailable: {
-    type: Boolean,
-    required: [true, "Please enter your product availability"]
+    type: String,
+    enum: ["available", "limited", "unavailable"],
+    required: [true, "Please enter your product availability"],
   },
   stock: {
     type: Number,
