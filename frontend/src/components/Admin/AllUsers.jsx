@@ -9,6 +9,7 @@ import { RxCross1 } from "react-icons/rx";
 import axios from "axios";
 import { server } from "../../server";
 import { toast } from "react-toastify";
+import ActionsCell from "./ActionCell";
 
 const AllUsers = () => {
   const dispatch = useDispatch();
@@ -22,13 +23,65 @@ const AllUsers = () => {
 
   const handleDelete = async (id) => {
     await axios
-    .delete(`${server}/user/delete-user/${id}`, { withCredentials: true })
+    .delete(`${server}/shop/delete-seller/${id}`, { withCredentials: true })
     .then((res) => {
       toast.success(res.data.message);
     });
 
   dispatch(getAllUsers());
   };
+
+  const handleApprove = async (id) => {
+    try {
+      await axios.put(`${server}/shop/approve-seller/${id}`, null, {
+        withCredentials: true,
+      });
+      toast.success("Seller approved successfully!");
+      dispatch(getAllUsers());
+    } catch (error) {
+      toast.error("Error approving seller");
+      console.error("Error approving seller:", error);
+    }
+  };
+
+  const handleReject = async (id) => {
+    try {
+      await axios.put(
+        `${server}/shop/reject-seller/${id}`,
+        null,
+        { withCredentials: true }
+      );
+      toast.success("Seller rejected successfully!");
+      dispatch(getAllUsers());
+    } catch (error) {
+      toast.error("Error rejecting seller");
+      console.error("Error rejecting seller:", error);
+    }
+  };
+  const handleOnHold = async (id) => {
+    try {
+      await axios.put(
+        `${server}/shop/on-hold-seller/${id}`,
+        null,
+        { withCredentials: true }
+      );
+      toast.success("Seller put on hold");
+      dispatch(getAllUsers());
+    } catch (error) {
+      toast.error("Error putting seller on hold");
+      console.error("Error putting seller on hold:", error);
+    }
+  };
+
+  // const handleDelete = async (id) => {
+  //   await axios
+  //   .delete(`${server}/user/delete-user/${id}`, { withCredentials: true })
+  //   .then((res) => {
+  //     toast.success(res.data.message);
+  //   });
+
+  // dispatch(getAllUsers());
+  // };
 
   const columns = [
     { field: "id", headerName: "User ID", minWidth: 150, flex: 0.7 },
@@ -55,11 +108,77 @@ const AllUsers = () => {
     },
 
     {
+      field: "status",
+      headerName: "Status",
+      minWidth: 130,
+      flex: 0.7,
+      renderCell: (params) => {
+        const status = params.row.status;
+
+        return (
+          <div
+            style={{
+              color: 
+              status === "Approved"
+                ? "green"
+                : status === "Not approved"
+                ? "blue"
+                : status === "On Hold"
+                ? "orange"
+                : "red",
+              fontWeight: "bold",
+            }}
+          >
+            {status}
+          </div>
+        );
+      },
+    },
+
+    {
       field: "joinedAt",
       headerName: "joinedAt",
       type: "text",
       minWidth: 130,
       flex: 0.8,
+    },
+    {
+      field: "action",
+      headerName: "Action",
+      flex: 1,
+      minWidth: 250,
+      headerAlign: "center",
+      align: "center",
+      sortable: false,
+      renderCell: (params) => (
+        // <>
+        //   <Button onClick={() => setUserId(params.id) || setOpen(true)}>
+        //     <AiOutlineDelete size={15} />
+        //   </Button>
+        //   {params.row.status !== "Approved" && (
+        //     <Button onClick={() => handleApprove(params.id)}>
+        //       <TiTick size={15} color="green" style={{borderRadius: '50%'}} />
+        //     </Button>
+        //   )}
+        //   {params.row.status !== "Rejected" && (
+        //     <Button onClick={() => handleReject(params.id)}>
+        //       <RxCross2 size={15} color="red" style={{borderRadius: '50%'}} />
+        //     </Button>
+        //   )}
+        //   {params.row.status !== "On Hold" && (
+        //   <Button onClick={() => handleOnHold(params.id)}>
+        //     <TbHandStop size={15} color="blue" style={{borderRadius: '50%'}}  />
+        //   </Button>
+        //   )}
+        // </>
+        <ActionsCell
+        row={params.row}
+        handleDelete={handleDelete}
+        handleApprove={handleApprove}
+        handleReject={handleReject}
+        handleOnHold={handleOnHold}
+      />
+      ),
     },
 
     {
