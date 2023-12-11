@@ -88,6 +88,11 @@ role: {
   type: String,
   default: "user",
 },
+status: {
+  type: String,
+  enum: ["Not approved", "Approved","On Hold", "Rejected"],
+  default: "Not approved",
+},
 createdAt: {
   type: Date,
   default: Date.now(),

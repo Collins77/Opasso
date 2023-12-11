@@ -25,21 +25,24 @@ router.post("/create-user", async (req, res, next) => {
       address: address, 
       phoneNumber: phoneNumber, 
       password: password,
+      status: "Not Approved",
     };
 
-    const activationToken = createActivationToken(user);
+    // const activationToken = createActivationToken(user);
 
-    const activationUrl = `https://opasso-frontend.vercel.app/activation/${activationToken}`;
+    // const activationUrl = `https://opasso-frontend.vercel.app/activation/${activationToken}`;
 
     try {
       await sendMail({
         email: user.email,
-        subject: "Activate your account",
-        message: `Hello ${user.name}, please click on the link to activate your account: ${activationUrl}`,
-      });
+        subject: "Account Approval",
+        message: `Hi ${user.name}, we have received your application to become a member of our platform. Your account is pending approval from our team. 
+        Kindly be patient as we process your application. 
+        You will be notified upon approval.`,
+        });
       res.status(201).json({
         success: true,
-        message: `please check your email:- ${user.email} to activate your account!`,
+        message: `please check your email:- ${user.email} for further instructions`,
       });
     } catch (error) {
       return next(new ErrorHandler(error.message, 500));
@@ -50,48 +53,48 @@ router.post("/create-user", async (req, res, next) => {
 });
 
 // create activation token
-const createActivationToken = (user) => {
-  return jwt.sign(user, process.env.ACTIVATION_SECRET, {
-    expiresIn: "7d",
-  });
-};
+// const createActivationToken = (user) => {
+//   return jwt.sign(user, process.env.ACTIVATION_SECRET, {
+//     expiresIn: "7d",
+//   });
+// };
 
 // activate user
-router.post(
-  "/activation",
-  catchAsyncErrors(async (req, res, next) => {
-    try {
-      const { activation_token } = req.body;
+// router.post(
+//   "/activation",
+//   catchAsyncErrors(async (req, res, next) => {
+//     try {
+//       const { activation_token } = req.body;
 
-      const newUser = jwt.verify(
-        activation_token,
-        process.env.ACTIVATION_SECRET
-      );
+//       const newUser = jwt.verify(
+//         activation_token,
+//         process.env.ACTIVATION_SECRET
+//       );
 
-      if (!newUser) {
-        return next(new ErrorHandler("Invalid token", 400));
-      }
-      const { name, email, address, phoneNumber, password } = newUser;
+//       if (!newUser) {
+//         return next(new ErrorHandler("Invalid token", 400));
+//       }
+//       const { name, email, address, phoneNumber, password } = newUser;
 
-      let user = await User.findOne({ email });
+//       let user = await User.findOne({ email });
 
-      if (user) {
-        return next(new ErrorHandler("User already exists", 400));
-      }
-      user = await User.create({
-        name,
-        email,
-        address,
-        phoneNumber,
-        password,
-      });
+//       if (user) {
+//         return next(new ErrorHandler("User already exists", 400));
+//       }
+//       user = await User.create({
+//         name,
+//         email,
+//         address,
+//         phoneNumber,
+//         password,
+//       });
 
-      sendToken(user, 201, res);
-    } catch (error) {
-      return next(new ErrorHandler(error.message, 500));
-    }
-  })
-);
+//       sendToken(user, 201, res);
+//     } catch (error) {
+//       return next(new ErrorHandler(error.message, 500));
+//     }
+//   })
+// );
 
 // login user
 router.post(
@@ -249,7 +252,7 @@ router.put(
     try {
       const user = await User.findById(req.user.id);
 
-      const sameTypeAddress = user.addresses.find(
+      const sameTypeAddress = user.address.find(
         (address) => address.addressType === req.body.addressType
       );
       if (sameTypeAddress) {
