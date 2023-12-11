@@ -8,6 +8,7 @@ import { getAllOrdersOfShop } from "../../redux/actions/order";
 import { getAllProductsShop } from "../../redux/actions/product";
 import { Button } from "@material-ui/core";
 import { DataGrid } from "@material-ui/data-grid";
+import AllProducts from "./AllProducts";
 
 const DashboardHero = () => {
   const dispatch = useDispatch();
@@ -125,13 +126,14 @@ const DashboardHero = () => {
       <br />
       <h3 className="text-[22px] font-Poppins pb-2">Latest Products</h3>
       <div className="w-full min-h-[45vh] bg-white rounded">
-      <DataGrid
+      {/* <DataGrid
         rows={row}
         columns={columns}
         pageSize={10}
         disableSelectionOnClick
         autoHeight
-      />
+      /> */}
+      <AllProducts />
       </div>
     </div>
   );
