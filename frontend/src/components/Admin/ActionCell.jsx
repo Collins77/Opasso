@@ -22,11 +22,11 @@ const ActionsCell = ({ row, handleDelete, handleApprove, handleReject, handleOnH
     setAnchorEl(null);
   };
 
-  const handleUpdateSeller = async (sellerId, updatedData) => {
+  const handleUpdateSeller = async (updatedData) => {
     try {
       // Make an HTTP request to update the seller data
       const response = await axios.put(
-        `${server}/shop/admin-update-seller/${sellerId}`,
+        `${server}/shop/admin-update-seller/${row._id}`,
         updatedData
       );
 

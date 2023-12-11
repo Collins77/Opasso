@@ -8,7 +8,6 @@ const SellerUpdateForm = ({ seller, handleUpdateSeller }) => {
     address: seller.address,
     category: seller.category,
     phoneNumber: seller.phoneNumber,
-
   });
 
   const handleChange = (e) => {
@@ -34,20 +33,20 @@ const SellerUpdateForm = ({ seller, handleUpdateSeller }) => {
         onChange={handleChange}
       />
       <TextField
-        label=""
-        name="name"
+        label="Email"
+        name="email"
         value={updatedData.email}
         onChange={handleChange}
       />
       <TextField
-        label="Name"
-        name="name"
+        label="Address"
+        name="address"
         value={updatedData.address}
         onChange={handleChange}
       />
       <TextField
-        label="Name"
-        name="name"
+        label="Phone Number"
+        name="phoneNumber"
         value={updatedData.phoneNumber}
         onChange={handleChange}
       />
