@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import Footer from "../components/Layout/Footer";
@@ -11,14 +11,13 @@ import { getAllSellers } from "../redux/actions/sellers";
 const SuppliersPage = () => {
   const dispatch = useDispatch();
   const { sellers, isLoading } = useSelector((state) => state.seller);
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
   const location = useLocation();
   const pathnames = location.pathname.split('/').filter((x) => x);
 
   useEffect(() => {
     dispatch(getAllSellers());
   }, [dispatch]);
-
 
   return (
   <>
@@ -31,18 +30,16 @@ const SuppliersPage = () => {
       <br />
       <br />          
       <div className={`${styles.section}`}>
-        <div className="w-full flex align-middle justify-center">
-          <h1 className="font-bold text-center text-4xl">Suppliers</h1>
-          <hr />
-        </div>
-        {/* Breadcrumbs */}
-        <div className="mb-4">
+        <div className="mb-2">
               <ul style={{ display: "flex", listStyle: "none", margin: 0, padding: 0, fontSize: "12px", color: "#000000ff" }}>
                 <li><a href="/">Home/</a></li>
                 {pathnames.map((name, index) => (
                   <li key={index}><a href={`/${name}`}>{name}</a></li>
                 ))}
               </ul>
+        </div>
+        <div className='w-full bg-orange-200 mb-3 h-[50px] flex items-center justify-center'>
+          <h1 className="font-bold text-center text-3xl">Supplier Preview</h1>
         </div>
         <div className="grid grid-cols-3 gap-4">
           {sellers && sellers.map((i, index) => <SupplierCard data={i} key={index} />)}

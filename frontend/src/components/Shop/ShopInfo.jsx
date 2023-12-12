@@ -7,6 +7,7 @@ import Loader from "../Layout/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProductsShop } from "../../redux/actions/product";
 import { Button } from "@material-ui/core";
+import styles from "../../styles/styles";
 
 const ShopInfo = ({ isOwner }) => {
   const [data,setData] = useState({});
@@ -36,18 +37,6 @@ const ShopInfo = ({ isOwner }) => {
     window.location.reload();
   };
 
-  const totalReviewsLength =
-    products &&
-    products.reduce((acc, product) => acc + product.reviews.length, 0);
-
-  const totalRatings = products && products.reduce((acc,product) => acc + product.reviews.reduce((sum,review) => sum + review.rating, 0),0);
-
-  const averageRating = totalRatings / totalReviewsLength || 0;
-  const myStyle = {
-    color: 'blue',
-    fontSize: '16px',
-    background: 'linear-gradient(109.6deg, rgb(255, 194, 48) 11.2%, rgb(255, 124, 0) 100.2%);'
-  };
 
   return (
    <>
@@ -89,23 +78,9 @@ const ShopInfo = ({ isOwner }) => {
     //     <h5 className="font-[600]">Joined On</h5>
     //     <h4 className="text-[#000000b0]">{data?.createdAt?.slice(0, 10)}</h4>
     //   </div>
-    //   {isOwner && (
-    //     <div className="py-3 px-4">
-    //        <Link to="/settings">
-    //        <div className={`${styles.button} !w-full !h-[42px] !rounded-[5px]`}>
-    //         <span className="text-white">Edit Shop</span>
-    //       </div>
-    //        </Link>
-    //       <div className={`${styles.button} !w-full !h-[42px] !rounded-[5px]`}
-    //       onClick={logoutHandler}
-    //       >
-    //         <span className="text-white">Log Out</span>
-    //       </div>
-    //     </div>
-    //   )}
     // </div>
     <div className="w-full shadow-sm border border-orange-500 bg-white p-3">
-      <div className="flex w-full justify-between bg-orange-300 p-4 h-1/4 mb-4 border-b-2 border-black gap-2" style={myStyle}>
+      <div className="flex w-full justify-between bg-orange-300 p-4 h-1/4 mb-4 border-b-2 border-black gap-2">
         <img src={imageUrl} alt="" className="w-1/5 h-full" />
         <div className="w-3/4 h-full flex flex-col gap-1">
           <h2 className="font-bold text-black">{data.name}</h2>
@@ -130,12 +105,28 @@ const ShopInfo = ({ isOwner }) => {
           <p className="text-gray-500">Total Products</p>
           <span className="text-gray-500">{products && products.length}</span>
         </div>
+        <div className="flex justify-between">
+          <p className="text-gray-500">Category</p>
+          <span className="text-gray-500">{data.category}</span>
+        </div>
       </div>
       <div>
       <div>
-        <button className="w-full rounded-full font-bold border border-orange-500 bg-transparent hover:bg-orange-400 hover:text-white text-black hover:border-transparent">
+        <button className="w-full rounded-full font-bold border border-orange-500 bg-transparent hover:bg-orange-400 hover:text-white text-black hover:border-transparent py-2">
           Message Seller
         </button>
+        {isOwner && (
+        <div className="py-3 px-4">
+           <Link to="/settings">
+            <button className="w-full rounded-full font-bold border border-orange-500 bg-transparent hover:bg-orange-400 hover:text-white text-black hover:border-transparent py-2">
+              Settings
+            </button>
+           </Link>
+          <button onClick={logoutHandler} className="w-full rounded-full font-bold border border-orange-500 bg-transparent hover:bg-orange-400 hover:text-white text-black hover:border-transparent py-2">
+           Logout
+        </button>
+        </div>
+      )}
       </div>
       </div>
     </div>

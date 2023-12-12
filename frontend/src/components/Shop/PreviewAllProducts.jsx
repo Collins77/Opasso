@@ -1,9 +1,8 @@
-import { Button, Switch, makeStyles, styled } from "@material-ui/core";
+import { Switch, makeStyles, styled } from "@material-ui/core";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import React, { useEffect, useState } from "react";
-import { AiOutlineEye } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getAllProductsShop } from "../../redux/actions/product";
 import Loader from "../Layout/Loader";
 import { Stack, Typography } from "@mui/material";
@@ -12,6 +11,15 @@ const PreviewAllProducts = () => {
   const { products, isLoading } = useSelector((state) => state.products);
   const { id } = useParams();
   const [selectedCurrency, setSelectedCurrency] = useState("KES"); 
+  const [defaultFilter, setDefaultFilter] = useState({
+    items: [
+      {
+        columnField: 'partNumber',
+        operatorValue: 'contains',
+        value: '',
+      },
+    ],
+  });
 
   const AntSwitch = styled(Switch)(({ theme }) => ({
     width: 28,
@@ -116,6 +124,7 @@ const PreviewAllProducts = () => {
 
         const priceInUSD = item.discountPrice / item.shop.exchangeRate;
         const priceInLocal = item.discountPrice;
+        
         
 
         return (
@@ -251,6 +260,7 @@ const PreviewAllProducts = () => {
                 showQuickFilter: true,
               },
             }}
+            state={defaultFilter}
           />
           </div>
           

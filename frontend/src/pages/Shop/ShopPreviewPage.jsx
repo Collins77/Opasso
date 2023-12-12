@@ -21,7 +21,7 @@ const ShopPreviewPage = () => {
                   </ul>
           </div>
           <div className='w-full bg-orange-200 mb-3 h-[50px] flex items-center justify-center'>
-          <h1 className="font-bold text-center text-3xl">Supplier Preview</h1>
+            <h1 className="font-bold text-center text-3xl">Supplier Preview</h1>
           </div>
       
          <div className="w-full flex gap-2 800px:flex py-10 justify-between">
