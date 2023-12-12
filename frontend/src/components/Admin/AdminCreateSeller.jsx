@@ -19,7 +19,7 @@ const AdminCreateSeller = () => {
     e.preventDefault();
 
     axios
-      .post(`${server}/admin/create-seller`, {
+      .post(`${server}/shop/admin-create-seller`, {
         name,
         email,
         password,
