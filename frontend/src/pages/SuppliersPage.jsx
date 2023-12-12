@@ -39,7 +39,7 @@ const SuppliersPage = () => {
               </ul>
         </div>
         <div className='w-full bg-orange-200 mb-3 h-[50px] flex items-center justify-center'>
-          <h1 className="font-bold text-center text-3xl">Supplier Preview</h1>
+          <h1 className="font-bold text-center text-3xl">Suppliers</h1>
         </div>
         <div className="grid grid-cols-3 gap-4">
           {sellers && sellers.map((i, index) => <SupplierCard data={i} key={index} />)}
