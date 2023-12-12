@@ -104,7 +104,7 @@ const ShopInfo = ({ isOwner }) => {
     //     </div>
     //   )}
     // </div>
-    <div className="W-full shadow-sm bg-slate-100 p-3">
+    <div className="W-full shadow-sm bg-white p-3">
       <div className="flex w-full justify-between p-4 h-1/4 mb-4 border-b-2 border-black gap-2" style={myStyle}>
         <img src={imageUrl} alt="" className="w-1/5 h-full" />
         <div className="w-3/4 h-full flex flex-col gap-2">
