@@ -12,6 +12,7 @@ const AdminCreateSeller = () => {
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState();
   const [address, setAddress] = useState("");
+  const [category, setCategory] = useState("");
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
 
@@ -23,6 +24,7 @@ const AdminCreateSeller = () => {
         name,
         email,
         password,
+        category,
         address,
         phoneNumber,
       })
@@ -31,6 +33,7 @@ const AdminCreateSeller = () => {
         setName("");
         setEmail("");
         setPassword("");
+        setCategory("");
         setAddress("");
         setPhoneNumber();
       })

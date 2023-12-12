@@ -18,9 +18,9 @@ const CreateProduct = () => {
   const [partNumber, setPartNumber] = useState("");
   const [category, setCategory] = useState("");
   const [brand, setBrand] = useState("");
-  const [tags, setTags] = useState("");
+  // const [tags, setTags] = useState("");
   const [warranty, setWarranty] = useState("");
-  const [originalPrice, setOriginalPrice] = useState();
+  // const [originalPrice, setOriginalPrice] = useState();
   const [discountPrice, setDiscountPrice] = useState();
   const [isAvailable, setIsAvailable] = useState();
   const [stock, setStock] = useState();
@@ -66,9 +66,9 @@ const CreateProduct = () => {
     newForm.append("partNumber", partNumber);
     newForm.append("category", category);
     newForm.append("brand", brand);
-    newForm.append("tags", tags);
+    // newForm.append("tags", tags);
     newForm.append("warranty", warranty);
-    newForm.append("originalPrice", originalPrice);
+    // newForm.append("originalPrice", originalPrice);
     newForm.append("discountPrice", discountPrice);
     newForm.append("isAvailable", isAvailable);
     newForm.append("stock", stock);
@@ -80,9 +80,9 @@ const CreateProduct = () => {
         partNumber,
         category,
         brand,
-        tags,
+        // tags,
         warranty,
-        originalPrice,
+        // originalPrice,
         discountPrice,
         isAvailable,
         stock,
@@ -195,7 +195,7 @@ const CreateProduct = () => {
           />
         </div>
         <br />
-        <div>
+        {/* <div>
           <label className="pb-2">
             is Available <span className="text-red-500">*</span>
           </label>
@@ -207,6 +207,20 @@ const CreateProduct = () => {
             className="ml-2"
             onChange={(e) => setIsAvailable(e.target.checked)}
           />
+        </div> */}
+        <div>
+          <label className="pb-2">
+            Availability <span className="text-red-500">*</span>
+          </label>
+          <select
+            className="w-full mt-2 border h-[35px] rounded-[5px]"
+            value={isAvailable}
+            onChange={(e) => setIsAvailable(e.target.value)}
+          >
+            <option value="available">Available</option>
+            <option value="limited">Limited</option>
+            <option value="unavailable">Unavailable</option>
+          </select>
         </div>
         <br />
         <div>

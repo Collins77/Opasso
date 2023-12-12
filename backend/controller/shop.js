@@ -75,7 +75,6 @@ router.post(
         category: req.body.category,
         phoneNumber: req.body.phoneNumber,
         status: "Approved",
-        role: "Seller",
       };
 
       const newSeller = await Shop.create(seller);
