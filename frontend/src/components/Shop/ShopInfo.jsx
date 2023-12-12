@@ -14,6 +14,7 @@ const ShopInfo = ({ isOwner }) => {
   const [isLoading,setIsLoading] = useState(false);
   const {id} = useParams();
   const dispatch = useDispatch();
+  const imageUrl = "https://img.freepik.com/free-vector/conveyor-belt-warehouse-concept-illustration_114360-17998.jpg?w=1380&t=st=1702388516~exp=1702389116~hmac=2ab5ddf2c7e14e478d700d47e2aa12cf8e718d250e20f1afb000d65df81ba805";
 
   useEffect(() => {
     dispatch(getAllProductsShop(id));
@@ -99,11 +100,11 @@ const ShopInfo = ({ isOwner }) => {
     //   )}
     // </div>
     <div className="W-full shadow-sm bg-slate-100 p-3">
-      <div className="flex w-full justify-between">
-        <img src="" alt="" />
-        <div>
-          <h2>{data.name}</h2>
-          <span>{data.address}</span>
+      <div className="flex w-full justify-between p-4 h-30">
+        <img src={imageUrl} alt="" className="w-30 h-full" />
+        <div className="w-65 h-full flex flex-col gap-2">
+          <h2 className="font-bold text-black">{data.name}</h2>
+          <span className="font-light text-[#ffffffe8]">{data.address}</span>
           <span>{data.category}</span>
         </div>
       </div>
