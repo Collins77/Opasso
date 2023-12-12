@@ -12,7 +12,7 @@ const ShopCreate = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState();
-  const [category, setCategory] = useState("");
+  // const [category, setCategory] = useState("");
   const [address, setAddress] = useState("");
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
@@ -26,7 +26,7 @@ const ShopCreate = () => {
         email,
         password,
         address,
-        category,
+        // category,
         phoneNumber,
       })
       .then((res) => {
@@ -35,7 +35,7 @@ const ShopCreate = () => {
         setEmail("");
         setPassword("");
         setAddress("");
-        setCategory("");
+        // setCategory("");
         setPhoneNumber();
       })
       .catch((error) => {
@@ -110,7 +110,7 @@ const ShopCreate = () => {
                 />
               </div>
             </div>
-            <div>
+            {/* <div>
           <label className="pb-2">
             Category <span className="text-red-500">*</span>
           </label>
@@ -127,7 +127,7 @@ const ShopCreate = () => {
                 </option>
               ))}
           </select>
-        </div>
+        </div> */}
 
             <div>
               <label
