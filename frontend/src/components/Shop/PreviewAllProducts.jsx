@@ -1,4 +1,4 @@
-import { Button, FormControlLabel, MenuItem, Select, Switch, makeStyles, styled } from "@material-ui/core";
+import { Button, Switch, makeStyles, styled } from "@material-ui/core";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import React, { useEffect, useState } from "react";
 import { AiOutlineEye } from "react-icons/ai";
@@ -166,25 +166,25 @@ const PreviewAllProducts = () => {
       minWidth: 200,
       flex: 0.4,
     },
-    {
-      field: "Preview",
-      flex: 0.8,
-      minWidth: 100,
-      headerName: "Preview",
-      type: "number",
-      sortable: false,
-      renderCell: (params) => {
-        return (
-          <>
-            <Link to={`/product/${params.id}`}>
-              <Button>
-                <AiOutlineEye size={20} />
-              </Button>
-            </Link>
-          </>
-        );
-      },
-    },
+    // {
+    //   field: "Preview",
+    //   flex: 0.8,
+    //   minWidth: 100,
+    //   headerName: "Preview",
+    //   type: "number",
+    //   sortable: false,
+    //   renderCell: (params) => {
+    //     return (
+    //       <>
+    //         <Link to={`/product/${params.id}`}>
+    //           <Button>
+    //             <AiOutlineEye size={20} />
+    //           </Button>
+    //         </Link>
+    //       </>
+    //     );
+    //   },
+    // },
   ];
 
   const row = [];

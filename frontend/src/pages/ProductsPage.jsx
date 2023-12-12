@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Link, useLocation, useSearchParams } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 import Footer from "../components/Layout/Footer";
 import Header from "../components/Layout/Header";
 import Loader from "../components/Layout/Loader";
-import { Button, Switch, makeStyles, styled } from "@material-ui/core";
-import { AiOutlineEye } from "react-icons/ai";
+import { Switch, makeStyles, styled } from "@material-ui/core";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { Stack, Typography } from "@mui/material";
 
@@ -170,25 +169,25 @@ const ProductsPage = () => {
       minWidth: 120,
       flex: 0.4,
     },
-    {
-      field: "Preview",
-      flex: 0.8,
-      minWidth: 100,
-      headerName: "Preview",
-      type: "number",
-      sortable: false,
-      renderCell: (params) => {
-        return (
-          <>
-            <Link to={`/product/${params.id}`}>
-              <Button>
-                <AiOutlineEye size={20} />
-              </Button>
-            </Link>
-          </>
-        );
-      },
-    },
+    // {
+    //   field: "Preview",
+    //   flex: 0.8,
+    //   minWidth: 100,
+    //   headerName: "Preview",
+    //   type: "number",
+    //   sortable: false,
+    //   renderCell: (params) => {
+    //     return (
+    //       <>
+    //         <Link to={`/product/${params.id}`}>
+    //           <Button>
+    //             <AiOutlineEye size={20} />
+    //           </Button>
+    //         </Link>
+    //       </>
+    //     );
+    //   },
+    // },
   ];
 
   const row = [];

@@ -133,7 +133,7 @@ const ShopInfo = ({ isOwner }) => {
       </div>
       <div>
       <div>
-        <Button className="w-full bg-transparent hover:bg-orange-400 hover:text-white text-black rounded-full font-bold border border-orange-500 hover:border-transparent">
+        <Button className="w-full rounded-full font-bold border border-orange-500 bg-transparent hover:bg-orange-400 hover:text-white text-black hover:border-transparent">
           Message Seller
         </Button>
       </div>

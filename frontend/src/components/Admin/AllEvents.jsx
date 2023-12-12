@@ -43,25 +43,25 @@ const AllEvents = () => {
       minWidth: 130,
       flex: 0.6,
     },
-    {
-      field: "Preview",
-      flex: 0.8,
-      minWidth: 100,
-      headerName: "",
-      type: "number",
-      sortable: false,
-      renderCell: (params) => {
-        return (
-          <>
-            <Link to={`/product/${params.id}?isEvent=true`}>
-              <Button>
-                <AiOutlineEye size={20} />
-              </Button>
-            </Link>
-          </>
-        );
-      },
-    },
+    // {
+    //   field: "Preview",
+    //   flex: 0.8,
+    //   minWidth: 100,
+    //   headerName: "",
+    //   type: "number",
+    //   sortable: false,
+    //   renderCell: (params) => {
+    //     return (
+    //       <>
+    //         <Link to={`/product/${params.id}?isEvent=true`}>
+    //           <Button>
+    //             <AiOutlineEye size={20} />
+    //           </Button>
+    //         </Link>
+    //       </>
+    //     );
+    //   },
+    // },
   ];
 
   const row = [];

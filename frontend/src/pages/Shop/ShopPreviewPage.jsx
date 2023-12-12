@@ -12,6 +12,9 @@ const ShopPreviewPage = () => {
     <>
       <Header />
       <div className={`${styles.section} bg-[#f5f5f5] mt-5`}>
+      <div className='w-full bg-orange-200 mb-3 h-[200px] flex items-center justify-center'>
+        <h1>Supplier Preview</h1>
+      </div>
       <div className="mb-2">
               <ul style={{ display: "flex", listStyle: "none", margin: 0, padding: 0, fontSize: "12px", color: "#000000ff" }}>
                 <li><a href="/">Home/</a></li>
