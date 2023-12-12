@@ -9,9 +9,9 @@ const ShopCreatePage = () => {
 
   useEffect(() => {
     if(isSeller === true){
-      navigate(`/shop/${seller._id}`);
+      navigate(`/shop/${seller.id}`);
     }
-  }, [isSeller, navigate, seller._id])
+  }, [isSeller, navigate, seller.id])
   return (
     <div>
         <ShopCreate />
