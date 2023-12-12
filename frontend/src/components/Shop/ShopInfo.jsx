@@ -43,6 +43,11 @@ const ShopInfo = ({ isOwner }) => {
   const totalRatings = products && products.reduce((acc,product) => acc + product.reviews.reduce((sum,review) => sum + review.rating, 0),0);
 
   const averageRating = totalRatings / totalReviewsLength || 0;
+  const myStyle = {
+    color: 'blue',
+    fontSize: '16px',
+    background: 'linear-gradient(109.6deg, rgb(255, 194, 48) 11.2%, rgb(255, 124, 0) 100.2%);'
+  };
 
   return (
    <>
@@ -100,8 +105,8 @@ const ShopInfo = ({ isOwner }) => {
     //   )}
     // </div>
     <div className="W-full shadow-sm bg-slate-100 p-3">
-      <div className="flex w-full justify-between p-4 h-30 mb-4 border-b-2 border-black gap-2">
-        <img src={imageUrl} alt="" className="w-1/4 h-full" />
+      <div className="flex w-full justify-between p-4 h-1/4 mb-4 border-b-2 border-black gap-2" style={myStyle}>
+        <img src={imageUrl} alt="" className="w-1/5 h-full" />
         <div className="w-3/4 h-full flex flex-col gap-2">
           <h2 className="font-bold text-black">{data.name}</h2>
           <span className="font-light text-[#ffffffe8]">{data.address}</span>
