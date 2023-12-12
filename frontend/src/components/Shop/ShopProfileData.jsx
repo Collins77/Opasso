@@ -30,7 +30,7 @@ const ShopProfileData = ({ isOwner }) => {
         <div className="w-full flex">
           <div className="flex items-center" onClick={() => setActive(1)}>
             <h5
-              className={`font-[300] text-[10px] ${
+              className={`font-[300] text-[20px] ${
                 active === 1 ? "text-orange-500" : "text-gray-500"
               } cursor-pointer pr-[20px]`}
             >
@@ -39,7 +39,7 @@ const ShopProfileData = ({ isOwner }) => {
           </div>
           <div className="flex items-center" onClick={() => setActive(2)}>
             <h5
-              className={`font-[300] text-[10px] ${
+              className={`font-[300] text-[20px] ${
                 active === 2 ? "text-orange-500" : "text-[#333]"
               } cursor-pointer pr-[20px]`}
             >
