@@ -100,15 +100,15 @@ const ShopInfo = ({ isOwner }) => {
     //   )}
     // </div>
     <div className="W-full shadow-sm bg-slate-100 p-3">
-      <div className="flex w-full justify-between p-4 h-30">
-        <img src={imageUrl} alt="" className="w-30 h-full" />
-        <div className="w-65 h-full flex flex-col gap-2">
+      <div className="flex w-full justify-between p-4 h-30 mb-4 border-b-2 border-black gap-2">
+        <img src={imageUrl} alt="" className="w-1/4 h-full" />
+        <div className="w-3/4 h-full flex flex-col gap-2">
           <h2 className="font-bold text-black">{data.name}</h2>
           <span className="font-light text-[#ffffffe8]">{data.address}</span>
           <span>{data.category}</span>
         </div>
       </div>
-      <div>
+      <div className="flex flex-col gap-2">
         <div className="flex justify-between">
           <p className="text-[#ffffffdb]">Dollar Exchange Rate</p>
           <span>KES {data.exchangeRate}</span>
@@ -128,7 +128,7 @@ const ShopInfo = ({ isOwner }) => {
       </div>
       <div>
       <div>
-        <Button className="w-full border border-orange-600 border-r-2">
+        <Button className="w-full bg-transparent hover:bg-orange-400 hover:text-white text-black rounded-full font-bold border border-orange-500 hover:border-transparent">
           Message Seller
         </Button>
       </div>
