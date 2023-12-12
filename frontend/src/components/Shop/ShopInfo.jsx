@@ -107,35 +107,35 @@ const ShopInfo = ({ isOwner }) => {
     <div className="w-full shadow-sm border border-orange-500 bg-white p-3">
       <div className="flex w-full justify-between bg-orange-300 p-4 h-1/4 mb-4 border-b-2 border-black gap-2" style={myStyle}>
         <img src={imageUrl} alt="" className="w-1/5 h-full" />
-        <div className="w-3/4 h-full flex flex-col gap-2">
+        <div className="w-3/4 h-full flex flex-col gap-1">
           <h2 className="font-bold text-black">{data.name}</h2>
-          <span className="font-light text-[#ffffffe8]">{data.address}</span>
-          <span>{data.category}</span>
+          <span className="text-sm text-gray-500">{data.address}</span>
+          <span className="text-sm text-gray-500">{data.category}</span>
         </div>
       </div>
       <div className="flex flex-col gap-2">
         <div className="flex justify-between">
           <p className="text-gray-500">Dollar Exchange Rate</p>
-          <span>KES {data.exchangeRate}</span>
+          <span className="text-gray-500">KES {data.exchangeRate}</span>
         </div>
         <div className="flex justify-between">
           <p className="text-gray-500">Phone Number</p>
-          <span>{data.phoneNumber}</span>
+          <span className="text-gray-500">{data.phoneNumber}</span>
         </div>
         <div className="flex justify-between">
           <p className="text-gray-500">Joined on</p>
-          <span>{data?.createdAt?.slice(0, 10)}</span>
+          <span className="text-gray-500">{data?.createdAt?.slice(0, 10)}</span>
         </div>
         <div className="flex justify-between">
-          <p>Total Products</p>
-          <span>{products && products.length}</span>
+          <p className="text-gray-500">Total Products</p>
+          <span className="text-gray-500">{products && products.length}</span>
         </div>
       </div>
       <div>
       <div>
-        <Button className="w-full rounded-full font-bold border border-orange-500 bg-transparent hover:bg-orange-400 hover:text-white text-black hover:border-transparent">
+        <button className="w-full rounded-full font-bold border border-orange-500 bg-transparent hover:bg-orange-400 hover:text-white text-black hover:border-transparent">
           Message Seller
-        </Button>
+        </button>
       </div>
       </div>
     </div>
