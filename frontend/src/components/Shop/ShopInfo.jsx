@@ -115,15 +115,15 @@ const ShopInfo = ({ isOwner }) => {
       </div>
       <div className="flex flex-col gap-2">
         <div className="flex justify-between">
-          <p className="text-[#ffffffdb]">Dollar Exchange Rate</p>
+          <p className="text-gray-500">Dollar Exchange Rate</p>
           <span>KES {data.exchangeRate}</span>
         </div>
         <div className="flex justify-between">
-          <p className="text-[#ffffffdb]">Phone Number</p>
+          <p className="text-gray-500">Phone Number</p>
           <span>{data.phoneNumber}</span>
         </div>
         <div className="flex justify-between">
-          <p className="text-[#ffffffdb]">Joined on</p>
+          <p className="text-gray-500">Joined on</p>
           <span>{data?.createdAt?.slice(0, 10)}</span>
         </div>
         <div className="flex justify-between">
