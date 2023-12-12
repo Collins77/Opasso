@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { server } from "../../server";
 import { toast } from "react-toastify";
-import { categoriesData } from "../../static/data";
+// import { categoriesData } from "../../static/data";
 // import { RxAvatar } from "react-icons/rx";
 
 const ShopCreate = () => {
