@@ -108,11 +108,12 @@ const EventCard = ({ active, data }) => {
 <div style={cardStyle}>
       <div 
       style={{
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center'
+        // backgroundImage: `url(${backgroundImage})`,
+        // backgroundSize: 'cover',
+        // backgroundPosition: 'center'
+        backgroundColor: 'white',
       }}
-      className="text-white rounded shadow-xl py-5 px-5 w-full h-[200px] flex items-center justify-between">
+      className="text-white bg-white rounded shadow-xl py-5 px-5 w-full h-[200px] flex items-center justify-between">
         <div className="flex flex-wrap items-center">
           <div className="w-1/4 px-3 text-center hidden md:block">
           <svg height="150px" width="150px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xmlSpace="preserve">
@@ -197,7 +198,7 @@ const EventCard = ({ active, data }) => {
             <div className="p-5 xl:px-8 md:py-5">
               <h4 className="text-sm text-[#f67009]">{data.event_description}</h4>
               <h3 className="text-3xl text-red-500 ">{data.title}!!</h3>
-              <h5 className="text-xl mb-3">{data.name}</h5>
+              <h5 className="text-xl mb-3 text-black">{data.name}</h5>
               <p className="text-sm text-indigo-200">
                 {data.description}
               </p>

@@ -24,11 +24,7 @@ const SupplierCard = ({ data,isEvent }) => {
                 </Link>
               </a>
           </div>
-
         </Link>
-
-
-        {/* </div> */}
     </>
   )
 }
