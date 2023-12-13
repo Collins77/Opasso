@@ -6,12 +6,13 @@ const SupplierCard = ({ data,isEvent }) => {
     <>
         <Link to={`/shop/preview/${data?._id}`}>
           <div class="w-full p-6 bg-white border border-orange-700 rounded-lg shadow dark:border-orange-700 mb-3">
-              <img className="w-8 h-8 mb-1 rounded-full" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" src={`${data.avatar?.url}`}/>
+              {/* <img className="w-8 h-8 mb-1 rounded-full" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" src={`${data.avatar?.url}`}/> */}
               <Link to={`/shop/preview/${data?._id}`}>
                   <h5 className="mb-1 text-xl font-semibold tracking-tight text-blue-600 dark:text-black">{data.name.length > 40 ? data.name.slice(0, 40) + "..." : data.name}</h5>
               </Link>
-              <div className="mb-2 flex justify-between">
+              <div className="mb-2 flex justify-evenly">
                 <p className="text-green-600">Dollar Exchange Rate: <br /><span>KES. {data.exchangeRate}</span></p>
+                <p>Category: <br /><span>{data.category}</span></p>
                 <p>Address: <br /><span>{data.address}</span></p>
               </div>
               <a href="#" className="inline-flex items-center text-blue-600 hover:underline">
