@@ -10,10 +10,19 @@ const SupplierCard = ({ data,isEvent }) => {
               <Link to={`/shop/preview/${data?._id}`}>
                   <h5 className="mb-1 text-xl font-semibold tracking-tight text-blue-600 dark:text-black">{data.name.length > 40 ? data.name.slice(0, 40) + "..." : data.name}</h5>
               </Link>
-              <div className="mb-2 flex justify-evenly">
-                <p className="text-green-600">Dollar Exchange Rate: <br /><span>KES. {data.exchangeRate}</span></p>
-                <p>Category: <br /><span>{data.category}</span></p>
-                <p>Address: <br /><span>{data.address}</span></p>
+              <div className="mb-2 flex-col gap-2">
+              <div className="flex justify-between">
+                <p className="text-gray-500">Dollar Exchange Rate</p>
+                <span className="text-gray-500">KES {data.exchangeRate}</span>
+              </div>
+              <div className="flex justify-between">
+                <p className="text-gray-500">Category</p>
+                <span className="text-gray-500">{data.category}</span>
+              </div>
+              <div className="flex justify-between">
+                <p className="text-gray-500">Address</p>
+                <span className="text-gray-500">{data.address}</span>
+              </div>
               </div>
               <a href="#" className="inline-flex items-center text-blue-600 hover:underline">
                 <Link to={`/shop/preview/${data?._id}`} className="inline-flex items-center text-blue-600 hover:underline">
