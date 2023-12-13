@@ -199,10 +199,10 @@ const EventCard = ({ active, data }) => {
               <h4 className="text-sm text-[#f67009]">{data.event_description}</h4>
               <h3 className="text-3xl text-red-500 ">{data.title}!!</h3>
               <h5 className="text-xl mb-3 text-black">{data.name}</h5>
-              <p className="text-sm text-indigo-200">
+              <p className="text-sm text-gray-600">
                 {data.description}
               </p>
-              <Link to={`/shop/preview/${data.shop._id}`} className="text-sm text-indigo-100">
+              <Link to={`/shop/preview/${data.shop._id}`} className="text-sm text-gray-600">
               Visit or enquire from : 
               {data.shop.name}
               </Link>
@@ -212,7 +212,7 @@ const EventCard = ({ active, data }) => {
             <div className="p-5 xl:px-8 md:py-5">
               <Link
                 to={`/product/${data._id}?isEvent=true`}
-                className="block w-full py-2 px-4 rounded text-indigo-600 bg-gray-200 hover:bg-white hover:text-gray-900 focus:outline-none transition duration-150 ease-in-out mb-3"
+                className="block w-full py-2 px-4 rounded text-white border border-orange-600 bg-transparent hover:bg-orange-600 hover:text-white focus:outline-none transition duration-150 ease-in-out mb-3"
               >
                 See Details
               </Link>
