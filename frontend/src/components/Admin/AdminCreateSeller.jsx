@@ -5,6 +5,7 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import axios from "axios";
 import { server } from "../../server";
 import { toast } from "react-toastify";
+import { categoriesData } from "../../static/data";
 // import { RxAvatar } from "react-icons/rx";
 
 const AdminCreateSeller = () => {
@@ -128,7 +129,24 @@ const AdminCreateSeller = () => {
                 />
               </div>
             </div>
-
+            <div>
+              <label className="pb-2">
+                Category <span className="text-red-500">*</span>
+              </label>
+              <select
+                className="w-full mt-2 border h-[35px] rounded-[5px]"
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+              >
+                <option value="Choose a category">Choose a category</option>
+                {categoriesData &&
+                  categoriesData.map((i) => (
+                    <option value={i.title} key={i.title}>
+                      {i.title}
+                    </option>
+                  ))}
+              </select>
+            </div>
             <div>
               <label
                 htmlFor="password"
