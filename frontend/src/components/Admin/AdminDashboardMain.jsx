@@ -10,6 +10,8 @@ import { getAllSellers } from "../../redux/actions/sellers";
 import { BsHandbag } from "react-icons/bs";
 import { getAllProducts } from "../../redux/actions/product";
 import AllProductsDash from "./AllProductsDash";
+import { getAllUsers } from "../../redux/actions/user";
+import { HiOutlineUserGroup } from "react-icons/hi";
 
 const AdminDashboardMain = () => {
   const dispatch = useDispatch();
@@ -17,12 +19,14 @@ const AdminDashboardMain = () => {
   const { adminOrderLoading } = useSelector((state) => state.order);
   const { sellers } = useSelector((state) => state.seller);
   const { products } = useSelector((state) => state.products);
+  const { users } = useSelector((state) => state.users);
 
 
   useEffect(() => {
     dispatch(getAllOrdersOfAdmin());
     dispatch(getAllSellers());
     dispatch(getAllProducts());
+    dispatch(getAllUsers());
   }, [dispatch]);
 
   
@@ -64,6 +68,20 @@ const AdminDashboardMain = () => {
             <h5 className="pt-2 pl-[36px] text-[22px] font-[500]">{sellers && sellers.length}</h5>
             <Link to="/admin-sellers">
               <h5 className="pt-4 pl-2 text-[#077f9c]">View Suppliers</h5>
+            </Link>
+          </div>
+          <div className="w-full mb-4 800px:w-[30%] min-h-[20vh] bg-white shadow rounded px-2 py-5">
+            <div className="flex items-center">
+              <HiOutlineUserGroup size={30} className="mr-2" fill="#00000085" />
+              <h3
+                className={`${styles.productTitle} !text-[18px] leading-5 !font-[400] text-[#00000085]`}
+              >
+                All Resellers
+              </h3>
+            </div>
+            <h5 className="pt-2 pl-[36px] text-[22px] font-[500]">{users && users.length}</h5>
+            <Link to="/admin-users">
+              <h5 className="pt-4 pl-2 text-[#077f9c]">View Users</h5>
             </Link>
           </div>
   
