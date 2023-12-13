@@ -19,7 +19,7 @@ const AdminDashboardMain = () => {
   const { adminOrderLoading } = useSelector((state) => state.order);
   const { sellers } = useSelector((state) => state.seller);
   const { products } = useSelector((state) => state.products);
-  const { users } = useSelector((state) => state.users);
+  const { users } = useSelector((state) => state.user);
 
 
   useEffect(() => {
