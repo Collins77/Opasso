@@ -98,7 +98,7 @@ const AdminDashboardMain = () => {
                 All Products
               </h3>
             </div>
-            <h5 className="pt-2 pl-[36px] text-[22px] font-[500]">{products && products.length ? products.length : 0}</h5>
+            <h5 className="pt-2 pl-[36px] text-[22px] font-[500]">{products && products.length}</h5>
             <Link to="/admin-products">
               <h5 className="pt-4 pl-2 text-[#077f9c]">View Products</h5>
             </Link>
