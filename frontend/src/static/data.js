@@ -732,19 +732,16 @@ export const navItems = [
   
   export const footercompanyLinks = [
     {
-      name: "Game & Video",
+      name: "Computers & Laptops",
     },
     {
-      name: "Phone &Tablets",
+      name: "UPS",
     },
     {
-      name: "Computers & Laptop",
+      name: "Servers",
     },
     {
-      name: "Sport Watches",
-    },
-    {
-      name: "Events",
+      name: "Mobiles & Tablets",
     },
   ];
   
