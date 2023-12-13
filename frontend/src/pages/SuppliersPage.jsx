@@ -19,6 +19,8 @@ const SuppliersPage = () => {
     dispatch(getAllSellers());
   }, [dispatch]);
 
+  const filteredSellers = sellers.filter((seller) => seller.status !== 'hold');
+
   return (
   <>
   {
@@ -42,12 +44,12 @@ const SuppliersPage = () => {
           <h1 className="font-bold text-center text-3xl">Suppliers</h1>
         </div>
         <div className="grid grid-cols-3 gap-4">
-          {sellers && sellers.map((i, index) => <SupplierCard data={i} key={index} />)}
+          {filteredSellers.map((i, index) => <SupplierCard data={i} key={index} />)}
         </div>
-        {sellers && sellers.length === 0 ? (
-          <h1 className="text-center w-full pb-[100px] text-[20px]">
-            No Suppliers Found!
-          </h1>
+        {filteredSellers.length === 0 ? (
+              <h1 className="text-center w-full pb-[100px] text-[20px]">
+                No Suppliers Found!
+              </h1>
         ) : null}
       </div>
       <Footer />
