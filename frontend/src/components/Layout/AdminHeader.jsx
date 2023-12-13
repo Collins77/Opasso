@@ -41,7 +41,7 @@ const AdminHeader = () => {
                       className="mr-2 bg-transparent border-none cursor-pointer flex items-center"
                     >
                       {/* Placeholder for user avatar if needed */}
-                      <span className="text-white text-sm font-semibold group-hover:underline">
+                      <span className="text-orange-600 text-sm font-semibold group-hover:underline">
                         {user.name}
                       </span>
                       <IoIosArrowDown
