@@ -19,7 +19,7 @@ const SuppliersPage = () => {
     dispatch(getAllSellers());
   }, [dispatch]);
 
-  const filteredSellers = sellers.filter((seller) => seller.status !== 'hold');
+  const filteredSellers = sellers.filter((seller) => seller.status !== 'On Hold');
 
   return (
   <>
