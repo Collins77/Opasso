@@ -1,8 +1,9 @@
 import React from "react";
-import { FiShoppingBag } from "react-icons/fi";
+// import { FiShoppingBag } from "react-icons/fi";
 import {GrWorkshop} from "react-icons/gr";
 import { RxDashboard } from "react-icons/rx";
-import { CiMoneyBill, CiSettings } from "react-icons/ci";
+// import { CiMoneyBill, CiSettings } from "react-icons/ci";
+import { IoExitOutline } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
 import { HiOutlineUserGroup } from "react-icons/hi";
 import { BsHandbag } from "react-icons/bs";
@@ -169,7 +170,7 @@ const AdminSideBar = ({ active }) => {
           className="w-full flex items-center"
           onClick={logoutHandler}
         >
-          <AiOutlineSetting
+          <IoExitOutline
             size={30}
             color={`${active === 8 ? "crimson" : "#555"}`}
           />
@@ -178,7 +179,7 @@ const AdminSideBar = ({ active }) => {
               active === 8 ? "text-[crimson]" : "text-[#555]"
             }`}
           >
-            Settings
+            Log Out
           </h5>
         </Link>
       </div>
