@@ -103,7 +103,7 @@ router.put(
   isSeller,
   catchAsyncErrors(async (req, res, next) => {
     const productId = req.params.id;
-    const { name, description, price, isAvailable } = req.body;
+    const { name, description, price, category, isAvailable } = req.body;
 
     try {
       const product = await Product.findById(productId);
@@ -115,6 +115,7 @@ router.put(
       product.name = name || product.name;
       product.description = description || product.description;
       product.price = price || product.price;
+      product.category = price || product.category;
       product.isAvailable = isAvailable !== undefined ? isAvailable : product.isAvailable;
 
       await product.save();
