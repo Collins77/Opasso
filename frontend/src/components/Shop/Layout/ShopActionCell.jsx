@@ -3,8 +3,9 @@ import { Button, Menu, MenuItem, Modal, CircularProgress } from "@material-ui/co
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import ProductUpdateForm from "./ProductUpdateForm"; // Import your product update form
 import axios from "axios";
-import { server } from "../../server";
+// import { server } from "../../server";
 import { toast } from "react-toastify";
+import { server } from "../../../server";
 
 const ProductActionCell = ({ row, handleDelete }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
