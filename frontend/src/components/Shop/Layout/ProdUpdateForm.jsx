@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 // import { useDispatch, useSelector } from "react-redux";
 // import { useNavigate, useParams } from "react-router-dom";
 // import { createProduct } from "../../redux/actions/product";
-import { BrandData, categoriesData } from "../../static/data";
+import { BrandData, categoriesData } from "../../../static/data";
 import { toast } from "react-toastify";
 
 const ProdUpdateForm = ({ product, handleUpdateProduct }) => {
