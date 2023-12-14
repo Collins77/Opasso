@@ -117,6 +117,14 @@ const Login = () => {
                   Forgot your password?
                 </a>
               </div>
+              <div className="text-sm">
+                <a
+                  href="/"
+                  className="font-medium text-blue-600 hover:text-blue-500"
+                >
+                  Go back to homepage
+                </a>
+              </div>
             </div>
             <div>
               <button
