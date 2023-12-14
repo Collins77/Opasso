@@ -115,19 +115,14 @@ const ShopCreate = () => {
               <label className="pb-2">
                 Category <span className="text-red-500">*</span>
               </label>
-              <select
-                className="w-full mt-2 border h-[35px] rounded-[5px]"
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-              >
-                <option value="Choose a category">Choose a category</option>
-                {categoriesData &&
-                  categoriesData.map((i) => (
-                    <option value={i.title} key={i.title}>
-                      {i.title}
-                    </option>
-                  ))}
-              </select>
+              <input
+            type="text"
+            name="category"
+            value={category}
+            className="appearance-none block w-full px-3 h-[35px] border border-gray-300 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+            onChange={(e) => setCategory(e.target.value)}
+            placeholder="Enter your category..."
+          />
             </div>
 
             <div>
