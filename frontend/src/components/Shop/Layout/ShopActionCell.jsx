@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Menu, MenuItem, Modal, CircularProgress } from "@material-ui/core";
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import ProductUpdateForm from "./ProductUpdateForm"; // Import your product update form
+import ProdUpdateForm from "./ProdUpdateForm"; // Import your product update form
 import axios from "axios";
 // import { server } from "../../server";
 import { toast } from "react-toastify";
@@ -84,7 +84,7 @@ const ProductActionCell = ({ row, handleDelete }) => {
           {isUpdating ? (
             <CircularProgress />
           ) : (
-            <ProductUpdateForm
+            <ProdUpdateForm
               product={row}
               handleUpdateProduct={handleUpdateProduct}
             />
