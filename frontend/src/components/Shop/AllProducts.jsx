@@ -6,7 +6,7 @@ import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { getAllProductsShop, deleteProduct } from "../../redux/actions/product";
 import Loader from "../Layout/Loader";
-import ShopActionCell from "./ShopActionCell"; // Import ShopActionCell
+import ShopActionCell from "./Layout/ShopActionCell"; // Import ShopActionCell
 
 const AllProducts = () => {
   const { products, isLoading } = useSelector((state) => state.products);
