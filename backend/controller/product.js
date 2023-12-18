@@ -100,13 +100,13 @@ router.get(
 
 router.put(
   '/update-product/:id',
-  isSeller,
+  // isSeller,
   catchAsyncErrors(async (req, res, next) => {
-    const productId = req.params.id;
-    const { name, description, price, category, isAvailable } = req.body;
+    const id = req.params.id;
+    const { name, description, price, category, brand,partNumber, warranty, discountPrice, stock, isAvailable } = req.body;
 
     try {
-      const product = await Product.findById(productId);
+      const product = await Product.findById(id);
 
       if (!product) {
         return next(new ErrorHandler('Product not found', 404));
@@ -115,7 +115,12 @@ router.put(
       product.name = name || product.name;
       product.description = description || product.description;
       product.price = price || product.price;
+      product.brand = brand || product.brand;
+      product.stock = stock|| product.stock;
+      product.discountPrice = discountPrice|| product.discountPrice;
+      product.partNumber = partNumber || product.partNumber;
       product.category = category || product.category;
+      product.warranty = warranty || product.warranty;
       product.isAvailable = isAvailable !== undefined ? isAvailable : product.isAvailable;
 
       await product.save();
