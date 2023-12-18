@@ -129,7 +129,7 @@ const ProdUpdateForm = ({ product, handleUpdateProduct }) => {
           </label>
           <input
             type="number"
-            name="price"
+            name="discountPrice"
             value={updatedData.discountPrice}
             className="mt-2 appearance-none block w-full px-3 h-[35px] border border-gray-300 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             onChange={handleChange}
@@ -158,7 +158,7 @@ const ProdUpdateForm = ({ product, handleUpdateProduct }) => {
           </label>
           <input
             type="number"
-            name="price"
+            name="stock"
             value={updatedData.stock}
             className="mt-2 appearance-none block w-full px-3 h-[35px] border border-gray-300 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             onChange={handleChange}
@@ -209,7 +209,7 @@ const ProdUpdateForm = ({ product, handleUpdateProduct }) => {
           <div>
             <input
               type="submit"
-              value="Create"
+              value="Update"
               className="mt-2 cursor-pointer appearance-none text-center block w-full px-3 h-[35px] border border-gray-300 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             />
           </div>
