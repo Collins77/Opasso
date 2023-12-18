@@ -5,7 +5,8 @@ import ProdUpdateForm from "./ProdUpdateForm"; // Import your product update for
 // import axios from "axios";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
-import { updateProduct } from "../../redux/actions/product";
+import { updateProduct } from "../../../redux/actions/product";
+
 
 const ProductActionCell = ({ row, handleDelete }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
