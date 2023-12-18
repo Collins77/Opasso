@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from "react";
-// import { AiOutlinePlusCircle } from "react-icons/ai";
-// import { useDispatch, useSelector } from "react-redux";
-// import { useNavigate, useParams } from "react-router-dom";
-// import { createProduct } from "../../redux/actions/product";
 import { BrandData, categoriesData } from "../../../static/data";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 
 const ProdUpdateForm = ({ product, handleUpdateProduct }) => {
   const [updatedData, setUpdatedData] = useState({
@@ -19,6 +15,22 @@ const ProdUpdateForm = ({ product, handleUpdateProduct }) => {
     stock: product.stock,
     // Add other fields as needed
   });
+
+  useEffect(() => {
+    // When the component mounts, update the state with the product details
+    setUpdatedData({
+      name: product.name,
+      description: product.description,
+      partNumber: product.partNumber,
+      category: product.category,
+      brand: product.brand,
+      warranty: product.warranty,
+      discountPrice: product.discountPrice,
+      isAvailable: product.isAvailable,
+      stock: product.stock,
+      // Add other fields as needed
+    });
+  }, [product]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -36,8 +48,8 @@ const ProdUpdateForm = ({ product, handleUpdateProduct }) => {
 
   return (
     <div className="w-[90%] 800px:w-[50%] bg-white  shadow h-[80vh] rounded-[4px] p-3 overflow-y-scroll">
-      <h5 className="text-[30px] font-Poppins text-center">Create Product</h5>
-      {/* create product form */}
+      <h5 className="text-[30px] font-Poppins text-center">Update Product</h5>
+      {/* Update product form */}
       <form onSubmit={handleUpdate}>
         <br />
         <div>
@@ -72,7 +84,8 @@ const ProdUpdateForm = ({ product, handleUpdateProduct }) => {
         </div>
         <br />
         <div>
-          <label className="pb-2">Part Number <span className="text-red-500">*</span>
+          <label className="pb-2">
+            Part Number <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
@@ -91,7 +104,7 @@ const ProdUpdateForm = ({ product, handleUpdateProduct }) => {
           <select
             className="w-full mt-2 border h-[35px] rounded-[5px]"
             value={updatedData.category}
-            onChange={handleChange }
+            onChange={handleChange}
           >
             <option value="Choose a category">Choose a category</option>
             {categoriesData &&
@@ -104,7 +117,7 @@ const ProdUpdateForm = ({ product, handleUpdateProduct }) => {
         </div>
         <br />
         <div>
-        <label className="pb-2">
+          <label className="pb-2">
             Brand <span className="text-red-500">*</span>
           </label>
           <select
@@ -122,7 +135,6 @@ const ProdUpdateForm = ({ product, handleUpdateProduct }) => {
           </select>
         </div>
         <br />
-        
         <div>
           <label className="pb-2">
             Price <span className="text-red-500">*</span>
@@ -180,39 +192,11 @@ const ProdUpdateForm = ({ product, handleUpdateProduct }) => {
         </div>
         <br />
         <div>
-          {/* <label className="pb-2">
-            Upload Images <span className="text-red-500">*</span>
-          </label>
           <input
-            type="file"
-            name=""
-            id="upload"
-            className="hidden"
-            multiple
-            onChange={handleImageChange}
-          /> */}
-          {/* <div className="w-full flex items-center flex-wrap">
-            <label htmlFor="upload">
-              <AiOutlinePlusCircle size={30} className="mt-3" color="#555" />
-            </label>
-            {images &&
-              images.map((i) => (
-                <img
-                  src={i}
-                  key={i}
-                  alt=""
-                  className="h-[120px] w-[120px] object-cover m-2"
-                />
-              ))}
-          </div> */}
-          <br />
-          <div>
-            <input
-              type="submit"
-              value="Update"
-              className="mt-2 cursor-pointer appearance-none text-center block w-full px-3 h-[35px] border border-gray-300 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-            />
-          </div>
+            type="submit"
+            value="Update"
+            className="mt-2 cursor-pointer appearance-none text-center block w-full px-3 h-[35px] border border-gray-300 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+          />
         </div>
       </form>
     </div>

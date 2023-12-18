@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import { Button, Menu, MenuItem, Modal, CircularProgress } from "@material-ui/core";
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import ProdUpdateForm from "./ProdUpdateForm"; // Import your product update form
-import axios from "axios";
-// import { server } from "../../server";
+// import axios from "axios";
 import { toast } from "react-toastify";
-import { server } from "../../../server";
+import { useDispatch } from "react-redux";
+import { updateProduct } from "../../redux/actions/product";
 
 const ProductActionCell = ({ row, handleDelete }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [isUpdateModalOpen, setUpdateModalOpen] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
+
+  const dispatch = useDispatch();
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -20,39 +22,39 @@ const ProductActionCell = ({ row, handleDelete }) => {
     setAnchorEl(null);
   };
 
-  const handleUpdateProduct = async (productId, updatedData) => {
-    try {
-      setIsUpdating(true);
-
-      // Make an HTTP request to update the product data
-      const response = await axios.put(
-        `${server}/product/update-product/${productId}`,
-        updatedData
-      );
-
-      // Check if the update was successful (you may need to adjust based on your API response)
-      if (response.data.success) {
-        toast.success("Product updated successfully!", response.data.product);
-        // console.log("Product updated successfully:", response.data.product);
-      } else {
-        toast.error("Error updating product", response.data.message);
-        console.error("Failed to update product:", response.data.message);
-      }
-    } catch (error) {
-      // Handle any errors that occur during the HTTP request
-      console.error("Error updating product:", error.message);
-    } finally {
-      setIsUpdating(false);
-    }
-  };
-
   const handleUpdateClick = () => {
+    // Open the update modal
     setUpdateModalOpen(true);
+    // Close the options menu
     handleClose();
   };
 
   const handleUpdateClose = () => {
+    // Close the update modal
     setUpdateModalOpen(false);
+  };
+
+  const handleUpdateProduct = async (updatedData) => {
+    try {
+      setIsUpdating(true);
+
+      // Dispatch the updateProduct action with the product ID and updated data
+      dispatch(updateProduct(row.id, updatedData));
+
+      // Close the update modal
+      handleUpdateClose();
+
+      // Display a success toast (you can modify this based on your needs)
+      toast.success("Product update initiated!");
+
+    } catch (error) {
+      // Handle any errors
+      console.error("Error updating product:", error.message);
+      // Display an error toast (you can modify this based on your needs)
+      toast.error("Error updating product");
+    } finally {
+      setIsUpdating(false);
+    }
   };
 
   return (
@@ -67,10 +69,10 @@ const ProductActionCell = ({ row, handleDelete }) => {
         onClose={handleClose}
       >
         <MenuItem onClick={() => handleDelete(row.id)}>
-          Delete 
+          Delete
         </MenuItem>
         <MenuItem onClick={handleUpdateClick}>
-          Update 
+          Update
         </MenuItem>
       </Menu>
       {/* Update Product Modal */}
