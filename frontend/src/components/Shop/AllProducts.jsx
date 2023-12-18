@@ -19,13 +19,15 @@ const AllProducts = () => {
 
   const columns = [
     { field: "id", headerName: "Product Id", minWidth: 150, flex: 0.7 },
+    { field: "partNumber", headerName: "Part Number", minWidth: 150, flex: 0.7 },
     { field: "name", headerName: "Name", minWidth: 180, flex: 1.4 },
-    { field: "descrption", headerName: "Description", minWidth: 180, flex: 1.4 },
+    { field: "description", headerName: "Description", minWidth: 180, flex: 1.4 },
     { field: "brand", headerName: "Brand", minWidth: 180, flex: 1.4 },
     { field: "category", headerName: "Category", minWidth: 180, flex: 1.4 },
     { field: "price", headerName: "Price", minWidth: 100, flex: 0.6 },
-    { field: "Stock", headerName: "Stock", type: "number", minWidth: 80, flex: 0.5 },
+    { field: "stock", headerName: "Stock", type: "number", minWidth: 80, flex: 0.5 },
     { field: "isAvailable", headerName: "isAvailable", minWidth: 130, flex: 0.6 },
+    { field: "warranty", headerName: "warranty", type: "number", minWidth: 130, flex: 0.6 },
     {
       field: "Preview",
       flex: 0.8,
@@ -57,13 +59,15 @@ const AllProducts = () => {
     products.forEach((item) => {
       row.push({
         id: item._id,
+        partNumber: item.partNumber,
         name: item.name,
         description: item.description,
         category: item.category,
         brand: item.brand,
         isAvailable: item.isAvailable,
         price: "KES " + item.discountPrice,
-        Stock: item.stock,
+        stock: item.stock,
+        warranty: item.warranty,
       });
     });
 
