@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Menu, MenuItem, Modal, CircularProgress } from "@material-ui/core";
+import { Button, Menu, MenuItem, Modal, CircularProgress, Backdrop } from "@material-ui/core";
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import ProdUpdateForm from "./ProdUpdateForm"; // Import your product update form
 // import axios from "axios";
@@ -82,6 +82,10 @@ const ProductActionCell = ({ row, handleDelete }) => {
         onClose={handleUpdateClose}
         aria-labelledby="update-product-modal"
         aria-describedby="update-product-modal-description"
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 1000,
+        }}
       >
         <div className="flex flex-col items-center justify-center h-full">
           {isUpdating ? (
