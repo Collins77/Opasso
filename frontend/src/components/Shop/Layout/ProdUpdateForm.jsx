@@ -159,10 +159,11 @@ const ProdUpdateForm = ({ product, handleUpdateProduct }) => {
             className="w-full mt-2 border h-[35px] rounded-[5px]"
             value={updatedData.isAvailable}
             onChange={handleChange}
+            name="isAvailable"
           >
-            <option value="available">Available</option>
-            <option value="limited">Limited</option>
-            <option value="unavailable">Unavailable</option>
+            <option name="isAvailable" value="available">Available</option>
+            <option name="isAvailable" value="limited">Limited</option>
+            <option name="isAvailable" value="unavailable">Unavailable</option>
           </select>
         </div>
         <br />
