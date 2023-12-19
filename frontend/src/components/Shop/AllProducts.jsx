@@ -24,7 +24,7 @@ const AllProducts = () => {
     { field: "description", headerName: "Description", minWidth: 180, flex: 1.4 },
     { field: "brand", headerName: "Brand", minWidth: 180, flex: 1.4 },
     { field: "category", headerName: "Category", minWidth: 180, flex: 1.4 },
-    { field: "price", headerName: "Price", minWidth: 100, flex: 0.6 },
+    { field: "discountPrice", headerName: "Price", minWidth: 100, flex: 0.6 },
     { field: "stock", headerName: "Stock", type: "number", minWidth: 80, flex: 0.5 },
     { field: "isAvailable", headerName: "isAvailable", minWidth: 130, flex: 0.6 },
     { field: "warranty", headerName: "warranty", type: "number", minWidth: 130, flex: 0.6 },
@@ -65,7 +65,7 @@ const AllProducts = () => {
         category: item.category,
         brand: item.brand,
         isAvailable: item.isAvailable,
-        price: "KES " + item.discountPrice,
+        discountPrice: "KES " + item.discountPrice,
         stock: item.stock,
         warranty: item.warranty,
       });

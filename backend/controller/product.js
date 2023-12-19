@@ -103,7 +103,7 @@ router.put(
   // isSeller,
   catchAsyncErrors(async (req, res, next) => {
     const id = req.params.id;
-    const { name, description, price, category, brand,partNumber, warranty, discountPrice, stock, isAvailable } = req.body;
+    const { name, description, category, brand,partNumber, warranty, discountPrice, stock, isAvailable } = req.body;
 
     try {
       const product = await Product.findById(id);

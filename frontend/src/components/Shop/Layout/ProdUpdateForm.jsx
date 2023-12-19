@@ -142,7 +142,7 @@ const ProdUpdateForm = ({ product, handleUpdateProduct }) => {
           <input
             type="number"
             name="discountPrice"
-            value={updatedData.price}
+            value={updatedData.discountPrice}
             className="mt-2 appearance-none block w-full px-3 h-[35px] border border-gray-300 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             onChange={handleChange}
             placeholder="Enter your product price with discount..."
