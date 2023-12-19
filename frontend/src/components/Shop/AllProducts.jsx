@@ -65,7 +65,7 @@ const AllProducts = () => {
         category: item.category,
         brand: item.brand,
         isAvailable: item.isAvailable,
-        discountPrice: "KES " + item.discountPrice,
+        discountPrice: item.discountPrice,
         stock: item.stock,
         warranty: item.warranty,
       });
