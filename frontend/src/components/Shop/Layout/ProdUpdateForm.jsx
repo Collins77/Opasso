@@ -125,11 +125,12 @@ const ProdUpdateForm = ({ product, handleUpdateProduct }) => {
             className="w-full mt-2 border h-[35px] rounded-[5px]"
             value={updatedData.brand}
             onChange={handleChange}
+            name="brand"
           >
             <option value="Choose a brand">Choose a brand</option>
             {BrandData &&
               BrandData.map((i) => (
-                <option value={i.title} key={i.title}>
+                <option value={i.title} key={i.title} name="brand">
                   {i.title}
                 </option>
               ))}
