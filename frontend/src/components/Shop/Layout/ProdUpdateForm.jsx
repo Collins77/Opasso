@@ -105,11 +105,12 @@ const ProdUpdateForm = ({ product, handleUpdateProduct }) => {
             className="w-full mt-2 border h-[35px] rounded-[5px]"
             value={updatedData.category}
             onChange={handleChange}
+            name="category"
           >
             <option value="Choose a category">Choose a category</option>
             {categoriesData &&
               categoriesData.map((i) => (
-                <option value={i.title} key={i.title}>
+                <option value={i.title} key={i.title} name="category">
                   {i.title}
                 </option>
               ))}
