@@ -212,7 +212,7 @@ const EventCard = ({ active, data }) => {
             <div className="p-5 xl:px-8 md:py-5">
               <Link
                 to={`/product/${data._id}?isEvent=true`}
-                className="block w-full py-2 px-4 rounded text-white border border-orange-600 bg-transparent hover:bg-orange-600 hover:text-white focus:outline-none transition duration-150 ease-in-out mb-3"
+                className="block w-full py-2 px-4 rounded text-black border border-orange-600 bg-transparent hover:bg-orange-600 hover:text-white focus:outline-none transition duration-150 ease-in-out mb-3"
               >
                 See Details
               </Link>
