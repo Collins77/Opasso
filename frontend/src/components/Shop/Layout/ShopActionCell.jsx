@@ -83,7 +83,7 @@ const ProductActionCell = ({ row, handleDelete }) => {
         aria-labelledby="update-product-modal"
         aria-describedby="update-product-modal-description"
       >
-        <div>
+        <div className="flex flex-col items-center justify-center h-full">
           {isUpdating ? (
             <CircularProgress />
           ) : (
