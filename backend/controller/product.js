@@ -114,7 +114,6 @@ router.put(
 
       product.name = name || product.name;
       product.description = description || product.description;
-      product.price = price || product.price;
       product.brand = brand || product.brand;
       product.stock = stock|| product.stock;
       product.discountPrice = discountPrice|| product.discountPrice;
