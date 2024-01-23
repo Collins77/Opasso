@@ -2,13 +2,15 @@ import { Switch, makeStyles, styled } from "@material-ui/core";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getAllProductsShop } from "../../redux/actions/product";
 import Loader from "../Layout/Loader";
 import { Button, Stack, Typography } from "@mui/material";
 import { saveAs } from 'file-saver';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import 'jspdf-autotable';
+import { AiOutlineEye } from "react-icons/ai";
 
 const PreviewAllProducts = () => {
   const { products, isLoading } = useSelector((state) => state.products);
@@ -178,25 +180,25 @@ const PreviewAllProducts = () => {
       minWidth: 200,
       flex: 0.4,
     },
-    // {
-    //   field: "Preview",
-    //   flex: 0.8,
-    //   minWidth: 100,
-    //   headerName: "Preview",
-    //   type: "number",
-    //   sortable: false,
-    //   renderCell: (params) => {
-    //     return (
-    //       <>
-    //         <Link to={`/product/${params.id}`}>
-    //           <Button>
-    //             <AiOutlineEye size={20} />
-    //           </Button>
-    //         </Link>
-    //       </>
-    //     );
-    //   },
-    // },
+    {
+      field: "Preview",
+      flex: 0.8,
+      minWidth: 100,
+      headerName: "Preview",
+      type: "number",
+      sortable: false,
+      renderCell: (params) => {
+        return (
+          <>
+            <Link to={`/product/${params.id}`}>
+              <Button>
+                <AiOutlineEye size={20} />
+              </Button>
+            </Link>
+          </>
+        );
+      },
+    },
   ];
 
   const row = [];
@@ -238,15 +240,35 @@ const PreviewAllProducts = () => {
     //   doc.save('products.pdf');
     // };
 
-    const handleExportToPDF = () => {
-      const gridContainer = document.getElementById("data-grid-container");
+    // const handleExportToPDF = () => {
+    //   const gridContainer = document.getElementById("data-grid-container");
   
-      html2canvas(gridContainer).then((canvas) => {
-        const imgData = canvas.toDataURL('image/png');
-        const pdf = new jsPDF();
-        pdf.addImage(imgData, 'PNG', 10, 10, 190, 0);
-        pdf.save('products.pdf');
+    //   html2canvas(gridContainer).then((canvas) => {
+    //     const imgData = canvas.toDataURL('image/png');
+    //     const pdf = new jsPDF();
+    //     pdf.addImage(imgData, 'PNG', 10, 10, 190, 0);
+    //     pdf.save('products.pdf');
+    //   });
+    // };
+
+    const handleExportToPDF = () => {
+      const pdf = new jsPDF();
+  
+      // Customize the table headers
+      const headers = columns.map(column => ({
+        title: column.headerName || column.field,
+        dataKey: column.field,
+      }));
+  
+      // Customize the table rows
+      const tableRows = row.map(data => columns.map(column => data[column.field]));
+  
+      pdf.autoTable({
+        head: [headers],
+        body: tableRows,
       });
+  
+      pdf.save('products.pdf');
     };
   return (
     <>

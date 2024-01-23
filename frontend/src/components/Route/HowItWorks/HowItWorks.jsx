@@ -11,7 +11,7 @@ const HowItWorks = () => {
                     4 easy steps
                 </h2>
                 <p class="mx-auto mt-4 max-w-2xl text-lg font-normal text-gray-700 lg:text-xl lg:leading-8">
-                    Access manufacturers' catalogues easily
+                    Access suppliers' catalogues easily
                 </p>
             </div>
             <ul class="mx-auto mt-12 grid max-w-md grid-cols-1 gap-10 sm:mt-16 lg:mt-20 lg:max-w-5xl lg:grid-cols-4">
