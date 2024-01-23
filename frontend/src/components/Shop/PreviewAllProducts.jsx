@@ -251,6 +251,25 @@ const PreviewAllProducts = () => {
     //   });
     // };
 
+    // const handleExportToPDF = () => {
+    //   const pdf = new jsPDF();
+  
+    //   // Customize the table headers
+    //   const headers = columns.map(column => ({
+    //     title: column.headerName || column.field,
+    //     dataKey: column.field,
+    //   }));
+  
+    //   // Customize the table rows
+    //   const tableRows = row.map(data => columns.map(column => data[column.field]));
+  
+    //   pdf.autoTable({
+    //     head: [headers],
+    //     body: tableRows,
+    //   });
+  
+    //   pdf.save('products.pdf');
+    // };
     const handleExportToPDF = () => {
       const pdf = new jsPDF();
   
@@ -263,9 +282,19 @@ const PreviewAllProducts = () => {
       // Customize the table rows
       const tableRows = row.map(data => columns.map(column => data[column.field]));
   
+      // Set the column widths
+      const columnWidths = columns.map(column => ({ columnWidth: column.minWidth || 50 }));
+  
       pdf.autoTable({
         head: [headers],
         body: tableRows,
+        startY: 20, // Adjust the starting Y position
+        columnStyles: {
+          name: { cellWidth: 'auto', halign: 'left', valign: 'top' }, // Customize the description column
+        },
+        margin: { top: 30 },
+        styles: { overflow: 'linebreak' }, // Enable line breaks for long text
+        columnWidths: columnWidths,
       });
   
       pdf.save('products.pdf');
