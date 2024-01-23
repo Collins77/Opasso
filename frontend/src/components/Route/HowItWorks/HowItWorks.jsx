@@ -52,7 +52,7 @@ const HowItWorks = () => {
                     <div class="ml-6 lg:ml-0 lg:mt-10">
                         <h3
                             class="text-xl font-bold text-gray-900 before:mb-2 before:block before:font-mono before:text-sm before:text-gray-500">
-                            Search for your desired manufacturer
+                            Search for your desired supplier
                         </h3>
                         <h4 class="mt-2 text-base text-gray-700">You can search for either the product or the supplier.</h4>
                     </div>
