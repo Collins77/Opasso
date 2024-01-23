@@ -7,6 +7,9 @@ import Loader from "../components/Layout/Loader";
 import { Switch, makeStyles, styled } from "@material-ui/core";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { Stack, Typography } from "@mui/material";
+import { Button } from "@mui/material";
+import { saveAs } from 'file-saver';
+import jsPDF from 'jspdf';
 
 const ProductsPage = () => {
   // const { products, isLoading } = useSelector((state) => state.products);
@@ -207,6 +210,30 @@ const ProductsPage = () => {
       });
     });
 
+    const handleExportToPDF = () => {
+      const doc = new jsPDF();
+    
+      const columns = ["Product Id", "Part Number", "Description", "Price", "Availability", "Warranty", "Supplier", "Category", "Brand"];
+      const rows = data.map(row => [
+        row.id,
+        row.partNumber,
+        row.name,
+        selectedCurrency === "USD" ? `$${(row.price / row.shop.exchangeRate).toFixed(2)}` : `KES ${row.price}`,
+        row.isAvailable ? "Available" : "Out of Stock",
+        row.warranty,
+        row.shop,
+        row.category,
+        row.brand,
+      ]);
+    
+      doc.autoTable({
+        head: [columns],
+        body: rows,
+      });
+    
+      doc.save('products.pdf');
+    };
+
   return (
   <>
   {
@@ -269,6 +296,17 @@ const ProductsPage = () => {
             slotProps={{
               toolbar: {
                 showQuickFilter: true,
+                buttons: [
+                  <Button
+                    key="export-to-pdf"
+                    variant="outlined"
+                    color="primary"
+                    onClick={handleExportToPDF}
+                    style={{ marginLeft: '8px' }}
+                  >
+                    Export to PDF
+                  </Button>,
+                ],
               },
             }}
           />
