@@ -8,6 +8,7 @@ import Loader from "../Layout/Loader";
 import { Button, Stack, Typography } from "@mui/material";
 import { saveAs } from 'file-saver';
 import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 const PreviewAllProducts = () => {
   const { products, isLoading } = useSelector((state) => state.products);
@@ -214,29 +215,39 @@ const PreviewAllProducts = () => {
       });
     });
 
-    const handleExportToPDF = () => {
-      const doc = new jsPDF();
+    // const handleExportToPDF = () => {
+    //   const doc = new jsPDF();
   
-      const columnsForPDF = ["Product Id", "Part Number", "Description", "Brand", "Category", "Price", "Availability", "Warranty"];
-      const rowsForPDF = products.map(item => [
-        item._id,
-        item.partNumber,
-        item.name,
-        item.brand,
-        item.category,
-        selectedCurrency === "USD" ? `$${(item.discountPrice / item.shop.exchangeRate).toFixed(2)}` : `KES ${item.discountPrice}`,
-        item.isAvailable ? "Available" : "Out of Stock",
-        item.warranty,
-      ]);
+    //   const columnsForPDF = ["Product Id", "Part Number", "Description", "Brand", "Category", "Price", "Availability", "Warranty"];
+    //   const rowsForPDF = products.map(item => [
+    //     item._id,
+    //     item.partNumber,
+    //     item.name,
+    //     item.brand,
+    //     item.category,
+    //     selectedCurrency === "USD" ? `$${(item.discountPrice / item.shop.exchangeRate).toFixed(2)}` : `KES ${item.discountPrice}`,
+    //     item.isAvailable ? "Available" : "Out of Stock",
+    //     item.warranty,
+    //   ]);
   
-      doc.autoTable({
-        head: [columnsForPDF],
-        body: rowsForPDF,
-      });
+    //   doc.autoTable({
+    //     head: [columnsForPDF],
+    //     body: rowsForPDF,
+    //   });
   
-      doc.save('products.pdf');
-    };
+    //   doc.save('products.pdf');
+    // };
 
+    const handleExportToPDF = () => {
+      const gridContainer = document.getElementById("data-grid-container");
+  
+      html2canvas(gridContainer).then((canvas) => {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF();
+        pdf.addImage(imgData, 'PNG', 10, 10, 190, 0);
+        pdf.save('products.pdf');
+      });
+    };
   return (
     <>
       
@@ -265,6 +276,7 @@ const PreviewAllProducts = () => {
           >
             Export to PDF
           </Button>
+            <div id="data-grid-container">
             <DataGrid
             rows={row}
             columns={columns}
@@ -294,6 +306,7 @@ const PreviewAllProducts = () => {
             }}
             state={defaultFilter}
           />
+            </div>
           </div>
           
       )}
