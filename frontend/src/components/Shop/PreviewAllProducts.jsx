@@ -200,6 +200,16 @@ const PreviewAllProducts = () => {
       },
     },
   ];
+  const pdfColumns = [
+    { field: "partNumber", headerName: "Part Number", width: 50 },
+    { field: "name", headerName: "Name", width: 100 },
+    { field: "brand", headerName: "Brand", width: 80 },
+    { field: "category", headerName: "Category", width: 80 },
+    { field: "discountPrice", headerName: "Price", width: 50 },
+    { field: "stock", headerName: "Stock", width: 30 },
+    { field: "isAvailable", headerName: "isAvailable", width: 50 },
+    { field: "warranty", headerName: "Warranty", width: 30 },
+  ];
 
   const row = [];
 
@@ -299,38 +309,67 @@ const PreviewAllProducts = () => {
   
     //   pdf.save('products.pdf');
     // };
+    // const handleExportToPDF = () => {
+    //   const pdf = new jsPDF();
+  
+    //   // Customize the table headers
+    //   const headers = columns.map(column => ({
+    //     title: column.headerName || column.field,
+    //     dataKey: column.field,
+    //   }));
+  
+    //   // Customize the table rows
+    //   const tableRows = row.map(data => columns.map(column => data[column.field]));
+  
+    //   // Set the column widths
+    //   const columnWidths = columns.map(column => {
+    //     if (column.field === 'name') {
+    //       return { columnWidth: 120 }; // Adjust the width for the 'name' column
+    //     }
+    //     return { columnWidth: column.minWidth || 50 };
+    //   });
+  
+    //   pdf.autoTable({
+    //     head: [headers],
+    //     body: tableRows,
+    //     startY: 20,
+    //     columnStyles: {
+    //       name: { cellWidth: 'auto', halign: 'left', valign: 'top' }, // Adjust the style for the 'name' column
+    //     },
+    //     margin: { top: 30 },
+    //     styles: { overflow: 'linebreak' },
+    //     columnWidths: columnWidths,
+    //   });
+  
+    //   pdf.save('products.pdf');
+    // };
     const handleExportToPDF = () => {
       const pdf = new jsPDF();
-  
-      // Customize the table headers
-      const headers = columns.map(column => ({
+    
+      // Customize the table headers for PDF export
+      const headers = pdfColumns.map(column => ({
         title: column.headerName || column.field,
         dataKey: column.field,
       }));
-  
-      // Customize the table rows
-      const tableRows = row.map(data => columns.map(column => data[column.field]));
-  
-      // Set the column widths
-      const columnWidths = columns.map(column => {
-        if (column.field === 'name') {
-          return { columnWidth: 120 }; // Adjust the width for the 'name' column
-        }
-        return { columnWidth: column.minWidth || 50 };
-      });
-  
+    
+      // Customize the table rows for PDF export
+      const tableRows = row.map(data => pdfColumns.map(column => data[column.field]));
+    
+      // Set the column widths for PDF export
+      const columnWidths = pdfColumns.map(column => ({ columnWidth: column.width }));
+    
       pdf.autoTable({
         head: [headers],
         body: tableRows,
         startY: 20,
         columnStyles: {
-          name: { cellWidth: 'auto', halign: 'left', valign: 'top' }, // Adjust the style for the 'name' column
+          name: { cellWidth: 'auto', halign: 'left', valign: 'top' },
         },
         margin: { top: 30 },
         styles: { overflow: 'linebreak' },
         columnWidths: columnWidths,
       });
-  
+    
       pdf.save('products.pdf');
     };
   return (
