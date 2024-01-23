@@ -5,7 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getAllProductsShop } from "../../redux/actions/product";
 import Loader from "../Layout/Loader";
-import { Stack, Typography } from "@mui/material";
+import { Button, Stack, Typography } from "@mui/material";
+import { saveAs } from 'file-saver';
+import jsPDF from 'jspdf';
 
 const PreviewAllProducts = () => {
   const { products, isLoading } = useSelector((state) => state.products);
@@ -212,6 +214,29 @@ const PreviewAllProducts = () => {
       });
     });
 
+    const handleExportToPDF = () => {
+      const doc = new jsPDF();
+  
+      const columnsForPDF = ["Product Id", "Part Number", "Description", "Brand", "Category", "Price", "Availability", "Warranty"];
+      const rowsForPDF = products.map(item => [
+        item._id,
+        item.partNumber,
+        item.name,
+        item.brand,
+        item.category,
+        selectedCurrency === "USD" ? `$${(item.discountPrice / item.shop.exchangeRate).toFixed(2)}` : `KES ${item.discountPrice}`,
+        item.isAvailable ? "Available" : "Out of Stock",
+        item.warranty,
+      ]);
+  
+      doc.autoTable({
+        head: [columnsForPDF],
+        body: rowsForPDF,
+      });
+  
+      doc.save('products.pdf');
+    };
+
   return (
     <>
       
@@ -233,6 +258,13 @@ const PreviewAllProducts = () => {
             />
             <Typography>USD</Typography>
           </Stack>
+            <Button
+            variant="outlined"
+            color="primary"
+            onClick={handleExportToPDF}
+          >
+            Export to PDF
+          </Button>
             <DataGrid
             rows={row}
             columns={columns}
