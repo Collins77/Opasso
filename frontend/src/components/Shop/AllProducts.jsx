@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import { getAllProductsShop, deleteProduct } from "../../redux/actions/product";
 import Loader from "../Layout/Loader";
 import ShopActionCell from "./Layout/ShopActionCell"; // Import ShopActionCell
+import { saveAs } from 'file-saver';
+import jsPDF from 'jspdf';
 
 const AllProducts = () => {
   const { products, isLoading } = useSelector((state) => state.products);
@@ -75,12 +77,47 @@ const AllProducts = () => {
     dispatch(deleteProduct(id));
   };
 
+  const handleExportToPDF = () => {
+    const doc = new jsPDF();
+
+    const columns = ["Product Id", "Part Number", "Name", "Description", "Brand", "Category", "Price", "Stock", "Is Available", "Warranty"];
+    const rows = products.map(item => [
+      item._id,
+      item.partNumber,
+      item.name,
+      item.description,
+      item.brand,
+      item.category,
+      item.discountPrice,
+      item.stock,
+      item.isAvailable ? "Available" : "Out of Stock",
+      item.warranty,
+    ]);
+
+    doc.autoTable({
+      head: [columns],
+      body: rows,
+    });
+
+    doc.save('products.pdf');
+  };
+
   return (
     <>
       {isLoading ? (
         <Loader />
       ) : (
+        <>
+        <Button
+            variant="outlined"
+            color="primary"
+            onClick={handleExportToPDF}
+            style={{ marginBottom: '10px' }}
+          >
+            Export to PDF
+          </Button>
         <DataGrid rows={row} columns={columns} pageSize={10} disableSelectionOnClick autoHeight />
+        </>
       )}
     </>
   );
