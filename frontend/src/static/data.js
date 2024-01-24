@@ -210,33 +210,33 @@ export const navItems = [
       image_Url:
         "https://img.freepik.com/free-vector/ordering-goods-online-internet-store-online-shopping-niche-e-commerce-website-mother-buying-babies-clothes-footwear-toys-infant-accessories_335657-2345.jpg?w=2000",
     },
-    {
-      id: 4,
-      title: "Cloths",
-      subTitle: "",
-      image_Url:
-        "https://www.shift4shop.com/2015/images/industries/clothing/clothing-apparel.png",
-    },
-    {
-      id: 5,
-      title: "Shoes",
-      subTitle: "",
-      image_Url:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvBQPQMVNRd6TtDkGs2dCri0Y-rxKkFOiEWw&usqp=CAU",
-    },
-    {
-      id: 6,
-      title: "Gifts",
-      subTitle: "",
-      image_Url:
-        "https://securecdn.pymnts.com/wp-content/uploads/2014/11/Gifts-Photo-700x489.jpg",
-    },
-    {
-      id: 7,
-      title: "Pet Care",
-      subTitle: "",
-      image_Url: "https://cdn.openpr.com/T/c/Tc15444071_g.jpg",
-    },
+    // {
+    //   id: 4,
+    //   title: "Cloths",
+    //   subTitle: "",
+    //   image_Url:
+    //     "https://www.shift4shop.com/2015/images/industries/clothing/clothing-apparel.png",
+    // },
+    // {
+    //   id: 5,
+    //   title: "Shoes",
+    //   subTitle: "",
+    //   image_Url:
+    //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvBQPQMVNRd6TtDkGs2dCri0Y-rxKkFOiEWw&usqp=CAU",
+    // },
+    // {
+    //   id: 6,
+    //   title: "Gifts",
+    //   subTitle: "",
+    //   image_Url:
+    //     "https://securecdn.pymnts.com/wp-content/uploads/2014/11/Gifts-Photo-700x489.jpg",
+    // },
+    // {
+    //   id: 7,
+    //   title: "Pet Care",
+    //   subTitle: "",
+    //   image_Url: "https://cdn.openpr.com/T/c/Tc15444071_g.jpg",
+    // },
     {
       id: 8,
       title: "Mobile and Tablets",
