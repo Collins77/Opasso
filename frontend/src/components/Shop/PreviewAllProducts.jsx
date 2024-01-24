@@ -204,7 +204,6 @@ const PreviewAllProducts = () => {
     { field: "brand", headerName: "Brand", width: 80 },
     { field: "category", headerName: "Category", width: 80 },
     { field: "discountPrice", headerName: "Price", width: 50 },
-    { field: "stock", headerName: "Stock", width: 30 },
     { field: "isAvailable", headerName: "isAvailable", width: 50, valueGetter: (params) => (params.row.isAvailable ? "Available" : "Out of Stock") },
     { field: "warranty", headerName: "Warranty", width: 30 },
   ];
@@ -363,7 +362,7 @@ const PreviewAllProducts = () => {
       pdf.autoTable({
         head: [headers],
         body: tableRows,
-        startY: 20,
+        startY: 90,
         columnStyles: {
           name: { cellWidth: 'auto', halign: 'left', valign: 'top' },
         },
