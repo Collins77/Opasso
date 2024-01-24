@@ -203,6 +203,7 @@ const PreviewAllProducts = () => {
 
   products &&
     products.forEach((item) => {
+      const shopName = item.shop ? item.shop.name : 'UnknownShop';
       row.push({
         id: item._id,
         partNumber: item.partNumber,
@@ -212,7 +213,7 @@ const PreviewAllProducts = () => {
         warranty: item.warranty,
         isAvailable: item.isAvailable,
         sold: item?.sold_out,
-        shop: item.shop.name,
+        shop: shopName,
       });
     });
 
@@ -363,7 +364,7 @@ const PreviewAllProducts = () => {
           columnWidths: columnWidths,
         });
 
-      pdf.save(`${shopName.name}_products.pdf`);
+      pdf.save(`${shopName}_products.pdf`);
       
     };
   return (
@@ -374,6 +375,7 @@ const PreviewAllProducts = () => {
       ) : (
 
           <div>
+            <div className="flex justify-between w-full">
             <label className="mb-2 mr-2">
               Currency :
             </label>
@@ -394,6 +396,7 @@ const PreviewAllProducts = () => {
           >
             Export to PDF
           </Button>
+            </div>
             <div id="data-grid-container">
             <DataGrid
             rows={row}
