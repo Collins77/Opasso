@@ -6,9 +6,7 @@ import { Link, useParams } from "react-router-dom";
 import { getAllProductsShop } from "../../redux/actions/product";
 import Loader from "../Layout/Loader";
 import { Button, Stack, Typography } from "@mui/material";
-import { saveAs } from 'file-saver';
 import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
 import 'jspdf-autotable';
 import { AiOutlineEye } from "react-icons/ai";
 
@@ -207,7 +205,7 @@ const PreviewAllProducts = () => {
     { field: "category", headerName: "Category", width: 80 },
     { field: "discountPrice", headerName: "Price", width: 50 },
     { field: "stock", headerName: "Stock", width: 30 },
-    { field: "isAvailable", headerName: "isAvailable", width: 50 },
+    { field: "isAvailable", headerName: "isAvailable", width: 50, valueGetter: (params) => (params.row.isAvailable ? "Available" : "Out of Stock") },
     { field: "warranty", headerName: "Warranty", width: 30 },
   ];
 
@@ -345,6 +343,10 @@ const PreviewAllProducts = () => {
     // };
     const handleExportToPDF = () => {
       const pdf = new jsPDF();
+
+      pdf.setTextColor(200, 200, 200);
+      pdf.setFontSize(30);
+      pdf.textWithLink('Watermark', 15, 40, { url: 'http://www.example.com' });
     
       // Customize the table headers for PDF export
       const headers = pdfColumns.map(column => ({
