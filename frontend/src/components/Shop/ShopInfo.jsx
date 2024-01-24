@@ -44,7 +44,7 @@ const ShopInfo = ({ isOwner }) => {
     isLoading  ? (
       <Loader />
     ) : (
-    <div className="w-full shadow-sm border border-orange-500 bg-white p-3">
+    <div className="w-full shadow-sm border border-orange-500 bg-white p-3 fixed top-6">
       <div className="flex w-full justify-between bg-orange-300 p-4 h-1/4 mb-4 border-b-2 border-black gap-2">
         <img src={imageUrl} alt="" className="w-1/5 h-full" />
         <div className="w-3/4 h-full flex flex-col gap-1">

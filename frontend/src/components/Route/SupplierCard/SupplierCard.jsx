@@ -24,7 +24,7 @@ const SupplierCard = ({ data,isEvent }) => {
                 <span className="text-gray-500">{data.address}</span>
               </div>
               </div>
-              <a href="#" className="inline-flex items-center text-blue-600 hover:underline">
+              <a href={`/shop/preview/${data?._id}`} className="inline-flex items-center text-blue-600 hover:underline">
                 <Link to={`/shop/preview/${data?._id}`} className="inline-flex items-center text-blue-600 hover:underline">
                   See our Inventory
                   <svg class="w-3 h-3 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
@@ -38,4 +38,4 @@ const SupplierCard = ({ data,isEvent }) => {
   )
 }
 
-export default SupplierCard
+export default SupplierCard;
