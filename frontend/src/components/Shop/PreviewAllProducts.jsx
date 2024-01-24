@@ -423,7 +423,7 @@ const PreviewAllProducts = () => {
             }}
             // disableColumnFilter
             disableDensitySelector
-            slots={{ toolbar: GridToolbar }}
+            // slots={{ toolbar: GridToolbar }}
             slotProps={{
               toolbar: {
                 showQuickFilter: true,
