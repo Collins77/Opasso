@@ -25,7 +25,7 @@ const ShopPreviewPage = () => {
           </div>
       
          <div className="w-full flex gap-2 800px:flex py-10 justify-between">
-            <div className="800px:w-[32%] bg-[#fff] rounded-[4px] shadow-sm 800px:overflow-y-scroll 800px:h-[90vh] 800px:sticky top-6 left-0 z-6">
+            <div className="800px:w-[32%] bg-[#fff] rounded-[4px] shadow-sm 800px:overflow-y-scroll 800px:h-[90vh] 800px:sticky top-10 left-0 z-6">
               <ShopInfo isOwner={false} />
             </div>
             <div className="800px:w-[65%] mt-5 800px:mt-['unset'] rounded-[4px]">

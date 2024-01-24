@@ -14,15 +14,6 @@ const PreviewAllProducts = () => {
   const { products, isLoading } = useSelector((state) => state.products);
   const { id } = useParams();
   const [selectedCurrency, setSelectedCurrency] = useState("KES"); 
-  const [defaultFilter, setDefaultFilter] = useState({
-    items: [
-      {
-        columnField: 'partNumber',
-        operatorValue: 'contains',
-        value: '',
-      },
-    ],
-  });
 
   const AntSwitch = styled(Switch)(({ theme }) => ({
     width: 28,
@@ -79,8 +70,8 @@ const PreviewAllProducts = () => {
   }));
   
   const classes = useStyles(); 
-  const headerText =
-    selectedCurrency === "KES" ? "USD" : "KES";
+  // const headerText =
+  //   selectedCurrency === "KES" ? "USD" : "KES";
   
   const handleCurrencyChange = () => {
     setSelectedCurrency((prevCurrency) => prevCurrency === "KES" ? "USD" : "KES")
@@ -342,10 +333,6 @@ const PreviewAllProducts = () => {
     // };
     const handleExportToPDF = () => {
       const pdf = new jsPDF();
-
-      pdf.setTextColor(200, 200, 200);
-      pdf.setFontSize(30);
-      pdf.textWithLink('Watermark', 15, 40, { url: 'http://www.example.com' });
     
       // Customize the table headers for PDF export
       const headers = pdfColumns.map(column => ({
@@ -452,7 +439,7 @@ const PreviewAllProducts = () => {
                 showQuickFilter: true,
               },
             }}
-            state={defaultFilter}
+            
           />
             </div>
           </div>

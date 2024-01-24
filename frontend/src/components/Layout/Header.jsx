@@ -68,7 +68,7 @@ const Header = ({ activeHeading }) => {
         <div className="hidden 800px:h-[50px] 800px:my-[20px] 800px:flex items-center justify-between">
           <div>
             <Link to="/">
-              <h1 className="text-4xl font-bold text-[#f67009]">Opasso</h1>
+              <img src="../../Assests/img/logo.png" alt="" />
             </Link>
           </div>
           <div className="w-[50%] relative">
