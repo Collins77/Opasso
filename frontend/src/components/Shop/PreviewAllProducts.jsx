@@ -358,18 +358,41 @@ const PreviewAllProducts = () => {
     
       // Set the column widths for PDF export
       const columnWidths = pdfColumns.map(column => ({ columnWidth: column.width }));
+      for (let page = 1; page <= Math.ceil(tableRows.length / 25); page++) {
+        // Add watermark on each page
+        pdf.addPage();
+        pdf.setTextColor(200, 200, 200);
+        pdf.setFontSize(30);
+        pdf.text('ResellerSprint', 15, 40);
     
-      pdf.autoTable({
-        head: [headers],
-        body: tableRows,
-        startY: 90,
-        columnStyles: {
-          name: { cellWidth: 'auto', halign: 'left', valign: 'top' },
-        },
-        margin: { top: 30 },
-        styles: { overflow: 'linebreak' },
-        columnWidths: columnWidths,
-      });
+        // Add dynamic store name on each page
+        // pdf.text(`Store Name: ${storeName}`, 15, 70);
+    
+        // Add table on each page
+        pdf.autoTable({
+          head: [headers],
+          body: tableRows.slice((page - 1) * 25, page * 25),
+          startY: 30, // Adjust the starting position to leave space for the watermark and store name
+          columnStyles: {
+            name: { cellWidth: 'auto', halign: 'left', valign: 'top' },
+          },
+          margin: { top: 30 },
+          styles: { overflow: 'linebreak' },
+          columnWidths: columnWidths,
+        });
+      }
+    
+      // pdf.autoTable({
+      //   head: [headers],
+      //   body: tableRows,
+      //   startY: 90,
+      //   columnStyles: {
+      //     name: { cellWidth: 'auto', halign: 'left', valign: 'top' },
+      //   },
+      //   margin: { top: 30 },
+      //   styles: { overflow: 'linebreak' },
+      //   columnWidths: columnWidths,
+      // });
     
       pdf.save('products.pdf');
     };
