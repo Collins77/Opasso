@@ -8,7 +8,6 @@ import { Switch, makeStyles, styled } from "@material-ui/core";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { Stack, Typography } from "@mui/material";
 import { Button } from "@mui/material";
-import { saveAs } from 'file-saver';
 import jsPDF from 'jspdf';
 
 const ProductsPage = () => {
@@ -79,8 +78,6 @@ const ProductsPage = () => {
   }));
   
   const classes = useStyles(); 
-  const headerText =
-    selectedCurrency === "USD" ? "USD" : "KES";
 
   useEffect(() => {
     if (categoryData === null) {

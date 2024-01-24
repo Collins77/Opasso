@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import {
-  AiFillHeart,
-  AiOutlineHeart,
   AiOutlineMessage,
 } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,21 +7,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { getAllProductsShop } from "../../redux/actions/product";
 import { server } from "../../server";
 import styles from "../../styles/styles";
-import {
-  addToWishlist,
-  removeFromWishlist,
-} from "../../redux/actions/wishlist";
-import { addTocart } from "../../redux/actions/cart";
 import { toast } from "react-toastify";
-import Ratings from "./Ratings";
 import axios from "axios";
 
 const ProductDetails = ({ data }) => {
   const { wishlist } = useSelector((state) => state.wishlist);
-  const { cart } = useSelector((state) => state.cart);
   const { user, isAuthenticated } = useSelector((state) => state.user);
   const { products } = useSelector((state) => state.products);
-  const [count, setCount] = useState(1);
   const [click, setClick] = useState(false);
   const [select, setSelect] = useState(0);
   const navigate = useNavigate();
@@ -37,40 +27,7 @@ const ProductDetails = ({ data }) => {
     }
   }, [data, wishlist, dispatch]);
 
-  const incrementCount = () => {
-    setCount(count + 1);
-  };
-
-  const decrementCount = () => {
-    if (count > 1) {
-      setCount(count - 1);
-    }
-  };
-
-  const removeFromWishlistHandler = (data) => {
-    setClick(!click);
-    dispatch(removeFromWishlist(data));
-  };
-
-  const addToWishlistHandler = (data) => {
-    setClick(!click);
-    dispatch(addToWishlist(data));
-  };
-
-  const addToCartHandler = (id) => {
-    const isItemExists = cart && cart.find((i) => i._id === id);
-    if (isItemExists) {
-      toast.error("Item already in cart!");
-    } else {
-      if (data.stock < 1) {
-        toast.error("Product stock limited!");
-      } else {
-        const cartData = { ...data, qty: count };
-        dispatch(addTocart(cartData));
-        toast.success("Item added to cart successfully!");
-      }
-    }
-  };
+  
 
   const totalReviewsLength =
     products &&

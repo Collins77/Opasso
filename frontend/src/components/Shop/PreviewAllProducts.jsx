@@ -376,26 +376,29 @@ const PreviewAllProducts = () => {
 
           <div>
             <div className="flex justify-between w-full">
-            <label className="mb-2 mr-2">
-              Currency :
-            </label>
-          <Stack direction="row" spacing={1} alignItems="center">
-            <Typography>KES</Typography>
-            <AntSwitch 
-            checked={selectedCurrency === "USD"}
-            onChange={handleCurrencyChange}
-            name="currencySwitch"
-            inputProps={{ "aria-label": "Currency Switch" }}
-            />
-            <Typography>USD</Typography>
-          </Stack>
-            <Button
-            variant="outlined"
-            color="primary"
-            onClick={handleExportToPDF}
-          >
-            Export to PDF
-          </Button>
+              <div>
+                <label className="mb-2 mr-2">
+                  Currency :
+                </label>
+                <Stack direction="row" spacing={1} alignItems="center">
+                  <Typography>KES</Typography>
+                  <AntSwitch 
+                  checked={selectedCurrency === "USD"}
+                  onChange={handleCurrencyChange}
+                  name="currencySwitch"
+                  inputProps={{ "aria-label": "Currency Switch" }}
+                  />
+                  <Typography>USD</Typography>
+                </Stack>
+              </div>
+              <Button
+              variant="outlined"
+              color="primary"
+              onClick={handleExportToPDF}
+              className="mb-3"
+              >
+                Export to PDF
+              </Button>
             </div>
             <div id="data-grid-container">
             <DataGrid
