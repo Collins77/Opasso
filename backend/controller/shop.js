@@ -86,7 +86,7 @@ router.post(
         html: `<p>Dear ${newSeller.name},</p>
                <p>We are pleased to inform you that your seller account has been created! Contact the support team to receive your credentials.</p>
                <p>Thank you for joining us.</p>
-               <p>Best regards,<br>Opasso Team</p>
+               <p>Best regards,<br>Reseller Sprint Team</p>
                <a href='https://opasso-frontend.vercel.app/shop-login'>Go to Login</a>`
       };
 
@@ -387,7 +387,7 @@ router.put(
                 html: `<p>Dear ${approvedSeller.name},</p>
                        <p>We are pleased to inform you that your seller account has been approved! You can now log in to your account and start using our platform.</p>
                        <p>Thank you for joining us.</p>
-                       <p>Best regards,<br>Opasso Team</p>`
+                       <p>Best regards,<br>Reseller Sprint Team</p>`
             };
 
             await sendMail(approvalEmailOptions);

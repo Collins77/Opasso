@@ -4,7 +4,6 @@ const router = express.Router();
 const cloudinary = require("cloudinary");
 const ErrorHandler = require("../utils/ErrorHandler");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
-const jwt = require("jsonwebtoken");
 const sendMail = require("../utils/sendMail");
 const sendToken = require("../utils/jwtToken");
 const { isAuthenticated, isAdmin } = require("../middleware/auth");
@@ -112,7 +111,7 @@ router.put(
         html: `<p>Dear ${user.name},</p>
                <p>We are pleased to inform you that your account has been approved! You can now log in to your account and start using our platform.</p>
                <p>Thank you for joining us.</p>
-               <p>Best regards,<br>Opasso Team</p>`
+               <p>Best regards,<br>Reseller Sprint Team</p>`
     };
 
     await sendMail(approvalEmailOptions);
