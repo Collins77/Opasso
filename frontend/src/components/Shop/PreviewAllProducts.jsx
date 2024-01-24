@@ -212,6 +212,7 @@ const PreviewAllProducts = () => {
         warranty: item.warranty,
         isAvailable: item.isAvailable,
         sold: item?.sold_out,
+        shop: item.shop.name,
       });
     });
 
@@ -347,6 +348,7 @@ const PreviewAllProducts = () => {
 
         // Set the column widths for PDF export
         const columnWidths = pdfColumns.map(column => ({ columnWidth: column.width }));
+        const shopName = row.length > 0 ? row[0].shop.name : '';
 
         pdf.autoTable({
           head: [headers],
@@ -360,7 +362,8 @@ const PreviewAllProducts = () => {
           columnWidths: columnWidths,
         });
 
-      pdf.save('products.pdf');
+      pdf.save(`${shopName}_products.pdf`);
+      
     };
   return (
     <>

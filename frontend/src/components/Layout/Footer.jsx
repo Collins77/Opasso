@@ -8,7 +8,6 @@ import {
 import { Link } from "react-router-dom";
 import {
   footercompanyLinks,
-  // footerProductLinks,
   footerSupportLinks,
 } from "../../static/data";
 import logo from "../../Assests/img/logo.png"
