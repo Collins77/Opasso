@@ -108,14 +108,6 @@ const AllProducts = () => {
         <Loader />
       ) : (
         <>
-        <Button
-            variant="outlined"
-            color="primary"
-            onClick={handleExportToPDF}
-            style={{ marginBottom: '10px' }}
-          >
-            Export to PDF
-          </Button>
         <DataGrid rows={row} columns={columns} pageSize={10} disableSelectionOnClick autoHeight />
         </>
       )}

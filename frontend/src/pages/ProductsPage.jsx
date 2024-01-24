@@ -301,7 +301,7 @@ const ProductsPage = () => {
                     onClick={handleExportToPDF}
                     style={{ marginLeft: '8px' }}
                   >
-                    Export to PDF
+                    Download as PDF
                   </Button>,
                 ],
               },

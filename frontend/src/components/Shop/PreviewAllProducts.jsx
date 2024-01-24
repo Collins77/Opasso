@@ -398,7 +398,7 @@ const PreviewAllProducts = () => {
               onClick={handleExportToPDF}
               className="mb-3"
               >
-                Export to PDF
+                Download as PDF
               </Button>
             </div>
             <div id="data-grid-container">
