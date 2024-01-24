@@ -2,12 +2,10 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { server } from "../../server";
-// import styles from "../../styles/styles";
 import Loader from "../Layout/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProductsShop } from "../../redux/actions/product";
-import { Button } from "@material-ui/core";
-import styles from "../../styles/styles";
+
 
 const ShopInfo = ({ isOwner }) => {
   const [data,setData] = useState({});
