@@ -12,6 +12,7 @@ import { RxCross1 } from "react-icons/rx";
 import axios from "axios";
 import { server } from "../../server";
 import { toast } from "react-toastify";
+import logo  from "../../Assests/img/logo.png";
 
 const Header = ({ activeHeading }) => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -68,7 +69,7 @@ const Header = ({ activeHeading }) => {
         <div className="hidden 800px:h-[50px] 800px:my-[20px] 800px:flex items-center justify-between">
           <div>
             <Link to="/">
-              <img src="../../Assests/img/logo.png" alt="" />
+              <img src={logo} alt="" className="h-[60px] w-[200px]" />
             </Link>
           </div>
           <div className="w-[50%] relative">
@@ -221,7 +222,7 @@ const Header = ({ activeHeading }) => {
           </div>
           <div>
             <Link to="/">
-              <h1 className="text-2xl font-bold text-[#f67009]">Opasso</h1>
+              <img src={logo} alt="" className="h-[60px] w-[200px]" />
             </Link>
           </div>
           <div>

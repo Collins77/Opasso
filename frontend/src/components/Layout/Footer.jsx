@@ -11,13 +11,18 @@ import {
   // footerProductLinks,
   footerSupportLinks,
 } from "../../static/data";
+import logo from "../../Assests/img/logo.png"
 
 const Footer = () => {
   return (
     <div className="bg-[#000] text-white">
       <div className="grid grid-cols-1 sm:gird-cols-3 lg:grid-cols-4 gap-6 sm:px-8 px-5 py-16 sm:text-center">
         <ul className="px-5 text-center sm:text-start flex sm:block flex-col items-center">
-          <h1 className="text-4xl font-bold text-[#f67009]">Opasso</h1>
+        <div>
+            <Link to="/">
+              <img src={logo} alt="" className="h-[60px] w-[200px]" />
+            </Link>
+          </div>
           <br />
           <p>A catalogue of wholesalers and suppliers across the globe.</p>
           <div className="flex items-center mt-[15px]">
@@ -68,7 +73,7 @@ const Footer = () => {
         <ul className="px-5 text-center sm:text-start flex sm:block flex-col items-center">
           <h1 className="font-semibold">Contact Us</h1>
           <br />
-          <p>You can reach us via email at info@opasso@gmail.com or 
+          <p>You can reach us via email at info@resellersprint@gmail.com or 
             via phone at +2547*********</p>
         </ul>
       </div>

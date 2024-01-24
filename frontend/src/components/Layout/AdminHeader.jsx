@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { server } from '../../server'
 import { toast } from 'react-toastify'
 import { IoIosArrowDown } from 'react-icons/io'
+import logo from "../../Assests/img/logo.png"
 
 const AdminHeader = () => {
     const {user} = useSelector((state) => state.user);
@@ -26,11 +27,11 @@ const AdminHeader = () => {
 
   return (
          <div className="w-full h-[80px] bg-white shadow sticky top-0 left-0 z-30 flex items-center justify-between px-4">
-      <div>
-        <Link to="/">
-          <h1 className="text-4xl font-bold text-[#f67009]">Opasso</h1>
-        </Link>
-      </div>
+          <div>
+            <Link to="/">
+              <img src={logo} alt="" className="h-[60px] w-[200px]" />
+            </Link>
+          </div>
       <div className="flex items-center">
         <div className="flex items-center mr-4">
           
