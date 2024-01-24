@@ -9,6 +9,7 @@ import axios from "axios";
 import { server } from "../../../server";
 import { toast } from "react-toastify";
 import { IoIosArrowDown } from "react-icons/io";
+import logo from "../../../Assests/img/logo.png";
 
 const DashboardHeader = () => {
   const { seller } = useSelector((state) => state.seller);
@@ -30,8 +31,8 @@ const DashboardHeader = () => {
   return (
     <div className="w-full h-[80px] bg-white shadow sticky top-0 left-0 z-30 flex items-center justify-between px-4">
       <div>
-        <Link to="/dashboard">
-          <h1 className="text-4xl font-bold text-[#f67009]">ResellerSprint</h1>
+        <Link to="/">
+          <img src={logo} alt="" className="h-[60px] w-[200px]" />
         </Link>
       </div>
       <div className="flex items-center">
