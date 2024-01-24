@@ -209,6 +209,7 @@ const PreviewAllProducts = () => {
         partNumber: item.partNumber,
         name: item.name,
         category: item.category,
+        discountPrice: item.discountPrice,
         brand: item.brand,
         warranty: item.warranty,
         isAvailable: item.isAvailable,
