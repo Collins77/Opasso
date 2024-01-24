@@ -348,7 +348,8 @@ const PreviewAllProducts = () => {
 
         // Set the column widths for PDF export
         const columnWidths = pdfColumns.map(column => ({ columnWidth: column.width }));
-        const shopName = row.length > 0 ? row[0].shop.name : '';
+        // const shopName = row.length > 0 ? row[0].shop.name : '';
+        const shopName = row.length > 0 && row[0].shop ? row[0].shop : { name: 'UnknownShop' };
 
         pdf.autoTable({
           head: [headers],
@@ -362,7 +363,7 @@ const PreviewAllProducts = () => {
           columnWidths: columnWidths,
         });
 
-      pdf.save(`${shopName}_products.pdf`);
+      pdf.save(`${shopName.name}_products.pdf`);
       
     };
   return (
