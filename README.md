@@ -1,1 +1,1 @@
-@copyright by becodemy 2023
+@copyright by cotek 2024
