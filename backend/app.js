@@ -37,6 +37,10 @@ app.use("/test", (req, res) => {
 
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 
+app.get('*', (req, res) => {
+  res.redirect('https://resellersprint.com'); // Replace with your actual cPanel domain
+});
+
 // config
 if (process.env.NODE_ENV !== "PRODUCTION") {
   require("dotenv").config({
@@ -68,10 +72,6 @@ app.use("/api/v2/event", event);
 app.use("/api/v2/coupon", coupon);
 app.use("/api/v2/payment", payment);
 app.use("/api/v2/withdraw", withdraw);
-
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'index.html'));
-});
 
 // it's for ErrorHandling
 app.use(ErrorHandler);
