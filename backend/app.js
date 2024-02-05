@@ -4,7 +4,7 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-// const path = require("path");
+const path = require("path");
 
 app.use(cors({
   origin: ['https://resellersprint.com',],
