@@ -13,33 +13,16 @@ app.use(cors({
 
 app.use(express.json());
 app.use(cookieParser());
-app.use("/test", (req, res) => {
-  res.send("Hello world!");
-});
-
-// const buildPath = path.join(__dirname, "build"); // Adjust the path
-
-// app.use(express.static(buildPath));
-
-// // Route all requests to React app
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(buildPath, "index.html"));
+// app.use("/test", (req, res) => {
+//   res.send("Hello world!");
 // });
 
-// const buildPath = path.join(__dirname, "../frontend/build");
-
-// app.use(express.static(buildPath));
-
-// // Route all requests to React app
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "../frontend/build", "index.html"));
-// });
 
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 
-app.get('*', (req, res) => {
-  res.redirect('https://resellersprint.com'); // Replace with your actual cPanel domain
-});
+// app.get('*', (req, res) => {
+//   res.redirect('https://resellersprint.com'); // Replace with your actual cPanel domain
+// });
 
 // config
 if (process.env.NODE_ENV !== "PRODUCTION") {
